@@ -10,35 +10,27 @@ Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele 
 
 ## Usuário
 
-**1. Solitação de abertura de doações online**
+**1. Solitação de abertura de doações online - PRIMEIRO**
 
 A página de solitação irá conter: finalidade do pedido; valor mínimo; meta da quantia; organização(opcional).
 
-**2. Inscrição em eventos**
+**2. Histórico de doações - QUARTO**
 
-A inscrição em eventos terá: uma página demonstrando os eventos disponíveis e bastará o usuário clicar em "Inscrever-se" para realizar a inscrição.
+O usuário poderar acessar uma página do site onde haverá seu histórico, composto pelas doações em andamento e encerradas.
 
-**3. Histórico de doações**
-
-O usuário poderar acessar uma página do site onde haverá seu histórico, composto pelas doações em andamento e encerradas, assim como sua particapação em eventos.
-
-**4. Realizar doações**
+**3. Realizar doações - TERCEIRO**
 
 Ao acessar um pedido de doação, o usuário terá uma área a mais onde poderá realizar a doação colocando o valor e confirmando a doação.
 
 ## Administrador
 
-**1. Criar eventos**
-
-Havéra uma paginá com um formulário para registrar o evento. Será composto por: nome do evento; data e hora; número de participantes; local; descrição.
-
-**2. Avaliar pedidos**
+**1. Avaliar pedidos - SEGUNDO**
 
 Haverá uma página onde o administrador poderá acessar uma lista de pedidos pendentes e acessá-los para poder avaliar optando por aprová-lo ou reprová-lo.
 
-**3. Gerenciar eventos**
+**2. Histórico de avaliações - QUINTO**
 
-Haverá uma página onde o administrador pode editar ou remover o evento. Para excluir haverá um botão e para editar, será o mesmo formulário de criação, mas para reescrever.
+Página com registro de avaliações, informando como ela é e qual administrador avaliou, data e hora.
 
 ## Desenvolvimento de um Sistema de Informação
 
