@@ -2,9 +2,14 @@
 
 **Data de Apresentação: 24/08/2017**
 
-**Grupo: Três alunos**
+**Arthur, Lucas, Wender**
 
-**Valor: 17 pontos**
+# Proposta
+
+	Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online e promoção de eventos com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, assim como inscrever-se em eventos e verificar seu histórico com suas atividades. O administrador será responsável por criar os eventos presenciais e avaliar os pedidos de publicações de pedidos online.
+
+
+
 
 ## Desenvolvimento de um Sistema de Informação
 
@@ -12,18 +17,7 @@ A web abriu um nova forma de interação entre as pessoas. Entre suas caracterí
 
 Este trabalho tem como objetivo mostrar ao aluno que os conhecimentos adquiridos na disciplina de Desenvolvimento de Aplicações Web podem ser utilizados em pról de tais causas. Mais especificamente, espera-se que através deste trabalho o aluno identifique um problema real vivenciado por ele e proponha uma solução para este problema envolvendo o desenvolvimento de um sistema web.
 
-## Temas de Trabalho
-
-Segue abaixo uma lista de possíveis temas de trabalho:
-
-* Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
-* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)
-* Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
-* Causas sociais (Plataformas para gestão de doações) - **Arthur, Lucas e Wender:** *Gerenciamento de doações*
-
-É importante ressaltar que essa lista é **sugestiva**. Isto é, o grupo pode selecionar uma proposta fora da lista descrita acima.
-
-## Restrições
+# Requisitos
 
 Independentemente do tema escolhido pelo grupo, seu trabalho deverá cumprir **obrigatóriamente** as seguintes restrições:
 
