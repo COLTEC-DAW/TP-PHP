@@ -17,7 +17,7 @@ Este trabalho tem como objetivo mostrar ao aluno que os conhecimentos adquiridos
 Segue abaixo uma lista de possíveis temas de trabalho:
 
 * Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
-* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)
+* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)- **Ananda, Carol, Clarisse**: *Calendário Coltecano* 
 * Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
 * Causas sociais (Plataformas para gestão de doações)
 
