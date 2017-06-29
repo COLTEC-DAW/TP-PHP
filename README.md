@@ -6,10 +6,39 @@
 
 # Proposta
 
-Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online e promoção de eventos com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, assim como inscrever-se em eventos e verificar seu histórico com suas atividades. O administrador será responsável por criar os eventos presenciais e avaliar os pedidos de publicações de pedidos online.
+Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online e promoção de eventos com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, assim como inscrever-se em eventos, verificar seu histórico com suas atividades e também fazer doações. O administrador será responsável por criar os eventos presenciais, avaliar os pedidos de publicações de pedidos online e gerenciar os eventos criados.
 
+## Usuário
 
+**1. Solitação de abertura de doações online**
 
+A página de solitação irá conter: finalidade do pedido; valor mínimo; meta da quantia; organização(opcional).
+
+**2. Inscrição em eventos**
+
+A inscrição em eventos terá: uma página demonstrando os eventos disponíveis e bastará o usuário clicar em "Inscrever-se" para realizar a inscrição.
+
+**3. Histórico de doações**
+
+O usuário poderar acessar uma página do site onde haverá seu histórico, composto pelas doações em andamento e encerradas, assim como sua particapação em eventos.
+
+**4. Realizar doações**
+
+Ao acessar um pedido de doação, o usuário terá uma área a mais onde poderá realizar a doação colocando o valor e confirmando a doação.
+
+## Administrador
+
+**1. Criar eventos**
+
+Havéra uma paginá com um formulário para registrar o evento. Será composto por: nome do evento; data e hora; número de participantes; local; descrição.
+
+**2. Avaliar pedidos**
+
+Haverá uma página onde o administrador poderá acessar uma lista de pedidos pendentes e acessá-los para poder avaliar optando por aprová-lo ou reprová-lo.
+
+**3. Gerenciar eventos**
+
+Haverá uma página onde o administrador pode editar ou remover o evento. Para excluir haverá um botão e para editar, será o mesmo formulário de criação, mas para reescrever.
 
 ## Desenvolvimento de um Sistema de Informação
 
