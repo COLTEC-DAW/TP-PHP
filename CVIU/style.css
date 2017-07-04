@@ -32,7 +32,7 @@
 
 /* ------------------------------- Base ----------------------------- */
 body{
-    background-image: url("bg1.jpg");
+    background-image: url("bg.jpg");
     background-size:  2000px, 2200px, auto;
     background-repeat: no-repeat;    
 }
