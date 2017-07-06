@@ -58,6 +58,17 @@ class Mesa {
         <p><?=$mesa->sinopse?></p>
         <?php
     }
+
+    function mostraMesaCompleta(){
+        ?> <h1><?=$nome?></h1>
+        <
+        var $mestre;
+        var $endereco;
+        var $sinopse;
+        var $genero;
+        var $sistema;
+        var $jogadores; //Vetor dos IDs dos usuários membros da mesa
+    }
 }
 
 class Usuario {
@@ -66,6 +77,7 @@ class Usuario {
     var $login;
     var $email;
     var $senha;
+    var $mesas;
 
     function __construct($nome, $login, $email, $senha){
         $this->id = $numUsuarios;
