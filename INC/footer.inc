@@ -1,4 +1,4 @@
 <!-- Footer genérico -->
 <footer>
-    subCUBE Enterprises + V&A Games Productions
+    <h5>subCUBE Enterprises + V&A Games Productions<h5>
 </footer>

@@ -1,9 +1,17 @@
+$cor1: #5E663F;
+$cor2: #E6DCCC;
+$cor3: #C2BAAA;
+$cor4: #AB7745;
+$cor5: #2B190A;
+$cor6: #5E663F;
+$cor7: #5E663F;
+
 .coluna { /* Qualquer coisa que divida espaço horizontalmente */
     float: left;
     height: 95%;
 }
 .sidebar { /* Menus laterais */
-    background-color: #AB7745;
+    background-color: $cor4;
 }
 .title{ /* isso aqui deve ser tipo um cardzinho para o título de cada seção */
 
@@ -52,7 +60,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    background-color: #5E663F;
+    background-color: $cor1;
     margin: 1%;
 
 }
@@ -71,9 +79,9 @@ img {
 }
 
 .fonteBranca{
-    color: #E6DCCC;
+    color: $cor2;
 }
-/*
-body{
-    background-color: #2B190A !important; 
-}*/
+
+.body{
+    background-color: $cor5;
+}
