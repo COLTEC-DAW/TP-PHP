@@ -47,4 +47,11 @@ function pegaJson ($db){ //$db TEM que ser a string com o nome do arquivo json
     $elementos = json_decode($json);
     return $elementos;
 }
+
+function pegaPorId($vetor, $idDesejado){ //só funciona supondo que $vetor é um vetor de elementos saidos de um json com o elemento id
+    foreach ($elemento as $vetor) {
+        if ($elemento->id == $idDesejado) return elemento; //retorna só a primeira ocorrência. IDs duplos bugam o sistema
+    }
+    return null;
+}
 ?>
