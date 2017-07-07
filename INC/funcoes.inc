@@ -2,17 +2,13 @@
 session_start();
 require "classes.php";
 
-//Funções para manipular e exibir conjuntos de mesas
+//Funções para manipular e exibir conjuntos de mesas e jogadores
 
-//TODA FUNÇÃO QUE TRABALHE COM UMA MESA INDIVIDUAL DEVE SER DA CLASSE MESA
-//APENAS FUNÇÕES QUE LIDEM COM CONJUNTOS DE MESAS AQUI
+//TODA FUNÇÃO QUE TRABALHE COM UMA MESA OU JOGADOR INDIVIDUAL DEVE SER DA CLASSE RESPECTIVA
+//APENAS FUNÇÕES QUE LIDEM COM CONJUNTOS DE AQUI
 
 function listaMesas(){
-    $arquivo = fopen("DB/dbMesas.json", "r");
-    $json = "";
-    while(!feof($arquivo)) $json .= fgets($arquivo);
-    fclose($arquivo);
-    $todasAsMesas = json_decode($json);
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha) {
 /*
         $mesaProvisoria = new Mesa();
@@ -41,5 +37,14 @@ function listaMesas(){
             <button type="submit">Detalhes</button>
         </form> <?php
     }
+}
+
+function pegaJson ($db){ //$db TEM que ser a string com o nome do arquivo json
+    $arquivo = fopen($db, "r");
+    $json = "";
+    while(!feof($arquivo)) $json .= fgets($arquivo);
+    fclose($arquivo);
+    $elementos = json_decode($json);
+    return $elementos;
 }
 ?>

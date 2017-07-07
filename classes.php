@@ -1,5 +1,7 @@
 <!-- Declaração das classes mesa e usuário -->
 <?php
+require "funcoes.php";
+
 class Mesa {
     var $id;
     var $public;
@@ -25,11 +27,14 @@ class Mesa {
     */
 
     function mesaGetNewId(){
+        /*
         $arquivo = fopen("DB/numerosDB.json", "r");
         $json = "";
         while(!feof($arquivo)) $json .= fgets($arquivo);
         fclose($arquivo);
         $meta = json_decode($json);
+        */
+        $meta = pegaJson("DB/numeros.db");
         $meta->numeroMesas++;
         $arquivo = fopen("DB/numerosDB.json", "w");
         fwrite($arquivo, json_encode($meta, JSON_PRETTY_PRINT));
@@ -58,17 +63,17 @@ class Mesa {
         <p><?=$mesa->sinopse?></p>
         <?php
     }
-
-    function mostraMesaCompleta(){
-        ?> <h1><?=$nome?></h1>
-        <
-        var $mestre;
-        var $endereco;
-        var $sinopse;
-        var $genero;
-        var $sistema;
-        var $jogadores; //Vetor dos IDs dos usuários membros da mesa
+/* DESNECESSÁRIO???
+    function mostraMesaCompleta($mesa){
+        ?> <h1><?=$mesa->nome?></h1>
+        <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
+        <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
+        <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
+        <p><?= $mesa->sinopse ?></p>
+        <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
+        <?php listaJogadores();
     }
+    */
 }
 
 class Usuario {

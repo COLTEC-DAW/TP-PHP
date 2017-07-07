@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require "INC/mesas.inc";?>
+require "INC/funcoes.inc"; ?>
 <!-- Página principal. Mostra o usuário logado, as notificaçÕes dele, sua mesas, a busca de mesas e a opção de criar mesas -->
 
 <!-- SÓ FUNCIONA COM O FAKER NA PASTA ESPECIFICADA -->
