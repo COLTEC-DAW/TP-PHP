@@ -49,12 +49,13 @@
             <!-- IMPRIMINDO DIAS AUTOMATICAMENTE -->
             <ul class="days">
             <?php
-                for($i = 0; $i <= GetNumeroDias(GetMes()); $i++){
+                //for($i = 0; $i <= GetNumeroDias(GetMes()); $i++){
                         $dia = MostreCalendario(GetMes());
+                        echo "olha o dia" . $dia . "ai";
                         echo"<li class='day'>";
-                        echo"<div class='date'> $dia </div>";                       
+                        echo"<div class='date'>" . $dia . "</div>";                       
                         echo "</li>";
-                }
+                //}
             ?>
             </ul>
     

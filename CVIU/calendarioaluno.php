@@ -106,14 +106,15 @@ function MostreCalendario( $mes  )
 		      {
 			 if( $coluna < $diasemana && $linha == 0)
 			 {
-			  	 //echo " "; //imprime vazio
+			  	 echo " "; //imprime vazio
 				 return " ";
 			 }
 			 else
 			 {
-			  	// echo "<input type = 'button' id = 'dia_comum' name = 'dia".($diacorrente+1)."'  value = '".++$diacorrente."' onclick = "acao(this.value)">";
-				  // echo "<a href = ".$_SERVER["PHP_SELF"]."?mes=$mes&dia=".($diacorrente+1).">".++$diacorrente . "</a>";  //AQUI IMPRIME O DIA
-				  return "<a href = ".$_SERVER["PHP_SELF"]."?mes=$mes&dia=".($diacorrente+1).">".++$diacorrente . "</a>";
+			  	echo "<input type = 'button' id = 'dia_comum' name = 'dia".($diacorrente+1)."'  value = '".++$diacorrente."' onclick = 'acao(this.value)''>";
+				echo "<a href = ".$_SERVER["PHP_SELF"]."?mes=$mes&dia=".($diacorrente+1).">".++$diacorrente . "</a>";  //AQUI IMPRIME O DIA
+				 //return "<a href = ".$_SERVER["PHP_SELF"]."?mes=$mes&dia=".($diacorrente+1).">".++$diacorrente . "</a>";
+				return $diacorrente;
 			 }
 		      }
 		      else
@@ -253,7 +254,7 @@ function MostraNaMesmaFuncao($mes){
 }
 	GetMes();
 	MostraNaMesmaFuncao('05');
-	MostreCalendario('05');
+	//MostreCalendario('05');
 	echo "<br/>";
-	MostreCalendarioCompleto();
+	//MostreCalendarioCompleto();
 ?>
