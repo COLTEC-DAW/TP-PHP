@@ -25,7 +25,7 @@
             $dados = file_get_contents('aprovadas.json');
             $json = json_decode($dados);
             
-            $json[] = array('finalidade'=>$data[$key]['finalidade'], 'meta'=>$data[$key]['meta'], 'autor'=>$data[$key]['autor'], 'aprovado'=>$data[$key]['aprovado'], 'arrecadado'=>$data[$key]['arrecadado'], 'id'=>$data[$key]['id'], 'descricao'=>$data[$key]['descricao']); 
+            $json[] = array('finalidade'=>$data[$key]['finalidade'], 'meta'=>$data[$key]['meta'], 'autor'=>$data[$key]['autor'], 'aprovado'=>$data[$key]['aprovado'], 'arrecadado'=>$data[$key]['arrecadado'], 'id'=>$data[$key]['id'], 'descricao'=>$data[$key]['descricao'], 'data'=>$data[$key]['data']); 
 
             $dados_json = json_encode($json, JSON_PRETTY_PRINT);
             $arquivo = fopen("aprovadas.json", "w");

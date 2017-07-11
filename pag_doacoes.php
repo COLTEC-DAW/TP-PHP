@@ -26,13 +26,13 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">TratoFeito</a>
             </div>
 
             <?php
                 $permissao = 0;
+                $usuario = $_SESSION["user"];
                 if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
                     if($usuario->login!="admin"){
                
                         /*
@@ -53,11 +53,22 @@
                             <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
                             <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
                             <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                         </ul>
                         <?php
                         }
+                    }
+                    else{
+                    ?>
+                        <ul class="nav navbar-nav">
+                            <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                        </ul>
+                    <?php
                     }
 
                 }   
@@ -77,7 +88,22 @@
             <p><?=$doacao_atual->sobre?></p>
         </div>
         <h2>Meta: <?=$doacao_atual->meta?></h2>
-        <h2>Arrecadado: <?=$doacao_atual->valor_acumulado?></h2>
+        <?php
+        if($usuario->login=="admin"){
+        ?>
+            <h2>Esperando Aprovação</h2>
+        <?php
+        }
+        else{
+        ?>
+            <h2>Arrecadado: <?=$doacao_atual->valor_acumulado?></h2>
+        <?php
+        }
+        $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
+        $mes = $doacao_atual->data[5].$doacao_atual->data[6];
+        $dia = $doacao_atual->data[8].$doacao_atual->data[9];
+        ?>
+        <h2>Data Limite: <?=$dia?>/<?=$mes?>/<?=$ano?></h2>
     </div>
 </body>
 </html>

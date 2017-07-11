@@ -17,7 +17,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">TratoFeito</a>
             </div>
 
             <?php

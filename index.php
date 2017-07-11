@@ -2,7 +2,11 @@
     ob_start(); // Initiate the output buffer
     require "class_user.inc";
     require 'class_doacao.inc';
+    require 'verifica_data.php';
     session_start();
+
+    verifica_data();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +24,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">TratoFeito</a>
             </div>
 
             <?php
@@ -48,6 +52,7 @@
                             <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
                             <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
                             <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                         </ul>
@@ -137,16 +142,16 @@
                             <div class="col-sm-3 conteudo">
                                 <h3 class="conteudo"><?=$descricao?></h3>
                                 <h5 class="conteudo">Meta: <?=$meta?></h5>
+                                <form action="pag_doacoes.php" method="post">
+                                    <input type="hidden" name="id" value=<?=$id?>>
+                                    <input type="submit" class="btn btn-default" name="Verificar2" value="Leia mais">
+                                </form>
                                 <form action="aprovar.php" method="post">
-            
-                                    <input type="hidden" name="controle" value=<?=$id?>>
-            
+                                    <input type="hidden" name="controle" value=<?=$id?>>            
                                     <input type="submit" class="btn btn-default" name="Verificar" value="Aceitar">
                                 </form>
                                 <form action="reprovar.php" method="post">
-
                                     <input type="hidden" name="controle" value=<?=$id?>>
-
                                     <input type="submit" class="btn btn-default" name="Verificar" value="Recusar">
                                 </form>
 

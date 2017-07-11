@@ -103,6 +103,7 @@
                 $arrecadado = $data[$key]['arrecadado'];
                 $id = $data[$key]['id'];
                 $sobre = $data[$key]['descricao'];
+                $data_arq = $data[$key]['data'];
 
 //-----------------------------------------------------------------
 //exclui o pedido de doação.
@@ -118,7 +119,7 @@
                     $dados = file_get_contents('auxx.json');
                     $json = json_decode($dados);
 
-                    $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao']); 
+                    $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
 
 
                     $dados_json = json_encode($json, JSON_PRETTY_PRINT);
@@ -143,7 +144,7 @@
                 $arquivo = file_get_contents('doacoes_finalizadas.json');
                 $json = json_decode($arquivo);
 
-                $json[] = array('finalidade'=>$finalidade, 'meta'=>$meta, 'autor'=>$autor, 'aprovado'=>$aprovado, 'arrecadado'=>$arrecadado, 'id'=>$id, 'descricao'=>$sobre); 
+                $json[] = array('finalidade'=>$finalidade, 'meta'=>$meta, 'autor'=>$autor, 'aprovado'=>$aprovado, 'arrecadado'=>$arrecadado, 'id'=>$id, 'descricao'=>$sobre, 'data'=>$data_arq); 
 
             
                 $dados_json = json_encode($json, JSON_PRETTY_PRINT);

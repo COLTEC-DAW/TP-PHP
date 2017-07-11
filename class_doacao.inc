@@ -8,6 +8,7 @@
  		public $id;
 
         public $sobre;
+        public $data;
 
  		function __construct($descricao, $meta, $autor, $aprovado, $id) {
  			$this->descricao = $descricao;
@@ -21,6 +22,9 @@
  		}
         function set_sobre($sobre){
             $this->sobre = $sobre;
+        }
+        function set_data($data){
+            $this->data = $data;
         }
  	}
 
@@ -39,10 +43,12 @@
                 $arrecadado = $dados->arrecadado;
                 $id_arq = $dados->id;
                 $sobre = $dados->descricao;
+                $data_arq = $dados->data;
 
                 $doacao_atual = new Doacao($finalidade, $meta, $autor, $aprovado, $id_arq);
                 $doacao_atual->set_arrecadado($arrecadado);
                 $doacao_atual->set_sobre($sobre);
+                $doacao_atual->set_data($data_arq);
 
                 $_SESSION["doacao_atual"] = $doacao_atual;
             }

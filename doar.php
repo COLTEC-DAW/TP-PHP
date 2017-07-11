@@ -56,7 +56,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">TratoFeito</a>
             </div>
 
             <?php
@@ -84,6 +84,7 @@
                             <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
                             <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
                             <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                         </ul>

@@ -26,7 +26,7 @@
             $dados = file_get_contents('auxx.json');
             $json = json_decode($dados);
 
-            $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao']); 
+            $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
 
 
             $dados_json = json_encode($json, JSON_PRETTY_PRINT);
@@ -39,7 +39,7 @@
             $dados = file_get_contents('recusadas.json');
             $json = json_decode($dados);
             
-            $json[] = array('finalidade'=>$data[$key]['finalidade'], 'meta'=>$data[$key]['meta'], 'autor'=>$data[$key]['autor'], 'aprovado'=>$data[$key]['aprovado'], 'arrecadado'=>$data[$key]['arrecadado'], 'id'=>$data[$key]['id']); 
+            $json[] = array('finalidade'=>$data[$key]['finalidade'], 'meta'=>$data[$key]['meta'], 'autor'=>$data[$key]['autor'], 'aprovado'=>$data[$key]['aprovado'], 'arrecadado'=>$data[$key]['arrecadado'], 'id'=>$data[$key]['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
 
             $dados_json = json_encode($json, JSON_PRETTY_PRINT);
             $arquivo = fopen("recusadas.json", "w");
