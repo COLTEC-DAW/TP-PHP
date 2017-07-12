@@ -20,5 +20,27 @@
         "genero": "Lelia Price",
         "sistema": "Estefania Mraz",
         "jogadores": null
+    },
+    {
+        "id": 3,
+        "public": true,
+        "nome": "Scarlett Price",
+        "mestre": "Clementine Tromp",
+        "endereco": "551 Cremin Green\nLake Connor, PA 70460-2817",
+        "sinopse": "Quas assumenda non qui impedit. Placeat occaecati saepe laborum suscipit quis. Ea sapiente recusandae dignissimos iure ut. Harum a dolorum aut nam non in.",
+        "genero": "Giovanny Schoen",
+        "sistema": "Aleen Ferry",
+        "jogadores": null
+    },
+    {
+        "id": 4,
+        "public": true,
+        "nome": "Katlyn Davis",
+        "mestre": "Zella Reichert",
+        "endereco": "763 Ruth Station\nBoganshire, RI 43506",
+        "sinopse": "Ad esse accusantium tenetur reiciendis ipsum odio eos. Omnis blanditiis repudiandae nemo maiores eveniet. Sit est alias eligendi.",
+        "genero": "Prof. Jalon Baumbach",
+        "sistema": "Prof. Roslyn Rath Jr.",
+        "jogadores": null
     }
 ]

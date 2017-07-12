@@ -5,6 +5,9 @@
 .sidebar { /* Menus laterais */
     background-color: #AB7745;
 }
+.centerbar {
+    background-color: #C2BAAA;
+}
 .title{ /* isso aqui deve ser tipo um cardzinho para o título de cada seção */
 
     /* ! NÃO TÁ FUNFANDO ! */
@@ -34,6 +37,11 @@
     width: 65px;
 }
 
+.btnCriarMesa{
+    margin-top:  10px;
+    background-color: #5E663F !important;
+}
+
 .container-fluid{
     overflow: hidden;
     padding: 1%;
@@ -46,6 +54,10 @@
 
 .perfil{
     float:left;
+}
+
+a{
+    color: #77befb !important;
 }
 
 .card {
@@ -73,7 +85,7 @@ img {
 .fonteBranca{
     color: #E6DCCC;
 }
-/*
+
 body{
     background-color: #2B190A !important; 
-}*/
+}

@@ -1,13 +1,12 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
 require "classes.php";
-require "funcoes.php";
+//require "INC/funcoes.inc";
 $idMesa =  $_POST["idMesa"];
 $convidado = $_POST["convite"];
 $entrada = $_POST["entra"];
-
 $todasAsMesas = pegaJson("DB/dbMesas.json");
-$mesa = pegaPorId($todasAsMesas, $id); ?>
+$mesa = pegaPorId($todasAsMesas, $idMesa); ?>
 
 <!DOCTYPE>
 <html>
@@ -35,7 +34,9 @@ $mesa = pegaPorId($todasAsMesas, $id); ?>
             <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
             <p><?= $mesa->sinopse ?></p>
             <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
-            <?php listaJogadores();
+            <?php   /* Comentando por não estar sendo usado agora
+                    *listaJogadores();
+                    */
         }
 ?>
 </body>

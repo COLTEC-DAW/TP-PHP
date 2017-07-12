@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require "INC/funcoes.inc"; ?>
+require "INC/funcoes.inc";?>
 <!-- Página principal. Mostra o usuário logado, as notificaçÕes dele, sua mesas, a busca de mesas e a opção de criar mesas -->
 
 <!-- SÓ FUNCIONA COM O FAKER NA PASTA ESPECIFICADA -->
@@ -19,9 +19,9 @@ require "INC/funcoes.inc"; ?>
     <body>
         <div class="container-fluid">
             <? require "INC/userSideBar.inc"; ?>
-            <div class="col-sm-7">
+            <div class="col-sm-7 centerbar">
                 <form method="get" action="novaMesa.php">
-                    <button type="submit">Criar mesa</button>
+                    <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
                 <div class="title">
                     <h2 class="center">Mesas na área:</h2>

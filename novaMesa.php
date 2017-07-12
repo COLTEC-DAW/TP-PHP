@@ -1,10 +1,8 @@
 <?php 
 session_start();
-
 //Página para criação de novas mesas
-
 require "classes.php";
-require "INC/funcoes.php";
+//require "INC/funcoes.inc";
 /*
 $arquivo = fopen("DB/dbMesas.json", "r");
 $json = "";
