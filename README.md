@@ -1,90 +1,43 @@
-# Desenvolvimento de Aplicações Web
+![Materialize logo](https://raw.github.com/dogfalo/materialize/master/images/materialize.gif)
+===========
 
-**Data de Apresentação: 24/08/2017**
+[![Travis CI badge](https://travis-ci.org/Dogfalo/materialize.svg?branch=master)](https://travis-ci.org/Dogfalo/materialize)
+[![npm version badge](https://badge.fury.io/js/materialize-css.svg)](https://badge.fury.io/js/materialize-css)
+[![dependencies Status badge](https://david-dm.org/Dogfalo/materialize/status.svg)](https://david-dm.org/Dogfalo/materialize)
+[![devDependency Status badge](https://david-dm.org/Dogfalo/materialize/dev-status.svg)](https://david-dm.org/Dogfalo/materialize#info=devDependencies)
+[![Gitter badge](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Lucas - Arthur - Wender**
+[Materialize](http://materializecss.com/), a CSS Framework based on material design
 
-**Valor: 17 pontos**
+### Current Version : v0.99.0
 
-## Desenvolvimento de um Sistema de Informação
+## Sass Requirements:
+- Ruby Sass 3.3+, LibSass 0.6+
 
-A web abriu um nova forma de interação entre as pessoas. Entre suas características, a web se destaca por sua alta escalabilidade e acessibilidade. Não há nenhuma outra plataforma tecnológica no mundo que permite a interação entre seus usuários nos moldes como acontece na web. Tal estrutura permitiu que a sociedade, de forma autônoma, se engajasse em torno de causas importantes porém relegados por seus representantes, tais como: mobilidade urbana, assistência social, organização e promoção de eventos, etc.
+## Supported Browsers:
+Chrome 35+, Firefox 31+, Safari 7+, IE 10+
 
-Este trabalho tem como objetivo mostrar ao aluno que os conhecimentos adquiridos na disciplina de Desenvolvimento de Aplicações Web podem ser utilizados em pról de tais causas. Mais especificamente, espera-se que através deste trabalho o aluno identifique um problema real vivenciado por ele e proponha uma solução para este problema envolvendo o desenvolvimento de um sistema web.
+## Quickstart:
+Read the [Getting started page](http://materializecss.com/getting-started.html) for more information about the framework, templates and how to use materialize can be found on the [materializecss website](http://materializecss.com)
 
-## Temas de Trabalho
+- [Download the latest release](https://github.com/Dogfalo/materialize/releases/latest) directly from GitHub
+- Clone the repo: `git clone https://github.com/Dogfalo/materialize.git`
+- Include the files via [cdnjs](https://cdnjs.com/libraries/materialize). More [here](http://materializecss.com/getting-started.html)
+- Install with [npm](https://www.npmjs.com): `npm install materialize-css`
+- Install with [Bower](https://bower.io): `bower install materialize`
 
-Segue abaixo uma lista de possíveis temas de trabalho:
+## Compiling Files
+- `npm install`
+- `grunt monitor`, this will compile .scss, .js., .jade files.
 
-* Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
-* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)
-* Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
-* Causas sociais (Plataformas para gestão de doações)
+## Changelog
+For changelogs, check out [the Releases section of materialize](https://github.com/Dogfalo/materialize/releases) or the [CHANGELOG.md](CHANGELOG.md)
 
-É importante ressaltar que essa lista é **sugestiva**. Isto é, o grupo pode selecionar uma proposta fora da lista descrita acima.
+## Testing
+We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](https://docs.google.com/document/d/1dVM6qGt_b_y9RRhr9X7oZfFydaJIEqB9CT7yekv-4XE/edit?usp=sharing)
 
-## Restrições
+## Contributing
+[Please read CONTRIBUTING.md for more information](CONTRIBUTING.md)
 
-Independentemente do tema escolhido pelo grupo, seu trabalho deverá cumprir **obrigatóriamente** as seguintes restrições:
-
-1. **Sistema de identificação dos usuários:** Seu sistema deverá ser capaz de identificar unicamente seus usuários através de um mecanismo de login.
-
-2. **Suporte a pelo menos dois atores distintos:** Seu sistema deverá suportar a atuação de pelo menos dois atores distintos com suas respectivas ações (ex.: usuário e administrador).
-
-3. **Solução deverá conter pelo menos quatro requisitos:** Sua solução deverá implementar pelo menos quatro requisitos no formato de funcionalidades.
-
-4. **Armazenamento no formato de arquivos texto:** Seu sistema deverá armazenar suas informações no utilizando arquivos texto.
-	* É claro que você poderá utilizar formas automatizadas para recuperar e armazenar os dados, tais como formatos estruturados de armazenamento (XML ou JSON).
-
-## Cronograma
-
-O trabalho será avaliado parcialmente, conforme cronograma definido abaixo. Essa organização permite ao aluno não se perder durante o desenvolvimento do sistema, uma vez que provê uma estimativa confiável de cumprimento do prazo do trabalho.
-
-| Data       | O que deve ser entregue?                        | Valor     | TAG   |
-|------------|-------------------------------------------------|-----------|-------|
-| 27/06/2017 | Grupo, Tema & Requisitos                        | --        | --    |
-| 04/07/2017 | Sprint 01: Protótipos HTML de dois requisitos   | 02 pontos | HTML  |
-| 13/07/2017 | Sprint 02: Implementação do requisito R1        | 02 pontos | R1    |
-| 01/08/2017 | Sprint 03: Implementação dos requisitos R2 e R3 | 04 pontos | R2/R3 |
-| 08/08/2017 | Sprint 04: Implementação do requisito R4        | 02 pontos | R4    |
-| 17/08/2017 | Sprint 05: Implementação da autenticação        | 02 pontos | Auth  |
-| 24/08/2017 | Apresentação do trabalho                        | 05 pontos | 1.0   |
-
-
-* **27/06/2017:** O grupo deverá fazer um fork deste repositório e alterar o `README.md` do projeto de forma a incluir os componmentes do grupo, qual foi o tema selecionado, e quais requisitos seu sistema irá implementar.
-* **04/07/2017:** O grupo deverá implementar o protótipo em HTML de dois requisitos selecionados anteriormente. É importante que o grupo converse com o professor para decidir quais requisitos são mais fáceis de se prototipar e implementar primeiro.
-* **13/07/2017:** O grupo deverá implementar pelo menos um dos requisitos prototipados anteriormente.
-* **01/08/2017:** O grupo deverá implementar pelo menos dois requisitos do sistema, somando três requisitos implementados no total.
-* **08/08/2017:** O grupo deverá ter implementado todos os requisitos do sistema.
-* **17/08/2017:** O grupo deverá ter implementado os mecanimos de autenticação e identificação dos usuários do sistema.
-* **24/08/2017:** Apresentação do trabalho final em sala de aula.
-
-As entregas deverão ser marcadas com tags do próprio Git, indicadas na tabela acima. Leia sobre tags [aqui](http://imasters.com.br/artigo/21127/software-livre/como-trabalhar-com-tags-no-git/?trace=1519021197&source=single).
-
-## Apresentação
-
-A apresentação do trabalho ocorrerá no dia **24/08/2017**. Você deverá apresentar seu trabalho para seus colegas de turma junto de uma **banca de avaliação** que irá avaliar seu trabalho.
-
-A banca de avaliação contará, a princípio, com **um especialista no desenvolvimento de software** que irá avaliar principalmente os aspectos internos do sistema (código, estruturação, etc.) e **um usuário comum**, que irá avaliar principalmente os aspectos externos do sistema (design, usabilidade, etc.).
-
-A apresentação será dividida em duas partes:
-
-* **Explicação:** Apresentação sobre o sistema, principais funcionalidades, o que foi implementado, o que foi usado, etc. etc.
-* **Demonstração:** Você irá executar o seu sistema e mostrar o funcionamento dos requisitos implementados.
-
-## Pilha de Tecnologias
-
-Você estará livre para utilizar as bibliotecas e frameworks que considerar necessários. O uso de tais recursos inclusive é incentivado!!
-
-Contudo, o desenvolvimento do trabalho **deve** englobar, de alguma forma, os seguintes conceitos:
-
-* HTML
-* CSS/SCSS
-* JavaScript
-* PHP: Classes, funções, etc.
-* PHP: Sessões e Cookies
-* PHP: Arquivos
-
-## Composição dos grupos
-
-Os grupos deverão, **obrigatóriamente**, ser compostos por alunos das duas extintas subturmas (103 e 106).
+## Translation
+If you want to help us translate the documentation into other languages, please send us an email at materializeframework@gmail.com telling us which language team you want to join. We use [Transifex](https://www.transifex.com) as our localization platform and we will send you an invite there.
