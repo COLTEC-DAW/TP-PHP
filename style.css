@@ -1,12 +1,23 @@
-.titulo{
+.titulo {
     text-align: center;
 }
 
-.conteudo{
+.conteudo {
     text-align: center;
 }
 
-nav .brand-logo{
+nav .brand-logo {
     float: left;
     position: inherit;
+}
+
+input::-webkit-datetime-edit {
+    color: transparent;
+}
+
+
+/* Include this to make it visible when input is clicked */
+
+input:visited::-webkit-datetime-edit {
+    color: #000 !important;
 }

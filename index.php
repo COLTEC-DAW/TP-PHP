@@ -1,12 +1,10 @@
 <?php
-    ob_start(); // Initiate the output buffer
     require "class_user.inc";
     require 'class_doacao.inc';
     require 'verifica_data.php';
-    session_start();
-
+    require 'functions.php';
+    Starts();
     verifica_data();
-
 ?>
 
 <!DOCTYPE html>
@@ -28,50 +26,31 @@
             </div>
 
             <?php
-                $permissao = 0;
-                $eh_admin = 0;
-                if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
-                    if($usuario->login!="admin"){
-               
-                        /*
-                                LEITURA
-                        */
-                        $arquivo = file_get_contents('users.json');
-                        $json = json_decode($arquivo);
-
-                        foreach($json as $user){
-                            if($user->login == $usuario->login && $user->senha == $usuario->senha){
-                                $permissao = 1;
-                            }
-                        }
-                        if ($permissao == 1) {
-                        ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="pedido.php">Fazer Pedido</a></li>
-                            <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
-                            <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-                        <?php
-                        }
-                    }
-                    if($usuario->login=="admin"){
-                        $eh_admin = 1;
-                    ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-
-                    <?php
-                    }   
+                if(IsLogado()){
+                    $usuario = $_SESSION['user'];
+                ?>
+                    <ul class="nav navbar-nav">
+                        <li><a href="pedido.php">Fazer Pedido</a></li>
+                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
+                        <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+                <?php
                 }
+                else if(Eh_Admin()){
+                ?>
+                    <ul class="nav navbar-nav">
+                        <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+
+                <?php
+                }   
                 else{
                 ?>
                     <ul class="nav navbar-nav navbar-right">
@@ -87,7 +66,7 @@
     <div class="container">
         <h3>Conteúdo</h3>
         <?php
-            if($permissao==1){//printa doações disponíveis
+            if(IsLogado()){//printa doações disponíveis
                 $arquivo = file_get_contents('doacoes.json');
                 $json = json_decode($arquivo);
                 if (filesize('doacoes.json') != 0){
@@ -121,7 +100,7 @@
                     }
                 }
             }
-            if($eh_admin == 1){
+            if(Eh_Admin()){
                 $arquivo = file_get_contents('doacoes.json');
                 $json = json_decode($arquivo);
                 if (filesize('doacoes.json') != 0){
