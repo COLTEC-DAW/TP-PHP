@@ -42,5 +42,16 @@
         "genero": "Prof. Jalon Baumbach",
         "sistema": "Prof. Roslyn Rath Jr.",
         "jogadores": null
+    },
+    {
+        "id": 8,
+        "public": true,
+        "nome": "Shania Cummings",
+        "mestre": "Domenic Moen I",
+        "endereco": "3873 Predovic Court Apt. 717\nEast Evelynview, MN 59080",
+        "sinopse": "Ex aliquam et dolorem quo et. Est vero debitis totam aut sunt. Et modi dolorem totam. Ea corrupti similique quia illum est quos architecto voluptas.",
+        "genero": "Elvera Nikolaus",
+        "sistema": "Mr. Harley Terry IV",
+        "jogadores": null
     }
 ]

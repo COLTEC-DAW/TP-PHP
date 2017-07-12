@@ -47,7 +47,7 @@
     padding: 1%;
 }
 
-.col-sm-2, .col-sm-3, .col-sm-7{
+.col-sm-2, .col-sm-3, .col-sm-7, .col-sm-10{
     padding-bottom: 424242px;
     margin-bottom: -424242px;
 }
@@ -88,4 +88,13 @@ img {
 
 body{
     background-color: #2B190A !important; 
+}
+
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
 }

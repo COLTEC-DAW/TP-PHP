@@ -1,5 +1,6 @@
 <?php
-session_start();
+ob_start();
+//session_start();
 //require "classes.php";
 
 //Funções para manipular e exibir conjuntos de mesas e jogadores
