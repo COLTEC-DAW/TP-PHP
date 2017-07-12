@@ -23,10 +23,10 @@
  	function armazena_dados_secao(){
 	    $armazenar = new Utils;
 
-	    if (filesize('doacoes.json') != 0){
+	    if (filesize('../doacoes/doacoes.json') != 0){
  			$usuario_logado = $_SESSION['user'];
 
-		    $jsonString = file_get_contents('doacoes.json');
+		    $jsonString = file_get_contents('../doacoes/doacoes.json');
 		    $data = json_decode($jsonString, true);
 
 		    $dados1 = array();
@@ -40,8 +40,8 @@
 		    $armazenar->armazena_doacoes_abertas($dados1);
 		}
 
-		if (filesize('movimento_Capital.json') != 0){
-		    $jsonString = file_get_contents('movimento_Capital.json');
+		if (filesize('../usuario/movimento_Capital.json') != 0){
+		    $jsonString = file_get_contents('../usuario/movimento_Capital.json');
 		    $data = json_decode($jsonString, true);
 
 		    $dados2 = array();
@@ -55,8 +55,8 @@
 		    $armazenar->armazena_doacoes_realizadas($dados2);
 		}
 
-		if (filesize('movimento_Capital.json') != 0){
-		    $jsonString = file_get_contents('movimento_Capital.json');
+		if (filesize('../usuario/movimento_Capital.json') != 0){
+		    $jsonString = file_get_contents('../usuario/movimento_Capital.json');
 		    $data = json_decode($jsonString, true);
 
 		    $dados3 = array();
@@ -70,8 +70,8 @@
 		    $armazenar->armazena_doacoes_recebidas($dados3);
 		}
 
-		if (filesize('doacoes_finalizadas.json') != 0){
-		    $jsonString = file_get_contents('doacoes_finalizadas.json');
+		if (filesize('../doacoes/doacoes_finalizadas.json') != 0){
+		    $jsonString = file_get_contents('../doacoes/doacoes_finalizadas.json');
 		    $data = json_decode($jsonString, true);
 
 		    $dados4 = array();

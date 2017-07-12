@@ -1,7 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
-    require 'class_doacao.inc';
-    require "class_user.inc";
+    require '../doacoes/class_doacao.inc';
+    require "../usuario/class_user.inc";
     session_start();
 
     $finalidade = $_POST["finalidade"];
@@ -59,7 +59,7 @@
         fwrite($arquivo, $dados_json);
         fclose($arquivo);
         
-        $redirect = "index.php";
+        $redirect = "../index.php";
         header("location:$redirect");
     }
 ?>

@@ -1,8 +1,8 @@
 <?php
     ob_start(); // Initiate the output buffer
     require "class_user.inc";
-    require 'class_doacao.inc';
-    require 'class_utils.inc';
+    require '../doacoes/class_doacao.inc';
+    require '../doacoes/class_utils.inc';
     session_start();
     //pega todos os dados, coloca na classe, e coloca a classe na seção.
     armazena_dados_secao();
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">TratoFeito</a>
+                <a class="navbar-brand" href="../index.php">TratoFeito</a>
             </div>
 
             <?php

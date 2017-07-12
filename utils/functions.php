@@ -1,10 +1,11 @@
 <?php
 
-    function IsLogado(){
+
+    function IsLogado($caminho){
         if(isset($_SESSION["user"])){
             $usuario = $_SESSION["user"];
             if($usuario->login!="admin"){
-                $arquivo = file_get_contents('users.json');
+                $arquivo = file_get_contents($caminho);
                 $json = json_decode($arquivo);
                 foreach($json as $user){
                     if($user->login == $usuario->login && $user->senha == $usuario->senha){
@@ -21,11 +22,6 @@
             return true;
         else
             return false;
-    }
-    
-    function Starts(){
-        ob_start(); // Initiate the output buffer
-        session_start();
     }
 
     function Analisa_Erro($erro){

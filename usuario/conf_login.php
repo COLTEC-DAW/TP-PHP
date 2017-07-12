@@ -10,7 +10,7 @@
 */
 
     if($login == "admin"){
-        $arquivo = file_get_contents('admin.json');
+        $arquivo = file_get_contents('../admin/admin.json');
         $json = json_decode($arquivo);
 
         foreach($json as $admin){
@@ -22,8 +22,10 @@
                 $senha_arq = $admin->senha;
                 $nome_arq = $admin->nome;
                 $email_arq = $admin->email;
-                $usuario = new User($nome_arq, $email_arq, $login_arq, $senha_arq);
-                $_SESSION["user"] = $usuario;
+
+                $usuario = new User($nome_arq, $email_arq, $login_arq, $senha_arq,null);
+
+                $_SESSION['user'] = $usuario;
             }
         }
     }
@@ -44,13 +46,13 @@
                 $email_arq = $user->email;
                 $carteira_arq = $user->carteira;
                 $usuario = new User($nome_arq, $email_arq, $login_arq, $senha_arq, $carteira_arq);
-                $_SESSION["user"] = $usuario;
+                $_SESSION['user'] = $usuario;
             }
         }
     }
 
     if ($permissao == 1) {
-        $redirect = "index.php";
+        $redirect = "../index.php";
         header("location:$redirect");
     } else {
         $_SESSION['error'] = 'invalido';

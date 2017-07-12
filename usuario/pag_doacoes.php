@@ -1,16 +1,25 @@
 <?php
     ob_start(); // Initiate the output buffer
+    require "class_user.inc";
+    require 'class_doacao.inc';
     session_start();
+
+    $id = $_POST['id'];
+    armazena_doacoes_classe($id);
+
+    $doacao_atual = $_SESSION["doacao_atual"];
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css?version=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -22,9 +31,8 @@
 
             <?php
                 $permissao = 0;
-                $eh_admin = 0;
+                $usuario = $_SESSION["user"];
                 if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
                     if($usuario->login!="admin"){
                
                         /*
@@ -45,13 +53,14 @@
                             <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
+                            <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
                             <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                         </ul>
                         <?php
                         }
                     }
-                    if($usuario->login=="admin"){
-                        $eh_admin = 1;
+                    else{
                     ?>
                         <ul class="nav navbar-nav">
                             <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
@@ -59,53 +68,42 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                         </ul>
-
                     <?php
-                    }   
-                }
+                    }
+
+                }   
                 else{
-                ?>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="cadastro.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                <?php
+                    $redirect = "index.php";
+                    header("location:$redirect");
                 }
                 ?>
         </div>
     </nav>
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <form action="conf_login.php" method="post">
-
-                        <label>Login:</label>
-                        <input type="text" class="form-control" name="nome" required>
-
-                        <label>Senha:</label>
-                        <input id="user_password" type="password" class="form-control" name="senha" required>
-
-                        <input type="submit" class="btn btn-default" name="Verificar">
-                    </form>
-                    <a href = "cadastro.php"><button type="button" class="btn btn-primary">Criar conta</button></a>
-                    <?php
-                        if(isset($_SESSION['error'])){
-                            if($_SESSION['error'] == "invalido"){
-                                ?>
-                                <div class="alert alert-warning">
-                                    Login ou Senha incorretos.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
+      
+    <div class="container">
+        <h1><?=$doacao_atual->descricao?></h1>
+        <h2>Autor: <?=$doacao_atual->autor?></h2>
+        <h3>Sobre:</h3>
+        <div class="col-sm-12">
+            <p><?=$doacao_atual->sobre?></p>
         </div>
+        <h2>Meta: <?=$doacao_atual->meta?></h2>
+        <?php
+        if($usuario->login=="admin"){
+        ?>
+            <h2>Esperando Aprovação</h2>
+        <?php
+        }
+        else{
+        ?>
+            <h2>Arrecadado: <?=$doacao_atual->valor_acumulado?></h2>
+        <?php
+        }
+        $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
+        $mes = $doacao_atual->data[5].$doacao_atual->data[6];
+        $dia = $doacao_atual->data[8].$doacao_atual->data[9];
+        ?>
+        <h2>Data Limite: <?=$dia?>/<?=$mes?>/<?=$ano?></h2>
     </div>
 </body>
 </html>

@@ -1,7 +1,10 @@
 <?php
+    ob_start(); // Initiate the output buffer
     require "class_user.inc";
-    require "functions.php";
-    Starts();
+    require '../doacoes/class_doacao.inc';
+    require '../doacoes/verifica_data.php';
+    require '../utils/functions.php';
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -11,48 +14,49 @@
   	<!--Import Google Icon Font-->
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<!--Import materialize.css-->
-  	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+  	<link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-    <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <nav class="nav-extended">
+    <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+    <nav>
         <div class="container">
 
 
             <?php
-                if(IsLogado()){
+                if(IsLogado("../usuario/users.json")){
                     $usuario = $_SESSION["user"];
                 ?>
-                <div class="nav-wrapper">
-                    <a class="brand-logo" href="index.php">TratoFeito</a>
+ 
         
+                    <ul class="left hide-on-med-and-down">
+                    <a class="brand-logo" href="../index.php">TratoFeito</a>
+                        
+                        <li><a href="pedido.php">Fazer Pedido</a></li>
+                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
+                    </ul>
+
                     <ul class="right hide-on-med-and-down">
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                         <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                     </ul>
 
-                </div>
 
-                <div class="nav-content">
 
-                    <ul class="tabs tabs-transparent">
-                        <li><a href="pedido.php">Fazer Pedido</a></li>
-                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                    </ul>
 
-                </div>
+
+
 
                     <?php
                 }
                 else{
-                    $redirect = "index.php";
+                    $redirect = "../index.php";
                     header("location:$redirect");
                 }
             ?>
@@ -63,31 +67,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-12 jumbotron">
                     <h1 class="titulo">Proposta de doação</h1>
-                </div>
 
                 <div class="col-md-12">
-                    <form action="armazena_pedido.php" method="post">
+                    <form action="../doacoes/armazena_pedido.php" method="post">
 
-                        <div class="input-field inline">
+                        <div class="input-field">
                         <input type="text"name="finalidade" required>
-                        <label>Finalidade do pedido:</label>                        
+                        <label>Finalidade</label>                        
                         </div>
 
                         <div class="input-field">
                         <input type="number" name="meta" required>
-                        <label>Meta:</label>                        
+                        <label>Meta</label>                        
                         </div>
 
                         <div class="input-field">
                         <input type="date" class="datepicker" name="data" required>
-                        <label>Data de encerramento:</label>                                                
                         </div>
+                        <label id="label">*Data de encerramento</label>                                                
 
                         <div class="input-field">
                         <textarea name="descricao" class="materialize-textarea"></textarea>
-                        <label for="descricao">Descrição:</label>                        
+                        <label for="descricao">Descrição</label>                        
                         </div>
 
                         <input type="submit" name="Mandar" class="btn btn-default">
