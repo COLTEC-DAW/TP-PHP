@@ -30,9 +30,9 @@ function listaMesas(){
         <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
         <p><?=$mesinha->sinopse?></p>
         <form method="post" action="pgMesa.php">
-            <input type="hidden" name="entra" value="false">
+            <input type="hidden" name="entra" value="<?= false ?>">
             <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-            <input type="hidden" name="convite" value="false">
+            <input type="hidden" name="convite" value="<?= false ?>">
             <button type="submit">Detalhes</button>
         </form> <?php
     }

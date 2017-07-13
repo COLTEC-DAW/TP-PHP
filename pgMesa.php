@@ -18,37 +18,40 @@ $mesa = pegaPorId($todasAsMesas, $idMesa); ?>
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
     </head>
-    <body> <?php
-        if (entrada) {
-            if (!($mesa->public)&&!$convidado){
-                ?> <h1>YOU SHALL NOT PASS!!!</h1>
-                <h2>Parece que você não tem acesso a essa mesa...</h2> <?php
+    <body> 
+        <div class="container-fluid">
+            <? require "INC/userSideBar.inc"; ?>
+            <div class="col-sm-10 centerbar">
+        <?php
+            if ($entrada) {
+                if (!($mesa->public)&&!$convidado){
+                    ?> <h1>YOU SHALL NOT PASS!!!</h1>
+                    <h2>Parece que você não tem acesso a essa mesa...</h2> <?php
+                }
+                else {
+                    //echo $mesa->{'public'}." /".$convidado;
+                }
             }
-            else {
-                
+            else{
+                if (!($mesa->public)&&!$convidado){
+                    ?> <h2>Esta é uma mesa privada.</h2> <?php
+                }
+                else { ?>
+                            <h1><?=$mesa->nome?></h1>
+                            <div class="divider"></div>
+                            <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
+                            <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
+                            <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
+                            <p><?= $mesa->sinopse ?></p>
+                            <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
+                    <?php   /* Comentando por não estar sendo usado agora
+                            *listaJogadores();
+                            */
+                }
             }
-        }
-        if (!($mesa->public)&&!$convidado){
-            ?> <h2>Esta é uma mesa privada.</h2> <?php
-        }
-        else { ?>
-            <div class="container-fluid">
-                <? require "INC/userSideBar.inc"; ?>
-                <div class="col-sm-10 centerbar">
-                    <h1><?=$mesa->nome?></h1>
-                    <div class="divider"></div>
-                    <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
-                    <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
-                    <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
-                    <p><?= $mesa->sinopse ?></p>
-                    <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
-                </div>
-            <?php   /* Comentando por não estar sendo usado agora
-                    *listaJogadores();
-                    */
-        }
-        include "INC/footer.inc";
-?>
+    ?>
             </div>
+        </div>
+        <? include "INC/footer.inc"; ?>
 </body>
 </html>

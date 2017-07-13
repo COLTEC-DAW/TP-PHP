@@ -12,7 +12,7 @@
     },
     {
         "id": 2,
-        "public": true,
+        "public": false,
         "nome": "Vernice Pfeffer",
         "mestre": "Prof. Miguel Goldner DVM",
         "endereco": "903 Rohan Ville\nSouth Alenestad, IL 76792",
@@ -52,6 +52,17 @@
         "sinopse": "Ex aliquam et dolorem quo et. Est vero debitis totam aut sunt. Et modi dolorem totam. Ea corrupti similique quia illum est quos architecto voluptas.",
         "genero": "Elvera Nikolaus",
         "sistema": "Mr. Harley Terry IV",
+        "jogadores": null
+    },
+    {
+        "id": 6,
+        "public": true,
+        "nome": "Maynard Jast",
+        "mestre": "Clinton Crooks",
+        "endereco": "474 Lindgren Run Suite 753\nSouth Gregburgh, VT 98676",
+        "sinopse": "Nisi ut et distinctio aut et reprehenderit iusto. Ut autem illum in ex hic voluptates porro. Officiis minima aut accusantium odit molestiae. Ut quo aliquam et qui.",
+        "genero": "Evalyn Feest",
+        "sistema": "Dr. Ibrahim Thompson V",
         "jogadores": null
     }
 ]
