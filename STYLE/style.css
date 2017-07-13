@@ -9,14 +9,13 @@
     background-color: #C2BAAA;
 }
 .title{ /* isso aqui deve ser tipo um cardzinho para o título de cada seção */
-
-    /* ! NÃO TÁ FUNFANDO ! */
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
     width: 100%;
-    padding: 1%;
-    margin-top: 2%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     float: left;
 }
 .principal { /* Parte dentral da página */ 
@@ -48,6 +47,7 @@
 }
 
 .col-sm-2, .col-sm-3, .col-sm-7, .col-sm-10{
+    padding-top: 5px;
     padding-bottom: 424242px;
     margin-bottom: -424242px;
 }
@@ -61,17 +61,23 @@ a{
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
+    border-color: #2B190A !important;
+    border-width: 1px;
+    border-style: solid;
     background-color: #5E663F;
-    margin: 1%;
-
+    margin-bottom: 5px;
+    padding: 0%;
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
     border-radius: 5px 5px 0 0;
+    border-color: #2B190A !important;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
 }
 
 .container {

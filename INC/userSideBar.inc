@@ -1,5 +1,5 @@
 <div class="sidebar col-sm-2">
-    <div class="title">
+    <!--<div class="title">-->
         <div class="card">
             <img src="STYLE/fotaPerfil.jpeg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -20,4 +20,4 @@
             </ul>
         </div>
     </div>
-</div>
+<!--</div>-->
