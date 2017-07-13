@@ -18,7 +18,7 @@
     }
 
     function Eh_Admin(){
-        if($_SESSION['user'] == "admin")
+        if($_SESSION['user']->login == "admin")
             return true;
         else
             return false;
@@ -33,6 +33,12 @@
             return "Dia inválido.";
         else if($erro == "igual")
             return  "Você não pode inserir a data atual.";
+        else if($erro == "nao_imagem")
+            return "Arquivo selecionado não é uma imagem.";
+        else if($erro == "imagem_grande")
+            return "Arquivo selecionado é muito grande.";
+        else if($erro == "jpg")
+            return "Apenas arquivos JPG, JPEG e PNG são permitidos.";
     }
 
     function Errors(){
@@ -46,6 +52,12 @@
         }
         else
             return null;
+    }
+
+    function Armazena_Erro($erro, $caminho){
+        $_SESSION['error'] = $erro;
+        $redirect = $caminho;
+        header("location:$redirect");
     }
 
         

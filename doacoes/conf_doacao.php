@@ -1,7 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
     require 'class_doacao.inc';
-    require 'class_user.inc';
+    require '../usuario/class_user.inc';
     session_start();
 
     $controle = $_POST['id'];
@@ -50,7 +50,7 @@
 //Escreve o novo saldo no arquivo.
 
 
-                $json = file_get_contents('users.json');
+                $json = file_get_contents('../usuario/users.json');
                 $dados = json_decode($json, true);
 
                 foreach ($dados as $chave => $aux) {
@@ -61,7 +61,7 @@
 
 
                 $escrever = json_encode($dados, JSON_PRETTY_PRINT);
-                $file = fopen("users.json", "w");
+                $file = fopen("../usuario/users.json", "w");
                 fwrite($file, $escrever);
                 fclose($file);
 
@@ -79,18 +79,18 @@
 
                 //valor doado e o id a doação. 
 
-                $arquivo = file_get_contents('movimento_Capital.json');
+                $arquivo = file_get_contents('../usuario/movimento_Capital.json');
                 $json = json_decode($arquivo);
 
                 $json[] = array('valor_doado'=>$valor, 'para_quem' => $controle, 'fez_doacao'=>$fez_doacao,'recebeu_doacao'=>$recebeu_doacao, 'login_doador'=>$usuario->login);
 
             
                 $dados_json = json_encode($json, JSON_PRETTY_PRINT);
-                $arquivo = fopen("movimento_Capital.json", "w");
+                $arquivo = fopen("../usuario/movimento_Capital.json", "w");
                 fwrite($arquivo, $dados_json);
                 fclose($arquivo);
 
-                $redirect = "index.php";
+                $redirect = "../index.php";
                 header("location:$redirect");
 //--------------------------------------------------------------------------------
             }
@@ -151,7 +151,7 @@
                 $arquivo = fopen("doacoes_finalizadas.json", "w");
                 fwrite($arquivo, $dados_json);
                 fclose($arquivo);              
-                $redirect = "index.php";
+                $redirect = "../index.php";
                 header("location:$redirect");
             }
         }

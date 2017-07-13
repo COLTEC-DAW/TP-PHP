@@ -1,7 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
-    require "class_user.inc";
-    require 'class_doacao.inc';
+    require "../usuario/class_user.inc";
+    require '../doacoes/class_doacao.inc';
     session_start();
     $controle;
 
@@ -104,7 +104,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-12">
-                    <form action="conf_doacao.php" method="post">
+                    <form action="../doacoes/conf_doacao.php" method="post">
 
                         <label>Valor que deseja doar:</label>
                         <input type="number" class="form-control" name="valor_doacao">
@@ -118,7 +118,7 @@
                     </form>
 
                     <?php
-                        $jsonString = file_get_contents('doacoes.json');
+                        $jsonString = file_get_contents('../doacoes/doacoes.json');
                         $data = json_decode($jsonString, true);
 
 

@@ -90,6 +90,7 @@
 					?>
 					<div class="row center-align">			
 					<?php
+                        $contador=1;
                         foreach($json as $dados){
                             $descricao = $dados->finalidade;
                             $meta = $dados->meta;
@@ -99,22 +100,45 @@
                             $id = $dados->id;
 
                             if($aprovado==1){// && $arrecadado<$meta
-                            ?>
-							<div class="card-panel doacoes col s6">
-								<h3 class="conteudo truncate"><?=$descricao?></h3>
-								<h5 class="conteudo">Meta: <?=$meta?></h5>
-								<h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
-								<form action="doar.php" method="post">
-									<input type="hidden" name="id" value=<?=$id?>>
-									<input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
-								</form>
-								<form action="pag_doacoes.php" method="post">
-									<input type="hidden" name="id" value=<?=$id?>>
-									<input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
-								</form>
-							</div>
-							
-                            <?php
+                                if($contador%2==1){
+                                ?>
+                                <div class="card-panel doacoes col s4 offset-s1">
+                                    <h3 class="conteudo truncate"><?=$descricao?></h3>
+                                    <img src="imagens/<?=$id?>.jpg" class="imagens"> 
+                                    <h5 class="conteudo">Meta: <?=$meta?></h5>
+                                    <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
+                                    <form action="usuario/doar.php" method="post">
+                                        <input type="hidden" name="id" value=<?=$id?>>
+                                        <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                                    </form>
+                                    <form action="pag_doacoes.php" method="post">
+                                        <input type="hidden" name="id" value=<?=$id?>>
+                                        <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
+                                    </form>
+                                </div>
+                                
+                                <?php
+                                }
+                                else{
+                                    ?>
+                                    <div class="card-panel doacoes col s4 push-s2">
+                                        <h3 class="conteudo truncate"><?=$descricao?></h3>
+                                        <img src="imagens/<?=$id?>.jpg" class="imagens"> 
+                                        <h5 class="conteudo">Meta: <?=$meta?></h5>
+                                        <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
+                                        <form action="usuario/doar.php" method="post">
+                                            <input type="hidden" name="id" value=<?=$id?>>
+                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                                        </form>
+                                        <form action="pag_doacoes.php" method="post">
+                                            <input type="hidden" name="id" value=<?=$id?>>
+                                            <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
+                                        </form>
+                                    </div>
+                                    
+                                    <?php
+                                }
+                                $contador++;
                             }
                         }
 						?>
@@ -124,10 +148,13 @@
                 }
             }
             if(Eh_Admin()){
-                $arquivo = file_get_contents('doacoes.json');
+                $arquivo = file_get_contents('doacoes/doacoes.json');
                 $json = json_decode($arquivo);
-                if (filesize('doacoes.json') != 0){
+                if (filesize('doacoes/doacoes.json') != 0){
                     if(!empty($json)){
+					?>
+					<div class="row center-align">			
+					<?php
                         foreach($json as $dados){
                             $descricao = $dados->finalidade;
                             $meta = $dados->meta;
@@ -141,22 +168,22 @@
 
                             if($aprovado==0){
                             ?>
-                            <div class="col-sm-3 conteudo">
+                            <div class="card-panel doacoes col s6">
                                 <h3 class="conteudo"><?=$descricao?></h3>
+                                <img src="imagens/<?=$id?>.jpg" class="imagens"> 
                                 <h5 class="conteudo">Meta: <?=$meta?></h5>
                                 <form action="pag_doacoes.php" method="post">
                                     <input type="hidden" name="id" value=<?=$id?>>
-                                    <input type="submit" class="btn btn-default" name="Verificar2" value="Leia mais">
+                                    <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
                                 </form>
-                                <form action="aprovar.php" method="post">
+                                <form action="admin/aprovar.php" method="post">
                                     <input type="hidden" name="controle" value=<?=$id?>>            
-                                    <input type="submit" class="btn btn-default" name="Verificar" value="Aceitar">
+                                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Aceitar">
                                 </form>
-                                <form action="reprovar.php" method="post">
+                                <form action="admin/reprovar.php" method="post">
                                     <input type="hidden" name="controle" value=<?=$id?>>
-                                    <input type="submit" class="btn btn-default" name="Verificar" value="Recusar">
+                                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Recusar">
                                 </form>
-
                             </div>
                             <?php
                             }

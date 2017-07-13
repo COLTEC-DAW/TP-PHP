@@ -1,6 +1,6 @@
 <?php
     ob_start(); // Initiate the output buffer
-    require 'class_doacao.inc';
+    require '../doacoes/class_doacao.inc';
     session_start();
 
     $doacao = $_SESSION['doacao'];
@@ -15,7 +15,7 @@
         ESCRITA
 */
 
-    $jsonString = file_get_contents('doacoes.json');
+    $jsonString = file_get_contents('../doacoes/doacoes.json');
     $data = json_decode($jsonString, true);
 
     foreach ($data as $key => $entry) {
@@ -36,11 +36,11 @@
 
 
     $dados_json = json_encode($data, JSON_PRETTY_PRINT);
-    $arquivo = fopen("doacoes.json", "w");
+    $arquivo = fopen("../doacoes/doacoes.json", "w");
     fwrite($arquivo, $dados_json);
     fclose($arquivo);
 
 
-    $redirect = "index.php";
+    $redirect = "../index.php";
     header("location:$redirect");
 ?>

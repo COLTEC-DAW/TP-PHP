@@ -2,11 +2,12 @@
     ob_start(); // Initiate the output buffer
     require '../doacoes/class_doacao.inc';
     require "../usuario/class_user.inc";
+    require "../utils/functions.php";
     session_start();
 
-    $finalidade = $_POST["finalidade"];
-    $meta = $_POST["meta"];
-    $descricao = $_POST['descricao'];
+    $finalidade = htmlspecialchars($_POST["finalidade"]);
+    $meta = htmlspecialchars($_POST["meta"]);
+    $descricao = htmlspecialchars($_POST['descricao']);
     $id = mt_rand();
 
     $data_atual = date("d/m/Y");
@@ -14,38 +15,70 @@
     $mes_atual = $data_atual[3].$data_atual[4];
     $ano_atual = $data_atual[6].$data_atual[7].$data_atual[8].$data_atual[9];
 
-    $data = $_POST['data'];
+    $data = htmlspecialchars($_POST['data']);
     $ano_inserido = $data[0].$data[1].$data[2].$data[3];
     $mes_inserido = $data[5].$data[6];
     $dia_inserido = $data[8].$data[9];
 
-    echo $dia_atual."/".$mes_atual."/".$ano_atual;
-    echo "</br>";
-    echo $dia_inserido."/".$mes_inserido."/".$ano_inserido;
-    echo "</br>";
+    if($ano_inserido<$ano_atual)
+        Armazena_Erro('ano', "../usuario/pedido.php");
 
+    else if($ano_inserido==$ano_atual && $mes_inserido<$mes_atual)
+        Armazena_Erro('mes', "../usuario/pedido.php");
 
-    if($ano_inserido<$ano_atual){
-        $_SESSION['error'] = 'ano';
-        $redirect = "pedido.php";
-        header("location:$redirect");
-    }
-    else if($ano_inserido==$ano_atual && $mes_inserido<$mes_atual){
-        $_SESSION['error'] = 'mes';
-        $redirect = "pedido.php";
-        header("location:$redirect");
-    }
-    else if($ano_inserido==$ano_atual && $mes_inserido==$mes_atual && $dia_inserido<$dia_atual){
-        $_SESSION['error'] = 'dia';
-        $redirect = "pedido.php";
-        header("location:$redirect");
-    }
-    else if($ano_inserido==$ano_atual && $mes_inserido==$mes_atual && $dia_inserido==$dia_atual){
-        $_SESSION['error'] = 'igual';
-        $redirect = "pedido.php";
-        header("location:$redirect");
-    }
+    else if($ano_inserido==$ano_atual && $mes_inserido==$mes_atual && $dia_inserido<$dia_atual)
+        Armazena_Erro('dia', "../usuario/pedido.php");
+
+    else if($ano_inserido==$ano_atual && $mes_inserido==$mes_atual && $dia_inserido==$dia_atual)
+        Armazena_Erro('igual', "../usuario/pedido.php");
+
     else{
+
+        $target_dir = "";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                Armazena_Erro('nao_imagem', "../usuario/pedido.php");
+                $uploadOk = 0;
+            }
+        }
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            Armazena_Erro('imagem_grande', "../usuario/pedido.php");
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            Armazena_Erro('jpg', "../usuario/pedido.php");
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                rename( $_FILES["fileToUpload"]["name"], '../imagens/'.$id.".".$imageFileType);
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
         $dados = file_get_contents('doacoes.json');
         $json = json_decode($dados);
 

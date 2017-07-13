@@ -26,14 +26,10 @@
     <script type="text/javascript" src="../js/materialize.js"></script>
     <nav>
         <div class="container">
-
-
             <?php
                 if(IsLogado("../usuario/users.json")){
                     $usuario = $_SESSION["user"];
-                ?>
- 
-        
+                ?>       
                     <ul class="left hide-on-med-and-down">
                     <a class="brand-logo" href="../index.php">TratoFeito</a>
                         
@@ -46,13 +42,6 @@
                         <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                     </ul>
-
-
-
-
-
-
-
                     <?php
                 }
                 else{
@@ -63,14 +52,13 @@
         </div>
     </nav>
 
-
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                     <h1 class="titulo">Proposta de doação</h1>
 
                 <div class="col-md-12">
-                    <form action="../doacoes/armazena_pedido.php" method="post">
+                    <form action="../doacoes/armazena_pedido.php" method="post" enctype="multipart/form-data">
 
                         <div class="input-field">
                         <input type="text"name="finalidade" required>
@@ -92,7 +80,19 @@
                         <label for="descricao">Descrição</label>                        
                         </div>
 
-                        <input type="submit" name="Mandar" class="btn btn-default">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" name="fileToUpload" id="fileToUpload" required>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+                        <div class=" center-align">
+                            <input type="submit" name="Mandar" class="btn btn-default">
+                        </div>
                     </form>
                 </div>
             </div>
