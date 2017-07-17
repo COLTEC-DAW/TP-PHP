@@ -52,6 +52,8 @@ $mesa = pegaPorId($todasAsMesas, $idMesa); ?>
     ?>
             </div>
         </div>
-        <? include "INC/footer.inc"; ?>
+        <div class="footer">
+            <?php include "INC/footer.inc"; ?>
+        <div>
 </body>
 </html>

@@ -104,3 +104,7 @@ body{
   overflow: hidden;
   background-color: #e5e5e5;
 }
+
+.footer{
+    padding-left: 1%;
+}

@@ -51,6 +51,8 @@ require "INC/funcoes.inc";?>
                 <!--</div>-->
             </div>
         </div>
+        <div class="footer">
+            <?php include "INC/footer.inc"; ?>
+        <div>
     </body>
-    <?php include "INC/footer.inc"; ?>
 </html>
