@@ -1,6 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
     require 'class_doacao.inc';
+    require '../utils/functions.php';
     require '../usuario/class_user.inc';
     session_start();
 
@@ -17,31 +18,21 @@
     foreach ($data as $key => $entry) {
         if ($entry['id']==$controle) {
 
-            if($valor < 0){
-                $_SESSION['error'] = "valor_negativo";
-                $redirect = "doar.php";
-                header("location:$redirect");
-            }
-            else if($data[$key]['arrecadado']+$valor > $data[$key]['meta']){
-                $_SESSION['error'] = "valor_excede_limite";
-                $redirect = "doar.php";
-                header("location:$redirect");
-            }
-            else if($valor == 0){
-                $_SESSION['error'] = "zero";
-                $redirect = "doar.php";
-                header("location:$redirect");   
-            }
-            else if($usuario->senha!=$senha){
-                $_SESSION['error'] = "senha";
-                $redirect = "doar.php";
-                header("location:$redirect");
-            }
-            else if($usuario->carteira<$valor){
-                $_SESSION['error'] = "saldo_insuficiente";
-                $redirect = "doar.php";
-                header("location:$redirect");
-            }
+            if($valor < 0)
+                Armazena_Erro('valor_negativo', "../usuario/doar.php");
+
+            else if($data[$key]['arrecadado']+$valor > $data[$key]['meta'])
+                Armazena_Erro('valor_excede_limite', "../usuario/doar.php");
+
+            else if($valor == 0)
+                Armazena_Erro('zero', "../usuario/doar.php");  
+            
+            else if($usuario->senha!=$senha)
+                Armazena_Erro('senha', "../usuario/doar.php");
+
+            else if($usuario->carteira<$valor)
+                Armazena_Erro('saldo_insuficiente', "../usuario/doar.php");
+
             else if($data[$key]['arrecadado']+$valor <= $data[$key]['meta'] && $valor > 0) {//realiza a doação
                 $data[$key]['arrecadado'] += $valor;
                 $usuario->carteira -= $valor;
@@ -108,35 +99,35 @@
 //-----------------------------------------------------------------
 //exclui o pedido de doação.
 
-            $arquivo = fopen("auxx.json", "w");
-            fwrite($arquivo, "");
+                $arquivo = fopen("auxx.json", "w");
+                fwrite($arquivo, "");
 
-            $jsonString = file_get_contents('doacoes.json');
-            $data = json_decode($jsonString, true);
+                $jsonString = file_get_contents('doacoes.json');
+                $data = json_decode($jsonString, true);
 
-            foreach ($data as $key => $entry) {
-                if ($entry['meta']!=$entry['arrecadado']) {
-                    $dados = file_get_contents('auxx.json');
-                    $json = json_decode($dados);
+                foreach ($data as $key => $entry) {
+                    if ($entry['meta']!=$entry['arrecadado']) {
+                        $dados = file_get_contents('auxx.json');
+                        $json = json_decode($dados);
 
-                    $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
+                        $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
 
 
-                    $dados_json = json_encode($json, JSON_PRETTY_PRINT);
-                    $arquivo = fopen("auxx.json", "w");
-                    fwrite($arquivo, $dados_json);
-                    fclose($arquivo);
+                        $dados_json = json_encode($json, JSON_PRETTY_PRINT);
+                        $arquivo = fopen("auxx.json", "w");
+                        fwrite($arquivo, $dados_json);
+                        fclose($arquivo);
 
+                    }
                 }
-            }
 
-            $jsonString = file_get_contents('auxx.json');
-            $data = json_decode($jsonString, true);
+                $jsonString = file_get_contents('auxx.json');
+                $data = json_decode($jsonString, true);
 
-            $dados_json = json_encode($data, JSON_PRETTY_PRINT);
-            $arquivo = fopen("doacoes.json", "w");
-            fwrite($arquivo, $dados_json);
-            fclose($arquivo);
+                $dados_json = json_encode($data, JSON_PRETTY_PRINT);
+                $arquivo = fopen("doacoes.json", "w");
+                fwrite($arquivo, $dados_json);
+                fclose($arquivo);
 
 //-----------------------------------------------------------------
 //armazena em um arquivo que contem somente as doações finalizadas.

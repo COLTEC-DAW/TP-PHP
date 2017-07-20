@@ -1,8 +1,9 @@
 <?php
     ob_start(); // Initiate the output buffer
-    require "class_user.inc";
-    require 'class_doacao.inc';
+    require "../usuario/class_user.inc";
+    require '../doacoes/class_doacao.inc';
     require 'class_dados_admin.inc';
+    require '../utils/functions.php';
     session_start();
 
     recebe_armazena_acoes();
@@ -24,57 +25,25 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">TratoFeito</a>
+                <a class="navbar-brand" href="../index.php">TratoFeito</a>
             </div>
 
             <?php
-                $permissao = 0;
-                $eh_admin = 0;
-                if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
-                    if($usuario->login!="admin"){
-               
-                        /*
-                                LEITURA
-                        */
-                        $arquivo = file_get_contents('users.json');
-                        $json = json_decode($arquivo);
-
-                        foreach($json as $user){
-                            if($user->login == $usuario->login && $user->senha == $usuario->senha){
-                                $permissao = 1;
-                            }
-                        }
-                        if ($permissao == 1) {
-                        ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="pedido.php">Fazer Pedido</a></li>
-                            <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-                        <?php
-                        }
-                    }
-                    if($usuario->login=="admin"){
-                        $eh_admin = 1;
-                    ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-
-                    <?php
-                    }   
+                if(Eh_Admin()){
+                ?>
+                    <ul class="nav navbar-nav">
+                        <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+                <?php
                 }
                 else{
-                    $redirect = "index.php";
+                    $redirect = "../index.php";
                     header("location:$redirect");
                 }
-                ?>
+            ?>
         </div>
     </nav>
 

@@ -18,8 +18,12 @@
     }
 
     function Eh_Admin(){
-        if($_SESSION['user']->login == "admin")
-            return true;
+        if(isset($_SESSION['user'])){
+            if($_SESSION['user']->login == "admin")
+                return true;
+            else
+                return false;
+        }
         else
             return false;
     }
@@ -39,6 +43,22 @@
             return "Arquivo selecionado é muito grande.";
         else if($erro == "jpg")
             return "Apenas arquivos JPG, JPEG e PNG são permitidos.";
+        else if($erro == "valor_negativo")
+            return "Você não pode inserir um valor negativo!.";
+        else if($erro == "zero")
+            return "Você não pode inserir esse valor!.";
+        else if($erro == "invalido")
+            return "Login ou Senha incorreto(s)";
+        else if($erro == "admin")
+            return "Não é possível criar uma conta com login igual a admin.";
+        else if($erro == "existe")
+            return "Login já exite.";
+        else if($erro == "valor_excede_limite")
+            return "O valor está acima do limite!";
+        else if($erro == "senha")
+            return "Senha incorreta";
+        else if($erro == "saldo_insuficiente")
+            return "Saldo insuficiente! Adicione dinheiro a sua carteira.";
     }
 
     function Errors(){
@@ -58,6 +78,18 @@
         $_SESSION['error'] = $erro;
         $redirect = $caminho;
         header("location:$redirect");
+    }
+
+    function Retorna_Limite($id){
+        $jsonString = file_get_contents('../doacoes/doacoes.json');
+        $data = json_decode($jsonString, true);
+
+        foreach ($data as $key => $entry) {
+            if ($entry['id']==$id) {
+                $valor_permitido = $entry['meta'] - $entry['arrecadado'];
+                return $valor_permitido;
+            }
+        }
     }
 
         

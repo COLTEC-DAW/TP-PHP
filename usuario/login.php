@@ -1,5 +1,6 @@
 <?php
     ob_start(); // Initiate the output buffer
+    require "../utils/functions.php";
     session_start();
 ?>
 
@@ -21,47 +22,27 @@
             </div>
 
             <?php
-                $permissao = 0;
-                $eh_admin = 0;
-                if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
-                    if($usuario->login!="admin"){
-               
-                        /*
-                                LEITURA
-                        */
-                        $arquivo = file_get_contents('users.json');
-                        $json = json_decode($arquivo);
-
-                        foreach($json as $user){
-                            if($user->login == $usuario->login && $user->senha == $usuario->senha){
-                                $permissao = 1;
-                            }
-                        }
-                        if ($permissao == 1) {
-                        ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="pedido.php">Fazer Pedido</a></li>
-                            <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-                        <?php
-                        }
-                    }
-                    if($usuario->login=="admin"){
-                        $eh_admin = 1;
-                    ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-
+                if(IsLogado("users.json")){
+                ?>
+                    <ul class="nav navbar-nav">
+                        <li><a href="pedido.php">Fazer Pedido</a></li>
+                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
                     <?php
-                    }   
+                }
+                if(Eh_Admin()){
+                ?>
+                    <ul class="nav navbar-nav">
+                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+
+                <?php
                 }
                 else{
                 ?>
@@ -92,15 +73,14 @@
                     </form>
                     <a href = "cadastro.php"><button type="button" class="btn btn-primary">Criar conta</button></a>
                     <?php
-                        if(isset($_SESSION['error'])){
-                            if($_SESSION['error'] == "invalido"){
-                                ?>
-                                <div class="alert alert-warning">
-                                    Login ou Senha incorretos.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
+                        if(Errors()){
+                            $resposta = Errors();
+                            $_SESSION['error'] = "valido";
+                        ?>
+                            <div class="card-panel red lighten-4">
+                                <span><?=$resposta?></span>
+                            </div>
+                        <?php
                         }
                     ?>
                 </div>

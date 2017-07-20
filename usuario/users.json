@@ -4,13 +4,13 @@
         "senha": "123",
         "nome": "lucas",
         "email": "lucaspaulom@hotmail.com",
-        "carteira": 46
+        "carteira": 101
     },
     {
         "login": "raul",
         "senha": "123",
         "nome": "raul",
         "email": "lucaspaulom@hotmail.com",
-        "carteira": 0
+        "carteira": 100
     }
 ]

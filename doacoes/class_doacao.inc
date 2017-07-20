@@ -30,7 +30,7 @@
 
  	function armazena_doacoes_classe($id){
 
-        $arquivo = file_get_contents('doacoes.json');
+        $arquivo = file_get_contents('../doacoes/doacoes.json');
         $json = json_decode($arquivo);
 
         foreach($json as $dados){

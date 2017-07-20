@@ -2,6 +2,7 @@
     ob_start(); // Initiate the output buffer
     session_start();
     require 'class_user.inc';
+    require '../utils/functions.php';
     $login = $_POST["nome"];
     $senha = $_POST["senha"];
     $permissao = 0;
@@ -54,9 +55,7 @@
     if ($permissao == 1) {
         $redirect = "../index.php";
         header("location:$redirect");
-    } else {
-        $_SESSION['error'] = 'invalido';
-        $redirect = "login.php";
-        header("location:$redirect");
-    }
+    } 
+    else 
+        Armazena_Erro('invalido', "login.php");
 ?>

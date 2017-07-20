@@ -1,6 +1,6 @@
 <?php
     ob_start(); // Initiate the output buffer
-    require 'class_doacao.inc';
+    require '../doacoes/class_doacao.inc';
     session_start();
 
     $doacao = $_SESSION['doacao'];
@@ -15,22 +15,22 @@
 /*
         ESCRITA
 */
-    $arquivo = fopen("auxx.json", "w");
+    $arquivo = fopen("../doacoes/auxx.json", "w");
     fwrite($arquivo, "");
 
-    $jsonString = file_get_contents('doacoes.json');
+    $jsonString = file_get_contents('../doacoes/doacoes.json');
     $data = json_decode($jsonString, true);
 
     foreach ($data as $key => $entry) {
         if ($entry['id']!=$controle) {
-            $dados = file_get_contents('auxx.json');
+            $dados = file_get_contents('../doacoes/auxx.json');
             $json = json_decode($dados);
 
             $json[] = array('finalidade'=>$entry['finalidade'], 'meta'=>$entry['meta'], 'autor'=>$entry['autor'], 'aprovado'=>$entry['aprovado'], 'arrecadado'=>$entry['arrecadado'], 'id'=>$entry['id'], 'descricao'=>$entry['descricao'], 'data'=>$entry['data']); 
 
 
             $dados_json = json_encode($json, JSON_PRETTY_PRINT);
-            $arquivo = fopen("auxx.json", "w");
+            $arquivo = fopen("../doacoes/auxx.json", "w");
             fwrite($arquivo, $dados_json);
             fclose($arquivo);
         }
@@ -48,14 +48,14 @@
         }
     }
 
-    $jsonString = file_get_contents('auxx.json');
+    $jsonString = file_get_contents('../doacoes/auxx.json');
     $data = json_decode($jsonString, true);
 
     $dados_json = json_encode($data, JSON_PRETTY_PRINT);
-    $arquivo = fopen("doacoes.json", "w");
+    $arquivo = fopen("../doacoes/doacoes.json", "w");
     fwrite($arquivo, $dados_json);
     fclose($arquivo);
 
-    $redirect = "index.php";
+    $redirect = "../index.php";
     header("location:$redirect");
 ?>

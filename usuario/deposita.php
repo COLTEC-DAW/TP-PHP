@@ -1,6 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
     require 'class_user.inc';
+    require '../utils/functions.php';
     session_start();
 
 
@@ -9,16 +10,12 @@
 /*
         ESCRITA
 */
-    if($valor < 0){
-        $_SESSION['error'] = "valor_negativo";
-        $redirect = "carteira.php";
-        header("location:$redirect");
-    }
-    else if($valor == 0){
-        $_SESSION['error'] = "zero";
-        $redirect = "carteira.php";
-        header("location:$redirect");   
-    }
+    if($valor < 0)
+        Armazena_Erro('valor_negativo', "carteira.php");
+    
+    else if($valor == 0)
+        Armazena_Erro('zero', "carteira.php");  
+    
     else{
         $jsonString = file_get_contents('users.json');
         $data = json_decode($jsonString, true);
@@ -38,7 +35,7 @@
         fclose($arquivo);
 
 
-        $redirect = "index.php";
+        $redirect = "../index.php";
         header("location:$redirect");
     }
 ?>

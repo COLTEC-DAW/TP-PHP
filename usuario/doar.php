@@ -1,14 +1,18 @@
 <?php
     ob_start(); // Initiate the output buffer
     require "../usuario/class_user.inc";
+    require "../utils/functions.php";
     require '../doacoes/class_doacao.inc';
     session_start();
+    if(!IsLogado("users.json")){
+        $redirect = "../index.php";
+        header("location:$redirect");
+    }
     $controle;
 
     if(isset($_SESSION['controle'])){
         $controle = $_SESSION['controle'];
     }
-
 
     if(isset($_POST['id'])){
         $controle = $_POST['id'];
@@ -16,31 +20,6 @@
     }
 
 ?>
-
-<?php
-    $permissao = 0;
-    if(isset($_SESSION["user"])){
-        $usuario = $_SESSION["user"];
-
-        $arquivo = file_get_contents('users.json');
-        $json = json_decode($arquivo);
-
-        foreach($json as $user){
-            if($user->login == $usuario->login && $user->senha == $usuario->senha){
-                $permissao = 1;
-            }
-        }
-        if ($permissao == 0) {
-            $redirect = "index.php";
-            header("location:$redirect");
-        }
-    }
-    else{
-        $redirect = "index.php";
-        header("location:$redirect");
-    }
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -56,47 +35,20 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">TratoFeito</a>
+                <a class="navbar-brand" href="../index.php">TratoFeito</a>
             </div>
-
-            <?php
-                $permissao = 0;
-                $eh_admin = 0;
-                if(isset($_SESSION["user"])){
-                    $usuario = $_SESSION["user"];
-                    if($usuario->login!="admin"){
-               
-                        /*
-                                LEITURA
-                        */
-                        $arquivo = file_get_contents('users.json');
-                        $json = json_decode($arquivo);
-
-                        foreach($json as $user){
-                            if($user->login == $usuario->login && $user->senha == $usuario->senha){
-                                $permissao = 1;
-                            }
-                        }
-                        if ($permissao == 1) {
-                        ?>
-                        <ul class="nav navbar-nav">
-                            <li><a href="pedido.php">Fazer Pedido</a></li>
-                            <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
-                            <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
-                            <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                        </ul>
-                        <?php
-                        }
-                    }
-                }
-                else{
-                    $redirect = "index.php";
-                    header("location:$redirect");                
-                }
+                <?php
+                    $usuario = $_SESSION['user'];
                 ?>
+                <ul class="nav navbar-nav">
+                    <li><a href="pedido.php">Fazer Pedido</a></li>
+                    <li><a href="historico_doacao.php">Histórico de Doações</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
+                    <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
+                    <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
         </div>
     </nav>
 
@@ -118,61 +70,21 @@
                     </form>
 
                     <?php
-                        $jsonString = file_get_contents('../doacoes/doacoes.json');
-                        $data = json_decode($jsonString, true);
-
-
-                        foreach ($data as $key => $entry) {
-                            if ($entry['id']==$controle) {
-                                $valor_permitido = $entry['meta'] - $entry['arrecadado'];
-
-                                echo "Limite de Doação (Valor necessário para que o pedido atenda a meta): ".$valor_permitido;
-                            }
-                        }
+                        $limite = Retorna_Limite($controle);
                     ?>
+                        <div class="card-panel red lighten-4">
+                            <span>Limite de doação: <?=$limite?></span>
+                        </div>
 
                     <?php
-                        if(isset($_SESSION['error'])){
-                            if($_SESSION['error'] == "valor_negativo"){
-                                ?>
-                                <div class="alert alert-danger">
-                                    Você não pode doar um valor negativo!.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
-                            else if($_SESSION['error'] == "valor_excede_limite"){
-                                ?>
-                                <div class="alert alert-danger">
-                                    O valor está acima do limite!.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
-                            else if($_SESSION['error'] == "zero"){
-                                ?>
-                                <div class="alert alert-danger">
-                                    Você não pode doar esse valor!.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
-                            else if($_SESSION['error'] == "senha"){
-                                ?>
-                                <div class="alert alert-danger">
-                                    Senha incorreta!.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
-                            else if($_SESSION['error'] == "saldo_insuficiente"){
-                                ?>
-                                <div class="alert alert-danger">
-                                    Saldo insuficiente! Adicione dinheiro a sua carteira.
-                                </div>
-                                <?php
-                                $_SESSION['error'] = "valido";
-                            }
+                        if(Errors()){
+                            $resposta = Errors();
+                            $_SESSION['error'] = "valido";
+                        ?>
+                            <div class="card-panel red lighten-4">
+                                <span><?=$resposta?></span>
+                            </div>
+                        <?php
                         }
                     ?>
                 </div>

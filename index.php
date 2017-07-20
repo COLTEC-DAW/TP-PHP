@@ -29,15 +29,11 @@
     <nav>
         <div class="container center-align">
             <a class="brand-logo" href="index.php">TratoFeito</a>
-
-
-
             <?php
                 if(IsLogado("usuario/users.json")){
                     $usuario = $_SESSION['user'];
                 ?>
                     <ul class="left">
-                        
                         <li><a href="usuario/pedido.php">Fazer Pedido</a></li>
                         <li><a href="usuario/historico_doacao.php">Histórico de Doações</a></li>
                     </ul>
@@ -49,10 +45,10 @@
                     </ul>
                 <?php
                 }
-                else if($_SESSION["user"]->login=="admin"){
+                else if(Eh_Admin()){
                 ?>
                     <ul class="left">
-                        <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                        <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                     </ul>
                     <ul class="right">
                         <li><a href="usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
@@ -61,11 +57,10 @@
                 <?php
                 }   
                 else{
-                    echo $_SESSION['user'];
                 ?>
                     <ul class="right">
-                        <li><a href="cadastro.php"><span class="glyphicon glyphicon-user"></span>Cadastrar</a></li>
-                        <li><a href="usuario/login.php"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+                        <li><a href="usuario/cadastro.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar</a></li>
+                        <li><a href="usuario/login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
                     </ul>
                 <?php
                 }
@@ -111,7 +106,7 @@
                                         <input type="hidden" name="id" value=<?=$id?>>
                                         <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
                                     </form>
-                                    <form action="pag_doacoes.php" method="post">
+                                    <form action="usuario/pag_doacoes.php" method="post">
                                         <input type="hidden" name="id" value=<?=$id?>>
                                         <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
                                     </form>
@@ -130,7 +125,7 @@
                                             <input type="hidden" name="id" value=<?=$id?>>
                                             <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
                                         </form>
-                                        <form action="pag_doacoes.php" method="post">
+                                        <form action="usuario/pag_doacoes.php" method="post">
                                             <input type="hidden" name="id" value=<?=$id?>>
                                             <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
                                         </form>
@@ -172,7 +167,7 @@
                                 <h3 class="conteudo"><?=$descricao?></h3>
                                 <img src="imagens/<?=$id?>.jpg" class="imagens"> 
                                 <h5 class="conteudo">Meta: <?=$meta?></h5>
-                                <form action="pag_doacoes.php" method="post">
+                                <form action="usuario/pag_doacoes.php" method="post">
                                     <input type="hidden" name="id" value=<?=$id?>>
                                     <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
                                 </form>
