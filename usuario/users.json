@@ -12,5 +12,12 @@
         "nome": "raul",
         "email": "lucaspaulom@hotmail.com",
         "carteira": 100
+    },
+    {
+        "login": "wender",
+        "senha": "123",
+        "nome": "wender",
+        "email": "wender@wender.com",
+        "carteira": 0
     }
 ]
