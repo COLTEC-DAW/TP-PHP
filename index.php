@@ -10,23 +10,24 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-  	<!--Import Google Icon Font-->
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<!--Import materialize.css-->
-  	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.css">
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+      	
+        <!--Import Google Icon Font-->
+      	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      	<!--Import materialize.css-->
+      	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+<body style="background-color: #DBDCDE">
     <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
 
-    <nav>
+    <nav class="navbar">
         <div class="container center-align">
             <a class="brand-logo" href="index.php">TratoFeito</a>
             <?php
@@ -69,8 +70,8 @@
     </nav>
       
     <div class="container center-align">
-		<h3 id="welcome" class="center-align">Bem Vindo(a) !</h3>
-        <div class="card-panel red lighten-2">
+        <div class="card-panel card">
+            <h3 id="welcome" class="center-align">Bem Vindo(a) !</h3>
 			<p id="apresentacao" class="white-text"> Está pensando em fazer um super-projeto inovador que irá mudar o mundo, mas está sem o incentivo financeiro inicial?
 			Quer comprar um caminhão de balas mas não possui dinheiro o sufuciente? Nós podemos te ajudar.
 			O TratoFeito é um site de financiamento coletivo que busca apoiar e incentivar projetos por meio de doações de usuários do site. Crie já sua conta e abra um pedido de doação!
