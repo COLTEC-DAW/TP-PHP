@@ -64,5 +64,16 @@
         "genero": "Evalyn Feest",
         "sistema": "Dr. Ibrahim Thompson V",
         "jogadores": null
+    },
+    {
+        "id": 7,
+        "public": true,
+        "nome": "Mesa de Teste",
+        "mestre": "Shoveler",
+        "endereco": "R. Astolfo, 74, Boa Vista, S\u00e3o Paulo",
+        "sinopse": "Testando a cria\u00e7\u00e3o inicial de uma mesa com uma p\u00e1gina!",
+        "genero": "Teste",
+        "sistema": "Teste",
+        "jogadores": null
     }
 ]

@@ -32,27 +32,27 @@ fclose($arquivo);*/
                 <div class="divider"></div>
                 <!--<h2><strong>WORK IN PROGRESS</strong></h2>
                 <h2>Enquanto você não estava olhando, o faker fez o trabalho. Volte e admire os resultados</h2>-->
-                <form action="criaMesa.php" method="POST" id="formMesa">
+                <form action="criaMesa.php" method="POST">
                     <div class="form-group">
                         <label for="nomeMesa">Nome</label>
-                        <input type="text" class="form-control" id="nomeMesa" placeholder="Nome da Mesa">
+                        <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="Nome da Mesa">
                     </div>
                     <!--Nome do mestre será passado por POST-->
                     <div class="form-group">
                         <label for="enderecoMesa">Endereço</label>
-                        <input type="text" class="form-control" id="enderecoMesa" placeholder="R. Astolfo, 54 - Bela Vista, São Paulo">
+                        <input type="text" class="form-control" id="enderecoMesa" name="enderecoMesa" placeholder="R. Astolfo, 54 - Bela Vista, São Paulo">
                     </div>
                     <div class="form-group">
                         <label for="generoMesa">Gênero</label>
-                        <input type="text" class="form-control" id="generoMesa" placeholder="Gênero da Mesa">
+                        <input type="text" class="form-control" id="generoMesa" name="generoMesa" placeholder="Gênero da Mesa">
                     </div>
                     <div class="form-group">
                         <label for="sistemaMesa">Sistema</label>
-                        <input type="text" class="form-control" id="sistemaMesa" placeholder="Sistema da Mesa">
+                        <input type="text" class="form-control" id="sistemaMesa" name="sistemaMesa" placeholder="Sistema da Mesa">
                     </div>
                     <div class="form-group">
                         <label for="sinopseMesa">Sinopse</label>
-                        <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
+                        <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>

@@ -11,18 +11,18 @@ class Mesa {
     var $genero;
     var $sistema;
     var $jogadores; //Vetor dos IDs dos usuários membros da mesa
-    /*
+    
     function __construct($nome, $mestre, $endereco, $sinopse, $genero, $sistema){
-        $this->id = $numMesas;
-        $numMesas++;
         $this->nome = $nome;
+        $this->id = $this->mesaGetNewId();
+        $this->public = TRUE;
         $this->mestre = $mestre;
         $this->endereco = $endereco;
         $this->sinopse = $sinopse;
         $this->genero = $genero;
         $this->sistema = $sistema;
     }
-    */
+    
     function mesaGetNewId(){
         /*
         $arquivo = fopen("DB/numerosDB.json", "r");
@@ -39,7 +39,7 @@ class Mesa {
         return $meta->numeroMesas;
     }
     //Construct provisório com o faker
-    function __construct(){
+    /*function __construct(){
         require_once 'Faker/src/autoload.php';
         $faker = Faker\Factory::create();
         $this->id = $this->mesaGetNewId();
@@ -50,7 +50,7 @@ class Mesa {
         $this->sinopse = $faker->text;
         $this->genero = $faker->name;
         $this->sistema = $faker->name;
-    }
+    }*/
     function mostraMesa($mesa){ //Exibição resumida da mesa: apenas nome, endereço e sinopse
         ?>
         <h3><?=$mesa->nome?></h3>
