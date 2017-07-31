@@ -7,50 +7,55 @@
 }
 
 nav .brand-logo {
+    padding: 10px !important;
     float: left;
     position: inherit;
 }
 
-.botao{
+.botao {
     width: 50%;
     margin-bottom: 2%;
     text-align: center !important;
 }
 
-.btnform{
+.btnform {
     width: 15%;
     margin-bottom: 1%;
     text-align: center !important;
 }
 
-.doacoes{
-}
+.doacoes {}
 
-.container{
-}
+.container {}
 
-#apresentacao{
+#apresentacao {
     text-align: justify;
 }
 
-.imagens{
-	width: 100px;
-	height: 100px;
- 	border-radius: 50%;
+.imagens {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
-.card{
-   background-color: #51B1A5;
+nav .card {
+    background-color: #51B1A5;
+    padding: 2% !important;
 }
 
-.navbar{
-   background-color: #51B1A5; 
+i {
+    height: 50% !important;
 }
-.texto{
+
+.navbar {
+    background-color: #51B1A5;
+}
+
+.texto {
     padding-top: 45px;
 }
 
-body{
+body {
     background-color: #DBDCDE;
     display: flex;
     min-height: 100vh;

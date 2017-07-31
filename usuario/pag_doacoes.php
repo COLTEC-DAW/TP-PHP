@@ -15,44 +15,51 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?version=1">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	
+    <!--Import Google Icon Font-->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<!--Import materialize.css-->
+  	<link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">TratoFeito</a>
-            </div>
+    <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+    <nav class="navbar">
+        <div class="container">
+            <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
-                if(IsLogado("users.json")){
-                    $usuario = $_SESSION['user'];
-                ?>
-                    <ul class="nav navbar-nav">
+                if(IsLogado("../usuario/users.json")){
+                    $usuario = $_SESSION["user"];
+                ?>       
+                    <ul class="left hide-on-med-and-down">
                         <li><a href="pedido.php">Fazer Pedido</a></li>
                         <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
-                        <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
-                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
+                        <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
+                        <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                     </ul>
-                <?php
+                    <?php
                 }
                 else if(Eh_Admin()){
                 ?>
-                    <ul class="nav navbar-nav">
-                        <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    <ul class="left">
+                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="right">
                         <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                     </ul>
+
                 <?php
-                }
+                } 
                 else{
                     $redirect = "../index.php";
                     header("location:$redirect");
@@ -62,29 +69,35 @@
     </nav>
       
     <div class="container">
-        <h1><?=$doacao_atual->descricao?></h1>
-        <h2>Autor: <?=$doacao_atual->autor?></h2>
-        <h3>Sobre:</h3>
-        <div class="col-sm-12">
-            <p><?=$doacao_atual->sobre?></p>
+        <div class="card z-depth-3">
+            <h1 class="center-align"><?=$doacao_atual->descricao?></h1>
+            <p><b>Autor:</b> <?=$doacao_atual->autor?></p>
+            <p><b>Sobre:</b></p>
+            <div class="col-sm-12">
+                <p><?=$doacao_atual->sobre?></p>
+            </div>
+            <p><b>Meta:</b> <?=$doacao_atual->meta?></p>
+            <?php
+            $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
+            $mes = $doacao_atual->data[5].$doacao_atual->data[6];
+            $dia = $doacao_atual->data[8].$doacao_atual->data[9];
+            ?>
+            <p><b>Data Limite:</b> <?=$dia?>/<?=$mes?>/<?=$ano?></p>
+
+            <?php
+            if(Eh_Admin()){
+            ?>
+                <p><ins>Esperando Aprovação</ins></p>
+            <?php
+            }
+            else{
+            ?>
+                <p><b>Arrecadado:</b> <?=$doacao_atual->valor_acumulado?></p>
+            <?php
+            }
+            ?>
         </div>
-        <h2>Meta: <?=$doacao_atual->meta?></h2>
-        <?php
-        if(Eh_Admin()){
-        ?>
-            <h2>Esperando Aprovação</h2>
-        <?php
-        }
-        else{
-        ?>
-            <h2>Arrecadado: <?=$doacao_atual->valor_acumulado?></h2>
-        <?php
-        }
-        $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
-        $mes = $doacao_atual->data[5].$doacao_atual->data[6];
-        $dia = $doacao_atual->data[8].$doacao_atual->data[9];
-        ?>
-        <h2>Data Limite: <?=$dia?>/<?=$mes?>/<?=$ano?></h2>
     </div>
 </body>
+<?php include '../footer.inc' ?>
 </html>

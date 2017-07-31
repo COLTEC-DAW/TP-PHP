@@ -1,6 +1,4 @@
 <?php
-
-
     function IsLogado($caminho){
         if(isset($_SESSION["user"])){
             $usuario = $_SESSION["user"];
@@ -92,5 +90,43 @@
         }
     }
 
-        
+    function Pega_Formato_Imagem($id, $caminho){
+        $arquivo = file_get_contents($caminho);
+        $json = json_decode($arquivo);
+
+        foreach($json as $dados){
+            if($dados->id == $id){
+                return $dados->formato;
+            }
+        }
+
+    }
+
+ 	function Guarda_Doacao($id){
+
+        $arquivo = file_get_contents('../doacoes/doacoes.json');
+        $json = json_decode($arquivo);
+
+        foreach($json as $dados){
+            if($dados->id == $id){
+                
+                $finalidade = $dados->finalidade;
+                $meta = $dados->meta;
+                $autor = $dados->autor;
+                $aprovado = $dados->aprovado;
+                $arrecadado = $dados->arrecadado;
+                $id_arq = $dados->id;
+                $sobre = $dados->descricao;
+                $data_arq = $dados->data;
+
+                $doacao_atual = new Doacao($finalidade, $meta, $autor, $aprovado, $id_arq);
+                $doacao_atual->set_arrecadado($arrecadado);
+                $doacao_atual->set_sobre($sobre);
+                $doacao_atual->set_data($data_arq);
+
+                $_SESSION["doacao_atual"] = $doacao_atual;
+            }
+        }
+ 	}
+    
 ?>

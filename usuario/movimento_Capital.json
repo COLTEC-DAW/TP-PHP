@@ -1,30 +1,9 @@
 [
     {
-        "valor_doado": "55",
-        "para_quem": "903625302",
+        "valor_doado": "12",
+        "para_quem": "1655763128",
         "fez_doacao": "lucas",
         "recebeu_doacao": "lucas",
         "login_doador": "lucas"
-    },
-    {
-        "valor_doado": "50",
-        "para_quem": "903625302",
-        "fez_doacao": "raul",
-        "recebeu_doacao": "lucas",
-        "login_doador": "raul"
-    },
-    {
-        "valor_doado": "99",
-        "para_quem": "737795032",
-        "fez_doacao": "lucas",
-        "recebeu_doacao": "raul",
-        "login_doador": "lucas"
-    },
-    {
-        "valor_doado": "900",
-        "para_quem": "737795032",
-        "fez_doacao": "raul",
-        "recebeu_doacao": "raul",
-        "login_doador": "raul"
     }
 ]

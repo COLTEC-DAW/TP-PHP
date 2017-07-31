@@ -74,6 +74,17 @@
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 rename( $_FILES["fileToUpload"]["name"], '../imagens/'.$id.".".$imageFileType);
+
+                $imagens = file_get_contents('../imagens/imagens.json');
+                $json = json_decode($imagens);
+                
+                $json[] = array('id'=>$id, 'formato'=>$imageFileType); 
+
+                $dados_json = json_encode($json, JSON_PRETTY_PRINT);
+                $arquivo = fopen("../imagens/imagens.json", "w");
+                fwrite($arquivo, $dados_json);
+                fclose($arquivo);                
+
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }

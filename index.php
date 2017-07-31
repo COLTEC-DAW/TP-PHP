@@ -75,8 +75,8 @@
             <div class="col s16 m16">
               <div class="card large center-align">
                 <div class="card-image ">
-                  <img src="imagens/help.jpg" width="40px">
-                  <span class="card-title">Bem Vindo(a)</span>
+                    <img src="imagens/help.jpg" width="40px">
+                    <span class="card-title">Bem Vindo(a)</span>
                 </div>
                 <div class="card-content white-text" id="apresentacao">
                   <p class="texto">Está pensando em fazer um super-projeto inovador que irá mudar o mundo, mas está sem o incentivo financeiro inicial?
@@ -86,6 +86,7 @@
               </div>
             </div>
         </div>
+        <h2>Pedidos para avaliação</h2>        
         <?php
             if(IsLogado("usuario/users.json")){//printa doações disponíveis
                 $arquivo = file_get_contents('doacoes/doacoes.json');
@@ -109,7 +110,10 @@
                                 ?>
                                 <div class="card-panel doacoes col s4 offset-s1 hoverable">
                                     <h3 class="conteudo truncate"><?=$descricao?></h3>
-                                    <img src="imagens/<?=$id?>.jpg" class="imagens"> 
+                                    <?php
+                                        $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
+                                    ?>
+                                    <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
                                     <h5 class="conteudo">Meta: <?=$meta?></h5>
                                     <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
                                     <form action="usuario/doar.php" method="post">
@@ -128,7 +132,10 @@
                                     ?>
                                     <div class="card-panel doacoes col s4 push-s2">
                                         <h3 class="conteudo truncate"><?=$descricao?></h3>
-                                        <img src="imagens/<?=$id?>.jpg" class="imagens"> 
+                                        <?php
+                                            $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
+                                        ?>
+                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
                                         <h5 class="conteudo">Meta: <?=$meta?></h5>
                                         <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
                                         <form action="usuario/doar.php" method="post">
@@ -175,7 +182,10 @@
                             ?>
                             <div class="card-panel doacoes col s6">
                                 <h3 class="conteudo"><?=$descricao?></h3>
-                                <img src="imagens/<?=$id?>.jpg" class="imagens"> 
+                                <?php
+                                    $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
+                                ?>
+                                <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
                                 <h5 class="conteudo">Meta: <?=$meta?></h5>
                                 <form action="usuario/pag_doacoes.php" method="post">
                                     <input type="hidden" name="id" value=<?=$id?>>
