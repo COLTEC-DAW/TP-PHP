@@ -54,6 +54,17 @@ fclose($arquivo);*/
                         <label for="sinopseMesa">Sinopse</label>
                         <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="privacidade">Privacidade</label>
+                        <div id="privacidade">
+                            <label class="radio-inline">
+                                <input type="radio" name="privacidadeMesa" id="privacidade1" value="<?= true ?>">Pública
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="privacidadeMesa" id="privacidade2" value="<?= false ?>">Privada
+                            </label>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
             </div>

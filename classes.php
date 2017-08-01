@@ -12,10 +12,10 @@ class Mesa {
     var $sistema;
     var $jogadores; //Vetor dos IDs dos usuários membros da mesa
     
-    function __construct($nome, $mestre, $endereco, $sinopse, $genero, $sistema){
+    function __construct($nome, $public, $mestre, $endereco, $sinopse, $genero, $sistema){
         $this->nome = $nome;
         $this->id = $this->mesaGetNewId();
-        $this->public = TRUE;
+        $this->public = $public;
         $this->mestre = $mestre;
         $this->endereco = $endereco;
         $this->sinopse = $sinopse;

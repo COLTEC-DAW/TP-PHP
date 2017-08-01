@@ -75,5 +75,16 @@
         "genero": "Teste",
         "sistema": "Teste",
         "jogadores": null
+    },
+    {
+        "id": 8,
+        "public": "1",
+        "nome": "Teste Final de Mesa",
+        "mestre": "Shoveler",
+        "endereco": "R. do Fim, 42, Jo\u00e3o da Neves, N\u00e1rnia",
+        "sinopse": "Mesa de teste in\u00fatil, utilizada para testes e que ser\u00e1 exclu\u00edda dentro de pouco tempo.",
+        "genero": "Full Troll",
+        "sistema": "Trollagem",
+        "jogadores": null
     }
 ]
