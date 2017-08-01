@@ -26,31 +26,46 @@
 <main>
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar">
-        <div class="container">
+
+    <nav class="navbar indigo darken-2">
+        <div class="container center-align">
+            <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
-                if(IsLogado("../usuario/users.json")){
-                    $usuario = $_SESSION["user"];
-                ?>       
-                    <ul class="left hide-on-med-and-down">
-                    <a class="brand-logo" href="../index.php">TratoFeito</a>
-                        
+                if(IsLogado("users.json")){
+                    $usuario = $_SESSION['user'];
+                ?>
+                    <ul class="left">
                         <li><a href="pedido.php">Fazer Pedido</a></li>
                         <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                     </ul>
 
-                    <ul class="right hide-on-med-and-down">
+                    <ul class="right">
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                         <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                     </ul>
-                    <?php
+                <?php
                 }
+                else if(Eh_Admin()){
+                ?>
+                    <ul class="left">
+                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="right">
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+
+                <?php
+                }   
                 else{
-                    $redirect = "../index.php";
-                    header("location:$redirect");
+                ?>
+                    <ul class="right">
+                        <li><a href="cadastro.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar</a></li>
+                        <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
+                    </ul>
+                <?php
                 }
-            ?>
+                ?>
         </div>
     </nav>
 
@@ -83,7 +98,7 @@
                         </div>
 
                         <div class="file-field input-field">
-                            <div class="btn">
+                            <div class="btn indigo">
                                 <span>File</span>
                                 <input type="file" name="fileToUpload" id="fileToUpload" required>
                             </div>
@@ -93,7 +108,7 @@
                         </div>
 
                         <div class=" center-align">
-                            <input type="submit" name="Mandar" class="btn btn-default">
+                            <input type="submit" name="Mandar" class="btn btn-default indigo">
                         </div>
                     </form>
                 </div>

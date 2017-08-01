@@ -43,15 +43,14 @@
 
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar">
+    <nav class="navbar indigo darken-2">
         <div class="container">
+            <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
                 if(IsLogado("../usuario/users.json")){
                     $usuario = $_SESSION["user"];
                 ?>       
                     <ul class="left hide-on-med-and-down">
-                    <a class="brand-logo" href="../index.php">TratoFeito</a>
-                        
                         <li><a href="pedido.php">Fazer Pedido</a></li>
                         <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                     </ul>
@@ -63,6 +62,17 @@
                     </ul>
                     <?php
                 }
+                else if(Eh_Admin()){
+                ?>
+                    <ul class="left">
+                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="right">
+                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    </ul>
+
+                <?php
+                } 
                 else{
                     $redirect = "../index.php";
                     header("location:$redirect");
@@ -71,15 +81,21 @@
         </div>
     </nav>
 
-    <div class="center-align card-panel doacoes col s4 offset-s1 hoverable">
-        <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
-        <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
-        <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>
-        <h5 class="conteudo">Arrecadado: <?=$dados_da_doacao->valor_acumulado?></h5>
-        <h5 class="conteudo">Sobre: <?=$dados_da_doacao->sobre?></h5>       
-    </div>
-
     <div class="container">
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div class="center-align card-panel doacoes pink lighten-3">
+                <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
+                <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
+                <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>
+                <h5 class="conteudo">Arrecadado: <?=$dados_da_doacao->valor_acumulado?></h5>
+                <h5 class="conteudo">Sobre: <?=$dados_da_doacao->sobre?></h5>       
+            </div>        
+        </div>        
+    </div>    
+
+
+
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-12">

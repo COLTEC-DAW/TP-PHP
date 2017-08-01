@@ -4,7 +4,7 @@
         "senha": "123",
         "nome": "lucas",
         "email": "lucaspaulom@hotmail.com",
-        "carteira": 89
+        "carteira": 39
     },
     {
         "login": "raul",
@@ -18,6 +18,13 @@
         "senha": "123",
         "nome": "wender",
         "email": "wender@wender.com",
+        "carteira": 0
+    },
+    {
+        "login": "loginza1",
+        "senha": "123",
+        "nome": "J\u00e1o",
+        "email": "e@email.com",
         "carteira": 0
     }
 ]

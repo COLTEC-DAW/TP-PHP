@@ -23,10 +23,10 @@
 </head>
 <body>
 <main>
-    <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
 
-    <nav class="navbar">
+    <nav class="navbar indigo darken-4">
         <div class="container">
             <a class="brand-logo" href="../index.php">TratoFeito</a>
             <ul class="right">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class=" center-align">
-                    <input type="submit" name="Enviar" class="btn btn-default">
+                    <input type="submit" name="Enviar" class="btn btn-default btnform indigo">
                 </div>
             </form>
             <?php

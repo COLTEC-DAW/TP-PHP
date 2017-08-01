@@ -7,7 +7,7 @@
 }
 
 nav .brand-logo {
-    padding: 10px !important;
+    padding-right: 1%;
     float: left;
     position: inherit;
 }
@@ -24,10 +24,6 @@ nav .brand-logo {
     text-align: center !important;
 }
 
-.doacoes {}
-
-.container {}
-
 #apresentacao {
     text-align: justify;
 }
@@ -41,6 +37,10 @@ nav .brand-logo {
 nav .card {
     background-color: #51B1A5;
     padding: 2% !important;
+}
+
+nav{
+    margin-bottom: 2%;
 }
 
 i {
@@ -64,4 +64,15 @@ body {
 
 main {
     flex: 1 0 auto;
+}
+
+#pedido{
+    padding: 2%;
+}
+
+#imgpedido{
+    width: 20%;
+    height: 20%;
+    display: block;
+    margin: 0 auto;
 }

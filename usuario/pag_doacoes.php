@@ -27,10 +27,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-
+<main>
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar">
+    <nav class="navbar indigo darken-2">
         <div class="container">
             <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
@@ -69,8 +69,16 @@
     </nav>
       
     <div class="container">
-        <div class="card z-depth-3">
+        <div class="card z-depth-3 pink lighten-3" id="pedido">
             <h1 class="center-align"><?=$doacao_atual->descricao?></h1>
+            <?php
+                $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
+                $link = "../imagens/".$id.".".$formato;
+            ?>
+            <div>
+                <img src="<?=$link?>" id="imgpedido">
+            </div>
+            
             <p><b>Autor:</b> <?=$doacao_atual->autor?></p>
             <p><b>Sobre:</b></p>
             <div class="col-sm-12">
@@ -98,6 +106,8 @@
             ?>
         </div>
     </div>
+</main>
 </body>
+
 <?php include '../footer.inc' ?>
 </html>

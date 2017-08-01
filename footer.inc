@@ -1,4 +1,4 @@
-<footer class="page-footer small">
+<footer class="page-footer small indigo darken-4">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -10,12 +10,12 @@
         <ul>
           <li><a class="grey-text text-lighten-3" href="https://github.com/arthurbrito99">Arthur B.</a> - arthur.brito1999@outlook.com</li>
           <li><a class="grey-text text-lighten-3" href="https://github.com/LucasPMM">Lucas P.</a> - lucaspaulom@hotmail.com</li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/wendervitor">Wender V.</a> - email</li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/wendervitor">Wender V.</a> - vitornogueira502@gmail.com</li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="footer-copyright">
+  <div class="footer-copyright indigo darken-2">
     <div class="container">
     © Coltec-UFMG 2017 
     </div>

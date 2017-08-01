@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
 
-    <nav class="navbar">
+    <nav class="navbar indigo darken-4">
         <div class="container">
             <a class="brand-logo" href="../index.php">TratoFeito</a>
             <ul class="right">
@@ -35,7 +35,7 @@
     </nav>
 
     <div class="container center-align">
-        <div class="col-md-12">
+        <div class="col l2">
             <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
                 <div class="input-field">
@@ -49,10 +49,10 @@
                 </div>
 
                 <div class=" center-align">
-                    <input type="submit" name="Entrar" class="btn btn-default btnform">
+                    <input type="submit" name="Entrar" class="btn btn-default btnform indigo">
                 </div>
             </form>
-            <a href = "cadastro.php"><button type="button" class="btn">Criar conta</button></a>
+            <a href = "cadastro.php"><button type="button" class="btn btn-default indigo">Criar conta</button></a>
             <?php
                 if(Errors()){
                     $resposta = Errors();
