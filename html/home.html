@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="main">
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fresca" rel="stylesheet">
+
+        <!--Adiciona jQuery-->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!--Adiciona Angular-->
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../node_modules/angular-route/angular-route.min.js"></script>
+
+        <!--Adiciona app.js-->
+        <script src="../js/app.js"></script>
+
+        <!-- Adiciona CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+
+        <!--Importa Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Importa materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+        <!--Mobile Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+        <!-- Nav Bar -->
+        <div class="navbar-fixed">
+            <nav class="nav-extended light-blue z-depth-2">
+                <div class="nav-wrapper light-blue">
+                    <div class="row">
+                        <div class="container nav-container">
+                            <!--Logo-->
+                            <div id="logo-wrapper" class="col l3 hide-on-med-and-down">
+                                <a href="#" class="brand-logo" id="logo">teach.me</a>
+                            </div>
+
+                            <!--Botao Hamburger-->
+                            <a id="hamburguer" href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                            <!--Search Bar-->
+                            <div class="col s10 m11 l6">
+                                <form>
+                                    <div id="inputWrapper" class="input-field light-blue lighten-1">
+                                        <input id="search" type="search" placeholder="Pesquisar" required>
+                                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!--User Menu-->
+                            <div class="col l3 hide-on-med-and-down">
+                                <ul id="nav-user" class="right">
+                                    <!-- TESTANDO MODAL PARA MANDAR CPF E MELHORAR A CONTA PARA SENSEI -->
+                                    <li>
+                                        <a id="virar-sensei" href="#modal1" class="light-blue darken-3 waves-effect waves-light btn-large" onclick="return false;">
+                                            <!-- Graduation Cap icon by Icons8 -->
+                                            <img class="icon icons8-Graduation-Cap" width="24" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABZ0lEQVRIS9WUUVEDQRBEuxWAA0ABOCA4wAFBAUFBEgUEBQkOkBAcEAfBAShoqq/mqLDZu92jSBXM5+3e9GzPmyEOHDxwfvwdAUkXAB7ixfckX2teX3yBpFMAUwDjJOEKwJzktk+oU0DSMYA7ALNCpT5/JPmeu5cVkOSfnNwiNeHkC5Lz9PI3AUm2wXbYlp+E7ZqRfGp/bgQkjaKBbuRvhAEwCOtdgQWA81J2kjVguOApyaucRfb/pCTUcf4WUCx97mL6mjwBcFQp9BFNboiTpF6BuGSCLOKm94XJMUFfmBYFJJmGsZsUg+bKbhIVk2JitgHJkuRZ1QvaCgA8Bw1OYsIMgmPiVRHiXh/XrSVDBXw/O0S5YWx7WmNR06QkbNttfDMle8M4RMCDUpyJpIANyb1B7cLUBK0HiGwAjHILr7RN3eTLAqYvbvKgbbqbMBD0EvTzW9tcsW1cGeW+Aop7pXKSO6/9f4FPmY+bGS4ZgZ0AAAAASUVORK5CYII=">
+                                            Virar Sensei
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Corpo da Pagina -->
+        <div class="container">
+            <!-- FAB -->
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large deep-orange accent-2" href="#!/create-class">
+                    <i class="large material-icons">add</i>
+                </a>                
+            </div>
+                
+            </div>
+            
+            <div class="container" id="corpo">
+                <div ng-view></div>                
+            </div>
+        </div>
+
+
+        <!--Adiciona materialize.js-->
+        <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <!-- Adiciona JS -->
+        <script type="text/javascript" src="../js/home.js"></script>
+    </body>
+</html>

@@ -1,90 +1,21 @@
-# Desenvolvimento de Aplicações Web
+# teach.me
 
-**Data de Apresentação: 24/08/2017**
+## Criadores
+- Eduardo Augusto Militão Fernandes
+- Lucas Macedo Bruzzi
+- Matheus Lopes Coelho
 
-**Grupo: Três alunos**
+## Nosso Propósito
+O **teach.me** nasceu do desejo de unificar o desejo das pessoas de passar seu conhecimento adiante e, de quebra, ganhar dinheiro sem compromisso e sem contrato. Pensando nisso, demos à luz a ideia de um sistema de aulas particulares ao melhor estilo "freelancer", em que o professor tem total liberdade de criar suas aulas, dá-las onde quiser e cobrar o quanto desejar. Ao mesmo tempo, o aluno pode se inscrever em quantas aulas precisar, negociar pessoalmente com o seu professor e, ao final de tudo, avaliá-lo, o recomendando ou não para outros alunos.
 
-**Valor: 17 pontos**
-
-## Desenvolvimento de um Sistema de Informação
-
-A web abriu um nova forma de interação entre as pessoas. Entre suas características, a web se destaca por sua alta escalabilidade e acessibilidade. Não há nenhuma outra plataforma tecnológica no mundo que permite a interação entre seus usuários nos moldes como acontece na web. Tal estrutura permitiu que a sociedade, de forma autônoma, se engajasse em torno de causas importantes porém relegados por seus representantes, tais como: mobilidade urbana, assistência social, organização e promoção de eventos, etc.
-
-Este trabalho tem como objetivo mostrar ao aluno que os conhecimentos adquiridos na disciplina de Desenvolvimento de Aplicações Web podem ser utilizados em pról de tais causas. Mais especificamente, espera-se que através deste trabalho o aluno identifique um problema real vivenciado por ele e proponha uma solução para este problema envolvendo o desenvolvimento de um sistema web.
-
-## Temas de Trabalho
-
-Segue abaixo uma lista de possíveis temas de trabalho:
-
-* Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
-* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)
-* Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
-* Causas sociais (Plataformas para gestão de doações)
-
-É importante ressaltar que essa lista é **sugestiva**. Isto é, o grupo pode selecionar uma proposta fora da lista descrita acima.
-
-## Restrições
-
-Independentemente do tema escolhido pelo grupo, seu trabalho deverá cumprir **obrigatóriamente** as seguintes restrições:
-
-1. **Sistema de identificação dos usuários:** Seu sistema deverá ser capaz de identificar unicamente seus usuários através de um mecanismo de login.
-
-2. **Suporte a pelo menos dois atores distintos:** Seu sistema deverá suportar a atuação de pelo menos dois atores distintos com suas respectivas ações (ex.: usuário e administrador).
-
-3. **Solução deverá conter pelo menos quatro requisitos:** Sua solução deverá implementar pelo menos quatro requisitos no formato de funcionalidades.
-
-4. **Armazenamento no formato de arquivos texto:** Seu sistema deverá armazenar suas informações no utilizando arquivos texto.
-	* É claro que você poderá utilizar formas automatizadas para recuperar e armazenar os dados, tais como formatos estruturados de armazenamento (XML ou JSON).
-
-## Cronograma
-
-O trabalho será avaliado parcialmente, conforme cronograma definido abaixo. Essa organização permite ao aluno não se perder durante o desenvolvimento do sistema, uma vez que provê uma estimativa confiável de cumprimento do prazo do trabalho.
-
-| Data       | O que deve ser entregue?                        | Valor     | TAG   |
-|------------|-------------------------------------------------|-----------|-------|
-| 27/06/2017 | Grupo, Tema & Requisitos                        | --        | --    |
-| 04/07/2017 | Sprint 01: Protótipos HTML de dois requisitos   | 02 pontos | HTML  |
-| 13/07/2017 | Sprint 02: Implementação do requisito R1        | 02 pontos | R1    |
-| 01/08/2017 | Sprint 03: Implementação dos requisitos R2 e R3 | 04 pontos | R2/R3 |
-| 08/08/2017 | Sprint 04: Implementação do requisito R4        | 02 pontos | R4    |
-| 17/08/2017 | Sprint 05: Implementação da autenticação        | 02 pontos | Auth  |
-| 24/08/2017 | Apresentação do trabalho                        | 05 pontos | 1.0   |
-
-
-* **27/06/2017:** O grupo deverá fazer um fork deste repositório e alterar o `README.md` do projeto de forma a incluir os componmentes do grupo, qual foi o tema selecionado, e quais requisitos seu sistema irá implementar.
-* **04/07/2017:** O grupo deverá implementar o protótipo em HTML de dois requisitos selecionados anteriormente. É importante que o grupo converse com o professor para decidir quais requisitos são mais fáceis de se prototipar e implementar primeiro.
-* **13/07/2017:** O grupo deverá implementar pelo menos um dos requisitos prototipados anteriormente.
-* **01/08/2017:** O grupo deverá implementar pelo menos dois requisitos do sistema, somando três requisitos implementados no total.
-* **08/08/2017:** O grupo deverá ter implementado todos os requisitos do sistema.
-* **17/08/2017:** O grupo deverá ter implementado os mecanimos de autenticação e identificação dos usuários do sistema.
-* **24/08/2017:** Apresentação do trabalho final em sala de aula.
-
-As entregas deverão ser marcadas com tags do próprio Git, indicadas na tabela acima. Leia sobre tags [aqui](http://imasters.com.br/artigo/21127/software-livre/como-trabalhar-com-tags-no-git/?trace=1519021197&source=single).
-
-## Apresentação
-
-A apresentação do trabalho ocorrerá no dia **24/08/2017**. Você deverá apresentar seu trabalho para seus colegas de turma junto de uma **banca de avaliação** que irá avaliar seu trabalho.
-
-A banca de avaliação contará, a princípio, com **um especialista no desenvolvimento de software** que irá avaliar principalmente os aspectos internos do sistema (código, estruturação, etc.) e **um usuário comum**, que irá avaliar principalmente os aspectos externos do sistema (design, usabilidade, etc.).
-
-A apresentação será dividida em duas partes:
-
-* **Explicação:** Apresentação sobre o sistema, principais funcionalidades, o que foi implementado, o que foi usado, etc. etc.
-* **Demonstração:** Você irá executar o seu sistema e mostrar o funcionamento dos requisitos implementados.
-
-## Pilha de Tecnologias
-
-Você estará livre para utilizar as bibliotecas e frameworks que considerar necessários. O uso de tais recursos inclusive é incentivado!!
-
-Contudo, o desenvolvimento do trabalho **deve** englobar, de alguma forma, os seguintes conceitos:
-
-* HTML
-* CSS/SCSS
-* JavaScript
-* PHP: Classes, funções, etc.
-* PHP: Sessões e Cookies
-* PHP: Arquivos
-
-## Composição dos grupos
-
-Os grupos deverão, **obrigatóriamente**, ser compostos por alunos das duas extintas subturmas (103 e 106).
+## Requisitos
+1. **Dois tipos de usuários diferentes:** sensei e gafanhoto;
+2. **Criação de aulas:** o usuário sensei tem a possibilidade de criar os objetos "aulas", que possuirão os atributos:
+	- Nome
+	- Matéria
+	- Localização
+	- Data
+	- Preço
+- **Obs:** a "matéria" da aula não está restrito à matérias escolares, e sim a todo tipo de conhecimento que alguém queira passar aos gafanhotos. 
+3. **Inscrição e Avaliação:** o usuário ganhafoto tem a possibilidade de se inscrever nas aulas e avaliar o seu sensei.
+4. **Seguir o Sensei:** os usuários podem seguir os seus senseis favoritos, e seriam notificados quando este criar um nova aula. Haverá o feed com as aulas dos senseis que o usuários segue.
