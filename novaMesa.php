@@ -58,10 +58,10 @@ fclose($arquivo);*/
                         <label for="privacidade">Privacidade</label>
                         <div id="privacidade">
                             <label class="radio-inline">
-                                <input type="radio" name="privacidadeMesa" id="privacidade1" value="<?= true ?>">Pública
+                                <input type="radio" name="privacidadeMesa" id="privacidade1" value="1">Pública
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="privacidadeMesa" id="privacidade2" value="<?= false ?>">Privada
+                                <input type="radio" name="privacidadeMesa" id="privacidade2" value="0">Privada
                             </label>
                         </div>
                     </div>

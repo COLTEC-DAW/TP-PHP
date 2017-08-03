@@ -14,13 +14,19 @@
     $sinopse = $_POST["sinopseMesa"];
     $privacidade = $_POST["privacidadeMesa"];
 
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
-    //$novaMesa = new Mesa($nome, $privacidade, "Shoveler", $endereco, $sinopse, $genero, $sistema);
+    if($privacidade == "1"){
+        $privacidade = true;
+    }
+    else{
+        $privacidade = false;
+    }
 
-    var_dump($privacidade);
-    /*array_push($todasAsMesas, $novaMesa);
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    $novaMesa = new Mesa($nome, $privacidade, "Shoveler", $endereco, $sinopse, $genero, $sistema);
+    
+    array_push($todasAsMesas, $novaMesa);
     $arquivo = fopen("DB/dbMesas.json", "w");
     fwrite($arquivo, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
     fclose($arquivo);
-    header("location: index.php");*/
+    header("location: index.php");
 ?>
