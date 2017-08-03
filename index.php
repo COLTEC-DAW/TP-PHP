@@ -24,7 +24,7 @@ require "INC/funcoes.inc";?>
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
                 <div class="title">
-                    <h2 class="center">Mesas na área:</h2>
+                    <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>
                 <?php $todasAsMesas = listaMesas(); 
                 foreach ($todasAsMesas as $mesinha) {
