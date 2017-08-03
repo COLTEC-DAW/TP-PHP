@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="css/aluno.css" type="text/css" rel="stylesheet" />
+	<script src="js/aluno.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -21,6 +22,26 @@
 		$calendar = new Calendar();
 		$calendar->get();
 	?>
+			<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Eventos do dia</h4>
+			</div>
+			<div class="modal-body">
+				<p>Hoje tem prova de Mat.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+			</div>
+
+		</div>
+	</div>
 	<div id="calendar">
        <div class="box">
        		<div class="header">
@@ -73,4 +94,9 @@
 
 
 </body>
+	<script>
+		$("#calendar ul.dates li").click(function(){
+			$('#myModal').modal('show');
+		});
+	</script>
 </html>       

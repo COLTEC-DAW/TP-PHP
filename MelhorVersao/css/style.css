@@ -171,7 +171,7 @@ img{
 
 #sobre {
   margin-top: 20%;
-  height: 300px;
+  height: 600px;
   width: 100%;
   position: relative;
   background:  #7AC2FF; 
@@ -179,4 +179,11 @@ img{
 
 #sobre h1 {
   color:white; 
+}
+
+.img-circle{
+    margin-left: 25%;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }

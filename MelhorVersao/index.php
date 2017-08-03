@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css"/>
-	<script src="js/cover.js"></script>
+	<script src="js/cover.js"></script> <!-- cover -->
+	<script>    AOS.init();  </script>
+	<link rel="stylesheet" href="aos-master/dist/aos.css" />
+	<script src="aos-master/dist/aos.js"></script>
     <link href="css/style.css" rel="stylesheet" media="all">
+	
 </head>
 
 
@@ -75,9 +79,20 @@
 			<a name="ancora2" id="ancora2"></a>
 	        <h1 style="color: white;">Quem somos</h1>
 	        <h2 > Blablablabla blablabla blabalba</h2>
-	        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum tincidunt turpis, eget cursus dolor pharetra nec. Integer eros tellus, tincidunt a justo vel, ultrices dignissim ipsum. In viverra nisi faucibus odio vestibulum, sit amet pulvinar quam condimentum. Morbi mi augue, bibendum vitae enim eget, gravida efficitur elit. Sed volutpat sem sed ex tincidunt sodales. Integer felis lacus, posuere vitae dictum at, condimentum et enim. Nullam eu finibus orci. In nec lacinia nisi, non faucibus dui. Aliquam ut dui a turpis fringilla finibus. Suspendisse iaculis elementum enim. Cras a metus a est sollicitudin ultrices. Ut at erat consequat, efficitur justo ac, sodales dui. Proin malesuada et purus nec fringilla. In quis dui molestie, gravida nibh eu, dictum nulla. Nam ultrices non eros in laoreet. Curabitur dignissim justo eget magna viverra venenatis. </p>
-
+			<div class="row">
+					<div class="col-md-4">
+						
+						<img class="img-circle" src="https://kaksimedia.com/kaxi/wp-content/uploads/2015/11/round.jpg">
+					</div>
+					<div class="col-md-4">
+						<img class="img-circle" src="https://kaksimedia.com/kaxi/wp-content/uploads/2015/11/round.jpg">
+					</div>
+					<div class="col-md-4">
+						<img class="img-circle" src="https://kaksimedia.com/kaxi/wp-content/uploads/2015/11/round.jpg">
+					</div>
+			</div>
 	</div>
+	<br><br><br>
 	
 </body>
 
