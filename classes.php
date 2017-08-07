@@ -69,7 +69,9 @@ class Mesa {
         <?php listaJogadores();
     }
     */
-}
+} ?>
+
+<?php
 class Usuario {
     var $id;
     var $nome;
@@ -77,13 +79,22 @@ class Usuario {
     var $email;
     var $senha;
     var $mesas;
+
     function __construct($nome, $login, $email, $senha){
-        $this->id = $numUsuarios;
-        $numUsuarios++;
+        $this->id = $this->usuarioGetNewId();
         $this->nome = $nome;
         $this->login = $login;
         $this->email = $email;
         $this->senha = $senha;
+    }
+   
+    function usuarioGetNewId(){
+        $meta = pegaJson("DB/numerosDB.json");
+        $meta->numeroUsuarios++;
+        $arquivo = fopen("DB/numerosDB.json", "w");
+        fwrite($arquivo, json_encode($meta, JSON_PRETTY_PRINT));
+        fclose($arquivo);
+        return $meta->numeroUsuarios;
     }
 }
 ?>
