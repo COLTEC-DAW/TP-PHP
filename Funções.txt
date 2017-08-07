@@ -27,7 +27,7 @@ __________________________________________________________________________
 		* Ver entregas em aberto
 			Aceitar entrega
 
-		Entrega atual
+		Entregas atuais
 
 		Ver histórico de entregas já feitas
 
