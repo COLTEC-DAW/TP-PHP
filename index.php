@@ -5,7 +5,6 @@ require "INC/funcoes.inc";?>
 <!-- Página principal. Mostra o usuário logado, as notificaçÕes dele, sua mesas, a busca de mesas e a opção de criar mesas -->
 
 <!-- SÓ FUNCIONA COM O FAKER NA PASTA ESPECIFICADA -->
-<!-- Precisamos melhorar *demais* o CSS -->
 <!DOCTYPE>
 <html>
     <head>
@@ -26,8 +25,9 @@ require "INC/funcoes.inc";?>
                 <div class="title">
                     <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>
-                <?php $todasAsMesas = listaMesas(); 
+                <?php $todasAsMesas = listaMesas();
                 foreach ($todasAsMesas as $mesinha) {
+                    //Deve ter algum problema aqui. Chamar o listaMesas() já não deveria imprimir?
                     ?>
                     <h3><?=$mesinha->nome?></h3>
                     <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>

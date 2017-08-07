@@ -37,7 +37,8 @@ function listaMesas(){
         </form> <?php
     }
 }
-function pegaJson ($db){ //$db TEM que ser a string com o nome do arquivo json
+function pegaJson ($db){
+    //$db TEM que ser a string com o nome do arquivo json
     $arquivo = fopen($db, "r");
     $json = "";
     while(!feof($arquivo)) $json .= fgets($arquivo);
@@ -45,10 +46,10 @@ function pegaJson ($db){ //$db TEM que ser a string com o nome do arquivo json
     $elementos = json_decode($json);
     return $elementos;
 }
-function pegaPorId($vetor, $idDesejado){ //só funciona supondo que $vetor é um vetor de elementos saidos de um json com o elemento id
-    /*foreach ($elemento as $vetor) {
-        if ($elemento->id == $idDesejado) return elemento; //retorna só a primeira ocorrência. IDs duplos bugam o sistema
-    }*/
+
+function pegaPorId($vetor, $idDesejado){
+    //só funciona supondo que $vetor é um vetor de elementos saidos de um json com o elemento id
+    //retorna só a primeira ocorrência. IDs duplos bugam o sistema
     for($i = 0; $i < count($vetor); $i++){
         if($vetor[$i]->id == $idDesejado) return $vetor[$i];
     }

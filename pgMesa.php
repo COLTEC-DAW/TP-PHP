@@ -23,8 +23,8 @@ $mesa = pegaPorId($todasAsMesas, $idMesa); ?>
             <? require "INC/userSideBar.inc"; ?>
             <div class="col-sm-10 centerbar">
         <?php
-            if ($entrada) {
-                if (!($mesa->public)&&!$convidado){
+            if ($entrada) { //Nego tentando entrar
+                if (!$mesa->public && !$convidado){//Nego tentando entrar em mesa privada sem convite
                     ?> <h1>YOU SHALL NOT PASS!!!</h1>
                     <h2>Parece que você não tem acesso a essa mesa...</h2> <?php
                 }
@@ -32,21 +32,23 @@ $mesa = pegaPorId($todasAsMesas, $idMesa); ?>
                     //echo $mesa->{'public'}." /".$convidado;
                 }
             }
-            else{
-                if (!($mesa->public)&&!$convidado){
+            else{ //Nego só visualizando
+                if (!$mesa->public && !$convidado){ //Nego tentando visualizar mesa privada sem convite
                     ?> <h2>Esta é uma mesa privada.</h2> <?php
                 }
                 else { ?>
-                            <h1><?=$mesa->nome?></h1>
-                            <div class="divider"></div>
-                            <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
-                            <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
-                            <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
-                            <p><?= $mesa->sinopse ?></p>
-                            <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
-                    <?php   /* Comentando por não estar sendo usado agora
-                            *listaJogadores();
-                            */
+                    <h1><?=$mesa->nome?></h1>
+                    <div class="divider"></div>
+                    <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
+                    <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
+                    <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
+                    <p><?= $mesa->sinopse ?></p>
+                    <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
+                    <?php  
+                        /*
+                        Comentando por não estar sendo usado agora
+                        listaJogadores();
+                        */
                 }
             }
     ?>
