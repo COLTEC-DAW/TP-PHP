@@ -24,7 +24,7 @@ __________________________________________________________________________
 			- Mudar informações pessoais
 __________________________________________________________________________
 	Modo - Entregador:
-		Ver entregas em aberto
+		* Ver entregas em aberto
 			Aceitar entrega
 
 		Entrega atual
