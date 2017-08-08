@@ -60,6 +60,8 @@
 		<div class="col-md-4">
 			<h2 class="card-title">login</h2>
 						<form action="userauthentication.php" method="post">
+						<input type="radio" name="opcao" value="1"> Estudante 
+						 <input type="radio" name="opcao" value="2"> Administrador <br>
 							<div class="input-group">
 								<label for="inputdefault">Email </label>
 								<input id="email" type="text" class="form-control" name="email" placeholder="Email">
@@ -70,6 +72,7 @@
 							</div>
 							<br>
 							 <input type="submit" class="sb bradius" value="Entrar" />
+							 <a href="cadastro.php"> <input type="button" class="sb bradius" value="Cadastre-se" /></a>
 						</form>
 						
      		 	</div>

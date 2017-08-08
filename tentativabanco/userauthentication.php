@@ -1,11 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 	$host = "alunos.coltec.ufmg.br";
 	$user = "daw-carol-2017";
 	$pass = "c@r0L";
 	$banco = "daw-carol-2017";
-	$tabela = "estudante";
-	$conexao = mysqli_connect($host, $user, $pass) or die(mysql_error());
-	mysql_select_db($banco) or die(mysql_error());
+	$conexao = mysqli_connect($host, $user, $pass) or die(mysqli_error());
+	mysqli_select_db($conexao, $banco) or die(mysqli_error());
 
 ?>
 
@@ -26,16 +40,18 @@
 <body>
 <?php
 	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-	$sql = mysqli_query("SELECT * FROM estudante WHERE email='$email' and senha='$senha'") or die(mysql_error());
-	$row = mysql_num_rows($sql);
+	$senha = $_POST['password'];
+	$sql = mysqli_query($conexao , "SELECT * FROM estudante WHERE email='$email' and senha='$senha'") or die(mysqli_error());
+	$row = mysqli_num_rows($sql);
 	if($row > 0){
 		session_start();
-		$nome = mysql_fetch_row($sql);
+		while($nome = mysqli_fetch_row($sql)) {
 		$_SESSION["email"]=$_POST['email'];
-		$_SESSION["senha"]=$_POST['senha'];
-		$_SESSION["nome"] = $nome[0];
+		$_SESSION["senha"]=$_POST['password'];
+		$_SESSION["nome"] = $nome['nome'];
 
+		
+		}
 		echo "<script>loginsucesso()</script>";
 	} else {
 		echo "Vc nao entrou bocó";
