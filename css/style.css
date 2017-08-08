@@ -76,3 +76,7 @@ main {
     display: block;
     margin: 0 auto;
 }
+
+i{
+    float: none !important;
+}

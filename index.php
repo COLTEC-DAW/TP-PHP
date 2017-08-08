@@ -31,7 +31,7 @@
 
     <nav class="navbar indigo darken-2">
         <div class="container center-align">
-            <a class="brand-logo" href="index.php">TratoFeito</a>
+            <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i>TratoFeito</a>
             <?php
                 if(IsLogado("usuario/users.json")){
                     $usuario = $_SESSION['user'];
