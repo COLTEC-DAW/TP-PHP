@@ -1,4 +1,5 @@
 <?php
+	ob_start();
 	require "classes.php";
 	$nome = $_POST["nome"];
 	$email = $_POST["email"];
@@ -21,17 +22,19 @@
 	foreach ($pessoas as $pessoa) {
 		if($pessoa->login == $login) {
 			$novo = false;
-			echo "<h2>Esse nome já está em uso</h2>";
-			echo "<a href='/cadastro.php'>Tentar Novamente</a>";
+			
+			?> <h2>Esse nome já está em uso</h2>
+			<a href='cadastro.php'>Tentar Novamente</a> <?php
+			
 		}
 	}
+	
 	if($novo) {
 		array_push($pessoas, $NovaPessoa);
 		
 		$arquivo = fopen("DB/dbUsuarios.json", 'w');
 		fwrite($arquivo, json_encode($pessoas, JSON_PRETTY_PRINT));
 		fclose($arquivo);
-		
 		//De volta ao login
 		header("location: login.php");
 	}

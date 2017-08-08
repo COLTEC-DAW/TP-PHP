@@ -1,9 +1,9 @@
 <?php
-// Página inicial, apresentada antes do usuário logar
+// Página inicial, apresentada antes do usuário logar e depois de ele logar com o mural do usuário
 session_start();
 require "INC/funcoes.inc";?>
 
-<!Doctype>
+<!DOCTYPE>
 <html>
     <head>
         <title>Bem vindo ao GameMaster</title>
