@@ -1,5 +1,6 @@
 <?php 
-/*session_start();
+/*
+session_start();
 //Página para criação de novas mesas
 require "classes.php";
 require "INC/funcoes.inc";
@@ -13,7 +14,8 @@ $novaMesa = new Mesa();
 array_push($todasAsMesas, $novaMesa);
 $arquivo = fopen("DB/dbMesas.json", "w");
 fwrite($arquivo, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
-fclose($arquivo);*/
+fclose($arquivo);
+*/
 ?>
 <!DOCTYPE>
 <html>

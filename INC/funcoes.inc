@@ -55,4 +55,12 @@ function pegaPorId($vetor, $idDesejado){
     }
     return null;
 }
+
+function validar($login, $senha){
+    $json = pegaJson("DB/dbUsusarios.json");
+    foreach ($json as $pessoa) {
+        if ($pessoa->login == $login && $pessoa->senha == $senha) return true;
+    }
+    return false;
+}
 ?>
