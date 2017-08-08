@@ -17,13 +17,13 @@
 	</div>
 
     
-                <div id="plus">
+               <a href="adicionar.php">  <div id="plus">
                     <i class="fa fa-calendar-plus-o fa-3x" aria-hidden="true"></i>
-                </div>
+                </div> </a>
   
-                <div id="minus">
+               <a href="retirar.php"> <div id="minus">
                     <i class="fa fa-calendar-minus-o fa-3x" aria-hidden="true"></i>
-                </div>
+                </div> </a>
 
 	<?php
 		include 'calendar.php';
