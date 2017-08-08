@@ -21,16 +21,10 @@ class Mesa {
         $this->sinopse = $sinopse;
         $this->genero = $genero;
         $this->sistema = $sistema;
+        $this->jogadores = [];
     }
     
     function mesaGetNewId(){
-        /*
-        $arquivo = fopen("DB/numerosDB.json", "r");
-        $json = "";
-        while(!feof($arquivo)) $json .= fgets($arquivo);
-        fclose($arquivo);
-        $meta = json_decode($json);
-        */
         $meta = pegaJson("DB/numerosDB.json");
         $meta->numeroMesas++;
         $arquivo = fopen("DB/numerosDB.json", "w");
