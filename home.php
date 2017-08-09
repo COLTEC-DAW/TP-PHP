@@ -22,9 +22,6 @@ require "INC/funcoes.inc";?>
                 <form method="get" action="novaMesa.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
-                <form method="get" action="logout.php">
-                    <button type="submit" class="btn btn-primary btnCriarMesa">SAIR</button>
-                </form>
                 <div class="title">
                     <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>

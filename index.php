@@ -37,10 +37,14 @@ require "INC/funcoes.inc";?>
         $_SESSION["senha"] = $senha;
         ?>
         <body>
-            <a href="home.php">Go Home!</a> <br>
-        </body>
-
-<?php
+            <h3 class="fontebranca">Bem vindo ao GameMaster, o melhor site para organizar mesas de RPG, aprovado por 100% dos usuários</h3>
+            <p class="fontebranca">Vá para a sua página HOME para começar (ou continuar!)</p>
+            <!-- A página só pode ter um header então estamos usando esse botão.
+            Qualquer ideia para deixar isso mais eficiente será bem vinda -->
+            <form method="get" action="home.php">
+                <button type="submit">Go Home!</button>
+            </form>
+        </body> <?php
     }
     else {
         //Senha incorreta

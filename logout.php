@@ -4,7 +4,7 @@ session_destroy(); ?>
 <html>
     <body>
         <p>Logout excutado</p>
-        <a href="index.php">Jogar novamente</a>
-        <?php include "rodape.inc" ?>
+        <a href="index.php">Entrar novamente</a>
+        <?php include "INC/footer.inc" ?>
     </body>
 </html>
