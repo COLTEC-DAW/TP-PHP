@@ -32,7 +32,7 @@ require "INC/funcoes.inc";?>
 
     else if(validar($login, $senha)) {
         //Senha correta
-        echo "<h2>Login bem sucedido</h2>";
+        ?> <h2 class= "fontebranca">Login bem sucedido</h2> <?php
         $_SESSION["login"] = $login;
         $_SESSION["senha"] = $senha;
         ?>
@@ -46,10 +46,10 @@ require "INC/funcoes.inc";?>
         //Senha incorreta
         ?>
         <body>
-            <h2>Falha no login</h2>
+            <h2 class= "fontebranca">Falha no login</h2>
 			<a href='/login.php'>Tentar Novamente</a>
             <?php
 		}
-        include "rodape.inc"; ?>
+        include "INC/footer.inc"; ?>
     </body>
 </html>

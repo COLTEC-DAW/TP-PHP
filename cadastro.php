@@ -9,7 +9,7 @@
         <meta charset=utf-8>
     </head>
 	<body>
-		<h2>Crie sua conta:</h2>
+		<h2 class= "fontebranca">Crie sua conta:</h2>
 		<form action="cadastrar.php" method="post">
 			Nome: <input type="text" name="nome"> <br>
 			Email: <input type="email" name="email"> <br>

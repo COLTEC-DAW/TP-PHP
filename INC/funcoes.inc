@@ -57,7 +57,7 @@ function pegaPorId($vetor, $idDesejado){
 }
 
 function validar($login, $senha){
-    $json = pegaJson("DB/dbUsusarios.json");
+    $json = pegaJson("DB/dbUsuarios.json");
     foreach ($json as $pessoa) {
         if ($pessoa->login == $login && $pessoa->senha == $senha) return true;
     }

@@ -28,5 +28,5 @@
     $arquivo = fopen("DB/dbMesas.json", "w");
     fwrite($arquivo, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
     fclose($arquivo);
-    header("location: index.php");
+    header("location: home.php");
 ?>
