@@ -26,22 +26,6 @@ require "INC/funcoes.inc";?>
                     <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>
                 <?php listaMesas();?>
-                <!--
-                <?php $todasAsMesas = listaMesas();
-                foreach ($todasAsMesas as $mesinha) {
-                    //Deve ter algum problema aqui. Chamar o listaMesas() já não deveria imprimir?
-                    ?>
-                    <h3><?=$mesinha->nome?></h3>
-                    <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-                    <p><?=$mesinha->sinopse?></p>
-                    <form method="post" action="pgMesa.php">
-                        <input type="hidden" name="entra" value="<?= false ?>">
-                        <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                        <input type="hidden" name="convite" value="<?= false ?>">
-                        <button type="submit">Detalhes</button>
-                    </form> <?php
-                }
-                ?> -->
             </div>
             <div class="sidebar col-sm-3">
                 <!--<div class="title">-->

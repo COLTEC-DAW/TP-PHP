@@ -1,10 +1,6 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
-echo "1";
 require "classes.php";
-echo"1.5";
-require "INC/funcoes.inc";
-echo "2";
 $idMesa =  $_POST["idMesa"];
 $entrada = $_POST["entra"];
 $saida = $_POST["sai"];
@@ -12,12 +8,7 @@ $todasAsMesas = pegaJson("DB/dbMesas.json");
 $mesa = pegaPorId($todasAsMesas, $idMesa);
 $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
 $convidado = $_POST["convite"] || $presente; //Nego pode ver mesa privada se já estiver nela ou usar link com convite
-
-var_dump($idMesa);
-var_dump($entrada);
-var_dump($saida);
-var_dump($presente);
-var_dump($convidado);
+$mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
 ?>
 <!DOCTYPE>
 <html>
@@ -34,8 +25,9 @@ var_dump($convidado);
             <div class="col-sm-10 centerbar">
         <?php
             if ($entrada) poeNaMesa($idMesa, $_SESSION["user"]->id);
-            if (!$convidado){ //Nego tentando visualizar mesa privada sem convite
-                ?> <h2>Esta é uma mesa privada.</h2> <?php
+            if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
+                ?> <h2>YOU SHALL NOT PASS</h2> 
+                <h3>Esta é uma mesa privada.</h3> <?php
             }
             else { ?>
                 <h1><?=$mesa->nome?></h1>
@@ -43,7 +35,7 @@ var_dump($convidado);
                 <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
                 <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
                 <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
-                <p><strong>Sinopse: </stron><?= $mesa->sinopse ?></p>
+                <p><strong>Sinopse: </strong><?= $mesa->sinopse ?></p>
                 <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
                 <?php  
                     /*
@@ -53,18 +45,14 @@ var_dump($convidado);
                 if (!$presente) { //Nego ainda não está na mesa ?>
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
-                        <input type="hidden" name="entra" value="<?= true ?>">
-                        <input type="hidden" name="sai" value="<?= false ?>">
-                        <input type="hidden" name="convite" value="<?= false ?>">
+                        <input type="hidden" name="entra" value="1">
                         <button type="submit">Entrar nessa mesa</button>
                     </form> <?php
                 }
                 else { //Nego já está nessa mesa ?>
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
-                        <input type="hidden" name="entra" value="<?= false ?>">
-                        <input type="hidden" name="sai" value="<?= true ?>">
-                        <input type="hidden" name="convite" value="<?= false ?>">
+                        <input type="hidden" name="sai" value="1">
                         <button type="submit">Sair dessa mesa</button>
                     </form> <?php
                 }
