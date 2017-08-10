@@ -18,7 +18,7 @@ require "INC/funcoes.inc";?>
     <body>
         <div class="container-fluid">
             <? require "INC/userSideBar.inc"; ?>
-            <div class="col-sm-7 centerbar">
+            <div class="col-sm-12 col-md-7 col-lg-7 centerbar">
                 <form method="get" action="novaMesa.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
@@ -27,7 +27,7 @@ require "INC/funcoes.inc";?>
                 </div>
                 <?php listaMesas();?>
             </div>
-            <div class="sidebar col-sm-3">
+            <div class="sidebar col-sm-12 col-md-3 col-lg-3">
                 <!--<div class="title">-->
                 <h2>Suas notificações:</h2>
                 <ul>
