@@ -10,41 +10,56 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?version=1">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	
+    <!--Import Google Icon Font-->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<!--Import materialize.css-->
+  	<link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">TratoFeito</a>
-            </div>
-
+    <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+    <nav class="navbar indigo darken-2">
+        <div class="container">
+            <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
-                $permissao = 0;
-                if(IsLogado("users.json")){
-                    $usuario = $_SESSION['user'];
-                ?>
-                    <ul class="nav navbar-nav">
+                if(IsLogado("../usuario/users.json")){
+                    $usuario = $_SESSION["user"];
+                ?>       
+                    <ul class="left hide-on-med-and-down">
                         <li><a href="pedido.php">Fazer Pedido</a></li>
                         <li><a href="historico_doacao.php">Histórico de Doações</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a><span class="glyphicon glyphicon-user"></span> Bem vindo: <?=$usuario->nome?></a></li>
-                        <li><a href="carteira.php"><span class="glyphicon glyphicon-log-in"></span> Carteira R$: <?=$usuario->carteira?></a></li>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
+                        <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
+                        <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+                    </ul>
+                    <?php
+                }
+                else if(Eh_Admin()){
+                ?>
+                    <ul class="left">
+                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    </ul>
+                    <ul class="right">
                         <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                     </ul>
+
                 <?php
-                }   
+                } 
                 else{
-                    $redirect = "index.php";
+                    $redirect = "../index.php";
                     header("location:$redirect");
                 }
-                ?>
+            ?>
         </div>
     </nav>
       
