@@ -10,6 +10,9 @@
         <form class="pagePerfil" method="get" action="me.php">
             <button type="submit">Ver perfil</button>
         </form>
+        <form class="pagePerfil" method="get" action="home.php">
+            <button type="submit">GO HOME</button>
+        </form>
         <form method="get" action="logout.php">
             <button type="submit">SAIR</button>
         </form>

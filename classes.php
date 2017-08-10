@@ -80,6 +80,7 @@ class Usuario {
         $this->login = $login;
         $this->email = $email;
         $this->senha = $senha;
+        $this->mesas = [];
     }
    
     function usuarioGetNewId(){

@@ -1,5 +1,6 @@
 <?php
 // Página inicial, apresentada antes do usuário logar e depois de ele logar com o mural do usuário
+ob_start();
 session_start();
 require "INC/funcoes.inc";?>
 
@@ -29,7 +30,6 @@ require "INC/funcoes.inc";?>
         //Procedimento se não estiver logado
         header("Location: login.php");
     }
-
     else if(validar($login, $senha)) {
         //Senha correta
         ?> <h2 class= "fontebranca">Login bem sucedido</h2> <?php
@@ -50,14 +50,11 @@ require "INC/funcoes.inc";?>
             </form>
         </body> <?php
     }
-    else {
-        //Senha incorreta
-        ?>
+    else { //Senha incorreta ?>
         <body>
             <h2 class= "fontebranca">Falha no login</h2>
 			<a href='/login.php'>Tentar Novamente</a>
-            <?php
+        </body> <?php
 		}
         include "INC/footer.inc"; ?>
-    </body>
 </html>

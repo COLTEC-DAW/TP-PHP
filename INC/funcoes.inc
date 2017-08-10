@@ -1,43 +1,9 @@
 <?php
-ob_start();
-//session_start();
-//require "classes.php";
-
 //Funções para manipular e exibir conjuntos de mesas e jogadores
 
 //TODA FUNÇÃO QUE TRABALHE COM UMA MESA OU JOGADOR INDIVIDUAL DEVE SER DA CLASSE RESPECTIVA
 //APENAS FUNÇÕES QUE LIDEM COM CONJUNTOS DE AQUI
-function listaMesas(){
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($todasAsMesas as $mesinha) {
-/*
-        $mesaProvisoria = new Mesa();
-        //Código provisório. Quando o faker for tirado, tudo poderá ser feito pelo construtor
-        $mesaProvisoria->nome = $mesinha->nome;
-        $mesaProvisoria->id = $mesinha->id;
-        $mesaProvisoria->mestre = $mesinha->mestre;
-        $mesaProvisoria->endereco = $mesinha->endereco;
-        $mesaProvisoria->sinopse = $mesinha->sinopse;
-        $mesaProvisoria->genero = $mesinha->genero;
-        $mesaProvisoria->sistema = $mesinha->sistema;
-        //Fim do código provisório
-        
-        var_dump($mesaProvisoria);
-        $mesaProvisoria->mostraMesa($mesaProvisoria); ?>
-*/
-        ?>
-        <h3><?=$mesinha->nome?></h3>
-        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-        <p><?=$mesinha->sinopse?></p>
-        <form method="post" action="pgMesa.php">
-            <input type="hidden" name="entra" value="<?= false ?>">
-            <input type="hidden" name="sai" value="<?= false ?>">
-            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-            <input type="hidden" name="convite" value="<?= false ?>">
-            <button type="submit">Detalhes</button>
-        </form> <?php
-    }
-}
+
 function pegaJson ($db){
     //$db TEM que ser a string com o nome do arquivo json
     $arquivo = fopen($db, "r");
@@ -46,6 +12,19 @@ function pegaJson ($db){
     fclose($arquivo);
     $elementos = json_decode($json);
     return $elementos;
+}
+
+function listaMesas(){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    foreach ($todasAsMesas as $mesinha) { ?>
+        <h3><?=$mesinha->nome?></h3>
+        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+        <form method="post" action="pgMesa.php">
+            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+            <button type="submit">Detalhes</button>
+        </form> <?php
+    }
 }
 
 function pegaPorId($vetor, $idDesejado){
@@ -63,5 +42,28 @@ function validar($login, $senha){
         if ($pessoa->login == $login && $pessoa->senha == $senha) return true;
     }
     return false;
+}
+
+function isCaraNaMesa($idMesa, $idCara){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    $mesa = pegaPorId($todasAsMesas, $idMesa);
+    foreach ($mesa->jogadores as $jogador){
+        if ($jogador == $idCara) return true;
+    }
+    return false;
+}
+
+function poeNaMesa($idMesa, $idCara){ //Supoe que cara não está na mesa ainda
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    foreach ($todasAsMesas as $mesinha){
+        if ($mesinha->id == $idMesa) {
+            echo "encontrei a mesa";
+            array_push($mesinha->jogadores, $idCara);
+            $db = fopen("DB/dbMesas.json", 'w');
+		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+		    fclose($db);
+            return true; //Estou usando esse return como meio de indicar sucesso e interromper a função
+        }
+    }
 }
 ?>
