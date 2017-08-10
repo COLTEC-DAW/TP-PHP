@@ -14,5 +14,13 @@
         "email": "b@b",
         "senha": "b",
         "mesas": null
+    },
+    {
+        "id": 3,
+        "nome": "Shoveler",
+        "login": "shoveler",
+        "email": "sk@ycg",
+        "senha": "pa",
+        "mesas": []
     }
 ]
