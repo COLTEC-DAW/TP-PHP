@@ -31,17 +31,16 @@
 
     <nav class="navbar indigo darken-2">
         <div class="container center-align">
-            <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i>TratoFeito</a>
+            <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
             <?php
                 if(IsLogado("usuario/users.json")){
                     $usuario = $_SESSION['user'];
                 ?>
-                    <ul class="left">
-                        <li><a href="usuario/pedido.php">Fazer Pedido</a></li>
-                        <li><a href="usuario/historico_doacao.php">Histórico de Doações</a></li>
-                    </ul>
+
 
                     <ul class="right">
+                        <li><a href="usuario/pedido.php">Fazer Pedido</a></li>
+                        <li><a href="usuario/historico_doacao.php">Histórico de Doações</a></li>
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                         <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>

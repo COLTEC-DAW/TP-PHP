@@ -26,15 +26,7 @@
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
 
-    <nav class="navbar indigo darken-4">
-        <div class="container">
-            <a class="brand-logo" href="../index.php">TratoFeito</a>
-            <ul class="right">
-                <li><a href="cadastro.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar</a></li>
-                <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
-            </ul>   
-        </div>
-    </nav>
+    <?php include '../utils/nav.inc' ?>
 
     <div class="container center-align">
 
@@ -80,5 +72,5 @@
     </div>
 </main>
 </body>
-<?php include '../footer.inc' ?>
+<?php include '../utils/footer.inc' ?>
 </html>

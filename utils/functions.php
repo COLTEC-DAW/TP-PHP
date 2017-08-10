@@ -1,9 +1,9 @@
 <?php
-    function IsLogado($caminho){
+    function IsLogado(){
         if(isset($_SESSION["user"])){
             $usuario = $_SESSION["user"];
             if($usuario->login!="admin"){
-                $arquivo = file_get_contents($caminho);
+                $arquivo = file_get_contents("/usuario/users.json");
                 $json = json_decode($arquivo);
                 foreach($json as $user){
                     if($user->login == $usuario->login && $user->senha == $usuario->senha){

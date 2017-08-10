@@ -30,43 +30,8 @@
 
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar indigo darken-2">
-        <div class="container">
-            <a class="brand-logo" href="../index.php">TratoFeito</a>
-            <?php
-                if(IsLogado("../usuario/users.json")){
-                    $usuario = $_SESSION["user"];
-                ?>       
-                    <ul class="left hide-on-med-and-down">
-                        <li><a href="pedido.php">Fazer Pedido</a></li>
-                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                    </ul>
 
-                    <ul class="right hide-on-med-and-down">
-                        <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
-                        <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
-                        <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
-                    </ul>
-                    <?php
-                }
-                else if(Eh_Admin()){
-                ?>
-                    <ul class="left">
-                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                    </ul>
-                    <ul class="right">
-                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                    </ul>
-
-                <?php
-                } 
-                else{
-                    $redirect = "../index.php";
-                    header("location:$redirect");
-                }
-            ?>
-        </div>
-    </nav>
+    <?php include '../utils/nav.inc' ?>
 
     <div class="container">
         <div class="row">
