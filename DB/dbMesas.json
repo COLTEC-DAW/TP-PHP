@@ -8,7 +8,10 @@
         "sinopse": "dungeoncrawl",
         "genero": "generico",
         "sistema": "G&G",
-        "jogadores": []
+        "jogadores": [
+            1,
+            1
+        ]
     },
     {
         "id": 2,

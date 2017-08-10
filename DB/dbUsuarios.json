@@ -5,7 +5,7 @@
         "login": "a",
         "email": "a@a",
         "senha": "a",
-        "mesas": null
+        "mesas": []
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "login": "b",
         "email": "b@b",
         "senha": "b",
-        "mesas": null
+        "mesas": []
     },
     {
         "id": 3,

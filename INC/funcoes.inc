@@ -58,7 +58,11 @@ function poeNaMesa($idMesa, $idCara){ //Supoe que cara não está na mesa ainda
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha){
         if ($mesinha->id == $idMesa) {
+            echo "encontrei a mesa";
             array_push($mesinha->jogadores, $idCara);
+            $db = fopen("DB/dbMesas.json", 'w');
+		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+		    fclose($db);
             return true; //Estou usando esse return como meio de indicar sucesso e interromper a função
         }
     }
