@@ -35,6 +35,10 @@ require "INC/funcoes.inc";?>
         ?> <h2 class= "fontebranca">Login bem sucedido</h2> <?php
         $_SESSION["login"] = $login;
         $_SESSION["senha"] = $senha;
+        $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+        foreach ($todosUsuarios as $user)        
+            if ($user->login == $_SESSION["login"])
+                $_SESSION["user"] = $user;
         ?>
         <body>
             <h3 class="fontebranca">Bem vindo ao GameMaster, o melhor site para organizar mesas de RPG, aprovado por 100% dos usuários</h3>

@@ -6,5 +6,13 @@
         "email": "a@a",
         "senha": "a",
         "mesas": null
+    },
+    {
+        "id": 2,
+        "nome": "b",
+        "login": "b",
+        "email": "b@b",
+        "senha": "b",
+        "mesas": null
     }
 ]

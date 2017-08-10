@@ -25,8 +25,9 @@ require "INC/funcoes.inc";?>
                 <div class="title">
                     <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>
+                <?php listaMesas();?>
+                <!--
                 <?php $todasAsMesas = listaMesas();
-                /*
                 foreach ($todasAsMesas as $mesinha) {
                     //Deve ter algum problema aqui. Chamar o listaMesas() já não deveria imprimir?
                     ?>
@@ -39,10 +40,8 @@ require "INC/funcoes.inc";?>
                         <input type="hidden" name="convite" value="<?= false ?>">
                         <button type="submit">Detalhes</button>
                     </form> <?php
-                    
                 }
-                */
-                ?>
+                ?> -->
             </div>
             <div class="sidebar col-sm-3">
                 <!--<div class="title">-->

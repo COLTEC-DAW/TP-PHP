@@ -2,7 +2,7 @@
     <div class="card">
         <img src="STYLE/fotaPerfil.jpeg" alt="Avatar" style="width:100%">
         <div class="container">
-            <h4 class="fonteBranca"><b>Shoveler</b></h4>
+            <h4 class="fonteBranca"><b><?= $_SESSION["user"]->nome ?></b></h4>
         </div>
     </div>
     <div class="perfil">

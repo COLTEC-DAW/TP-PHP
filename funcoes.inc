@@ -20,6 +20,7 @@ function pegaJson ($db){ //$db TEM que ser a string com o nome do arquivo json
     $elementos = json_decode($json);
     return $elementos;
 }
+
 function pegaPorId($vetor, $idDesejado){ //só funciona supondo que $vetor é um vetor de elementos saidos de um json com o elemento id
     /*foreach ($elemento as $vetor) {
         if ($elemento->id == $idDesejado) return elemento; //retorna só a primeira ocorrência. IDs duplos bugam o sistema
@@ -28,5 +29,24 @@ function pegaPorId($vetor, $idDesejado){ //só funciona supondo que $vetor é um
         if($vetor[$i]->id == $idDesejado) return $vetor[$i];
     }
     return null;
+}
+
+function isCaraNaMesa($idMesa, $idCara){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    $mesa = pegaPorId($todasAsMesas, $idMesa);
+    foreach ($mesa->jogadores as $jogador){
+        if ($jogador == $idCara) return true;
+    }
+    return false;
+}
+
+function poeNaMesa($idMesa, $idCara){ //Supoe que cara não está na mesa ainda
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    foreach ($todasAsMesas as $mesinha){
+        if ($mesinha->id == $idMesa) {
+            array_push($mesinha->jogadores, $idCara);
+            return true; //Estou usando esse return como meio de indicar sucesso e interromper a função
+        }
+    }
 }
 ?>

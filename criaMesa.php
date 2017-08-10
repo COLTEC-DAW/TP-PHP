@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    session_start();
     require "classes.php";
 
     /*
@@ -22,7 +23,7 @@
     }
 
     $todasAsMesas = pegaJson("DB/dbMesas.json");
-    $novaMesa = new Mesa($nome, $privacidade, "Shoveler", $endereco, $sinopse, $genero, $sistema);
+    $novaMesa = new Mesa($nome, $privacidade, $_SESSION[user]->nome, $endereco, $sinopse, $genero, $sistema);
     
     array_push($todasAsMesas, $novaMesa);
     $arquivo = fopen("DB/dbMesas.json", "w");
