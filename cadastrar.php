@@ -47,3 +47,6 @@
 		header("location: login.php");
 	}
 ?>
+<body>
+	<a href="index.php">Se não for redirecionado, clique aqui</a>
+</body>
