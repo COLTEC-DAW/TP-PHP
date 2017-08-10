@@ -26,8 +26,10 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
             <div class="col-sm-10 centerbar">
         <?php
             if ($entrada) {
-                echo "tentando entrar";
                 poeNaMesa($idMesa, $_SESSION["user"]->id);
+            }
+            elseif ($saida){
+                saiDaMesa($idMesa, $_SESSION["user"]->id);
             }
             if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 

@@ -22,5 +22,13 @@
         "email": "sk@ycg",
         "senha": "pa",
         "mesas": []
+    },
+    {
+        "id": 5,
+        "nome": "felps",
+        "login": "felipe",
+        "email": "f@f",
+        "senha": "12345",
+        "mesas": []
     }
 ]

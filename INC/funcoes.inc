@@ -44,7 +44,6 @@ function validar($login, $senha){
     return false;
 }
 
-
 function isCaraNaMesa($idMesa, $idCara){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     $mesa = pegaPorId($todasAsMesas, $idMesa);
