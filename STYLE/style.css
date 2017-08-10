@@ -3,7 +3,7 @@
     height: 95%;
 }
 .sidebar { /* Menus laterais */
-    background-color: #AB7745;
+    background-color: #AB7745 !important;
 }
 .centerbar {
     background-color: #C2BAAA;
@@ -45,6 +45,7 @@
 .container-fluid{
     overflow: hidden;
     padding: 1%;
+    height: 96%;
 }
 
 .col-sm-2, .col-sm-3, .col-sm-7, .col-sm-10{
@@ -94,6 +95,10 @@ img {
 
 .fonteBranca{
     color: #E6DCCC;
+}
+
+.fonteMarrom{
+    color: #2B190A;
 }
 
 body{
