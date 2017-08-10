@@ -14,9 +14,6 @@
         <div class="container-fluid">
             <?php require "INC/userSideBar.inc"; ?>
             <div class="col-sm-7 centerbar">
-                <form method="get" action="novaMesa.php">
-                    <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
-                </form>
                 <div class="title">
                     <h2 class="center fonteBranca">Minhas mesas:</h2>
                 </div>
