@@ -5,6 +5,11 @@
 
 /* 59CDAC */
 
+.container{
+    width: 100%;
+    padding: 0px;
+}
+
 
 .card-blockquote{
     margin-top: 20%;
@@ -19,6 +24,48 @@
     margin-left: 30%;
     margin-right: 30%;
 }
+
+a{
+    text-decoration: none !important;
+}
+
+
+
+
+form{
+    padding-left: 0%;
+}
+label{
+  width:200px;
+  float:left;
+  display:block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1.5em;
+}
+
+.form-control{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    height: 50px;
+}
+
+
+#button{
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    cursor: pointer;
+    padding: 12px 24px;
+    margin-left: 55%;
+
+
+}
+
+
+
 
 /* ---------------------------- BARRA MENU ROW ------------------------*/
 a{
@@ -55,6 +102,10 @@ a{
     background-color: white;
     
 }
+
+
+
+
 
 /* ---------------------------- VIDEO COVER ------------------------*/
 .homepage-hero-module {
