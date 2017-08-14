@@ -1,19 +1,11 @@
-<?php
-    session_start();
-    $raiz = $_SERVER["DOCUMENT_ROOT"];
-    echo $raiz;
-?>
-
 <nav class="navbar indigo darken-2">
     <div class="container center-align">
-        <a class="brand-logo" href=<?=$raiz."/index.php"?>><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
+        <a class="brand-logo" href="../index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
         <?php
-        $logado = IsLogado();
+        $logado = IsLogado("../usuario/users.json");
             if($logado){
                 $usuario = $_SESSION['user'];
             ?>
-
-
                 <ul class="right">
                     <li><a href="../usuario/pedido.php">Fazer Pedido</a></li>
                     <li><a href="../usuario/historico_doacao.php">Histórico de Doações</a></li>
@@ -25,10 +17,8 @@
             }
             else if(Eh_Admin()){
             ?>
-                <ul class="left">
-                    <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                </ul>
                 <ul class="right">
+                    <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                     <li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>
 

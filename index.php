@@ -49,10 +49,8 @@
                 }
                 else if(Eh_Admin()){
                 ?>
-                    <ul class="left">
-                        <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                    </ul>
                     <ul class="right">
+                        <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                         <li><a href="usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                     </ul>
 
@@ -237,5 +235,5 @@
     </div>
 </main>
 </body>
-<?php include 'footer.inc' ?>
+<?php include 'utils/footer.inc' ?>
 </html>

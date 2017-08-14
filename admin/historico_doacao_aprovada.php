@@ -32,18 +32,7 @@
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
 
-    <nav class="navbar indigo darken-2">
-        <div class="container center-align">
-            <a class="brand-logo" href="../index.php">TratoFeito</a>
-                    <ul class="left">
-                        <li><a href="historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                    </ul>
-                    <ul class="right">
-                        <li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                    </ul>
-        </div>
-    </nav>
-
+    <?php include '../utils/nav.inc';?>
 
     <div class="container">
         <div class="row">
