@@ -1,29 +1,3 @@
 [
-    {
-        "id": 1,
-        "public": true,
-        "nome": "mesa generica",
-        "mestre": "Shoveler",
-        "endereco": "minha casa",
-        "sinopse": "dungeoncrawl",
-        "genero": "generico",
-        "sistema": "G&G",
-        "jogadores": [
-            1,
-            1,
-            5,
-            5
-        ]
-    },
-    {
-        "id": 2,
-        "public": false,
-        "nome": "g2",
-        "mestre": "Shoveler",
-        "endereco": "minha casa",
-        "sinopse": "outro dungeoncrawl",
-        "genero": "generico",
-        "sistema": "G&G",
-        "jogadores": []
-    }
+    
 ]

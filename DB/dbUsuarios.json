@@ -1,34 +1,3 @@
 [
-    {
-        "id": 1,
-        "nome": "a",
-        "login": "a",
-        "email": "a@a",
-        "senha": "a",
-        "mesas": []
-    },
-    {
-        "id": 2,
-        "nome": "b",
-        "login": "b",
-        "email": "b@b",
-        "senha": "b",
-        "mesas": []
-    },
-    {
-        "id": 3,
-        "nome": "Shoveler",
-        "login": "shoveler",
-        "email": "sk@ycg",
-        "senha": "pa",
-        "mesas": []
-    },
-    {
-        "id": 5,
-        "nome": "felps",
-        "login": "felipe",
-        "email": "f@f",
-        "senha": "12345",
-        "mesas": []
-    }
+    
 ]
