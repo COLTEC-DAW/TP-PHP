@@ -16,7 +16,7 @@
             </div>
             <!--Area de login-->
             <div class="col-sm-7 sidebar">
-                <form class="form-inline" action="index.php" method="post">
+                <form class="form-inline" action="home.php" method="post">
                     <div class="form-group">
                         <label class="sr-only" for="login">Login</label>
                         <input type="text" class="form-control" id="login" placeholder="Login" name="login">

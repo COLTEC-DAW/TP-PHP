@@ -1,3 +1,10 @@
 [
-    
+    {
+        "id": 1,
+        "nome": "a",
+        "login": "a",
+        "email": "a@a",
+        "senha": "a",
+        "mesas": []
+    }
 ]

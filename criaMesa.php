@@ -24,6 +24,7 @@
 
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     $novaMesa = new Mesa($nome, $privacidade, $_SESSION[user]->nome, $endereco, $sinopse, $genero, $sistema);
+    array_push($novaMesa->jogadores, $_SESSION["user"]->id);
     
     array_push($todasAsMesas, $novaMesa);
     $arquivo = fopen("DB/dbMesas.json", "w");
