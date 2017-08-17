@@ -1,15 +1,3 @@
 [
-    {
-        "id": 2,
-        "public": true,
-        "nome": "",
-        "mestre": null,
-        "endereco": "",
-        "sinopse": "",
-        "genero": "",
-        "sistema": "",
-        "jogadores": [
-            null
-        ]
-    }
+    
 ]
