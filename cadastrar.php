@@ -44,7 +44,7 @@
 		fwrite($arquivo, json_encode($pessoas, JSON_PRETTY_PRINT));
 		fclose($arquivo);
 		//De volta ao login
-		header("location: login.php");
+		header("location: index.php");
 	}
 ?>
 <body>

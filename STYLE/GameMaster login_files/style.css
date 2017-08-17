@@ -6,7 +6,6 @@
 }
 .sidebar { /* Menus laterais */
     background-color: #AB7745 !important;
-    background-origin: padding-box;
 }
 .centerbar {
     background-color: #C2BAAA;
@@ -41,13 +40,13 @@
 }
 
 .btnCriarMesa{
-    /*margin-top:  10px;*/
+    margin-top:  10px;
     background-color: #5E663F !important;
 }
 
 .container-fluid{
     overflow: hidden;
-    padding: 0% !important;
+    padding: 1%;
     height: 96%;
 }
 
@@ -139,20 +138,8 @@ body{
 
 .banner{
     width: 100%;
-    opacity: 0.7;
-    filter: alpha(opacity=70);
 }
 
 .GameMasterFont{
     font-family: 'Stalinist One', cursive;
-}
-
-.withoutPadding{
-    padding-top: 0% !important;
-    padding-left: 0% !important;
-    padding-right: 0% !important;
-}
-
-.paddingTop{
-    padding-top: 3%;
 }
