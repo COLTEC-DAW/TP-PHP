@@ -5,6 +5,17 @@
         "login": "a",
         "email": "a@a",
         "senha": "a",
+        "mesas": [
+            "1",
+            "1"
+        ]
+    },
+    {
+        "id": 2,
+        "nome": "zumba",
+        "login": "z",
+        "email": "z@z",
+        "senha": "z",
         "mesas": []
     }
 ]

@@ -1,3 +1,17 @@
 [
-    
+    {
+        "id": 1,
+        "public": true,
+        "nome": "mesa de A",
+        "mestre": "a",
+        "endereco": "rua a",
+        "sinopse": "Aventura de A",
+        "genero": "Aventura",
+        "sistema": "D&D",
+        "jogadores": [
+            null,
+            2,
+            1
+        ]
+    }
 ]

@@ -94,25 +94,14 @@ require "INC/funcoes.inc";?>
             </div>
         </body> <?php
     }
-    else if(validar($login, $senha)) {
-        //Senha correta
-        ?> <h2 class= "fontebranca">Login bem sucedido</h2> <?php
+    else if(validar($login, $senha)) { //Senha correta
         $_SESSION["login"] = $login;
         $_SESSION["senha"] = $senha;
         $todosUsuarios = pegaJson("DB/dbUsuarios.json");
         foreach ($todosUsuarios as $user)        
             if ($user->login == $_SESSION["login"])
                 $_SESSION["user"] = $user;
-        ?>
-        <body>
-            <h3 class="fontebranca">Bem vindo ao GameMaster, o melhor site para organizar mesas de RPG, aprovado por 100% dos usuários</h3>
-            <p class="fontebranca">Vá para a sua página HOME para começar (ou continuar!)</p>
-            <!-- A página só pode ter um header então estamos usando esse botão.
-            Qualquer ideia para deixar isso mais eficiente será bem vinda -->
-            <form method="get" action="home.php">
-                <button type="submit">Go Home!</button>
-            </form>
-        </body> <?php
+        header("location: home.php");
     }
     else { //Senha incorreta ?>
         <body>

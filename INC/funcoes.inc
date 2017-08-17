@@ -14,6 +14,16 @@ function pegaJson ($db){
     return $elementos;
 }
 
+function tiraDoVetor($vetor, $indesejado){
+    //Tira de um vetor todos os elementos com o valor $indesejado e retorna um array novo sem espaços vazios
+    $novoVetor = [];
+    foreach ($vetor as $item) 
+        if ($item != $indesejado)
+            array_push($novoVetor, $item);
+    return $novoVetor;
+}
+
+
 function listaMesas(){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha) { ?>
@@ -57,13 +67,46 @@ function poeNaMesa($idMesa, $idCara){ //Supoe que cara não está na mesa ainda
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha){
         if ($mesinha->id == $idMesa) {
-            echo "encontrei a mesa";
             array_push($mesinha->jogadores, $idCara);
             $db = fopen("DB/dbMesas.json", 'w');
 		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
 		    fclose($db);
-            return true; //Estou usando esse return como meio de indicar sucesso e interromper a função
+            break;
+        }
+    }
+    $todasUsuarios = pegaJson("DB/dbUsuarios.json");
+    foreach ($todasUsuarios as $cara){
+        if ($cara->id == $idCara) {
+            array_push($cara->mesas, $idMesa);
+            $db = fopen("DB/dbUsuarios.json", 'w');
+		    fwrite($db, json_encode($todasUsuarios, JSON_PRETTY_PRINT));
+		    fclose($db);
+            break;
         }
     }
 }
+
+function saiDaMesa($idMesa, $idCara){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    foreach ($todasAsMesas as $mesinha){
+        if ($mesinha->id == $idMesa) {
+            $mesinha->jogadores = tiraDoVetor($mesinha->jogadores, $idCara);
+            $db = fopen("DB/dbMesas.json", 'w');
+		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+		    fclose($db);
+            break;
+        }
+    }
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+    foreach ($todosUsuarios as $cara){
+        if ($cara->id == $idCara){
+            $cara->mesas = tiraDoVetor($cara->mesas, $idMesa);
+            $db = fopen("DB/dbUsuarios.json");
+            fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+            fclose($db);
+            break;
+        }
+    }
+}
+
 ?>
