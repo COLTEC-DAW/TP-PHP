@@ -11,46 +11,63 @@
     <body>
         <div class="container-fluid">
             <!--Espaço pra logo-->
-            <div class="col-sm-5 sidebar">
-                <h4>GameMaster</h4>
+            <div class="col-sm-12 withoutPadding sidebar">
+                <div class="col-sm-5">
+                    <h3 class="GameMasterFont">GameMaster</h3>
+                </div>
+                <!--Area de login-->
+                <div class="col-sm-7">
+                    <div class="floatRight">
+                        <div class="paddingTop">
+                            <form class="form-inline" action="home.php" method="post">
+                                <div class="form-group">
+                                    <label class="sr-only" for="login">Login</label>
+                                    <input type="text" class="form-control" id="login" placeholder="Login" name="login">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="senha">Senha</label>
+                                    <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha">
+                                </div>
+                                <input type="submit" class="btn btn-primary btnCriarMesa" value="Log In">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--Area de login-->
-            <div class="col-sm-7 sidebar">
-                <form class="form-inline" action="home.php" method="post">
-                    <div class="form-group">
-                        <label class="sr-only" for="login">Login</label>
-                        <input type="text" class="form-control" id="login" placeholder="Login" name="login">
+            <div class="col-sm-12 withoutPadding centerbar">
+                <div class="col-sm-7">
+                    <div class="paddingTop">
+                        <img class="banner" src="STYLE/RPG.jpg">
                     </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha">
-                    </div>
-                    <input type="submit" value="Log In">
-                </form>
-            </div>
-            <div class="col-sm-6 centerbar"></div>
-            <div class="col-sm-6 centerbar">
-                <h3 class= "fonteMarrom">Não tem conta?</h3>
-                <a href="cadastro.php">Crie uma aqui</a>
-                <form action="cadastrar.php" method="post">
-                    <div class="form-group">
-                        <label class="sr-only" for="nomeCadastro">Nome</label>
-                        <input type="text" class="form-control" id="nomeCadastro" placeholder="Nome" name="nome">
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="emailCadastro">Nome</label>
-                        <input type="email" class="form-control" id="emailCadastro" placeholder="E-Mail" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="loginCadastro">Nome</label>
-                        <input type="text" class="form-control" id="loginCadastro" placeholder="Login" name="login">
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="senhaCadastro">Nome</label>
-                        <input type="password" class="form-control" id="senhaCadastro" placeholder="Senha" name="senha">
-                    </div>
-                    <input type="submit" name="submit" value="Cadastrar">
-                </form>            
+                </div>
+                <div class="col-sm-5">
+                    <div class="col-sm-12 floatRight">
+                        <div class="paddingTop">
+                            <h3 class= "fonteMarrom">Não tem conta?</h3>
+                            <div class="divider"></div>
+                            <a href="cadastro.php"><p class="fonteMarrom">Crie uma aqui</p></a>
+                            <form action="cadastrar.php" method="post">
+                                <div class="form-group">
+                                    <label class="sr-only" for="nomeCadastro">Nome</label>
+                                    <input type="text" class="form-control" id="nomeCadastro" placeholder="Nome" name="nome">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="emailCadastro">Nome</label>
+                                    <input type="email" class="form-control" id="emailCadastro" placeholder="E-Mail" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="loginCadastro">Nome</label>
+                                    <input type="text" class="form-control" id="loginCadastro" placeholder="Login" name="login">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="senhaCadastro">Nome</label>
+                                    <input type="password" class="form-control" id="senhaCadastro" placeholder="Senha" name="senha">
+                                </div>
+                                <input type="submit" class="btn btn-primary btnCriarMesa" name="submit" value="Cadastrar">
+                            </form>
+                        </div>
+                    </div>            
+                </div>
             </div>
         </div>
         <div class="footer">
