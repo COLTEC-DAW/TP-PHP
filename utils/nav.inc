@@ -1,4 +1,4 @@
-<nav class="navbar indigo darken-2">
+<nav class="navbar default-primary-color">
     <div class="container center-align">
         <a class="brand-logo" href="../index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
         <?php

@@ -24,12 +24,12 @@
         
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-<body>
+<body class="divider-color">
 <main>
     <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
 
-    <nav class="navbar indigo darken-2">
+    <nav class="navbar default-primary-color">
         <div class="container center-align">
             <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
             <?php
@@ -69,21 +69,23 @@
     </nav>
       
     <div class="container center-align">
-        <div class="row">
+        <!--  
+            <div class="row">
             <div class="col s16 m16">
-              <div class="card large center-align pink lighten-2 z-depth-5">
+              <div class="card large center-align teal lighten-2 z-depth-5">
                 <div class="card-image ">
                     <img src="imagens/help.jpg" width="40px">
                     <span class="card-title">Bem Vindo(a)</span>
                 </div>
-                <div class="card-content white-text" id="apresentacao">
+                <div class="card-content teal lighten-2" id="apresentacao">
                   <p class="texto">Está pensando em fazer um super projeto inovador que irá mudar o mundo, mas está sem o incentivo financeiro inicial?
                 Quer comprar um caminhão de balas mas não possui dinheiro o suficiente? Nós podemos te ajudar.
                 O TratoFeito é um site de financiamento coletivo que busca apoiar e incentivar projetos por meio de doações de usuários do site. Crie já sua conta e abra um pedido de doação!</p>
                 </div>
               </div>
             </div>
-        </div>
+        </div> 
+        -->
         <?php
             if(IsLogado("usuario/users.json")){//printa doações disponíveis
                 $arquivo = file_get_contents('doacoes/doacoes.json');
@@ -115,11 +117,11 @@
                                     <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
                                     <form action="usuario/doar.php" method="post">
                                         <input type="hidden" name="id" value=<?=$id?>>
-                                        <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                                        <input type="submit" class="btn btn-default botao accent-color" name="Verificar" value="Doar">
                                     </form>
                                     <form action="usuario/pag_doacoes.php" method="post">
                                         <input type="hidden" name="id" value=<?=$id?>>
-                                        <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
+                                        <input type="submit" class="btn btn-default botao accent-color" name="Verificar2" value="Leia mais">
                                     </form>
                                 </div>
                                 

@@ -88,5 +88,5 @@
     </div>
 </main>
 </body>
-<?php include '../footer.inc' ?>
+<?php include '../utils/footer.inc' ?>
 </html>

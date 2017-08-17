@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-
+<main>
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
     
@@ -46,5 +46,7 @@
             }
         ?>
     </div>                 
+</main>
 </body>
+<?php include '../utils/footer.inc' ?>
 </html>

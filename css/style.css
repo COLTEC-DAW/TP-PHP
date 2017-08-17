@@ -47,10 +47,6 @@ i {
     height: 50% !important;
 }
 
-.navbar {
-    background-color: #51B1A5;
-}
-
 .texto {
     padding-top: 45px;
 }
@@ -59,6 +55,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #e0e0e0
 }
 
 main {
@@ -79,3 +76,13 @@ main {
 i{
     float: none !important;
 }
+
+/* CORES */
+.dark-primary-color    { background: #00796B; }
+.default-primary-color { background: #009688; }
+.light-primary-color   { background: #B2DFDB; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #E040FB; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }

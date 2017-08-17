@@ -78,5 +78,7 @@
             </div>
         </div>
     </div>
+</main>    
 </body>
+<?php include '../utils/footer.inc' ?>
 </html>

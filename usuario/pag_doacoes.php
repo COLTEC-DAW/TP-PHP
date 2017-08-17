@@ -30,7 +30,7 @@
 <main>
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar indigo darken-2">
+    <nav class="navbar default-primary-color">
         <div class="container">
             <a class="brand-logo" href="../index.php">TratoFeito</a>
             <?php
@@ -109,5 +109,5 @@
 </main>
 </body>
 
-<?php include '../footer.inc' ?>
+<?php include '../utils/footer.inc' ?>
 </html>

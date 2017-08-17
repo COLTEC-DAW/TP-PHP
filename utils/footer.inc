@@ -1,4 +1,4 @@
-<footer class="page-footer small indigo darken-4">
+<footer class="page-footer small teal">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright indigo darken-2">
+  <div class="footer-copyright teal lighten-2">
     <div class="container">
     © Coltec-UFMG 2017 
     </div>
