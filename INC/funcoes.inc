@@ -100,10 +100,16 @@ function saiDaMesa($idMesa, $idCara){
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
     foreach ($todosUsuarios as $cara){
         if ($cara->id == $idCara){
+            echo("encontrei ");
+            var_dump($cara->mesas);
             $cara->mesas = tiraDoVetor($cara->mesas, $idMesa);
+            echo("Novo cara: ");
+            var_dump($cara->mesas);
             $db = fopen("DB/dbUsuarios.json");
+            ?><br><?php
+            var_dump($todosUsuarios);
             fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
-            fclose($db);
+		    fclose($db);
             break;
         }
     }

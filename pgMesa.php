@@ -1,7 +1,7 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
 require "classes.php";
-$idMesa =  $_POST["idMesa"];
+$idMesa = intval($_POST["idMesa"]);
 $entrada = $_POST["entra"];
 $saida = $_POST["sai"];
 $todasAsMesas = pegaJson("DB/dbMesas.json");
@@ -28,7 +28,8 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
             }
             elseif ($saida){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
-                header("location: home.php");
+                ?> <a href="home.php">AQUI</a> <?php
+                //header("location: home.php");
             }
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
             if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
