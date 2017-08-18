@@ -45,24 +45,6 @@ class Mesa {
         $this->genero = $faker->name;
         $this->sistema = $faker->name;
     }*/
-    function mostraMesa($mesa){ //Exibição resumida da mesa: apenas nome, endereço e sinopse
-        ?>
-        <h3><?=$mesa->nome?></h3>
-        <p><strong>Endereço: </strong><?=$mesa->endereco?></p>
-        <p><?=$mesa->sinopse?></p>
-        <?php
-    }
-/* DESNECESSÁRIO???
-    function mostraMesaCompleta($mesa){
-        ?> <h1><?=$mesa->nome?></h1>
-        <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>
-        <p><strong>Sistema: </strong><?= $mesa->sistema ?></p>
-        <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
-        <p><?= $mesa->sinopse ?></p>
-        <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
-        <?php listaJogadores();
-    }
-    */
 } ?>
 
 <?php

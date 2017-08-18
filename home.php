@@ -25,7 +25,7 @@ require "INC/funcoes.inc";?>
                 <div class="title">
                     <h2 class="center fonteBranca">Mesas na área:</h2>
                 </div>
-                <?php listaMesas();?>
+                <?php listaTodasMesas();?>
             </div>
             <div class="sidebar col-sm-12 col-md-3 col-lg-3">
                 <!--<div class="title">-->

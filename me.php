@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+include "INC/funcoes.inc" ?>
 <!-- Página do perfil do usuário. Mostra o nome, mesas, avaliação e tags -->
 <!DOCTYPE>
 <html>
@@ -17,7 +18,7 @@
                 <div class="title">
                     <h2 class="center fonteBranca">Minhas mesas:</h2>
                 </div>
-                <?php // $listaMesasUsuario(); ?>
+                <?php listaMesasUsuario(); ?>
             </div>
             <div class="sidebar col-sm-3">
                 <h2>Suas notificações:</h2>

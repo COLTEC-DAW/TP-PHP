@@ -9,8 +9,21 @@
         "genero": "Aventura",
         "sistema": "D&D",
         "jogadores": [
-            null,
             2
+        ]
+    },
+    {
+        "id": 2,
+        "public": true,
+        "nome": "g",
+        "mestre": "germano",
+        "endereco": "g",
+        "sinopse": "g",
+        "genero": "g",
+        "sistema": "g",
+        "jogadores": [
+            3,
+            1
         ]
     }
 ]

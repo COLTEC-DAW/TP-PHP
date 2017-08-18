@@ -1,9 +1,6 @@
 <?php
 //Funções para manipular e exibir conjuntos de mesas e jogadores
 
-//TODA FUNÇÃO QUE TRABALHE COM UMA MESA OU JOGADOR INDIVIDUAL DEVE SER DA CLASSE RESPECTIVA
-//APENAS FUNÇÕES QUE LIDEM COM CONJUNTOS DE AQUI
-
 function pegaJson ($db){
     //$db TEM que ser a string com o nome do arquivo json
     $arquivo = fopen($db, "r");
@@ -24,7 +21,7 @@ function tiraDoVetor($vetor, $indesejado){
 }
 
 
-function listaMesas(){
+function listaTodasMesas(){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha) { ?>
         <h3><?=$mesinha->nome?></h3>
@@ -65,54 +62,59 @@ function isCaraNaMesa($idMesa, $idCara){
 
 function poeNaMesa($idMesa, $idCara){ //Supoe que cara não está na mesa ainda
     $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($todasAsMesas as $mesinha){
-        if ($mesinha->id == $idMesa) {
-            array_push($mesinha->jogadores, $idCara);
-            $db = fopen("DB/dbMesas.json", 'w');
-		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
-		    fclose($db);
-            break;
-        }
-    }
+    $mesinha = pegaPorId($todasAsMesas, $idMesa);
+    array_push($mesinha->jogadores, $idCara);
+    $db = fopen("DB/dbMesas.json", 'w');
+    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+    fclose($db);
+
     $todasUsuarios = pegaJson("DB/dbUsuarios.json");
-    foreach ($todasUsuarios as $cara){
-        if ($cara->id == $idCara) {
-            array_push($cara->mesas, $idMesa);
-            $db = fopen("DB/dbUsuarios.json", 'w');
-		    fwrite($db, json_encode($todasUsuarios, JSON_PRETTY_PRINT));
-		    fclose($db);
-            break;
-        }
-    }
+    $cara = pegaPorId($todasUsuarios, $idCara);
+    array_push($cara->mesas, $idMesa);
+    $db = fopen("DB/dbUsuarios.json", 'w');
+    fwrite($db, json_encode($todasUsuarios, JSON_PRETTY_PRINT));
+    fclose($db);
 }
 
 function saiDaMesa($idMesa, $idCara){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($todasAsMesas as $mesinha){
-        if ($mesinha->id == $idMesa) {
-            $mesinha->jogadores = tiraDoVetor($mesinha->jogadores, $idCara);
-            $db = fopen("DB/dbMesas.json", 'w');
-		    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
-		    fclose($db);
-            break;
-        }
-    }
+    $mesinha = pegaPorId($todasAsMesas, $idMesa);
+    $mesinha->jogadores = tiraDoVetor($mesinha->jogadores, $idCara);
+    $db = fopen("DB/dbMesas.json", 'w');
+    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+    fclose($db);
+    
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
-    foreach ($todosUsuarios as $cara){
-        if ($cara->id == $idCara){
-            echo("encontrei ");
-            var_dump($cara->mesas);
-            $cara->mesas = tiraDoVetor($cara->mesas, $idMesa);
-            echo("Novo cara: ");
-            var_dump($cara->mesas);
-            $db = fopen("DB/dbUsuarios.json");
-            ?><br><?php
-            var_dump($todosUsuarios);
-            fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
-		    fclose($db);
-            break;
-        }
-    }
+    $cara = pegaPorId($todosUsuarios, $idCara);
+    $cara->mesas = tiraDoVetor($cara->mesas, $idMesa);
+    $db = fopen("DB/dbUsuarios.json", 'w');
+    fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+    fclose($db);
 }
 
+function listaJogadores($idMesa){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    $mesinha = pegaPorId($todasAsMesas, $idMesa);
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+    ?> <ul> <?
+    foreach ($mesinha->jogadores as $jogador) {
+        $caraDaVez = pegaPorId($todosUsuarios, $jogador);?>
+        <li><?= $caraDaVez->nome ?></li> <?php
+    }
+    ?> </ul> <?php
+}
+
+function listaMesasUsuario(){
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
+    foreach ($_SESSION["user"]->mesas as $codMesa){
+        $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+        <h3><?=$mesinha->nome?></h3>
+        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+        <form method="post" action="pgMesa.php">
+            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+            <button type="submit">Detalhes</button>
+        </form> <?php
+    }
+}
 ?>

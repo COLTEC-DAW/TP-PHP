@@ -1,6 +1,6 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
-require "classes.php";
+require "INC/funcoes.inc";
 $idMesa = intval($_POST["idMesa"]);
 $entrada = $_POST["entra"];
 $saida = $_POST["sai"];
@@ -28,8 +28,7 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
             }
             elseif ($saida){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
-                ?> <a href="home.php">AQUI</a> <?php
-                //header("location: home.php");
+                header("location: home.php");
             }
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
             if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
@@ -44,11 +43,8 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                 <p><strong>Gênero: </strong><?= $mesa->genero ?></p>
                 <p><strong>Sinopse: </strong><?= $mesa->sinopse ?></p>
                 <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
-                <?php  
-                    /*
-                    Comentando por não estar sendo usado agora
-                    listaJogadores();
-                    */
+                <p><strong>Jogadores:</strong></p> <?php  
+                listaJogadores($idMesa);
                 if (!$presente) { //Nego ainda não está na mesa ?>
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
