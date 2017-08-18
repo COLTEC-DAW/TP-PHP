@@ -20,6 +20,12 @@ function tiraDoVetor($vetor, $indesejado){
     return $novoVetor;
 }
 
+function userRefresh(){
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+    foreach ($todosUsuarios as $user) //Esse bloco tem de ficar aqui para ser atualizado constantemente       
+        if ($user->login == $_SESSION["login"])
+            $_SESSION["user"] = $user;
+}
 
 function listaTodasMesas(){
     $todasAsMesas = pegaJson("DB/dbMesas.json");

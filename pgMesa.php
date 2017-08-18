@@ -1,6 +1,7 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
 require "INC/funcoes.inc";
+userRefresh();
 $idMesa = intval($_POST["idMesa"]);
 $entrada = $_POST["entra"];
 $saida = $_POST["sai"];

@@ -1,5 +1,6 @@
 <?php session_start();
-include "INC/funcoes.inc" ?>
+include "INC/funcoes.inc";
+userRefresh(); ?>
 <!-- Página do perfil do usuário. Mostra o nome, mesas, avaliação e tags -->
 <!DOCTYPE>
 <html>

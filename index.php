@@ -97,10 +97,6 @@ require "INC/funcoes.inc";?>
     else if(validar($login, $senha)) { //Senha correta
         $_SESSION["login"] = $login;
         $_SESSION["senha"] = $senha;
-        $todosUsuarios = pegaJson("DB/dbUsuarios.json");
-        foreach ($todosUsuarios as $user)        
-            if ($user->login == $_SESSION["login"])
-                $_SESSION["user"] = $user;
         header("location: home.php");
     }
     else { //Senha incorreta ?>
