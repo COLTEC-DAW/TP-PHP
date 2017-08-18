@@ -17,10 +17,6 @@
             <button type="submit">SAIR</button>
         </form>
         <h3>Minhas mesas:</h3>
-        <ul>
-            <li><a href="pgMesa.php">Mesa 1</a></li>
-            <li><a href="pgMesa.php">Mesa 2</a></li>
-            <li><a href="pgMesa.php">Mesa 3</a></li>
-        </ul>
+        <?php listaMesasUsuarioResumo(); ?>
     </div>
 </div>

@@ -2,28 +2,50 @@
     {
         "id": 1,
         "public": true,
-        "nome": "mesa de A",
+        "nome": "a",
         "mestre": "a",
-        "endereco": "rua a",
-        "sinopse": "Aventura de A",
-        "genero": "Aventura",
-        "sistema": "D&D",
+        "endereco": "a",
+        "sinopse": "a",
+        "genero": "a",
+        "sistema": "a",
         "jogadores": [
-            2
+            3
         ]
     },
     {
         "id": 2,
-        "public": true,
-        "nome": "g",
-        "mestre": "germano",
-        "endereco": "g",
-        "sinopse": "g",
-        "genero": "g",
-        "sistema": "g",
+        "public": false,
+        "nome": "b",
+        "mestre": "a",
+        "endereco": "b",
+        "sinopse": "b",
+        "genero": "b",
+        "sistema": "b",
         "jogadores": [
-            3,
-            1
+            2,
+            2
         ]
+    },
+    {
+        "id": 3,
+        "public": true,
+        "nome": "c",
+        "mestre": "a",
+        "endereco": "c",
+        "sinopse": "c",
+        "genero": "c",
+        "sistema": "c",
+        "jogadores": []
+    },
+    {
+        "id": 4,
+        "public": true,
+        "nome": "d",
+        "mestre": "a",
+        "endereco": "d",
+        "sinopse": "d",
+        "genero": "d",
+        "sistema": "d",
+        "jogadores": []
     }
 ]

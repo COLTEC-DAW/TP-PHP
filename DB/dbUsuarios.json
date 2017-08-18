@@ -1,6 +1,14 @@
 [
     {
         "id": 1,
+        "nome": "",
+        "login": "",
+        "email": "",
+        "senha": "",
+        "mesas": []
+    },
+    {
+        "id": 2,
         "nome": "a",
         "login": "a",
         "email": "a@a",
@@ -10,21 +18,13 @@
         ]
     },
     {
-        "id": 2,
-        "nome": "zumba",
-        "login": "z",
-        "email": "z@z",
-        "senha": "z",
+        "id": 3,
+        "nome": "b",
+        "login": "b",
+        "email": "b@b",
+        "senha": "b",
         "mesas": [
             1
         ]
-    },
-    {
-        "id": 3,
-        "nome": "germano",
-        "login": "g",
-        "email": "g@g",
-        "senha": "g",
-        "mesas": []
     }
 ]
