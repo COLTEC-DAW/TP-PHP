@@ -26,5 +26,40 @@
         "nome": "J\u00e1o",
         "email": "e@email.com",
         "carteira": 0
+    },
+    {
+        "login": "teste",
+        "senha": "teste",
+        "nome": "teste",
+        "email": "teste",
+        "carteira": 0
+    },
+    {
+        "login": "asd",
+        "senha": "asd",
+        "nome": "awds",
+        "email": "asd",
+        "carteira": 0
+    },
+    {
+        "login": "asdasd",
+        "senha": "123",
+        "nome": "asdasd",
+        "email": "qsd",
+        "carteira": 0
+    },
+    {
+        "login": "asdasdasd",
+        "senha": "123",
+        "nome": "asdasdasd",
+        "email": "123123",
+        "carteira": 0
+    },
+    {
+        "login": "kjbasdjkgbjkgadb",
+        "senha": "adaasadf",
+        "nome": "asd",
+        "email": "123123",
+        "carteira": 0
     }
 ]

@@ -38,6 +38,8 @@
             $arquivo = fopen("users.json", "w");
             fwrite($arquivo, $dados_json);
             fclose($arquivo);
+            setcookie("checa_cadastro",true); 
+            $_COOKIE['checa_cadastro'] = true;           
             $redirect = "../index.php";
             header("location:$redirect");
         }

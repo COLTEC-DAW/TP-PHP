@@ -33,6 +33,12 @@
         <div class="container center-align">
             <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
             <?php
+                if(isset($_COOKIE['checa_cadastro'])){
+                    ?>
+                        <script>Materialize.toast('asd', 4000)</script>
+                    <?php
+                    $_COOKIE['checa_cadastro'] = false;
+                }
                 if(IsLogado("usuario/users.json")){
                     $usuario = $_SESSION['user'];
                 ?>

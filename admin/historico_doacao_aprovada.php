@@ -37,45 +37,64 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <div class="col s12">
-                    <h1>Propostas Aprovadas:</h1>
-                    <?php
-                    if(isset($_SESSION['dados_admin'])){
-                        $dados1 = $dados->doacoes_aprovadas;
-                        if (!empty($dados1)) {
-                            foreach($dados1 as $aux){
-                            ?>
-                                <div class="col s6 conteudo">
-                                    <h3 class="conteudo"><?=$aux['finalidade']?></h3>
-                                    <h5 class="conteudo">Autor: <?=$aux['autor']?></h5>
-                                    <h5 class="conteudo">ID: <?=$aux['id']?></h5>
-                                </div>
-                            <?php
+            <h1>Propostas Aprovadas:</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Autor</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if(isset($_SESSION['dados_admin'])){
+                            $dados1 = $dados->doacoes_aprovadas;
+                            if (!empty($dados1)) {
+                                foreach($dados1 as $aux){
+                                ?>
+                                        <tr>
+                                            <td><?=$aux['finalidade']?></td>
+                                            <td><?=$aux['autor']?></td>
+                                            <td><?=$aux['id']?></td>
+                                        </tr>
+                                <?php
+                                }
                             }
                         }
-                    }
-                    ?>
-                </div>
-                <div class="col-md-12">
-                    <h1>Propostas Recusadas:</h1>
-                    <?php
+                        ?>
+					</tbody>
+                </table>
+				<h1>Propostas Recusadas:</h1>
+				<table>
+				<thead>
+					<tr>
+						<th>Pedido</th>
+						<th>Autor</th>
+						<th>ID</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+					
                     if(isset($_SESSION['dados_admin'])){
                         $dados2 = $dados->doacoes_recusadas;
                         if (!empty($dados2)) {
                             foreach($dados2 as $aux){
                             ?>
-                                <div class="col s6 conteudo">
-                                    <h3 class="conteudo"><?=$aux['finalidade']?></h3>
-                                    <h5 class="conteudo">Autor: <?=$aux['autor']?></h5>
-                                    <h5 class="conteudo">ID: <?=$aux['id']?></h5>
-                                </div>
+								<tr>
+                                    <td><?=$aux['finalidade']?></td>
+                                    <td><?=$aux['autor']?></td>
+                                    <td><?=$aux['id']?></td>
+								</tr>
                             <?php
                             }
                         }
                     }
                     ?>
+					</tbody>
+				</table>				
                 </div>
-            </div>
         </div>
     </div>
 </main>    
