@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html ng-app="main">
+    <head>
+        <title>teach.me</title>
+        <link rel="icon" type="image/png" href="http://icons.veryicon.com/png/System/Windows%208/Business%20Graduation%20Cap.png" />
+        <meta charset="utf-8">
+
+        <!--Importa firebase + login google-->
+        <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fresca" rel="stylesheet">
+
+        <!--Adiciona jQuery-->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!--Adiciona Angular-->
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../node_modules/angular-route/angular-route.min.js"></script>
+
+        <!--Adiciona app.js-->
+        <script src="../js/app.js"></script>
+        <!--Adiciona firebase.js-->
+        <script src="../js/firebase.js"></script>
+
+        <!-- Adiciona CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+
+        <!--Importa Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Importa materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+        <!--Mobile Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    </head>
+
+    <body ng-controller="LoginController">
+        <!-- Nav Bar -->
+        <div class="col l12 m12 s12">
+            <div class="navbar-fixed">
+                <nav class="nav-extended light-blue z-depth-2">
+                    <div class="nav-wrapper light-blue">
+                        <div class="row">
+                            <div class="container nav-container">
+                                <!--Logo-->
+                                <div id="logo-wrapper" class="col l2 hide-on-med-and-down">
+                                    <a href="#" class="brand-logo" id="logo">teach.me</a>
+                                </div>
+                                
+                                <!--Botao Hamburger-->
+                                <a id="hamburguer" href="#" data-activates="sidenav" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                                <!--Search Bar-->
+                                <div class="col s10 m11 l6">
+                                    <form>
+                                        <div id="inputWrapper" class="input-field light-blue lighten-1">
+                                            <input id="search" type="search" placeholder="Pesquisar" required>
+                                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                            <i class="material-icons">close</i>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--User Menu-->
+                                <div class="col l3 hide-on-med-and-down">
+                                    <ul id="nav-user" class="right">
+                                        <li>
+                                            <a ng-class="{disabled: usuario.Admin}" id="virar-sensei" ng-href="{{!usuario.Admin ? '#modal1' : '#'}}" onclick="return false;">Virar Sensei</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <!-- Side Nav -->
+        <ul class="side-nav" id="sidenav">
+            <li><a href="#" id="logo-mini">teach.me</a></li>
+            <li><a ng-class="{disabled: usuario.Admin}" id="virar-sensei" ng-href="{{!usuario.Admin ? '#modal1' : '#'}}" onclick="return false;">Virar Sensei</a></li>
+            <li><a href="sass.html" class="waves-effect waves-blue"><i class="material-icons">home</i>Início</a></li>
+            <li><a href="badges.html" class="waves-effect waves-blue"><i class="material-icons">people</i>Meus professores</a></li>
+            <li><a href="collapsible.html" class="waves-effect waves-blue"><i class="material-icons">class</i>Minhas aulas</a></li>
+                    
+            <li class="divider"></li>
+            
+            <li><a href="#" onclick="logout();" class="waves-effect waves-blue"><i class="material-icons">close</i>Sair</a></li>
+        </ul>
+
+        <!-- Modal Structure VIRAR SENSEI-->
+        <div id="modal1" class="modal" ng-controller="VirarSenseiController">
+            <div class="modal-content">
+                <h5>Processo para virar Sensei</h5>
+
+                <div class="divider"></div>
+
+                <p class="topico-titulo">- Por que precisamos do seu CPF para que possa dar aulas no nosso site?</p>
+                <!-- DEPOIS mudar a line-height dos p's normais -->
+                <p class="topico-corpo">O CPF é um número único para cada pessoa. Esse tipo de informação nos permite bloquear contas falsas, usuários anteriormente banidos do <a class="topico-logo">teach.me</a> e assim continuar mantendo nossa rede de serviços segura.</p>
+
+                <p class="topico-titulo">- Por que precisamos do seu telefone para que possa dar aulas no nosso site?</p>
+                <p class="topico-corpo">Quando as vagas de uma aula fecharem, o número dos telefones dos Gafanhotos são enviados ao Sensei, podendo criar um grupo no ZaptZap para conversar por eles.</p>  
+                
+                <p class="topico-titulo">- Por que precisamos do seu CEP para que possa dar aulas no nosso site?</p>
+                <p class="topico-corpo">Quando as vagas de uma aula fecharem, os Gafanhotos inscritos recebem o CEP do Sensei, para ter mais facilidade para marcar o lugar da aula.</p>
+
+                <!-- Form em Si -->
+                <div class="row">
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="cpf" type="text" class="validate cpf" ng-model="params.Cpf">
+                            <label for="cpf">CPF</label>
+                        </div>
+                    </div>
+
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="contato" type="text" class="validate phone_with_ddd" ng-model="params.Fone">
+                            <label for="contato">Telefone de contato</label>
+                        </div>
+                    </div>
+
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="cidade" type="text" class="validate" ng-model="params.Cidade">
+                            <label for="cidade">Cidade</label>
+                        </div>
+                    </div>
+
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="rua" type="text" class="validate" ng-model="params.Rua">
+                            <label for="Rua">Logradouro</label>
+                        </div>
+                    </div>
+
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="numero" type="text" class="validate" ng-model="params.Numero">
+                            <label for="numero">Número</label>
+                        </div>
+                    </div>
+
+                    <div class="col l4 m6 s12">
+                        <div class="input-field">
+                            <input id="complemento" type="text" class="validate" ng-model="params.Complemento">
+                            <label for="complemento">Complemento</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat" ng-click="virarSensei(params)">ENVIAR</a>
+            </div>
+        </div>
+
+        <!-- Corpo da Pagina -->        
+        <div class="row">
+            <!-- SideBar -->
+            <div id="sidebar" class="col l3 hide-on-med-and-down">
+                <ul class="" id="sidebar">
+                    <li><a href="home.html#!/aulas" class="waves-effect waves-blue"><i class="material-icons">home</i>Início</a></li>
+                    <li><a href="badges.html" class="waves-effect waves-blue"><i class="material-icons">people</i>Meus professores</a></li>
+                    <li><a href="collapsible.html" class="waves-effect waves-blue"><i class="material-icons">class</i>Minhas aulas</a></li>
+                    
+                    <li class="divider"></li>
+                    
+                    <li><a href="../html/login.html" onclick="logout();" class="waves-effect waves-blue"><i class="material-icons">close</i>Sair</a></li>
+                </ul>
+            </div>
+            
+            <!-- Route View -->
+            <div class="col l9" id="corpo">
+                <div ng-view></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <!-- FAB -->
+            <div class="fixed-action-btn" ng-if="usuario.Admin">
+                <a class="btn-floating btn-large deep-orange accent-2" href="#!/create-class">
+                    <i class="large material-icons">add</i>
+                </a>                
+            </div>        
+        </div>
+
+
+        <!--Adiciona materialize.js-->
+        <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <!-- Adiciona JS -->
+        <script type="text/javascript" src="../js/home.js"></script>
+        <!-- Adiciona JS que faz o mask do input do VIRAR SENSEI-->
+        <script type="text/javascript" src="../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+    </body>
+</html>

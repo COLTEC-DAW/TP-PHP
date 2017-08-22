@@ -1,0 +1,371 @@
+/*****Mixins*****/
+//Menu
+@mixin menu() {
+	a {
+		color: #000;
+		cursor: default;
+		font-weight: 400;
+		
+		span {
+			float: right;
+			color: #00c853;
+		}			
+	}
+
+	.nome-usuario {
+		font-weight: 500 !important;
+	}
+
+	#sair-button, #main-page {
+		cursor: pointer;
+	}
+}
+
+/*****Body*****/
+body {
+	background-color: #f5f5f5;
+}
+
+//Esconde a scroll bar
+::-webkit-scrollbar { 
+	display: none; 
+}
+
+/*****Container*****/
+.container {
+	margin: auto !important;
+}
+
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 96% !important;
+		max-width: none !important;
+	}	
+}
+
+/*****Nav Bar*****/
+nav {
+	.row {
+		margin-bottom: 0px;
+	}
+
+	//Logo
+	#logo {
+		font-weight: 200;
+	}
+
+	#logo-wrapper {
+		height: 48.3px;
+		max-width: 240px;
+		min-width: 240px;
+	}
+
+	//Icone Hamburguer
+	#hamburguer {
+		padding-left: 10px;
+		margin-right: 0px;
+	}
+
+	//Search Bar
+	form {
+		margin-top: 8px;
+
+		.input-field {
+			margin: auto;
+			border-radius: 2px;
+		}
+
+		#search {
+			height: 48px !important;
+			border-bottom-color: #42a5f5 !important;
+			font-size: 16px;
+			padding-top: 1px !important;
+		}
+
+		#search:focus {
+			border-radius: 2px !important;
+			border-bottom-color: #fff !important;
+			-webkit-box-shadow: 0 0 0 0 #fff !important;
+			box-shadow: 0 0 0 0 #fff !important;
+		}
+
+		#inputWrapper {
+			width: 100%;
+			height: 50px !important;
+		}
+
+		.material-icons {
+			margin-top: -6px;
+		}
+
+		//Mudar a cor do place-holder
+		::-webkit-input-placeholder {
+			color: white;
+		}
+		:-moz-placeholder {
+			color: white;
+			opacity:  1;
+		}
+		::-moz-placeholder {
+			color: white;
+			opacity:  1;
+		}
+		:-ms-input-placeholder {
+			color: white;
+		}
+		::-ms-input-placeholder {
+			color: white;
+		}
+	}
+	
+	//Btn Virar Sensei
+	.disabled {
+		background-color: #64b5f6;
+		color: #eceff1;
+		cursor: default;
+
+		&:hover {
+			background-color: #64b5f6 !important;
+		}
+	}
+
+	//Tweaks do mobile
+	@media screen and (max-width: 992px) {
+		//Nav-Container
+		.nav-container {
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+			width: 100%;
+		}
+
+		//Barra de Pesquisa
+		form {
+			.input-field {
+				margin-bottom: 8px !important;
+			}
+
+			#inputWrapper {
+				width: 90%;
+			}
+
+			.material-icons {
+				margin-top: -5px;
+			}
+		}
+
+		.button-collapse {
+			margin-top: 4px !important;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		form {
+			.material-icons {
+				margin-top: -2px;
+			}
+		}
+	}
+}
+
+/*****Side Navbar*****/
+.side-nav {
+	@include menu();
+
+	.divider {
+		margin-top: 0px !important;
+	}
+
+	#cabecote {
+		margin-top: 13px;
+		margin-bottom: 7px;
+
+		span {
+			color: rgba(0,0,0,0.87) !important;
+		}
+
+		//Foto do Usuario
+		.userImage {
+			width: 40px;
+		}		
+	}
+}
+
+#sidebar {
+	margin-top: 12px;
+	padding-left: 0px !important;
+	max-width: 250px !important;
+	
+	li {
+		line-height: 40px;
+		
+		a {
+			font-size: 13px;
+			line-height: 40px;
+			height: 40px;
+			padding: 0 30px;
+		    color: rgba(0,0,0,0.72);
+	        font-weight: 500;
+	        display: block;
+	        
+	        &:hover {
+	        	background-color: rgba(0,0,0,0.05);
+	        }
+	        
+	        &:click {
+	        	
+	        }
+	        
+	        i.material-icons {
+	        	float: left;
+				height: 40px;
+				line-height: 40px;
+				margin: 0 24px 0 0;
+				width: 24px;
+				color: rgba(0,0,0,0.54);
+	        }
+		}
+	}
+	
+	li.divider {
+		margin: 8px 0 8px 0;
+	}
+}
+
+#sidenav {
+	a#logo-mini {
+		font-size: 32px;
+		font-weight: 200;
+		margin-top: 5px;
+		margin-bottom: 15px;
+	}
+}
+
+/*****CORPO*****/
+#corpo {
+	margin-top: 48+25px !important;
+}
+
+#loader-wrapper {
+	text-align: center;
+	
+	#loader {
+		margin-top: 30px;
+		
+		.spinner-layer {
+			border-color: #ff6e40;
+		}
+	}	
+}
+
+
+/*****CARDS*****/
+.card-content {
+	overflow: hidden !important;
+	font-size: 16px;
+	
+	span {
+		font-weight: 500;
+	}
+	
+	.nome-sensei {
+		color: rgba(0,0,0,0.75);
+		font-size: 14px !important;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	
+	//TAGS
+	#tags {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.chip {
+		height: 24px !important;
+		font-size: 9.75px !important;
+		line-height: 24px !important;
+	}
+	
+	//INFO
+	.preco {
+		color: #00c853 !important;
+		font-size: 18px !important;
+		font-weight: 300 !important;
+	}
+	
+	.vagas {
+		color: #ff1744 !important;
+		font-weight: 300 !important;
+	}
+	
+	.local {
+		margin-top: 50px !important;
+	}
+	
+	//Avaliacao
+	.avaliacao-wrapper {
+		padding: 0px !important;
+		
+		#nota {
+			margin-bottom: 0px !important;
+		}
+		
+		label {
+			left: 0 !important;
+		}
+	}
+	
+	.enviar-nota {
+		margin-top: 30px !important;
+		padding-right: 0px !important;
+		
+		a {
+			color: #ff6e40;			
+		}
+	}
+}
+
+//Divider
+.divisor {
+	height: 62px !important;
+}
+
+#card-confirmados {
+	position: fixed;
+	margin-right: 6%;
+	
+	ul {
+		margin-bottom: 0px;
+		
+		li {
+			margin: 8px 0px 0px 0px;
+		}
+	}
+}
+
+.route-tela {
+	margin-top: -48px !important;
+}
+
+.card-action {
+	overflow: hidden;
+
+	a {
+		color: #ff6e40 !important;
+		margin-right: 0px !important;
+	}
+}
+
+/*****CRIAR AULA*****/
+.titulo {
+	padding-left: 10.5px;
+}
+
+#tituloData {
+	padding-top: 20px;
+}
+
+#tags p {
+	display: inline-block;
+}
