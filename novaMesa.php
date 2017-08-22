@@ -1,4 +1,5 @@
 <?php 
+require "classes.php"
 /*
 session_start();
 //Página para criação de novas mesas
