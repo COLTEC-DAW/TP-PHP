@@ -23,12 +23,12 @@
     }
 
     $todasAsMesas = pegaJson("DB/dbMesas.json");
-    $novaMesa = new Mesa($nome, $privacidade, $_SESSION[user]->nome, $endereco, $sinopse, $genero, $sistema);
-    poeNaMesa($novaMesa->id, $_SESSION["user"]->id);
+    $novaMesa = new Mesa($nome, $privacidade, $_SESSION["user"]->nome, $endereco, $sinopse, $genero, $sistema);
     array_push($todasAsMesas, $novaMesa);
     
     $arquivo = fopen("DB/dbMesas.json", "w");
     fwrite($arquivo, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
     fclose($arquivo);
+    poeNaMesa(intval($novaMesa->id), $_SESSION["user"]->id);
     header("location: home.php");
 ?>

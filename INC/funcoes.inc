@@ -60,9 +60,7 @@ function validar($login, $senha){
 function isCaraNaMesa($idMesa, $idCara){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     $mesa = pegaPorId($todasAsMesas, $idMesa);
-    foreach ($mesa->jogadores as $jogador){
-        if ($jogador == $idCara) return true;
-    }
+    foreach ($mesa->jogadores as $cara) if ($cara == $idCara) return true;
     return false;
 }
 

@@ -9,12 +9,12 @@
         "genero": "a",
         "sistema": "a",
         "jogadores": [
-            3
+            1
         ]
     },
     {
         "id": 2,
-        "public": false,
+        "public": true,
         "nome": "b",
         "mestre": "a",
         "endereco": "b",
@@ -22,8 +22,7 @@
         "genero": "b",
         "sistema": "b",
         "jogadores": [
-            2,
-            2
+            1
         ]
     },
     {
@@ -35,17 +34,21 @@
         "sinopse": "c",
         "genero": "c",
         "sistema": "c",
-        "jogadores": []
+        "jogadores": [
+            1
+        ]
     },
     {
         "id": 4,
-        "public": true,
+        "public": false,
         "nome": "d",
         "mestre": "a",
         "endereco": "d",
         "sinopse": "d",
         "genero": "d",
         "sistema": "d",
-        "jogadores": []
+        "jogadores": [
+            1
+        ]
     }
 ]

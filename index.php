@@ -67,7 +67,6 @@ require "INC/funcoes.inc";?>
                         <div class="paddingTop">
                             <h3 class= "fonteMarrom">Não tem conta?</h3>
                             <div class="divider"></div>
-                            <a href="cadastro.php"><p class="fonteMarrom">Crie uma aqui</p></a>
                             <form action="cadastrar.php" method="post">
                                 <div class="form-group">
                                     <label class="sr-only" for="nomeCadastro">Nome</label>

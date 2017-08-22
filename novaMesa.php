@@ -1,22 +1,8 @@
 <?php 
-require "classes.php"
-/*
 session_start();
 //Página para criação de novas mesas
 require "classes.php";
-require "INC/funcoes.inc";
-$arquivo = fopen("DB/dbMesas.json", "r");
-$json = "";
-while(!feof($arquivo)) $json .= fgets($arquivo);
-fclose($arquivo);
-$todasAsMesas = json_decode($json);
-$todasAsMesas = pegaJson("DB/dbMesas.json");
-$novaMesa = new Mesa();
-array_push($todasAsMesas, $novaMesa);
-$arquivo = fopen("DB/dbMesas.json", "w");
-fwrite($arquivo, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
-fclose($arquivo);
-*/
+userRefresh();
 ?>
 <!DOCTYPE>
 <html>

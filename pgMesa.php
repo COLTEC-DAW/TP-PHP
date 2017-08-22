@@ -7,7 +7,6 @@ $entrada = $_POST["entra"];
 $saida = $_POST["sai"];
 $todasAsMesas = pegaJson("DB/dbMesas.json");
 $mesa = pegaPorId($todasAsMesas, $idMesa);
-$convidado = $_POST["convite"] || $presente; //Nego pode ver mesa privada se já estiver nela ou usar link com convite
 $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
 ?>
 <!DOCTYPE>
@@ -32,6 +31,7 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                 header("location: home.php");
             }
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
+            $convidado = $_POST["convite"] || $presente; //Nego pode ver mesa privada se já estiver nela ou usar link com convite
             if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 
                 <h3>Esta é uma mesa privada.</h3> <?php
