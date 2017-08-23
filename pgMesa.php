@@ -59,7 +59,11 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                         <input type="hidden" name="sai" value="1">
                         <button type="submit">Sair dessa mesa</button>
                     </form> <?php
-                }
+                } ?>
+                <form method="post" action="pgMesa.php">
+                    <input type="hidden" name="convida" value="true">
+                    <input type="text" name="nomeConvidado" value="">
+                </form> <?php
             } ?>
             </div>
         </div>

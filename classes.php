@@ -32,20 +32,21 @@ class Mesa {
         fclose($arquivo);
         return $meta->numeroMesas;
     }
-    //Construct provisório com o faker
-    /*function __construct(){
-        require_once 'Faker/src/autoload.php';
-        $faker = Faker\Factory::create();
-        $this->id = $this->mesaGetNewId();
-        $this->public = TRUE;
-        $this->nome = $faker->name;
-        $this->mestre = $faker->name;
-        $this->endereco = $faker->address;
-        $this->sinopse = $faker->text;
-        $this->genero = $faker->name;
-        $this->sistema = $faker->name;
-    }*/
 } ?>
+
+<?php
+class Notificacao{
+    var $nomeDestinatario;
+    var $IdRemetente;
+    var $NomeRemetente;
+    var $IdMesa;
+    var $NomeMesa;
+
+    function __construct($IdR, $NR, $IdM, $NM){
+
+    }
+}
+?>
 
 <?php
 class Usuario {
@@ -55,6 +56,7 @@ class Usuario {
     var $email;
     var $senha;
     var $mesas;
+    var $notificacoes;
 
     function __construct($nome, $login, $email, $senha){
         $this->id = $this->usuarioGetNewId();
@@ -63,6 +65,7 @@ class Usuario {
         $this->email = $email;
         $this->senha = $senha;
         $this->mesas = [];
+        $this->notificacoes = [];
     }
    
     function usuarioGetNewId(){
