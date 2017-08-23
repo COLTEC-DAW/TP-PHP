@@ -10,7 +10,8 @@
         "sistema": "a",
         "jogadores": [
             1
-        ]
+        ],
+        "banidos": []
     },
     {
         "id": 2,
@@ -23,7 +24,8 @@
         "sistema": "b",
         "jogadores": [
             1
-        ]
+        ],
+        "banidos": []
     },
     {
         "id": 3,
@@ -36,7 +38,8 @@
         "sistema": "c",
         "jogadores": [
             1
-        ]
+        ],
+        "banidos": []
     },
     {
         "id": 4,
@@ -49,6 +52,7 @@
         "sistema": "d",
         "jogadores": [
             1
-        ]
+        ],
+        "banidos": []
     }
 ]

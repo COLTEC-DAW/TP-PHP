@@ -11,6 +11,7 @@ class Mesa {
     var $genero;
     var $sistema;
     var $jogadores; //Vetor dos IDs dos usuários membros da mesa
+    var $banidos;
     
     function __construct($nome, $public, $mestre, $endereco, $sinopse, $genero, $sistema){
         $this->nome = $nome;
@@ -22,6 +23,7 @@ class Mesa {
         $this->genero = $genero;
         $this->sistema = $sistema;
         $this->jogadores = [];
+        $this->banidos = [];
     }
     
     function mesaGetNewId(){
@@ -35,15 +37,32 @@ class Mesa {
 } ?>
 
 <?php
-class Notificacao{
+class Notificacao {
+    var $id;
+    var $tipo; //1 para convites, 2 para mudanças
     var $nomeDestinatario;
     var $IdRemetente;
     var $NomeRemetente;
     var $IdMesa;
     var $NomeMesa;
 
-    function __construct($IdR, $NR, $IdM, $NM){
-
+    function __construct($tipo, $ND, $IdR, $NR, $IdM, $NM){
+        $this->$id = $this->NotificacaoGetNewId();
+        $this->tipo = $tipo;
+        $this->nomeDestinatario = $ND;
+        $this->IdRemetente = $IdR;
+        $this->NomeRemetente = $NR;
+        $this->IdMesa = $IdM;
+        $this->NomeMesa = $NM;
+    }
+    
+    function NotificacaoGetNewId(){
+        $meta = pegaJson("DB/numerosDB.json");
+        $meta->numeroNotificacoes++;
+        $arquivo = fopen("DB/numerosDB.json", "w");
+        fwrite($arquivo, json_encode($meta, JSON_PRETTY_PRINT));
+        fclose($arquivo);
+        return $meta->numeroMesas;
     }
 }
 ?>

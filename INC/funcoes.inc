@@ -96,18 +96,6 @@ function saiDaMesa($idMesa, $idCara){
     fclose($db);
 }
 
-function listaJogadores($idMesa){
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
-    $mesinha = pegaPorId($todasAsMesas, $idMesa);
-    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
-    ?> <ul> <?
-    foreach ($mesinha->jogadores as $jogador) {
-        $caraDaVez = pegaPorId($todosUsuarios, $jogador);?>
-        <li><?= $caraDaVez->nome ?></li> <?php
-    }
-    ?> </ul> <?php
-}
-
 function listaMesasUsuario(){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($_SESSION["user"]->mesas as $codMesa){
@@ -132,5 +120,15 @@ function listaMesasUsuarioResumo(){
             <button type="submit">Detalhes</button>
         </form> <?php
     }
+}
+
+function bane($idMesa, $idBanido){
+    echo "banindo esse vagabundo";
+    var_dump($idBanido);
+    saiDaMesa($idMesa, $idBanido);
+    $todasAsMesas = pegaJson("DB/dbMesas.inc");
+    foreach($todasAsMesas as $mesinha)
+        if ($mesinha->id == $idMesa)
+            array_push($mesinha->banidos, $idBanido);
 }
 ?>

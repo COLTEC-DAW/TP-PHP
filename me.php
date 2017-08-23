@@ -5,7 +5,7 @@ userRefresh(); ?>
 <!DOCTYPE>
 <html>
     <head>
-        <title>Perfil</title>
+        <title>Meu Perfil</title>
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
