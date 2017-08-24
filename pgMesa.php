@@ -45,6 +45,7 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
                 <p><strong>Sinopse: </strong><?= $mesa->sinopse ?></p>
                 <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
                 <p><strong>Jogadores:</strong></p>
+                <!--
                 <ul> <?php //Listando os jogadores
                     $todosUsuarios = pegaJson("DB/dbUsuarios");
                     var_dump($todosUsuarios);
@@ -60,7 +61,10 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
                             </form>
                         </li> <?php
                     }?>
-                </ul> <?php
+                </ul> 
+                -->
+                <?php
+                var_dump($presente);
 
                 if (!$presente) { //Nego ainda não está na mesa ?>
                     <form method="post" action="pgMesa.php">
