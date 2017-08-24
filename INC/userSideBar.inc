@@ -16,7 +16,15 @@
         <form method="get" action="logout.php">
             <button type="submit">SAIR</button>
         </form>
-        <h3>Minhas mesas:</h3>
-        <?php listaMesasUsuarioResumo(); ?>
+        <h3>Minhas mesas:</h3> <?php
+        $todasAsMesas = pegaJson("DB/dbMesas.json");
+        foreach ($_SESSION["user"]->mesas as $codMesa){
+            $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+            <p><strong><?=$mesinha->nome?></strong></p>
+            <form method="post" action="pgMesa.php">
+                <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                <button type="submit">Detalhes</button>
+            </form> <?php
+        } ?>
     </div>
 </div>

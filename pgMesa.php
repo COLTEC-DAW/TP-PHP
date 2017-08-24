@@ -22,17 +22,19 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
         <?php
             if ($_POST["entra"])
                 poeNaMesa($idMesa, $_SESSION["user"]->id);
-            
+                //Seria bom por um header aqui para recarregar
             elseif ($_POST["sai"]){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
                 header("location: home.php");
             }
-            if ($_POST["kicka"]){
-                bane($idMesa, $_SESSION["kickado"]);
-            }
+            if ($_POST["kicka"])
+                bane($idMesa, $_POST["kickado"]);
+                //Seria bom por um header aqui para recarregar
+
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
             $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
-            if (!$convidado && !$mesa->public){ //Nego tentando visualizar mesa privada sem convite
+            var_dump (array_search($_SESSION["user"]->id, $mesa->banidos);
+            if ((!$convidado && !$mesa->public) || array_search($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 
                 <h3>Esta é uma mesa privada.</h3> <?php
             }
@@ -45,26 +47,23 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
                 <p><strong>Sinopse: </strong><?= $mesa->sinopse ?></p>
                 <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
                 <p><strong>Jogadores:</strong></p>
-                <!--
                 <ul> <?php //Listando os jogadores
-                    $todosUsuarios = pegaJson("DB/dbUsuarios");
-                    var_dump($todosUsuarios);
+                    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
                     foreach ($mesa->jogadores as $jogador) {
-                        $caraDaVez = pegaPorId($todosUsuarios, $jogador);?>
+                        $caraDaVez = pegaPorId($todosUsuarios, $jogador); ?>
                         <li>
-                            <p><?= $caraDaVez->nome ?></p>
-                            <form method="post" action="pgMesa.php">
-                                <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
-                                <input type="hidden" name="kicka" value="true">
-                                <input type="hidden" name="kickado" value="<?= $caraDaVez->id?>">
-                                <button type="submit">Banir</button>
-                            </form>
+                            <p><?= $caraDaVez->nome ?></p> <?php
+                            if ($mestre){ ?>
+                                <form method="post" action="pgMesa.php">
+                                    <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
+                                    <input type="hidden" name="kicka" value="true">
+                                    <input type="hidden" name="kickado" value="<?= $caraDaVez->id?>">
+                                    <button type="submit">Banir</button>
+                                </form> <?php
+                            } ?>
                         </li> <?php
                     }?>
-                </ul> 
-                -->
-                <?php
-                var_dump($presente);
+                </ul> <?php
 
                 if (!$presente) { //Nego ainda não está na mesa ?>
                     <form method="post" action="pgMesa.php">

@@ -19,7 +19,7 @@ userRefresh(); ?>
                 <div class="title">
                     <h2 class="center fonteBranca">Minhas mesas:</h2>
                 </div>
-                <?php listaMesasUsuario(); ?>
+                <?php listaMesasUsuario($_SESSION["user"]); ?>
             </div>
             <?php include "INC/notificacoes.inc"; ?>
         </div>

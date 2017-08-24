@@ -96,9 +96,9 @@ function saiDaMesa($idMesa, $idCara){
     fclose($db);
 }
 
-function listaMesasUsuario(){
+function listaMesasUsuario($user){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($_SESSION["user"]->mesas as $codMesa){
+    foreach ($user->mesas as $codMesa){
         $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
         <h3><?=$mesinha->nome?></h3>
         <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
@@ -110,25 +110,14 @@ function listaMesasUsuario(){
     }
 }
 
-function listaMesasUsuarioResumo(){
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($_SESSION["user"]->mesas as $codMesa){
-        $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-        <p><strong><?=$mesinha->nome?></strong></p>
-        <form method="post" action="pgMesa.php">
-            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-            <button type="submit">Detalhes</button>
-        </form> <?php
-    }
-}
-
 function bane($idMesa, $idBanido){
-    echo "banindo esse vagabundo";
-    var_dump($idBanido);
     saiDaMesa($idMesa, $idBanido);
-    $todasAsMesas = pegaJson("DB/dbMesas.inc");
+    $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach($todasAsMesas as $mesinha)
         if ($mesinha->id == $idMesa)
-            array_push($mesinha->banidos, $idBanido);
+            array_push($mesinha->banidos, intval($idBanido));
+    $db = fopen("DB/dbMesas.json", 'w');
+    fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
+    fclose($db);
 }
 ?>
