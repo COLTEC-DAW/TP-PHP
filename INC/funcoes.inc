@@ -30,13 +30,15 @@ function userRefresh(){
 function listaTodasMesas(){
     $todasAsMesas = pegaJson("DB/dbMesas.json");
     foreach ($todasAsMesas as $mesinha) { ?>
+    <div class="divisores">
         <h3><?=$mesinha->nome?></h3>
         <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
         <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
         <form method="post" action="pgMesa.php">
             <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
             <button type="submit">Detalhes</button>
-        </form> <?php
+        </form>
+    </div> <?php
     }
 }
 
