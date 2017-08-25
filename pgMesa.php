@@ -1,6 +1,6 @@
 <?php //Página para exibir qualquer mesa (o ID da mesa a ser mostrada deve vir via post)
 session_start();
-require "INC/funcoes.inc";
+require "classes.php";
 userRefresh();
 $idMesa = intval($_POST["idMesa"]);
 ?>
@@ -20,44 +20,23 @@ $idMesa = intval($_POST["idMesa"]);
         <?php
             if ($_POST["entra"])
                 poeNaMesa($idMesa, $_SESSION["user"]->id);
-                //Seria bom por um header aqui para recarregar
+            
             elseif ($_POST["sai"]){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
             }
             if ($_POST["kicka"])
                 bane($idMesa, $_POST["kickado"]);
-                //Seria bom por um header aqui para recarregar
-
+            
+            if ($_POST["convidando"])
+                New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
+            
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
             $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
 
             //AQUI COMEÇA A VISUALIZACAO DA PÁGINA
             $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
-            $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois ?>
-            
-            <nav class="navbar navbar-default navbar-static-top withoutBottomMargin withoutBorder">
-                <div class="container-reserva sideBar">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="GameMasterFont fontePreta navbar-brand" href="#">GameMaster</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a class="fontePreta" href="#">Home</a></li>
-                            <li><a class="fontePreta" href="me.php">Perfil</a></li>
-                            <li><a class="fontePreta" href="logout.php">Sair</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav> <?php
+            $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois
+            require "INC/navBar.inc";
 
             if ((!$convidado && !$mesa->public) || taNoArray($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 
@@ -89,6 +68,15 @@ $idMesa = intval($_POST["idMesa"]);
                         </li> <?php
                     }?>
                 </ul> <?php
+                if ($mestre){ ?>
+                    <form method="post" action="pgMesa.php">
+                        <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
+                        <input type="hidden" name="convidando" value="true">
+                        <input type="text" id="nomeConvidado" placeholder="Nome" name="nomeConvidado">
+                        <button type="submit">Convide alguém</button>
+                    </form>
+                    <br> <?php
+                }
 
                 if (!$presente) { //Nego ainda não está na mesa ?>
                     <form method="post" action="pgMesa.php">
@@ -97,15 +85,7 @@ $idMesa = intval($_POST["idMesa"]);
                         <button type="submit">Entrar nessa mesa</button>
                     </form> <?php
                 }
-                else { //Nego já está nessa mesa 
-                    if ($mestre){ ?>
-                    <form method="post" action="pgMesa.php">
-                        <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
-                        <input type="text" name="nomeConvidado" value="">
-                        <button type="submit">Convide alguém</button>
-                    </form>
-                    <br> <?php
-                    } ?>
+                else { //Nego já está nessa mesa ?>
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                         <input type="hidden" name="sai" value="1">

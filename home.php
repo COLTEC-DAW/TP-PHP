@@ -27,31 +27,9 @@ userRefresh(); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="container-fluid">
-            <nav class="navbar navbar-default navbar-static-top withoutBottomMargin withoutBorder">
-                <div class="container-reserva sideBar">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="GameMasterFont fontePreta navbar-brand" href="#">GameMaster</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a class="fontePreta" href="#">Home</a></li>
-                            <li><a class="fontePreta" href="me.php">Perfil</a></li>
-                            <li><a class="fontePreta" href="logout.php">Sair</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-            <? require "INC/userSideBar.inc"; ?>
+        <div class="container-fluid"> <?
+            require "INC/navBar.inc";
+            require "INC/userSideBar.inc"; ?>
             <div class="col-sm-12 col-md-7 col-lg-7 centerbar">
                 <form method="get" action="novaMesa.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
@@ -61,7 +39,7 @@ userRefresh(); ?>
                 </div>
                 <?php listaTodasMesas();?>
             </div>
-            <?php include "INC/notificacoes.inc"; ?>
+            <?php require "INC/notificacoes.inc"; ?>
         </div>
         <div class="footer">
             <?php include "INC/footer.inc"; ?>

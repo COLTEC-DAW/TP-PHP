@@ -38,24 +38,39 @@ class Mesa {
 
 <?php
 class Notificacao {
-    var $id;
+    //var $id;
     var $tipo; //1 para convites, 2 para mudanças
-    var $nomeDestinatario;
+    var $IdDestinatario;
     var $IdRemetente;
     var $NomeRemetente;
     var $IdMesa;
     var $NomeMesa;
 
-    function __construct($tipo, $ND, $IdR, $NR, $IdM, $NM){
-        $this->$id = $this->NotificacaoGetNewId();
+    function __construct($tipo, $NomeDestinatario, $IdMesa){
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+
+        //$this->$id = $this->NotificacaoGetNewId();
         $this->tipo = $tipo;
-        $this->nomeDestinatario = $ND;
-        $this->IdRemetente = $IdR;
-        $this->NomeRemetente = $NR;
-        $this->IdMesa = $IdM;
-        $this->NomeMesa = $NM;
+        $this->IdDestinatario = pegaPorNome($todosUsuarios, $NomeDestinatario)->id;
+        $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
+        echo "MESA: ";
+        var_dump($mesa);
+        $this->IdRemetente = pegaPorNome($todosUsuarios, $mesa->mestre);
+        $this->NomeRemetente = $mesa->mestre;
+        $this->IdMesa = $IdMesa;
+        $this->NomeMesa = $mesa->nome;
+
+        //Agora que a notificação foi construída, vamos mandá-la
+        foreach ($todosUsuarios as $cara)
+            if ($cara->id == $this->IdDestinatario){
+                array_push($cara->notificacoes, $this);
+                break;
+            }
+        $db = fopen("DB/dbUsuarios.json", 'w');
+        fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+        fclose($db);
     }
-    
+    /*
     function NotificacaoGetNewId(){
         $meta = pegaJson("DB/numerosDB.json");
         $meta->numeroNotificacoes++;
@@ -64,6 +79,7 @@ class Notificacao {
         fclose($arquivo);
         return $meta->numeroMesas;
     }
+    */
 }
 ?>
 

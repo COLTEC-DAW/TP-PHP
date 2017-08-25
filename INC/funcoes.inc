@@ -58,6 +58,15 @@ function pegaPorId($vetor, $idDesejado){
     return null;
 }
 
+function pegaPorNome($vetor, $NomeDesejado){
+    //só funciona supondo que $vetor é um vetor de elementos saidos de um json com o elemento nome
+    //retorna só a primeira ocorrência. IDs duplos bugam o sistema
+    for($i = 0; $i < count($vetor); $i++){
+        if(strcmp($vetor[$i]->nome, $NomeDesejado) == 0) return $vetor[$i]; //O === deveria funcionar E ser seguro
+    }
+    return null;
+}
+
 function validar($login, $senha){
     $json = pegaJson("DB/dbUsuarios.json");
     foreach ($json as $pessoa) {
@@ -105,20 +114,6 @@ function saiDaMesa($idMesa, $idCara){
     fclose($db);
 }
 
-function listaMesasUsuario($user){
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
-    foreach ($user->mesas as $codMesa){
-        $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-        <h3><?=$mesinha->nome?></h3>
-        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
-        <form method="post" action="pgMesa.php">
-            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-            <button type="submit">Detalhes</button>
-        </form> <?php
-    }
-}
-
 function bane($idMesa, $idBanido){
     saiDaMesa($idMesa, $idBanido);
     $todasAsMesas = pegaJson("DB/dbMesas.json");
@@ -129,4 +124,5 @@ function bane($idMesa, $idBanido){
     fwrite($db, json_encode($todasAsMesas, JSON_PRETTY_PRINT));
     fclose($db);
 }
+
 ?>
