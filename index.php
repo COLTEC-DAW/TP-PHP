@@ -105,7 +105,7 @@ require "INC/funcoes.inc";?>
             </div>
             <div class="col-sm-12 withoutPadding centerbar">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <div class="jumbotron">
+                    <div class="jumbotron marginTop">
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             <span aria-hidden="true" class="close" data-dismiss="alert">&times;</span>
                             <strong>Ops!</strong> Parece que seu login ou senha estão incorretos.
