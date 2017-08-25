@@ -20,6 +20,13 @@ function tiraDoVetor($vetor, $indesejado){
     return $novoVetor;
 }
 
+function taNoArray($agulha, $palheiro){ //deveria ter uma funcao pra isso, mas não funciona
+    foreach ($palheiro as $palha)
+        if ($palha == $agulha)
+            return true;
+    return false;
+}
+
 function userRefresh(){
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
     foreach ($todosUsuarios as $user) //Esse bloco tem de ficar aqui para ser atualizado constantemente       

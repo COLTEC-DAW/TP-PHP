@@ -3,8 +3,6 @@ session_start();
 require "INC/funcoes.inc";
 userRefresh();
 $idMesa = intval($_POST["idMesa"]);
-$mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
-$mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar o sistema. Corrijo depois
 ?>
 <!DOCTYPE>
 <html>
@@ -25,7 +23,6 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
                 //Seria bom por um header aqui para recarregar
             elseif ($_POST["sai"]){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
-                header("location: home.php");
             }
             if ($_POST["kicka"])
                 bane($idMesa, $_POST["kickado"]);
@@ -33,8 +30,36 @@ $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nome iguais devem bugar 
 
             $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
             $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
-            var_dump (array_search($_SESSION["user"]->id, $mesa->banidos);
-            if ((!$convidado && !$mesa->public) || array_search($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
+
+            //AQUI COMEÇA A VISUALIZACAO DA PÁGINA
+            $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
+            $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois ?>
+            
+            <nav class="navbar navbar-default navbar-static-top withoutBottomMargin withoutBorder">
+                <div class="container-reserva sideBar">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="GameMasterFont fontePreta navbar-brand" href="#">GameMaster</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="fontePreta" href="#">Home</a></li>
+                            <li><a class="fontePreta" href="me.php">Perfil</a></li>
+                            <li><a class="fontePreta" href="logout.php">Sair</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav> <?php
+
+            if ((!$convidado && !$mesa->public) || taNoArray($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 
                 <h3>Esta é uma mesa privada.</h3> <?php
             }
