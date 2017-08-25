@@ -7,7 +7,15 @@
     </div>
     
         <div class="divisores">
-            <h3>Minhas mesas:</h3>
-            <?php listaMesasUsuarioResumo(); ?>
+            <h3>Minhas mesas:</h3> <?php
+            $todasAsMesas = pegaJson("DB/dbMesas.json");
+            foreach ($_SESSION["user"]->mesas as $codMesa){
+                $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+                <h3><?=$mesinha->nome?></h3>
+                <form method="post" action="pgMesa.php">
+                    <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                    <button type="submit">Detalhes</button>
+                </form> <?php
+            } ?>
         </div>
 </div>
