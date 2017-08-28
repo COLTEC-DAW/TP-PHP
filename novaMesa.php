@@ -15,7 +15,10 @@ userRefresh();
     </head>
     <body>
         <div class="container-fluid">
-            <?php require "INC/userSideBar.inc"; ?>
+            <?php
+                require "INC/navBar.inc"; 
+                require "INC/userSideBar.inc";
+            ?>
             <div class="col-sm-10 centerbar">
                 <h1>Página para criar novas mesas</h1>
                 <div class="divider"></div>

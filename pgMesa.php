@@ -15,8 +15,12 @@ $idMesa = intval($_POST["idMesa"]);
     </head>
     <body>
         <div class="container-fluid">
-            <? require "INC/userSideBar.inc"; ?>
+            <?php
+                require "INC/navBar.inc";
+                require "INC/userSideBar.inc";
+            ?>
             <div class="col-sm-10 centerbar">
+                <div class="divisores">
         <?php
             if ($_POST["entra"])
                 poeNaMesa($idMesa, $_SESSION["user"]->id);
@@ -36,7 +40,6 @@ $idMesa = intval($_POST["idMesa"]);
             //AQUI COMEÇA A VISUALIZACAO DA PÁGINA
             $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
             $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois
-            require "INC/navBar.inc";
 
             if ((!$convidado && !$mesa->public) || taNoArray($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
                 ?> <h2>YOU SHALL NOT PASS</h2> 
@@ -93,6 +96,7 @@ $idMesa = intval($_POST["idMesa"]);
                     </form> <?php
                 }
             } ?>
+                </div>
             </div>
         </div>
     </body>

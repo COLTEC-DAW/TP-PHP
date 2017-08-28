@@ -1,10 +1,10 @@
-<?php session_start();
+<?php 
+ob_start();
+session_start();
 session_destroy(); ?>
 <!DOCTYPE>
 <html>
     <body>
-        <p>Logout excutado</p>
-        <a href="index.php">Entrar novamente</a>
-        <?php include "INC/footer.inc" ?>
+        <?php header("location: index.php"); ?>
     </body>
 </html>

@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="GameMasterFont fontePreta navbar-brand" href="#">GameMaster</a>
+            <a class="GameMasterFont fontePreta navbar-brand" href="home.php">GameMaster</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

@@ -34,6 +34,7 @@
     overflow: hidden;
     padding: 0% !important;
     /*height: 96%;*/
+    min-height: 96%;
 }
 
 /********************** CORES RESERVAS **********************/
@@ -169,7 +170,7 @@ body{
   display:block; /* for use on default inline elements like span */
   margin: 9px 0;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: #c4c4c4;
 }
 
 .footer{

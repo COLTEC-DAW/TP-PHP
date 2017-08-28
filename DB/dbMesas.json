@@ -27,7 +27,9 @@
         "jogadores": [
             1
         ],
-        "banidos": []
+        "banidos": [
+            2
+        ]
     },
     {
         "id": 3,
