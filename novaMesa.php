@@ -20,45 +20,47 @@ userRefresh();
                 require "INC/userSideBar.inc";
             ?>
             <div class="col-sm-10 centerbar">
-                <h1>Página para criar novas mesas</h1>
-                <div class="divider"></div>
-                <!--<h2><strong>WORK IN PROGRESS</strong></h2>
-                <h2>Enquanto você não estava olhando, o faker fez o trabalho. Volte e admire os resultados</h2>-->
-                <form action="criaMesa.php" method="POST">
-                    <div class="form-group">
-                        <label for="nomeMesa">Nome</label>
-                        <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="Nome da Mesa">
-                    </div>
-                    <!--Nome do mestre será passado por POST-->
-                    <div class="form-group">
-                        <label for="enderecoMesa">Endereço</label>
-                        <input type="text" class="form-control" id="enderecoMesa" name="enderecoMesa" placeholder="R. Astolfo, 54 - Bela Vista, São Paulo">
-                    </div>
-                    <div class="form-group">
-                        <label for="generoMesa">Gênero</label>
-                        <input type="text" class="form-control" id="generoMesa" name="generoMesa" placeholder="Gênero da Mesa">
-                    </div>
-                    <div class="form-group">
-                        <label for="sistemaMesa">Sistema</label>
-                        <input type="text" class="form-control" id="sistemaMesa" name="sistemaMesa" placeholder="Sistema da Mesa">
-                    </div>
-                    <div class="form-group">
-                        <label for="sinopseMesa">Sinopse</label>
-                        <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="privacidade">Privacidade</label>
-                        <div id="privacidade">
-                            <label class="radio-inline">
-                                <input type="radio" name="privacidadeMesa" id="privacidade1" value="1">Pública
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="privacidadeMesa" id="privacidade2" value="0">Privada
-                            </label>
+                <div class="divisores">
+                    <h1>Página para criar novas mesas</h1>
+                    <div class="divider"></div>
+                    <!--<h2><strong>WORK IN PROGRESS</strong></h2>
+                    <h2>Enquanto você não estava olhando, o faker fez o trabalho. Volte e admire os resultados</h2>-->
+                    <form action="criaMesa.php" method="POST">
+                        <div class="form-group">
+                            <label for="nomeMesa">Nome</label>
+                            <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="Nome da Mesa">
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
-                </form>
+                        <!--Nome do mestre será passado por POST-->
+                        <div class="form-group">
+                            <label for="enderecoMesa">Endereço</label>
+                            <input type="text" class="form-control" id="enderecoMesa" name="enderecoMesa" placeholder="R. Astolfo, 54 - Bela Vista, São Paulo">
+                        </div>
+                        <div class="form-group">
+                            <label for="generoMesa">Gênero</label>
+                            <input type="text" class="form-control" id="generoMesa" name="generoMesa" placeholder="Gênero da Mesa">
+                        </div>
+                        <div class="form-group">
+                            <label for="sistemaMesa">Sistema</label>
+                            <input type="text" class="form-control" id="sistemaMesa" name="sistemaMesa" placeholder="Sistema da Mesa">
+                        </div>
+                        <div class="form-group">
+                            <label for="sinopseMesa">Sinopse</label>
+                            <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="privacidade">Privacidade</label>
+                            <div id="privacidade">
+                                <label class="radio-inline">
+                                    <input type="radio" name="privacidadeMesa" id="privacidade1" value="1">Pública
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="privacidadeMesa" id="privacidade2" value="0">Privada
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
+                    </form>
+                </div>
             </div>
         </div>    
         <div class="footer">
