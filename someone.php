@@ -1,7 +1,7 @@
 <?php session_start();
 require "INC/funcoes.inc";
 userRefresh();
-$cara = pegaPorId(pegaJson("DB/dbUsuarios"), $_GET["idCara"]); ?>
+$cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
 <!-- Página do perfil do alguém. Mostra o nome, mesas, avaliação e tags -->
 <!DOCTYPE>
 <html>
@@ -17,9 +17,9 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios"), $_GET["idCara"]); ?>
         <div class="container-fluid"> <?php
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
-            <div class="col-sm-7 centerbar">
+            <div class="col-sm-10 centerbar">
                 <div class="title">
-                    <h2 class="center fonteBranca">Mesas:</h2>
+                    <h2 class="center fonteBranca">Mesas de <?= $cara->nome ?>:</h2>
                 </div> <?php //Imprindo as mesas do usuario
                 $todasAsMesas = pegaJson("DB/dbMesas.json");
                 foreach ($cara->mesas as $codMesa){
@@ -31,10 +31,8 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios"), $_GET["idCara"]); ?>
                         <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
                         <button type="submit">Detalhes</button>
                     </form> <?php
-                }
-            ?>
+                } ?>
             </div>
-            <?php require "INC/notificacoes.inc"; ?>
         </div>
         <div class="footer">
             <?php include "INC/footer.inc"; ?>

@@ -30,7 +30,7 @@ userRefresh(); ?>
         <div class="container-fluid"> <?
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
-            <div class="col-sm-12 col-md-7 col-lg-7 centerbar">
+            <div class="col-sm-12 col-md-10 col-lg-10 centerbar">
                 <form method="get" action="novaMesa.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
@@ -39,7 +39,6 @@ userRefresh(); ?>
                 </div>
                 <?php listaTodasMesas();?>
             </div>
-            <?php require "INC/notificacoes.inc"; ?>
         </div>
         <div class="footer">
             <?php include "INC/footer.inc"; ?>

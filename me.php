@@ -1,7 +1,17 @@
-<?php session_start();
-require "INC/funcoes.inc";
-userRefresh(); ?>
 <!-- Página do perfil do usuário. Mostra o nome, mesas, avaliação e tags -->
+<?php ob_start();
+session_start();
+require "INC/funcoes.inc";
+userRefresh(); 
+if ($_POST["limpa"]){
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+    $user = pegaPorId($todosUsuarios, $_SESSION["user"]->id);
+    $user->notificacoes = [];
+    $db = fopen("DB/dbUsuarios.json", 'w');
+    fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+    fclose($db);
+    userRefresh();
+}?>
 <!DOCTYPE>
 <html>
     <head>
@@ -33,7 +43,32 @@ userRefresh(); ?>
                 }
             ?>
             </div>
-            <?php require "INC/notificacoes.inc"; ?>
+            <div class="centerbar col-sm-12 col-md-3 col-lg-3">
+                <div class="divisores">
+                    <h2>Suas notificações:</h2> 
+                    <form method="post" action="me.php">
+                        <input type="hidden" name="limpa" value="true">
+                        <button type="submit">LIMPAR</button>
+                    </form><?php
+                    foreach ($_SESSION["user"]->notificacoes as $notificacao){
+                        if ($notificacao->tipo == 1){ ?>
+                            <ul>
+                                O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa <?= $notificacao->NomeMesa ?>
+                            </ul> <?php
+                        }
+                        else { ?>
+                            <ul>
+                                Houve uma modificação na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                            </ul> <?php
+                        } ?>
+                        <form method="post" action="pgMesa.php">
+                            <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                            <input type="hidden" name="convite" value="true">
+                            <button type="submit">Ver mesa</button>
+                        </form> <?php
+                    } ?>
+                </div>
+            </div>
         </div>
         <div class="footer">
             <?php include "INC/footer.inc"; ?>

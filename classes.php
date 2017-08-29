@@ -38,7 +38,6 @@ class Mesa {
 
 <?php
 class Notificacao {
-    //var $id;
     var $tipo; //1 para convites, 2 para mudanças
     var $IdDestinatario;
     var $IdRemetente;
@@ -49,13 +48,10 @@ class Notificacao {
     function __construct($tipo, $NomeDestinatario, $IdMesa){
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
 
-        //$this->$id = $this->NotificacaoGetNewId();
         $this->tipo = $tipo;
         $this->IdDestinatario = pegaPorNome($todosUsuarios, $NomeDestinatario)->id;
-        $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
-        echo "MESA: ";
-        var_dump($mesa);
-        $this->IdRemetente = pegaPorNome($todosUsuarios, $mesa->mestre);
+        $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $IdMesa);
+        $this->IdRemetente = pegaPorNome($todosUsuarios, $mesa->mestre)->id;
         $this->NomeRemetente = $mesa->mestre;
         $this->IdMesa = $IdMesa;
         $this->NomeMesa = $mesa->nome;
@@ -70,16 +66,6 @@ class Notificacao {
         fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
         fclose($db);
     }
-    /*
-    function NotificacaoGetNewId(){
-        $meta = pegaJson("DB/numerosDB.json");
-        $meta->numeroNotificacoes++;
-        $arquivo = fopen("DB/numerosDB.json", "w");
-        fwrite($arquivo, json_encode($meta, JSON_PRETTY_PRINT));
-        fclose($arquivo);
-        return $meta->numeroMesas;
-    }
-    */
 }
 ?>
 

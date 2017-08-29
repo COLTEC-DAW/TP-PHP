@@ -3,6 +3,7 @@ session_start();
 require "classes.php";
 userRefresh();
 $idMesa = intval($_POST["idMesa"]);
+$mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
 ?>
 <!DOCTYPE>
 <html>
@@ -22,15 +23,15 @@ $idMesa = intval($_POST["idMesa"]);
             <div class="col-sm-10 centerbar">
                 <div class="divisores">
         <?php
-            if ($_POST["entra"])
+            if ($_POST["entra"]){
                 poeNaMesa($idMesa, $_SESSION["user"]->id);
-            
+            }
             elseif ($_POST["sai"]){
                 saiDaMesa($idMesa, $_SESSION["user"]->id);
             }
-            if ($_POST["kicka"])
+            if ($_POST["kicka"]){
                 bane($idMesa, $_POST["kickado"]);
-            
+            }
             if ($_POST["convidando"])
                 New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
             

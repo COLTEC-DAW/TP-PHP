@@ -20,15 +20,18 @@
         "login": "b",
         "email": "b@bb",
         "senha": "b",
-        "mesas": [],
+        "mesas": [
+            4,
+            5
+        ],
         "notificacoes": [
             {
                 "tipo": 1,
                 "IdDestinatario": 2,
-                "IdRemetente": null,
-                "NomeRemetente": null,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
                 "IdMesa": 5,
-                "NomeMesa": null
+                "NomeMesa": "mesa generica"
             }
         ]
     }
