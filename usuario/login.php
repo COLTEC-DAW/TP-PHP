@@ -20,31 +20,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body>
+<body class="entrar">
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
 
     <?php include '../utils/nav.inc';?>
 
     <div class="container center-align">
-        <div class="col l2">
-            <form action="conf_login.php" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="card col s6 offset-s3" id="login">
+            <div class="card-content">
+                <i class="fa fa-handshake-o large" aria-hidden="true"></i>
+                <h5 class="left-align">Entrar</h5>
+                <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
-                <div class="input-field">
-                <input type="text" name="nome" required>
-                <label>Login</label>                        
-                </div>
+                    <div class="input-field">
+                    <input type="text" name="nome" required>
+                    <label>Login</label>                        
+                    </div>
 
-                <div class="input-field">
-                <input id="user_password" type="password" name="senha" required>
-                <label>Senha</label>                        
-                </div>
+                    <div class="input-field">
+                    <input id="user_password" type="password" name="senha" required>
+                    <label>Senha</label>                        
+                    </div>
 
-                <div class=" center-align">
-                    <input type="submit" name="Entrar" class="btn btn-default btnform indigo">
-                </div>
-            </form>
-            <a href = "cadastro.php"><button type="button" class="btn btn-default indigo">Criar conta</button></a>
+                    <div class="right-align">
+                        <input type="submit" name="Enviar" class="btn waves-effect waves-light">
+                    </div>
+
+                </form>
+            
+            </div>
+            </div>
             <?php
                 if(Errors()){
                     $resposta = Errors();
@@ -60,5 +67,4 @@
     </div>
 </main>
 </body>
-<?php include '../utils/footer.inc' ?>
 </html>

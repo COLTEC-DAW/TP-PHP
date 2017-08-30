@@ -39,7 +39,7 @@ nav .card {
     padding: 2% !important;
 }
 
-nav{
+nav {
     margin-bottom: 2%;
 }
 
@@ -55,34 +55,68 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #e0e0e0
+    background-color: white;
+}
+
+.entrar {
+    background-image: url("ideias.jpg");
 }
 
 main {
     flex: 1 0 auto;
 }
 
-#pedido{
+#pedido {
     padding: 2%;
 }
 
-#imgpedido{
+#imgpedido {
     width: 20%;
     height: 20%;
     display: block;
     margin: 0 auto;
 }
 
-i{
+#login {
+    position: relative;
+    top: 100%;
+}
+
+i {
     float: none !important;
 }
 
+
 /* CORES */
-.dark-primary-color    { background: #00796B; }
-.default-primary-color { background: #009688; }
-.light-primary-color   { background: #B2DFDB; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #E040FB; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #757575; }
-.divider-color         { border-color: #BDBDBD; }
+
+.dark-primary-color {
+    background: #00796B;
+}
+
+.default-primary-color {
+    background: #009688;
+}
+
+.light-primary-color {
+    background: #B2DFDB;
+}
+
+.text-primary-color {
+    color: #FFFFFF;
+}
+
+.accent-color {
+    background: #E040FB;
+}
+
+.primary-text-color {
+    color: #212121;
+}
+
+.secondary-text-color {
+    color: #757575;
+}
+
+.divider-color {
+    border-color: #BDBDBD;
+}

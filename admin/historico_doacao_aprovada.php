@@ -66,7 +66,7 @@
 					</tbody>
                 </table>
 				<h1>Propostas Recusadas:</h1>
-				<table>
+				<table class="highlight">
 				<thead>
 					<tr>
 						<th>Pedido</th>
