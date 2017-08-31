@@ -1,4 +1,4 @@
-<div class="centerbar col-sm-12 col-lg-2 col-md-2">
+<div class="centerbar col-xs-12 col-sm-12 col-lg-2 col-md-2">
     <div class="card">
         <img src="STYLE/fotaPerfil.jpeg" class="fotoPerfil" alt="Avatar" style="width:100%">
         <div class="container">
@@ -6,16 +6,16 @@
         </div>
     </div>
     
-        <div class="divisores">
-            <h3>Minhas mesas:</h3> <?php
-            $todasAsMesas = pegaJson("DB/dbMesas.json");
-            foreach ($_SESSION["user"]->mesas as $codMesa){
-                $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-                <h3><?=$mesinha->nome?></h3>
-                <form method="post" action="pgMesa.php">
-                    <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                    <button type="submit" class="btn btn-default">Detalhes</button>
-                </form> <?php
-            } ?>
-        </div>
+    <div class="divisores">
+        <h3>Minhas mesas:</h3> <?php
+        $todasAsMesas = pegaJson("DB/dbMesas.json");
+        foreach ($_SESSION["user"]->mesas as $codMesa){
+            $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+            <h3><?=$mesinha->nome?></h3>
+            <form method="post" action="pgMesa.php">
+                <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                <button type="submit" class="btn btn-default">Detalhes</button>
+            </form> <?php
+        } ?>
+    </div>
 </div>

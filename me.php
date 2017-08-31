@@ -16,17 +16,27 @@ if ($_POST["limpa"]){
 <html>
     <head>
         <title>Meu Perfil</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $('.dropdown-toggle').dropdown();
+        });
+        </script>
         <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="container-fluid"> <?php
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
-            <div class="col-sm-7 centerbar">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 centerbar">
                 <div class="title">
                     <h2 class="center fonteBranca">Minhas mesas:</h2>
                 </div> <?php //Imprindo as mesas do usuario
@@ -46,7 +56,7 @@ if ($_POST["limpa"]){
                 }
             ?>
             </div>
-            <div class="centerbar col-sm-12 col-md-3 col-lg-3">
+            <div class="centerbar col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="divisores">
                     <h2>Suas notificações:</h2> 
                     <form method="post" action="me.php">

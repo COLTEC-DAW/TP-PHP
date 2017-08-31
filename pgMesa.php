@@ -9,10 +9,21 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
 <html>
     <head>
         <title><?=$mesa->nome?></title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">        
+        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $('.dropdown-toggle').dropdown();
+        });
+        </script>
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="container-fluid">
@@ -20,7 +31,7 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                 require "INC/navBar.inc";
                 require "INC/userSideBar.inc";
             ?>
-            <div class="col-sm-10 centerbar">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
                 <div class="divisores">
         <?php
             if ($_POST["entra"]){
