@@ -45,8 +45,8 @@
 
 
                     <ul class="right">
-                        <li><a href="usuario/pedido.php">Fazer Pedido</a></li>
-                        <li><a href="usuario/historico_doacao.php">Histórico de Doações</a></li>
+                        <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
+                        <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                         <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
