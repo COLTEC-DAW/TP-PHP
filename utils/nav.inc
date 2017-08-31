@@ -7,7 +7,7 @@
                 $usuario = $_SESSION['user'];
             ?>
                 <ul class="right">
-                    <li><a href="../usuario/pedido.php">Fazer Pedido</a></li>
+                    <li><a href="../usuario/pedido.php">Fazer Proposta</a></li>
                     <li><a href="../usuario/historico_doacao.php">Histórico de Doações</a></li>
                     <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                     <li><a href="../usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
@@ -18,7 +18,7 @@
             else if(Eh_Admin()){
             ?>
                 <ul class="right">
-                    <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                    <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Avaliações</a></li>
                     <li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>
 

@@ -29,28 +29,28 @@
     <div class="container center-align">
         <div class="row">
             <div class="card col s6 offset-s3" id="login">
-            <div class="card-content">
-                <i class="fa fa-handshake-o large" aria-hidden="true"></i>
-                <h5 class="left-align">Entrar</h5>
-                <form action="conf_login.php" method="post" enctype="multipart/form-data">
+                <div class="card-content">
+                    <i class="fa fa-handshake-o large" aria-hidden="true"></i>
+                    <h5 class="left-align">Entrar</h5>
+                    <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
-                    <div class="input-field">
-                    <input type="text" name="nome" required>
-                    <label>Login</label>                        
-                    </div>
+                        <div class="input-field">
+                        <input type="text" name="nome" required>
+                        <label>Login</label>                        
+                        </div>
 
-                    <div class="input-field">
-                    <input id="user_password" type="password" name="senha" required>
-                    <label>Senha</label>                        
-                    </div>
+                        <div class="input-field">
+                        <input id="user_password" type="password" name="senha" required>
+                        <label>Senha</label>                        
+                        </div>
 
-                    <div class="right-align">
-                        <input type="submit" name="Enviar" class="btn waves-effect waves-light">
-                    </div>
+                        <div class="right-align">
+                            <input type="submit" name="Enviar" class="btn waves-effect waves-light">
+                        </div>
 
-                </form>
-            
-            </div>
+                    </form>
+                
+                </div>
             </div>
             <?php
                 if(Errors()){

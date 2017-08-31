@@ -29,48 +29,52 @@
     <?php include '../utils/nav.inc' ?>
 
     <div class="container center-align">
+        <div class="row">
+            <div class="card col s6 offset-s3" id="login">
+                <div class="card-content">
+                    <i class="fa fa-handshake-o large" aria-hidden="true"></i>
+                    <h5 class="left-align">Cadastrar-se</h5>
+                    <form action="conf_cadastro.php" method="post" enctype="multipart/form-data">
 
-        <div class="col-md-12">
-            <form action="conf_cadastro.php" method="post" enctype="multipart/form-data">
+                        <div class="input-field">
+                 	       <input type="text" name="name" required>
+                 	       <label>Nome</label>                        
+                        </div>
 
-                <div class="input-field">
-                <input type="text" name="name" required>
-                <label>Nome</label>                        
-                </div>
+                        <div class="input-field">
+                	        <input type="text" name="email" required>
+                	        <label id="label">Email</label>
+                        </div>
 
-                <div class="input-field">
-                <input type="text" name="nome" required>
-                <label>Login</label>                        
-                </div>
+                        <div class="input-field">
+              	          <input type="text" name="nome" required>
+             	           <label>Login</label>                        
+                        </div>
 
-                <div class="input-field">
-                <input type="password" name="senha" required>
-                <label id="label">Senha</label>
+                        <div class="input-field">
+    	                    <input type="password" name="senha" required>
+                            <label id="label">Senha</label>
+                        </div>
+                                                                        
+                        <div class="right-align">
+                            <input type="submit" name="Enviar" class="btn waves-effect waves-light">
+                        </div>
+                    </form>
                 </div>
-                                                                
-                <div class="input-field">
-                <input type="text" name="email" required>
-                <label id="label">Email</label>
-                </div>
-
-                <div class=" center-align">
-                    <input type="submit" name="Enviar" class="btn btn-default btnform indigo">
-                </div>
-            </form>
-            <?php
-                if(Errors()){
-                    $resposta = Errors();
-                    $_SESSION['error'] = "valido";
-                ?>
-                    <div class="card-panel red lighten-4">
-                        <span><?=$resposta?></span>
-                    </div>
                 <?php
-                }
-            ?>
+                    if(Errors()){
+                        $resposta = Errors();
+                        $_SESSION['error'] = "valido";
+                    ?>
+                        <div class="card-panel red lighten-4">
+                            <span><?=$resposta?></span>
+                        </div>
+                    <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </main>
 </body>
-<?php include '../utils/footer.inc' ?>
 </html>
