@@ -25,12 +25,13 @@
             <?php
             }   
             else{
-            ?>
-                <ul class="right">
-                    <li><a href="../usuario/cadastro.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar</a></li>
-                    <li><a href="../usuario/login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
-                </ul>
-            <?php
+                $link = $_SERVER["PHP_SELF"];
+                $termo = "login.php";
+                $pattern = '/'.$termo.'/';
+                if(!preg_match($pattern,$link)){
+                    $redirect = "../usuario/login.php";
+                    header("location:$redirect");
+                }
             }
             ?>
     </div>

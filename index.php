@@ -42,8 +42,6 @@
                 if(IsLogado("usuario/users.json")){
                     $usuario = $_SESSION['user'];
                 ?>
-
-
                     <ul class="right">
                         <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
                         <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
@@ -63,12 +61,8 @@
                 <?php
                 }   
                 else{
-                ?>
-                    <ul class="right">
-                        <li><a href="usuario/cadastro.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar</a></li>
-                        <li><a href="usuario/login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
-                    </ul>
-                <?php
+                    $redirect = "usuario/login.php";
+                    header("location:$redirect");
                 }
                 ?>
         </div>
@@ -101,7 +95,6 @@
 					?>
 					<div class="row center-align">			
 					<?php
-                        $contador=1;
                         foreach($json as $dados){
                             $descricao = $dados->finalidade;
                             $meta = $dados->meta;
@@ -111,51 +104,31 @@
                             $id = $dados->id;
 
                             if($aprovado==1){// && $arrecadado<$meta
-                                if($contador%2==1){
                                 ?>
-                                <div class="card-panel doacoes col s4 offset-s1 hoverable">
-                                    <h3 class="conteudo truncate"><?=$descricao?></h3>
-                                    <?php
-                                        $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
-                                    ?>
-                                    <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
-                                    <h5 class="conteudo">Meta: <?=$meta?></h5>
-                                    <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
-                                    <form action="usuario/doar.php" method="post">
-                                        <input type="hidden" name="id" value=<?=$id?>>
-                                        <input type="submit" class="btn btn-default botao accent-color" name="Verificar" value="Doar">
-                                    </form>
-                                    <form action="usuario/pag_doacoes.php" method="post">
-                                        <input type="hidden" name="id" value=<?=$id?>>
-                                        <input type="submit" class="btn btn-default botao accent-color" name="Verificar2" value="Leia mais">
-                                    </form>
-                                </div>
-                                
-                                <?php
-                                }
-                                else{
-                                    ?>
-                                    <div class="card-panel doacoes col s4 push-s2">
-                                        <h3 class="conteudo truncate"><?=$descricao?></h3>
-                                        <?php
-                                            $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
-                                        ?>
-                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
-                                        <h5 class="conteudo">Meta: <?=$meta?></h5>
-                                        <h5 class="conteudo">Arrecadado: <?=$arrecadado?></h5>
-                                        <form action="usuario/doar.php" method="post">
-                                            <input type="hidden" name="id" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
-                                        </form>
-                                        <form action="usuario/pag_doacoes.php" method="post">
-                                            <input type="hidden" name="id" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
-                                        </form>
+                                    <div class="col s12 m6 l4">
+                                        <div class="card">
+                                            <div class="card-content white-text">
+                                                <span class="card-title grey-text text-darken-4 truncate"><?=$descricao?></span>
+                                                <?php
+                                                $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
+                                                ?>
+                                                <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
+                                                <p class="card-subtitle grey-text text-darken-2 truncate"><?=$dados->descricao?></p>
+                                                <span class="blue-text text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;Meta: <?=$meta?></span>
+                                            </div>
+                                            <div class="card-action">
+                                                <form action="usuario/doar.php" method="post">
+                                                    <input type="hidden" name="id" value=<?=$id?>>
+                                                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                                                </form>
+                                                <form action="usuario/pag_doacoes.php" method="post">
+                                                    <input type="hidden" name="id" value=<?=$id?>>
+                                                    <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    <?php
-                                }
-                                $contador++;
+                                <?php
                             }
                         }
 						?>
@@ -173,7 +146,6 @@
 					<div class="row center-align">
                         <h2>Pedidos para avaliação</h2>               			
 					<?php
-                        $contador=1;
                         foreach($json as $dados){
                             $descricao = $dados->finalidade;
                             $meta = $dados->meta;
@@ -186,54 +158,35 @@
                             $_SESSION["doacao"] = $doacao_pendente;
 
                             if($aprovado==0){
-                                if($contador%2==1){
                                     ?>
-                                    <div class="card-panel doacoes col s4 offset-s1 hoverable">
-                                        <h3 class="conteudo"><?=$descricao?></h3>
-                                        <?php
-                                            $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
-                                        ?>
-                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
-                                        <h5 class="conteudo">Meta: <?=$meta?></h5>
-                                        <form action="usuario/pag_doacoes.php" method="post">
-                                            <input type="hidden" name="id" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
-                                        </form>
-                                        <form action="admin/aprovar.php" method="post">
-                                            <input type="hidden" name="controle" value=<?=$id?>>            
-                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Aceitar">
-                                        </form>
-                                        <form action="admin/reprovar.php" method="post">
-                                            <input type="hidden" name="controle" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Recusar">
-                                        </form>
+                                    <div class="col s12 m6 l4">
+                                        <div class="card">
+                                            <div class="card-content white-text">
+                                                <span class="card-title grey-text text-darken-4 truncate"><?=$descricao?></span>
+                                                <?php
+                                                $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
+                                                ?>
+                                                <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
+                                                <p class="card-subtitle grey-text text-darken-2 truncate"><?=$dados->descricao?></p>
+                                                <span class="blue-text text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;Meta: <?=$meta?></span>
+                                            </div>
+                                            <div class="card-action">
+                                                <form action="usuario/pag_doacoes.php" method="post">
+                                                    <input type="hidden" name="id" value=<?=$id?>>
+                                                    <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
+                                                </form>
+                                                <form action="admin/aprovar.php" method="post">
+                                                    <input type="hidden" name="controle" value=<?=$id?>>            
+                                                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Aceitar">
+                                                </form>
+                                                <form action="admin/reprovar.php" method="post">
+                                                    <input type="hidden" name="controle" value=<?=$id?>>
+                                                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Recusar">
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <?php
-                                }
-                                else{
-                                    ?>
-                                    <div class="card-panel doacoes col s4 push-s2">
-                                        <h3 class="conteudo"><?=$descricao?></h3>
-                                        <?php
-                                            $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
-                                        ?>
-                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
-                                        <h5 class="conteudo">Meta: <?=$meta?></h5>
-                                        <form action="usuario/pag_doacoes.php" method="post">
-                                            <input type="hidden" name="id" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
-                                        </form>
-                                        <form action="admin/aprovar.php" method="post">
-                                            <input type="hidden" name="controle" value=<?=$id?>>            
-                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Aceitar">
-                                        </form>
-                                        <form action="admin/reprovar.php" method="post">
-                                            <input type="hidden" name="controle" value=<?=$id?>>
-                                            <input type="submit" class="btn btn-default botao" name="Verificar" value="Recusar">
-                                        </form>
-                                    </div>
-                                    <?php
-                                }
+                                <?php
                             }
                         }
                     }
