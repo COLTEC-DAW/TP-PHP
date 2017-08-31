@@ -33,13 +33,16 @@ if ($_POST["limpa"]){
                 $todasAsMesas = pegaJson("DB/dbMesas.json");
                 foreach ($_SESSION["user"]->mesas as $codMesa){
                     $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-                    <h3><?=$mesinha->nome?></h3>
-                    <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-                    <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
-                    <form method="post" action="pgMesa.php">
-                        <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                        <button type="submit">Detalhes</button>
-                    </form> <?php
+                    <div class="divisores">
+                        <h3><?=$mesinha->nome?></h3>
+                        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+                        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+                        <form method="post" action="pgMesa.php">
+                            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                            <button type="submit" class="btn btn-default">Detalhes</button>
+                        </form>
+                    </div>
+                    <?php
                 }
             ?>
             </div>
@@ -48,7 +51,7 @@ if ($_POST["limpa"]){
                     <h2>Suas notificações:</h2> 
                     <form method="post" action="me.php">
                         <input type="hidden" name="limpa" value="true">
-                        <button type="submit">LIMPAR</button>
+                        <button type="submit" class="btn btnCriarMesa"><a href="#" class="fonteBranca">LIMPAR</a></button>
                     </form><?php
                     foreach ($_SESSION["user"]->notificacoes as $notificacao){
                         if ($notificacao->tipo == 1){ ?>
@@ -64,7 +67,7 @@ if ($_POST["limpa"]){
                         <form method="post" action="pgMesa.php">
                             <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
                             <input type="hidden" name="convite" value="true">
-                            <button type="submit">Ver mesa</button>
+                            <button type="submit" class="btn btn-default">Ver mesa</button>
                         </form> <?php
                     } ?>
                 </div>

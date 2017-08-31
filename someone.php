@@ -24,13 +24,16 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
                 $todasAsMesas = pegaJson("DB/dbMesas.json");
                 foreach ($cara->mesas as $codMesa){
                     $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-                    <h3><?=$mesinha->nome?></h3>
-                    <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-                    <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
-                    <form method="post" action="pgMesa.php">
-                        <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                        <button type="submit">Detalhes</button>
-                    </form> <?php
+                    <div class="divisores">
+                        <h3><?=$mesinha->nome?></h3>
+                        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+                        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+                        <form method="post" action="pgMesa.php">
+                            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                            <button type="submit" class="btn btn-default">Detalhes</button>
+                        </form>
+                    </div>
+                    <?php
                 } ?>
             </div>
         </div>

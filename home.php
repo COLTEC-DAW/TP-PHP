@@ -27,9 +27,11 @@ userRefresh(); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="container-fluid"> <?
-            require "INC/navBar.inc";
-            require "INC/userSideBar.inc"; ?>
+        <div class="container-fluid"> 
+            <?php
+                require "INC/navBar.inc";
+                require "INC/userSideBar.inc";
+            ?>
             <div class="col-sm-12 col-md-10 col-lg-10 centerbar">
                 <form method="get" action="novaMesa.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
