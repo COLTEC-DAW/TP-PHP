@@ -49,20 +49,20 @@
                         </div>
 
                     </form>
-                
+                    <?php
+                        if(Errors()){
+                            $resposta = Errors();
+                            $_SESSION['error'] = "valido";
+                        ?>
+                            <div class="card-panel red lighten-4">
+                                <span><?=$resposta?></span>
+                            </div>
+                        <?php
+                        }
+                    ?>
                 </div>
             </div>
-            <?php
-                if(Errors()){
-                    $resposta = Errors();
-                    $_SESSION['error'] = "valido";
-                ?>
-                    <div class="card-panel red lighten-4">
-                        <span><?=$resposta?></span>
-                    </div>
-                <?php
-                }
-            ?>
+
         </div>
     </div>
 </main>
