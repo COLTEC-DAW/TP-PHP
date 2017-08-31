@@ -57,7 +57,4 @@
         </div>
     </div>
 </nav>
-<script type="text/javascript">
-    $(".button-collapse").sideNav();
-
-</script>
+<script type="text/javascript">$(".button-collapse").sideNav();</script>
