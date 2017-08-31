@@ -184,8 +184,8 @@
 					</div>
 				</div>
 			</div>
-			<?php include '../utils/footer.inc' ?>
 			
 		</main>
+		<?php include '../utils/footer.inc' ?>	
 	</body>
 </html>
