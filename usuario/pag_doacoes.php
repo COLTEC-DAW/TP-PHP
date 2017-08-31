@@ -30,84 +30,54 @@
 <main>
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
-    <nav class="navbar default-primary-color">
-        <div class="container">
-            <a class="brand-logo" href="../index.php">TratoFeito</a>
-            <?php
-                if(IsLogado("../usuario/users.json")){
-                    $usuario = $_SESSION["user"];
-                ?>       
-                    <ul class="left hide-on-med-and-down">
-                        <li><a href="pedido.php">Fazer Pedido</a></li>
-                        <li><a href="historico_doacao.php">Histórico de Doações</a></li>
-                    </ul>
 
-                    <ul class="right hide-on-med-and-down">
-                        <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
-                        <li><a href="carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
-                        <li><a href="deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
-                    </ul>
-                    <?php
-                }
-                else if(Eh_Admin()){
-                ?>
-                    <ul class="left">
-                        <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-                    </ul>
-                    <ul class="right">
-                        <li><a href="deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-                    </ul>
-
-                <?php
-                } 
-                else{
-                    $redirect = "../index.php";
-                    header("location:$redirect");
-                }
-            ?>
-        </div>
-    </nav>
+    <?php include '../utils/nav.inc';?>
       
-    <div class="container">
-        <div class="card z-depth-3 pink lighten-3" id="pedido">
-            <h1 class="center-align"><?=$doacao_atual->descricao?></h1>
-            <?php
-                $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
-                $link = "../imagens/".$id.".".$formato;
-            ?>
-            <div>
+    <div class="row">
+        <div class="card col s6 offset-s3" id="pedido">
+            <div class="card-image">
+                <?php 
+                    $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
+                    $link = "../imagens/".$id.".".$formato;
+                ?>
                 <img src="<?=$link?>" id="imgpedido">
             </div>
-            
-            <p><b>Autor:</b> <?=$doacao_atual->autor?></p>
-            <p><b>Sobre:</b></p>
-            <div class="col-sm-12">
-                <p><?=$doacao_atual->sobre?></p>
-            </div>
-            <p><b>Meta:</b> <?=$doacao_atual->meta?></p>
-            <?php
-            $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
-            $mes = $doacao_atual->data[5].$doacao_atual->data[6];
-            $dia = $doacao_atual->data[8].$doacao_atual->data[9];
-            ?>
-            <p><b>Data Limite:</b> <?=$dia?>/<?=$mes?>/<?=$ano?></p>
+            <div class="card-content center">
+                <h3><?=$doacao_atual->descricao?></h3>
+ 
+                <h5>Autor:</h5>
+                <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->autor?></p>
+                <h5>Sobre:</h5>
+                <div class="col l12">
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->sobre?></p>
+                </div>
+                <h5>Meta</h5>
+                <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->meta?></p>
+                <?php
+                $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
+                $mes = $doacao_atual->data[5].$doacao_atual->data[6];
+                $dia = $doacao_atual->data[8].$doacao_atual->data[9];
+                ?>
+                <h5>Data Limite:</h5>
+                <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dia?>/<?=$mes?>/<?=$ano?></p>
 
-            <?php
-            if(Eh_Admin()){
-            ?>
-                <p><ins>Esperando Aprovação</ins></p>
-            <?php
-            }
-            else{
-            ?>
-                <p><b>Arrecadado:</b> <?=$doacao_atual->valor_acumulado?></p>
-            <?php
-            }
-            ?>
+                <?php
+                if(Eh_Admin()){
+                ?>
+                    <h4 class="flow-text card-subtitle grey-text text-darken-2">Esperando Aprovação</h4>
+                <?php
+                }
+                else{
+                ?>
+                    <h5>Arrecadado:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->valor_acumulado?></p>
+                <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
 </main>
 </body>
-
 <?php include '../utils/footer.inc' ?>
 </html>

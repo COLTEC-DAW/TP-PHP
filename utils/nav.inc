@@ -37,10 +37,12 @@
     </div>
 </nav>
 
-
-
-
-<nav class="hide-on-med-and-up default-primary-color">
+<?php
+$logado = IsLogado("../usuario/users.json");        
+if($logado){
+    $usuario = $_SESSION['user'];
+?>
+    <nav class="hide-on-med-and-up default-primary-color">
     <div class="nav-wrapper">
         <a class="brand-logo center" href="../index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
         
@@ -56,5 +58,27 @@
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </div>
-</nav>
-<script type="text/javascript">$(".button-collapse").sideNav();</script>
+    </nav>
+    <script type="text/javascript">$(".button-collapse").sideNav();</script>
+<?php
+}
+else if(Eh_Admin()){
+?>
+    <nav class="hide-on-med-and-up default-primary-color">
+    <div class="nav-wrapper">
+        <a class="brand-logo center" href="../index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
+        
+        <div>
+            <ul id="slide-out" class="side-nav show-on-small">
+                <li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+                <li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+            </ul>
+
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </div>
+    </nav>
+    <script type="text/javascript">$(".button-collapse").sideNav();</script>
+<?php
+}
+?>
