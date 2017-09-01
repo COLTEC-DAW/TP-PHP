@@ -32,53 +32,54 @@
     <script type="text/javascript" src="../js/materialize.js"></script>
 
     <?php include '../utils/nav.inc';?>
-      
-    <div class="row">
-        <div class="card col s6 offset-s3" id="pedido">
-            <div class="card-image">
-                <?php 
-                    $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
-                    $link = "../imagens/".$id.".".$formato;
-                ?>
-                <img src="<?=$link?>" id="imgpedido">
-            </div>
-            <div class="card-content center">
-                <h3><?=$doacao_atual->descricao?></h3>
- 
-                <h5>Autor:</h5>
-                <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->autor?></p>
-                <h5>Sobre:</h5>
-                <div class="col l12">
-                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->sobre?></p>
+    <div class="container center-align">
+        <div class="row">
+            <div class="card col s12 m12 l6 offset-l3" id="pedido">
+                <div class="card-image">
+                    <?php 
+                        $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
+                        $link = "../imagens/".$id.".".$formato;
+                    ?>
+                    <img src="<?=$link?>" id="imgpedido">
                 </div>
-                <h5>Meta</h5>
-                <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->meta?></p>
-                <?php
-                $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
-                $mes = $doacao_atual->data[5].$doacao_atual->data[6];
-                $dia = $doacao_atual->data[8].$doacao_atual->data[9];
-                ?>
-                <h5>Data Limite:</h5>
-                <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dia?>/<?=$mes?>/<?=$ano?></p>
 
-                <?php
-                if(Eh_Admin()){
-                ?>
-                    <h4 class="flow-text card-subtitle grey-text text-darken-2">Esperando Aprovação</h4>
-                <?php
-                }
-                else{
-                ?>
-                    <h5>Arrecadado:</h5>
-                    <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->valor_acumulado?></p>
-                <?php
-                }
-                ?>
+                <div class="card-content center">
+                    <h3><?=$doacao_atual->descricao?></h3>
+                    <h5>Autor:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->autor?></p>
+                    <h5>Sobre:</h5>
+                    <div class="col s12 m12 l12">
+                        <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->sobre?></p>
+                    </div>
+                    <h5>Meta</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->meta?></p>
+                    <?php
+                        $ano = $doacao_atual->data[0].$doacao_atual->data[1].$doacao_atual->data[2].$doacao_atual->data[3];
+                        $mes = $doacao_atual->data[5].$doacao_atual->data[6];
+                        $dia = $doacao_atual->data[8].$doacao_atual->data[9];
+                    ?>
+                    <h5>Data Limite:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dia?>/<?=$mes?>/<?=$ano?></p>
 
-                <form action="../usuario/doar.php" method="post">
-                    <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
-                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
-                </form>
+                    <?php
+                    if(Eh_Admin()){
+                    ?>
+                        <h4 class="flow-text card-subtitle grey-text text-darken-2">Esperando Aprovação</h4>
+                    <?php
+                    }
+                    else{
+                    ?>
+                        <h5>Arrecadado:</h5>
+                        <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->valor_acumulado?></p>
+                    <?php
+                    }
+                    ?>
+
+                    <form action="../usuario/doar.php" method="post">
+                        <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
+                        <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

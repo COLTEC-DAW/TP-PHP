@@ -1,7 +1,7 @@
 <?php
     ob_start(); // Initiate the output buffer
     require '../utils/functions.php';
-    session_start();
+	session_start();
 ?>
 
 
@@ -38,8 +38,8 @@
 							<form action="conf_cadastro.php" method="post" enctype="multipart/form-data">
 
 								<div class="input-field">
-								<input type="text" name="name" required>
-								<label>Nome</label>                        
+									<input type="text" name="name" required>
+									<label>Nome</label>                        
 								</div>
 
 								<div class="input-field">
@@ -48,8 +48,8 @@
 								</div>
 
 								<div class="input-field">
-								<input type="text" name="nome" required>
-								<label>Login</label>                        
+									<input type="text" name="nome" required>
+									<label>Login</label>                        
 								</div>
 
 								<div class="input-field">

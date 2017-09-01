@@ -46,7 +46,7 @@
                                 <label>Meta</label>                        
                             </div>
 
-                            <div class="input-field inline">
+                            <div class="input-field">
                                 <input type="date" class="datepicker" name="data" required>
                             </div>
                             <label id="label">*Data de encerramento</label>
@@ -58,7 +58,7 @@
 
                             <div class="file-field input-field">
                                 <div class="btn waves-effect waves-light">
-                                    <span>Foto</span>
+                                    <span>Imagem</span>
                                     <input type="file" name="fileToUpload" id="fileToUpload" required>
                                 </div>
                                 <div class="file-path-wrapper">

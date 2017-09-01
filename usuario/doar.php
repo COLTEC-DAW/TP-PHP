@@ -44,19 +44,18 @@
     <?php include_once '../utils/nav.inc' ?>
 
     <div class="container">
-    <div class="row">
-        <div class="col s6 offset-s3">
-            <div class="center-align card-panel doacoes lighten-3">
-                <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
-                <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
-                <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>
-                <h5 class="conteudo">Arrecadado: <?=$dados_da_doacao->valor_acumulado?></h5>
-                <h5 class="conteudo">Sobre: <?=$dados_da_doacao->sobre?></h5>       
+
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <div class="center-align card-panel doacoes lighten-3">
+                    <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
+                    <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
+                    <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>
+                    <h5 class="conteudo">Arrecadado: <?=$dados_da_doacao->valor_acumulado?></h5>
+                    <h5 class="conteudo">Sobre: <p class="sobre"><?=$dados_da_doacao->sobre?></p></h5>       
+                </div>        
             </div>        
-        </div>        
-    </div>    
-
-
+        </div>    
 
         <div class="row">
             <div class="col-md-12">
@@ -64,17 +63,16 @@
                     <form action="../doacoes/conf_doacao.php" method="post">
 
                         <div class="input-field">
-                        <input type="number" class="form-control" name="valor_doacao">
-                        <label>Valor que deseja doar:</label>                        
+                            <input type="number" class="form-control" name="valor_doacao">
+                            <label>Valor que deseja doar:</label>                        
                         </div>
 
                         <div class="input-field">
-                        <input type="password" class="form-control" name="senha">
-                        <label>Senha:</label>                        
+                            <input type="password" class="form-control" name="senha">
+                            <label>Senha:</label>                        
                         </div>
-
+                        
                         <input type="hidden" name="id" value=<?=$controle?>>
-
                         <input type="submit" class="btn btn-default" name="Verificar">
                     </form>
 

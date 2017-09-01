@@ -22,21 +22,21 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<main>
-    <?php include 'nav.inc';?>
+    <main>
+        <?php include 'nav.inc';?>
 
-    <div class="container center-align">
-        <div class="row center-align">			
+        <div class="container center-align">
+            <div class="row center-align">			
 
-            <div class="card-panel">
-                <h1>Não achamos o que procura!</h1>
-                <a href="../index.php" class="waves-effect waves-light btn">CONTINUAR</a>
+                <div class="card-panel">
+                    <h1>Não achamos o que procura!</h1>
+                    <a href="../index.php" class="waves-effect waves-light btn">CONTINUAR</a>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="../js/materialize.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
 </body>
 </html>

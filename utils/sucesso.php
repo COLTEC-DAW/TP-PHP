@@ -29,7 +29,7 @@
         <div class="row center-align">			
 
             <div class="card-panel">
-                <h1>Sucesso!!</h1>
+                <h2>Sucesso!!</h2>
                 <a href="../index.php" class="waves-effect waves-light btn">CONTINUAR</a>
             </div>
         </div>
