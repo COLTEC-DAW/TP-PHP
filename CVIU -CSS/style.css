@@ -1,0 +1,187 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700");
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Heebo:800');
+
+/* 59CDAC */
+
+
+.card-blockquote{
+    margin-top: 20%;
+    width: 100%;
+    position:absolute;
+    background-color: white;
+    border-radius: 5%;
+    margin-bottom: 35%;
+}
+
+.input-group{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+/* ---------------------------- BARRA MENU ROW ------------------------*/
+a{
+  color: white;
+}
+
+#menu ul {
+    padding:0px;
+    margin:0px;
+    height: 100px;
+    width: 100%;
+    background-color:#1D295E;
+    list-style:none;
+    text-align: center; 
+    color: white;
+}
+#menu ul li { 
+  display: inline; 
+  margin-top: 50%;
+  padding: 2px 40px;
+  text-decoration: none !important;
+  color: white;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; 
+
+  
+}
+
+#menu ul li a:hover {
+    text-decoration: none;
+    padding: 0px 40px;
+    color: #1D295E;
+    background-color: white;
+    
+}
+
+/* ---------------------------- VIDEO COVER ------------------------*/
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+
+.title-container {
+    z-index: 1000;
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* ------------------------------- Base ----------------------------- */
+body{
+   /*background-image: url("bg.jpg");
+    background-size:  2000px, 2200px, auto;
+    background-repeat: no-repeat;    */
+}
+
+
+ h1{
+  margin: 0;
+  padding-top: 5%;
+  text-align: center;
+  color:  #7AC2FF;
+  font-size: 3em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; 
+
+}
+
+
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100; 
+}
+h2 {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; 
+}
+
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; 
+  margin: 10%;
+
+}
+
+.btn {
+    background-color: #7AC2FF;
+    margin-top: 1%;
+    padding: 14px 60px;
+    text-align:left;
+    /*margin-left: 45%;*/
+    color: white;
+
+}
+
+.btn:hover{
+    background-color: #4581B5;
+}
+
+img{
+  margin-top: 5%;
+}
+
+
+.fa{
+  padding-left: 30;
+}
+
+
+/* ------------------------------- SOBRE ----------------------------- */
+
+#sobre {
+  margin-top: 20%;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  background:  #7AC2FF; 
+}
+
+#sobre h1 {
+  color:white; 
+}

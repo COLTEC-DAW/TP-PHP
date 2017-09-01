@@ -1,0 +1,120 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700");
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+
+/* 59CDAC */
+
+/* --------------------------- BASE -------------------------------*/
+
+h1 {
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  font-size: 4em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; }
+
+li{
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+h2{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  text-align: center;
+  padding-bottom: 8%;
+
+}
+form{
+    padding-left: 30%;
+
+}
+label{
+  width:500px;
+  float:center;
+  display:block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1.5em;
+}
+
+.form-control{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    height: 50px;
+}
+
+
+#button{
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    cursor: pointer;
+    padding: 5px 5px;
+     
+
+
+
+}
+
+a{
+    text-decoration: none;
+
+}
+
+input{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  
+  width: 20%;
+
+}
+
+.btn {
+    background-color: #7AC2FF;
+    margin-top: 1%;
+    text-align:center;
+    font-size: 1.5em;
+    color: white;
+    padding: 5px 5px;
+
+}
+
+.btn:hover{
+    background-color: #4581B5;
+}
+
+/* ----------------------------- HEADER ----------------------------*/
+#header {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  background:  #4581B5; 
+  }
+
+#header h1 {
+  margin: 0;
+  padding-top: 50px;
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; }
+
+#header h2 {
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; }
+
+
+
+
+
+
