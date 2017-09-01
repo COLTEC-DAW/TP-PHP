@@ -1,0 +1,10 @@
+João,
+Antes de avaliar nosso trabalho gostaríamos que você lesse nossas considerações.
+
+	1) O uso do barril
+		Ao decidirmos utilizar o barril para acessar o PHPMyadmin, não sabíamos que não seria possível realizar o trabalho em nossa casa. Como só conseguimos o acesso recentemente, ficaria inviável trocar a forma de usar o banco de dados. Essa limitação diminuiu nossas horas possíveis de trabalho, já que em finais de semana e feriados ficamos impossibilitadas de fazer o trabalho.
+	2) Nossos commits
+		Em um certo ponto do trabalho, paramos de utilizar o GitHub. Isso porque não estávamos usando o Visual Studio Code para dar Push e manualmente o GitHub só aceita dar upload de até 100 arquivos, e o nosso trabalho já tinha mais do que isso. Durante esse tempo, utilizamos o Google Drive. Se quiser ver a frequência de compartilhamentos, estamos mais do que dispostas a te mostrar. É só pedir. Foi somente no dia 31 de agosto que voltamos a utilizar o GitHub, mas nesse ponto, faltavam muito poucas alterações a serem feitas.
+	3) A dificuldade na correção
+		Gostaríamos de lembrar também que o nosso site só pode ser visualizado através de uma rede da UFMG.
+
