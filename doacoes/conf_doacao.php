@@ -81,7 +81,7 @@
                 fwrite($arquivo, $dados_json);
                 fclose($arquivo);
 
-                $redirect = "../index.php";
+                $redirect = "../utils/sucesso.php";
                 header("location:$redirect");
 //--------------------------------------------------------------------------------
             }
@@ -142,7 +142,7 @@
                 $arquivo = fopen("doacoes_finalizadas.json", "w");
                 fwrite($arquivo, $dados_json);
                 fclose($arquivo);              
-                $redirect = "../index.php";
+                $redirect = "../utils/sucesso.php";
                 header("location:$redirect");
             }
         }

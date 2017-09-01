@@ -4,10 +4,7 @@
     require "../utils/functions.php";
     require '../doacoes/class_doacao.inc';
     session_start();
-    if(!IsLogado("users.json")){
-        $redirect = "../index.php";
-        header("location:$redirect");
-    }
+
     $controle;
 
     if(isset($_SESSION['controle'])){
@@ -49,7 +46,7 @@
     <div class="container">
     <div class="row">
         <div class="col s6 offset-s3">
-            <div class="center-align card-panel doacoes pink lighten-3">
+            <div class="center-align card-panel doacoes lighten-3">
                 <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
                 <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
                 <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>

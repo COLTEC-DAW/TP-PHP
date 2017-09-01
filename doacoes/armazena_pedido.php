@@ -103,7 +103,7 @@
         fwrite($arquivo, $dados_json);
         fclose($arquivo);
         
-        $redirect = "../index.php";
+        $redirect = "../utils/sucesso.php";
         header("location:$redirect");
     }
 ?>

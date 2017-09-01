@@ -43,6 +43,12 @@
                     $usuario = $_SESSION['user'];
                 ?>
                     <ul class="right">
+                        <li><i class="whithe-text material-icons prefix">search</i></li>
+                        <li>
+                            <form action="utils/acha_pesquisa.php" method="post">
+                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete black-text" name="procurar">
+                            </form>
+                        </li> 
                         <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
                         <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
@@ -54,6 +60,12 @@
                 else if(Eh_Admin()){
                 ?>
                     <ul class="right">
+                        <li><i class="whithe-text material-icons prefix">search</i></li>
+                            <li>
+                                <form action="utils/acha_pesquisa.php" method="post">
+                                    <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete black-text" name="procurar">
+                                </form>
+                            </li> 
                         <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                         <li><a href="usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                     </ul>
@@ -79,6 +91,12 @@
             
             <div>
                 <ul id="slide-out" class="side-nav show-on-small">
+                    <li><i class="black-text material-icons prefix">search</i></li>
+                    <li>
+                        <form action="utils/acha_pesquisa.php" method="post">
+                            <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete black-text" name="procurar">
+                        </form>
+                    </li> 
                     <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
                     <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
                     <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
@@ -101,6 +119,12 @@
             
             <div>
                 <ul id="slide-out" class="side-nav show-on-small">
+                    <li><i class="black-text material-icons prefix">search</i></li>
+                    <li>
+                        <form action="utils/acha_pesquisa.php" method="post">
+                            <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete black-text" name="procurar">
+                        </form>
+                    </li> 
                     <li><a href="admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
                     <li><a href="usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>

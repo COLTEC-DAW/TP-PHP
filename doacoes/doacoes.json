@@ -14,7 +14,7 @@
         "meta": "999",
         "autor": "lucas",
         "aprovado": 1,
-        "arrecadado": 0,
+        "arrecadado": 19,
         "id": 863819833,
         "descricao": "sadfihbjsadfbikjasdoihjnkasdfuhjkanmsdfhajnsmdhajnsmdoajnsdasfdjn",
         "data": "2929-10-11"
@@ -33,7 +33,7 @@
         "finalidade": "asdfdsf",
         "meta": "53456",
         "autor": "lucas",
-        "aprovado": 0,
+        "aprovado": 1,
         "arrecadado": 0,
         "id": 1963770591,
         "descricao": "esgfsdgdfgfdgdfg",
@@ -43,20 +43,10 @@
         "finalidade": "asd",
         "meta": "123",
         "autor": "lucas",
-        "aprovado": 0,
+        "aprovado": 1,
         "arrecadado": 0,
         "id": 528209181,
         "descricao": "12",
-        "data": "2020-10-10"
-    },
-    {
-        "finalidade": "elefante",
-        "meta": "123",
-        "autor": "lucas",
-        "aprovado": 0,
-        "arrecadado": 0,
-        "id": 1328054391,
-        "descricao": "1231",
         "data": "2020-10-10"
     },
     {
@@ -68,5 +58,45 @@
         "id": 1350177822,
         "descricao": "Um pedido  mt bom para uma finalidade mt boa que tem muitas finalidades a serem finalizadas pelo usuario. Queremos a a coloabasd knaubsdj. ",
         "data": "2020-10-10"
+    },
+    {
+        "finalidade": "ad",
+        "meta": "10",
+        "autor": "lucas",
+        "aprovado": 0,
+        "arrecadado": 0,
+        "id": 1061884903,
+        "descricao": "AD",
+        "data": "2020-10-10"
+    },
+    {
+        "finalidade": "asd",
+        "meta": "10",
+        "autor": "lucas",
+        "aprovado": 0,
+        "arrecadado": 0,
+        "id": 2081131204,
+        "descricao": "IN",
+        "data": "2020-10-10"
+    },
+    {
+        "finalidade": "asd",
+        "meta": "1231",
+        "autor": "lucas",
+        "aprovado": 0,
+        "arrecadado": 0,
+        "id": 1340258896,
+        "descricao": "asdasd",
+        "data": "2020-10-10"
+    },
+    {
+        "finalidade": "asd",
+        "meta": "10",
+        "autor": "lucas",
+        "aprovado": 0,
+        "arrecadado": 0,
+        "id": 1897627879,
+        "descricao": "adasd\r\n",
+        "data": "2020-02-20"
     }
 ]

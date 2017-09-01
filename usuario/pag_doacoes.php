@@ -74,6 +74,11 @@
                 <?php
                 }
                 ?>
+
+                <form action="../usuario/doar.php" method="post">
+                    <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
+                    <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                </form>
             </div>
         </div>
     </div>
