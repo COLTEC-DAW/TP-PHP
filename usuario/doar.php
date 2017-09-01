@@ -25,7 +25,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-  	
+    <title>help.ME</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="../css/icon.png">
     <!--Import Google Icon Font-->
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<!--Import materialize.css-->

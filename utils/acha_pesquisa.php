@@ -12,7 +12,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Trato Feito</title>
+        <title>help.ME</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="../css/icon.png">
         <meta charset="utf-8">
       	
         <!--Import Google Icon Font-->

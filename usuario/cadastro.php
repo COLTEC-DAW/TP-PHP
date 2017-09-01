@@ -9,7 +9,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		
+		<title>help.ME</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="../css/icon.png">
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import materialize.css-->
@@ -33,7 +34,9 @@
 				<div class="row">
 					<div class="card col s6 offset-s3" id="login">
 						<div class="card-content">
-							<i class="fa fa-handshake-o large" aria-hidden="true"></i>
+							<div>
+								<i class="fa fa-handshake-o large" aria-hidden="true"></i><h5 class="right-align inline">help.ME</h5>
+							</div>
 							<h5 class="left-align">Cadastrar-se</h5>
 							<form action="conf_cadastro.php" method="post" enctype="multipart/form-data">
 
