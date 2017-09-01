@@ -29,7 +29,7 @@
             <div class="row center-align">			
 
                 <div class="card-panel">
-                    <h1>Não achamos o que procura!</h1>
+                    <h3>Não achamos o que procura!</h3>
                     <a href="../index.php" class="waves-effect waves-light btn">CONTINUAR</a>
                 </div>
             </div>
@@ -38,5 +38,6 @@
 
     <script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
+    <script type="text/javascript">$(".button-collapse").sideNav();</script>
 </body>
 </html>

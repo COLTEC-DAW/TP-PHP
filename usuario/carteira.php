@@ -32,7 +32,7 @@
             
             <div class="container">
 				<div class="row">
-					<div class="card center-align col s8 offset-s2 col l6 offset-l3">
+					<div class="card center-align col s12 col l6 offset-l3">
 						<div class="card-content">
 							<i class="fa fa-credit-card-alt small left-align" aria-hidden="true"></i><h4>Depósito (R$)</h4>
 							<form action="deposita.php" method="post">
