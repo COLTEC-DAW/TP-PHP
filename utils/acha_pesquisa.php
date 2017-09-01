@@ -65,7 +65,7 @@
                                     $formato = Pega_Formato_Imagem($id,'../imagens/imagens.json');
                                     ?>
                                     <div class="center">
-                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
+                                        <img src="../imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
                                     </div>
                                     <p class="card-subtitle grey-text text-darken-3 truncate"><?=$dados->descricao?></p>
                                     <p class="black-text"style="text-align:left;"><br><br>R$:<?=$arrecadado?><span class="black-text" style="float:right;">R$:<?=$meta?></span></p>
@@ -100,7 +100,7 @@
                                 $formato = Pega_Formato_Imagem($id,'../imagens/imagens.json');
                                 ?>
                                 <div class="center">
-                                    <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
+                                    <img src="../imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
                                 </div>
                                 <p class="card-subtitle grey-text text-darken-2 truncate"><?=$dados->descricao?></p>
                                 <h6 class="black-text text-darken-4 card-info">&nbsp;Meta: R$ <?=$meta?></h6>

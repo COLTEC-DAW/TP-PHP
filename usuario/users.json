@@ -5,5 +5,12 @@
         "nome": "Arthur",
         "email": "arthur.brito1999@outlook.com",
         "carteira": 0
+    },
+    {
+        "login": "lucas",
+        "senha": "123",
+        "nome": "Lucas",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
     }
 ]
