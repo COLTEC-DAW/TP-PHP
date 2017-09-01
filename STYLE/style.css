@@ -19,6 +19,11 @@
     margin-bottom: -424242px;
 }
 
+.col-3{
+    float: left;
+    width: 25%;
+}
+
 /************************ CONTAINERS ************************/
 
 .container {

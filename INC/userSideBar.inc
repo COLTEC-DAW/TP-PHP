@@ -14,7 +14,7 @@
             <h3><?=$mesinha->nome?></h3>
             <form method="post" action="pgMesa.php">
                 <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                <button type="submit" class="btn btn-default">Detalhes</button>
+                <button type="submit" class="btn btnCriarMesa fonteBranca">Detalhes</button>
             </form> <?php
         } ?>
     </div>

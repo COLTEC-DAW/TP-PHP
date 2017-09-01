@@ -77,7 +77,7 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                                     <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                     <input type="hidden" name="kicka" value="true">
                                     <input type="hidden" name="kickado" value="<?= $caraDaVez->id?>">
-                                    <button type="submit">Banir</button>
+                                    <button type="submit" class="btn btn-default">Banir</button>
                                 </form> <?php
                             } ?>
                         </li> <?php
@@ -87,8 +87,11 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                         <input type="hidden" name="convidando" value="true">
-                        <input type="text" id="nomeConvidado" placeholder="Nome" name="nomeConvidado">
-                        <button type="submit">Convide alguém</button>
+                        <div class="form-group">
+                            <label class="sr-only" for="nomeConvidado">Login</label>
+                            <input type="text" class="form-control col-3" id="nomeConvidado" placeholder="Nome" name="nomeConvidado">
+                        </div>
+                        <button type="submit" class="btn btn-default">Convide alguém</button>
                     </form>
                     <br> <?php
                 }
@@ -97,14 +100,14 @@ $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                         <input type="hidden" name="entra" value="1">
-                        <button type="submit">Entrar nessa mesa</button>
+                        <button type="submit" class="btn btnCriarMesa fonteBranca">Entrar nessa mesa</button>
                     </form> <?php
                 }
                 else { //Nego já está nessa mesa ?>
                     <form method="post" action="pgMesa.php">
                         <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                         <input type="hidden" name="sai" value="1">
-                        <button type="submit">Sair dessa mesa</button>
+                        <button type="submit" class="btn btnCriarMesa fonteBranca">Sair dessa mesa</button>
                     </form> <?php
                 }
             } ?>
