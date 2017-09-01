@@ -10,7 +10,6 @@ __________________________________________________________________________
 			* Informações do cliente (nome, telefone)
 				    * do pacote (tamanho, peso)
 				    * do trajeto (origem,destino)
-				    * do pagamento
 
 		* Ver suas entregas
 			* Se está em aberto
@@ -20,17 +19,13 @@ __________________________________________________________________________
 		* Ver entregas passadas
 
 		* Infomações do cliente
-			- Mudar forma de pagamento
-			- Mudar informações pessoais
 __________________________________________________________________________
 	Modo - Entregador:
 		* Ver entregas em aberto
-			Aceitar entrega
+			* Aceitar entrega
 
-		Entregas atuais
+		* Entregas atuais
 
-		Ver histórico de entregas já feitas
+		* Ver histórico de entregas já feitas
 
-		Infomações do entregador
-			Mudar forma de envio
-			Mudar informações pessoais
+		* Infomações do entregador
