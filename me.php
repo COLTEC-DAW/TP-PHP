@@ -37,24 +37,28 @@ if ($_POST["limpa"]){
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
             <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 centerbar">
-                <div class="title">
-                    <h2 class="center fonteBranca">Minhas mesas:</h2>
-                </div> <?php //Imprindo as mesas do usuario
-                $todasAsMesas = pegaJson("DB/dbMesas.json");
-                foreach ($_SESSION["user"]->mesas as $codMesa){
-                    $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-                    <div class="divisores">
-                        <h3><?=$mesinha->nome?></h3>
-                        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-                        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
-                        <form method="post" action="pgMesa.php">
-                            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                            <button type="submit" class="btn btn-default">Detalhes</button>
-                        </form>
-                    </div>
+                <div class=divisores>
+                    <h1><?= $_SESSION["user"]->nome ?><h1>
+                    <h4><?= $_SESSION["user"]->email?></h4>
+                    <div class="divider"></div>
+                    <h2>Minhas mesas:</h2>
+                    <?php //Imprindo as mesas do usuario
+                        $todasAsMesas = pegaJson("DB/dbMesas.json");
+                        foreach ($_SESSION["user"]->mesas as $codMesa){
+                            $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+                        <div class="divisores">
+                            <h3><?=$mesinha->nome?></h3>
+                            <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+                            <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+                            <form method="post" action="pgMesa.php">
+                                <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                                <button type="submit" class="btn btn-default">Detalhes</button>
+                            </form>
+                        </div>
                     <?php
-                }
-            ?>
+                        }
+                    ?>
+                </div>
             </div>
             <div class="centerbar col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="divisores">

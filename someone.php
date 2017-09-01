@@ -6,7 +6,7 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
 <!DOCTYPE>
 <html>
     <head>
-        <title>Um Perfil</title>
+        <title>Perfil de <?=$cara->nome?></title>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
         <!-- Latest compiled and minified CSS -->
@@ -28,23 +28,27 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
-                <div class="title">
-                    <h2 class="center fonteBranca">Mesas de <?= $cara->nome ?>:</h2>
-                </div> <?php //Imprindo as mesas do usuario
-                $todasAsMesas = pegaJson("DB/dbMesas.json");
-                foreach ($cara->mesas as $codMesa){
-                    $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-                    <div class="divisores">
-                        <h3><?=$mesinha->nome?></h3>
-                        <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
-                        <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
-                        <form method="post" action="pgMesa.php">
-                            <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                            <button type="submit" class="btn btn-default">Detalhes</button>
-                        </form>
-                    </div>
+                <div class=divisores>
+                    <h1><?= $cara->nome ?><h1>
+                    <h4><?=$cara->email?></h4>
+                    <div class="divider"></div>
+                    <h2>Mesas de <?= $cara->nome ?>:</h2>
+                    <?php //Imprindo as mesas do usuario
+                    $todasAsMesas = pegaJson("DB/dbMesas.json");
+                    foreach ($cara->mesas as $codMesa){
+                        $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+                        <div class="divisores">
+                            <h3><?=$mesinha->nome?></h3>
+                            <p><strong>Endereço: </strong><?=$mesinha->endereco?></p>
+                            <p><strong>Sinopse: </strong><?=$mesinha->sinopse?></p>
+                            <form method="post" action="pgMesa.php">
+                                <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                                <button type="submit" class="btn btn-default">Detalhes</button>
+                            </form>
+                        </div>
                     <?php
-                } ?>
+                    } ?>
+                </div>
             </div>
         </div>
         <div class="footer">
