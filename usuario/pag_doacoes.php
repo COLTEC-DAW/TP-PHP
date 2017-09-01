@@ -35,23 +35,22 @@
     <?php include '../utils/nav.inc';?>
     <div class="container center-align">
         <div class="row">
-            <div class="card col s12 m12 l6 offset-l3" id="pedido">
+            <div class="card col s12 m12 l10 offset-l1" id="pedido">
                 <div class="card-image">
                     <?php 
                         $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
                         $link = "../imagens/".$id.".".$formato;
                     ?>
                     <img src="<?=$link?>" id="imgpedido">
+
                 </div>
 
-                <div class="card-content center">
-                    <h3><?=$doacao_atual->descricao?></h3>
+                <div class="card-content left-align">
+                    <h3 class="center-align"><?=$doacao_atual->descricao?></h3>
                     <h5>Autor:</h5>
-                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->autor?></p>
+                    <p class="flow-text card-subtitle grey-text text-darken-2 left-align"><?=$doacao_atual->autor?></p>
                     <h5>Sobre:</h5>
-                    <div class="col s12 m12 l12">
-                        <p class="flow-text card-subtitle grey-text text-darken-2"><?=$doacao_atual->sobre?></p>
-                    </div>
+                    <p class="flow-text card-subtitle grey-text text-darken-2 sobre"><?=$doacao_atual->sobre?></p>
                     <h5>Meta</h5>
                     <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->meta?></p>
                     <?php
@@ -65,21 +64,33 @@
                     <?php
                     if(Eh_Admin()){
                     ?>
-                        <h4 class="flow-text card-subtitle grey-text text-darken-2">Esperando Aprovação</h4>
+                        <h4 class="float-text center-align">Esperando Aprovação</h4>
+                        <div class="center-align">
+                            <form action="../admin/aprovar.php" method="post">
+                                <input type="hidden" name="controle" value=<?=$id?>>            
+                                <input type="submit" class="btn botao float-text" name="Verificar" value="Aceitar">
+                            </form>
+                            <form action="../admin/reprovar.php" method="post">
+                                <input type="hidden" name="controle" value=<?=$id?>>
+                                <input type="submit" class="btn botao float-text" name="Verificar" value="Recusar">
+                            </form>
+                        </div>
                     <?php
                     }
                     else{
                     ?>
                         <h5>Arrecadado:</h5>
-                        <p class="flow-text card-subtitle grey-text text-darken-2">R$: <?=$doacao_atual->valor_acumulado?></p>
+                        <p class="flow-text black-text center-align">R$: <?=$doacao_atual->valor_acumulado?></p>
+                        <form action="../usuario/doar.php" method="post">
+                            <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
+                            <div class="input-field center-align">
+                                <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
+                            </div>
+                        </form>
                     <?php
                     }
                     ?>
 
-                    <form action="../usuario/doar.php" method="post">
-                        <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
-                        <input type="submit" class="btn btn-default botao" name="Verificar" value="Doar">
-                    </form>
                 </div>
             </div>
         </div>

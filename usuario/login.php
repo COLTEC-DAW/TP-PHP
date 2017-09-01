@@ -49,9 +49,11 @@
                                 <label>Senha</label>                        
                             </div>
 
-                            <p>Não tem uma conta? <a href="cadastro.php" class="blue-text">Crie uma!</a></p>
+                            <div>
+                                <p>Não tem uma conta? <a href="cadastro.php" class="blue-text">Crie uma!</a></p>
+                            </div>
 
-                            <div class="right-align">
+                            <div class="right-align input-field">
                                 <input type="submit" name="Enviar" class="btn waves-effect waves-light">
                             </div>
 

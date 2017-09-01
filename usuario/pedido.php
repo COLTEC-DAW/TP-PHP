@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="row">
                     <div class="card-panel">
-                    <h3 class="titulo">Proposta de doação</h3>
+                    <h3 class="titulo">Proposta</h3>
                         <form action="../doacoes/armazena_pedido.php" method="post" enctype="multipart/form-data">
 
                             <div class="input-field">

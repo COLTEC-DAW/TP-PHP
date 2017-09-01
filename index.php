@@ -31,12 +31,6 @@
             <div class="container center-align">
                 <a class="brand-logo" href="index.php"><i class="fa fa-handshake-o" aria-hidden="true"></i></a>
                 <?php
-                    if(isset($_COOKIE['checa_cadastro'])){
-                        ?>
-                            <script>Materialize.toast('asd', 4000)</script>
-                        <?php
-                        $_COOKIE['checa_cadastro'] = false;
-                    }
                     if(IsLogado("usuario/users.json")){
                         $usuario = $_SESSION['user'];
                     ?>
@@ -48,7 +42,7 @@
                                 </form>
                             </li> 
                             <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
-                            <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
+                            <li><a href="usuario/historico_doacao.php">Histórico</a></li>
                             <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                             <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                             <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
@@ -98,7 +92,7 @@
                             </form>
                         </li> 
                         <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
-                        <li><a href="usuario/historico_doacao.php">Histórico de Contribuições</a></li>
+                        <li><a href="usuario/historico_doacao.php">Histórico</a></li>
                         <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
                         <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
@@ -108,7 +102,6 @@
                 </div>
             </div>
             </nav>
-            <script type="text/javascript">$(".button-collapse").sideNav();</script>
         <?php
         }
         else if(Eh_Admin()){
@@ -134,7 +127,6 @@
                     </div>
                 </div>
             </nav>
-            <script type="text/javascript">$(".button-collapse").sideNav();</script>
         <?php
         }
         ?>
@@ -186,7 +178,9 @@
                                                     <?php
                                                     $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
                                                     ?>
-                                                    <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
+                                                    <div class="center">
+                                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
+                                                    </div> 
                                                     <p class="card-subtitle grey-text text-darken-3 truncate"><?=$dados->descricao?></p>
                                                     <p class="black-text"style="text-align:left;"><br><br>R$:<?=$arrecadado?><span class="black-text" style="float:right;">R$:<?=$meta?></span></p>
                                                     <div class="progress">
@@ -223,7 +217,7 @@
                         if(!empty($json)){
                         ?>
                         <div class="row center-align">
-                            <h2>Pedidos para avaliação</h2>               			
+                            <h2>Propostas pendentes</h2>               			
                         <?php
                             foreach($json as $dados){
                                 $descricao = $dados->finalidade;
@@ -245,7 +239,9 @@
                                                     <?php
                                                     $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
                                                     ?>
-                                                    <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens"> 
+                                                    <div class="center">
+                                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
+                                                    </div>
                                                     <p class="card-subtitle grey-text text-darken-2 truncate"><?=$dados->descricao?></p>
                                                     <h6 class="black-text text-darken-4 card-info">&nbsp;Meta: R$ <?=$meta?></h6>
                                                 </div>
@@ -274,10 +270,11 @@
             ?>  
         </div>
     </main>
-<script type="text/javascript">$(".button-collapse").sideNav();</script>
-<script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript">$(".button-collapse").sideNav();</script>
+
+    
 </body>
 <?php include 'utils/footer.inc' ?>
-
 </html>

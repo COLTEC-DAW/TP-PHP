@@ -15,7 +15,7 @@
 	    $data = json_decode($jsonString, true);
 
 
-	    if(filesize('doacoes/doacoes.json')!=0){
+	    if(filesize('doacoes/doacoes.json')!=0 && isset($data)){
 		    foreach ($data as $key => $entry) {
 		    	$ano = $entry['data'][0].$entry['data'][1].$entry['data'][2].$entry['data'][3];
 		    	$mes = $entry['data'][5].$entry['data'][6];

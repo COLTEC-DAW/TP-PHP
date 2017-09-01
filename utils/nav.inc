@@ -16,7 +16,7 @@
 						</form>
 					</li>
 					<li><a href="../usuario/pedido.php">Fazer Proposta</a></li>
-					<li><a href="../usuario/historico_doacao.php">Histórico de Contribuições</a></li>
+					<li><a href="../usuario/historico_doacao.php">Histórico</a></li>
 					<li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
 					<li><a href="../usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
 					<li><a href="../usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
@@ -34,7 +34,7 @@
 							</div>
 						</form>
 					</li>
-					<li><a href="../admin/historico_doacao_aprovada.php">Histórico de Contribuições</a></li>
+					<li><a href="../admin/historico_doacao_aprovada.php">Histórico</a></li>
 					<li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
 				</ul>
 
@@ -75,7 +75,7 @@ if($logado){
 						</form>
 					</li>
 					<li><a href="../usuario/pedido.php">Fazer Proposta</a></li>
-					<li><a href="../usuario/historico_doacao.php">Histórico de Contribuições</a></li>
+					<li><a href="../usuario/historico_doacao.php">Histórico</a></li>
 					<li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
 					<li><a href="../usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
 					<li><a href="../usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>

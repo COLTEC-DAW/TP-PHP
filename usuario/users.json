@@ -1,70 +1,7 @@
 [
     {
-        "login": "lucas",
-        "senha": "123",
-        "nome": "lucas",
-        "email": "lucaspaulom@hotmail.com",
-        "carteira": 300
-    },
-    {
-        "login": "raul",
-        "senha": "123",
-        "nome": "raul",
-        "email": "lucaspaulom@hotmail.com",
-        "carteira": 100
-    },
-    {
-        "login": "wender",
-        "senha": "123",
-        "nome": "wender",
-        "email": "wender@wender.com",
-        "carteira": 0
-    },
-    {
-        "login": "loginza1",
-        "senha": "123",
-        "nome": "J\u00e1o",
-        "email": "e@email.com",
-        "carteira": 0
-    },
-    {
-        "login": "teste",
-        "senha": "teste",
-        "nome": "teste",
-        "email": "teste",
-        "carteira": 0
-    },
-    {
-        "login": "asd",
-        "senha": "asd",
-        "nome": "awds",
-        "email": "asd",
-        "carteira": 0
-    },
-    {
-        "login": "asdasd",
-        "senha": "123",
-        "nome": "asdasd",
-        "email": "qsd",
-        "carteira": 0
-    },
-    {
-        "login": "asdasdasd",
-        "senha": "123",
-        "nome": "asdasdasd",
-        "email": "123123",
-        "carteira": 0
-    },
-    {
-        "login": "kjbasdjkgbjkgadb",
-        "senha": "adaasadf",
-        "nome": "asd",
-        "email": "123123",
-        "carteira": 0
-    },
-    {
         "login": "arthurb",
-        "senha": "123",
+        "senha": "12345",
         "nome": "Arthur",
         "email": "arthur.brito1999@outlook.com",
         "carteira": 0

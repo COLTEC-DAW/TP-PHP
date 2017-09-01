@@ -23,9 +23,7 @@
 }
 
 .imagens {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    height: 150px !important;
 }
 
 .texto {
@@ -66,8 +64,8 @@ main {
 /* ID'S */
 
 #imgpedido {
-    width: 20%;
-    height: 20%;
+    width: 50%;
+    height: 50%;
     display: block;
     margin: 0 auto;
 }
