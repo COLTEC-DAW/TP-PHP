@@ -44,8 +44,10 @@
 				$link = $_SERVER["PHP_SELF"];
 				$termo = "login.php";
 				$pattern = '/'.$termo.'/';
-				$temp = '/tp-php/usuario/cadastro.php';
+				$temp = '/help.ME/usuario/cadastro.php';
+				
 				$link = strtolower($link);
+				$temp = strtolower($temp);				
 				if(!preg_match($pattern,$link) && $link!=$temp){
 					$redirect = "../usuario/login.php";
 					header("location:$redirect");
