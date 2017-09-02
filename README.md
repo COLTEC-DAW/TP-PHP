@@ -18,7 +18,7 @@ Segue abaixo uma lista de possíveis temas de trabalho:
 
 * Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
 * Organização e promoção de eventos (Bilheteria, portal de eventos, etc.) - **Francisco, Victor e Ping**: *Organizador de mesas de RPG*
-* Educação & Aprendizado (Plataformas de aprendizado)
+* Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
 * Causas sociais (Plataformas para gestão de doações)
 
 É importante ressaltar que essa lista é **sugestiva**. Isto é, o grupo pode selecionar uma proposta fora da lista descrita acima.
