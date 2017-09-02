@@ -1,8 +1,8 @@
 Funções:
 	Modo - Menu:
-		Cadastro
-		Login
-		Informações do App
+		* Cadastro
+		* Login
+		* Informações do App
 
 __________________________________________________________________________
 	Modo - Cliente:
