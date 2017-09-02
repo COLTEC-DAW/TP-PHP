@@ -15,7 +15,7 @@ __________________________________________________________________________
 			* Se está em aberto
 				* em andamento
 
-		- Cancelar entrega solicitada
+		* Cancelar entrega solicitada
 		* Ver entregas passadas
 
 		* Infomações do cliente
