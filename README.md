@@ -1,3 +1,7 @@
+# Pakot repos
+- [frontend](https://github.com/gustavo-depaula/pakot-frontend)
+- [backend](https://github.com/gustavo-depaula/pakot-backend)
+
 # Desenvolvimento de Aplicações Web
 
 **Data de Apresentação: 24/08/2017**

@@ -1,0 +1,31 @@
+Funções:
+	Modo - Menu:
+		* Cadastro
+		* Login
+		* Informações do App
+
+__________________________________________________________________________
+	Modo - Cliente:
+		* Criar entrega (deixa em aberto para entregadores)
+			* Informações do cliente (nome, telefone)
+				    * do pacote (tamanho, peso)
+				    * do trajeto (origem,destino)
+
+		* Ver suas entregas
+			* Se está em aberto
+				* em andamento
+
+		* Cancelar entrega solicitada
+		* Ver entregas passadas
+
+		* Infomações do cliente
+__________________________________________________________________________
+	Modo - Entregador:
+		* Ver entregas em aberto
+			* Aceitar entrega
+
+		* Entregas atuais
+
+		* Ver histórico de entregas já feitas
+
+		* Infomações do entregador
