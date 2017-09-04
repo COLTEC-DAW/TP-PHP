@@ -1,7 +1,10 @@
 <?php
     ob_start(); // Initiate the output buffer
+    require "../usuario/class_user.inc";    
     require "../utils/functions.php";
     session_start();
+
+    checa_logado();
 ?>
 
 <!DOCTYPE html>
