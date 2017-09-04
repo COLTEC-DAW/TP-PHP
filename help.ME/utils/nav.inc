@@ -42,17 +42,23 @@
 			}   
 			else{
 				$link = $_SERVER["PHP_SELF"];
+				$vetorEndereco = explode('/', $link);
+				$novoEndereco = "";
+				for($i = 2; $i < count($vetorEndereco); $i++) {
+					$novoEndereco .= "/" . $vetorEndereco[$i];
+				}
+				var_dump($novoEndereco);
+
 				$termo = "login.php";
 				$pattern = '/'.$termo.'/';
-				$temp = '/help.ME/usuario/cadastro.php';
+				$temp = '/usuario/cadastro.php';
 				
-				$link = strtolower($link);
-				$temp = strtolower($temp);				
+				$link = strtolower($novoEndereco);
+				$temp = strtolower($temp);
 				if(!preg_match($pattern,$link) && $link!=$temp){
 					$redirect = "../usuario/login.php";
 					header("location:$redirect");
-				}
-			}
+				}			}
 			?>
 	</div>
 </nav>
