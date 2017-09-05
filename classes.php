@@ -73,6 +73,7 @@ class Usuario {
     var $email;
     var $senha;
     var $mesas;
+    var $numNotificacoes;
     var $notificacoes;
 
     function __construct($nome, $login, $email, $senha){
@@ -82,6 +83,7 @@ class Usuario {
         $this->email = $email;
         $this->senha = $senha;
         $this->mesas = [];
+        $this->numNotificacoes = 0;
         $this->notificacoes = [];
     }
    

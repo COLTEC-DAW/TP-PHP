@@ -15,7 +15,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="fontePreta" href="home.php">Home</a></li>
-                <li><a class="fontePreta" href="me.php">Perfil</a></li>
+                <li>
+                    <a class="fontePreta" href="me.php">
+                        Perfil <?php
+                        if ($_SESSION["user"]->numNotificacoes > 0) ?>
+                            <span class="badge"><?= $_SESSION["user"]->numNotificacoes ?></span>
+                    </a>
+                </li>
                 <li><a class="fontePreta" href="logout.php">Sair</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->

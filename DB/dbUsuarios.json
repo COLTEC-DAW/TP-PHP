@@ -9,24 +9,8 @@
             5,
             7
         ],
-        "notificacoes": [
-            {
-                "tipo": 2,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            }
-        ]
+        "numNotificacoes": 0,
+        "notificacoes": []
     },
     {
         "id": 2,
@@ -35,60 +19,11 @@
         "email": "b@bb",
         "senha": "b",
         "mesas": [
-            4,
             5,
             7
         ],
-        "notificacoes": [
-            {
-                "tipo": 1,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 7,
-                "NomeMesa": "Mesa do Eduardo"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 7,
-                "NomeMesa": "Mesa do Eduardo"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            }
-        ]
+        "numNotificacoes": 0,
+        "notificacoes": []
     },
     {
         "id": 3,
@@ -97,6 +32,7 @@
         "email": "j@j",
         "senha": "julia",
         "mesas": [],
+        "numNotificacoes": 0,
         "notificacoes": [
             {
                 "tipo": 1,
