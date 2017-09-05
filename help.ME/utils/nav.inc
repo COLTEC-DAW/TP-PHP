@@ -86,16 +86,16 @@ if($logado){
 					<li>
 						<form action="../utils/acha_pesquisa.php" method="post">
 							<div class="input-field">
-								<i class="black-text material-icons prefix">search</i>
-								<input type="text" placeholder="Buscar" id="autocomplete-input" class="autocomplete white-text" name="procurar">
+								<i class="teal-text material-icons prefix">search</i>
+								<input type="text" placeholder="Buscar" id="autocomplete-input" class="autocomplete teal-text" name="procurar">
 							</div>
 						</form>
 					</li>
-					<li><a href="../usuario/pedido.php">Fazer Proposta</a></li>
-					<li><a href="../usuario/historico_doacao.php">Histórico</a></li>
-					<li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
-					<li><a href="../usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
-					<li><a href="../usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+					<li><a class="teal-text" href="../usuario/pedido.php">Fazer Proposta</a></li>
+					<li><a class="teal-text" href="../usuario/historico_doacao.php">Histórico</a></li>
+					<li><a class="teal-text"><i class="fa fa-user teal-text" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
+					<li><a class="teal-text" href="../usuario/carteira.php"><i class="teal-text fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
+					<li><a class="teal-text" href="../usuario/deslogar.php"><i class="teal-text fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
 				</ul>
 
 				<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -116,13 +116,13 @@ else if(Eh_Admin()){
 					<li>
 						<form action="utils/acha_pesquisa.php" method="post">
 							<div class="input-field">
-								<i class="black-text material-icons prefix">search</i>
-								<input type="text" placeholder="Buscar" id="autocomplete-input" class="autocomplete black-text" name="procurar">
+								<i class="teal-text material-icons prefix">search</i>
+								<input type="text" placeholder="Buscar" id="autocomplete-input" class="teal-text autocomplete" name="procurar">
 							</div>
 						</form>
 					</li>
-					<li><a href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
-					<li><a href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+					<li><a class="teal-text" href="../admin/historico_doacao_aprovada.php">Histórico de Doações Aprovadas</a></li>
+					<li><a class="teal-text" href="../usuario/deslogar.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
 				</ul>
 
 				<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
