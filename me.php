@@ -1,4 +1,3 @@
-<!-- Página do perfil do usuário. Mostra o nome, mesas, avaliação e tags -->
 <?php ob_start();
 session_start();
 require "INC/funcoes.inc";
@@ -12,6 +11,7 @@ if ($_POST["limpa"]){
     fclose($db);
     userRefresh();
 }?>
+<!-- Página do perfil do usuário. Mostra o nome, mesas, avaliação e tags -->
 <!DOCTYPE>
 <html>
     <head>
@@ -65,24 +65,34 @@ if ($_POST["limpa"]){
                     <h2>Suas notificações:</h2> 
                     <form method="post" action="me.php">
                         <input type="hidden" name="limpa" value="true">
-                        <button type="submit" class="btn btnCriarMesa"><a href="#" class="fonteBranca">LIMPAR</a></button>
+                        <button type="submit" class="btn btnCriarMesa">LIMPAR</button>
                     </form><?php
                     foreach ($_SESSION["user"]->notificacoes as $notificacao){
                         if ($notificacao->tipo == 1){ ?>
                             <ul>
                                 O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa <?= $notificacao->NomeMesa ?>
-                            </ul> <?php
+                            </ul>
+                            <form method="post" action="pgMesa.php">
+                                <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                <input type="hidden" name="convite" value="true">
+                                <button type="submit" class="btn btn-default">Ver mesa</button>
+                            </form> <?php
                         }
-                        else { ?>
+                        else if ($notificacao->tipo == 2){ ?>
                             <ul>
                                 Houve uma modificação na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                            </ul>
+                            <form method="post" action="pgMesa.php">
+                                <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                <input type="hidden" name="convite" value="true">
+                                <button type="submit" class="btn btn-default">Ver mesa</button>
+                            </form> <?php
+                        }
+                        else if ($notificacao->tipo == 3){ ?>
+                            <ul>
+                                A mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> foi deletada :(
                             </ul> <?php
-                        } ?>
-                        <form method="post" action="pgMesa.php">
-                            <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
-                            <input type="hidden" name="convite" value="true">
-                            <button type="submit" class="btn btn-default">Ver mesa</button>
-                        </form> <?php
+                        } 
                     } ?>
                 </div>
             </div>

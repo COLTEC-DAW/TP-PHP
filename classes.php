@@ -1,4 +1,3 @@
-<!-- Declaração das classes mesa e usuário -->
 <?php
 require "INC/funcoes.inc";
 class Mesa {
@@ -34,11 +33,10 @@ class Mesa {
         fclose($arquivo);
         return $meta->numeroMesas;
     }
-} ?>
+}
 
-<?php
 class Notificacao {
-    var $tipo; //1 para convites, 2 para mudanças
+    var $tipo; //1 para convites, 2 para mudanças, 3 para mesas deletadas, 4 para kicks
     var $IdDestinatario;
     var $IdRemetente;
     var $NomeRemetente;
@@ -67,9 +65,7 @@ class Notificacao {
         fclose($db);
     }
 }
-?>
 
-<?php
 class Usuario {
     var $id;
     var $nome;

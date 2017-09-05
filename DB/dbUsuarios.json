@@ -7,9 +7,6 @@
         "senha": "a",
         "mesas": [
             1,
-            2,
-            3,
-            4,
             5
         ],
         "notificacoes": []
@@ -24,15 +21,6 @@
             4,
             5
         ],
-        "notificacoes": [
-            {
-                "tipo": 1,
-                "IdDestinatario": 2,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            }
-        ]
+        "notificacoes": []
     }
 ]

@@ -11,55 +11,6 @@
         "jogadores": [
             1
         ],
-        "banidos": [
-            2
-        ]
-    },
-    {
-        "id": 2,
-        "public": true,
-        "nome": "b",
-        "mestre": "a",
-        "endereco": "b",
-        "sinopse": "b",
-        "genero": "b",
-        "sistema": "b",
-        "jogadores": [
-            1
-        ],
-        "banidos": [
-            2
-        ]
-    },
-    {
-        "id": 3,
-        "public": true,
-        "nome": "c",
-        "mestre": "a",
-        "endereco": "c",
-        "sinopse": "c",
-        "genero": "c",
-        "sistema": "c",
-        "jogadores": [
-            1
-        ],
-        "banidos": [
-            2
-        ]
-    },
-    {
-        "id": 4,
-        "public": false,
-        "nome": "d",
-        "mestre": "a",
-        "endereco": "d",
-        "sinopse": "d",
-        "genero": "d",
-        "sistema": "d",
-        "jogadores": [
-            1,
-            2
-        ],
         "banidos": []
     },
     {
