@@ -68,31 +68,43 @@ if ($_POST["limpa"]){
                         <button type="submit" class="btn btnCriarMesa">LIMPAR</button>
                     </form><?php
                     foreach ($_SESSION["user"]->notificacoes as $notificacao){
-                        if ($notificacao->tipo == 1){ ?>
-                            <ul>
-                                O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa <?= $notificacao->NomeMesa ?>
-                            </ul>
-                            <form method="post" action="pgMesa.php">
-                                <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
-                                <input type="hidden" name="convite" value="true">
-                                <button type="submit" class="btn btn-default">Ver mesa</button>
-                            </form> <?php
+                        switch ($notificacao->tipo){ 
+                            case 1: ?>
+                                <ul>
+                                    O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa <?= $notificacao->NomeMesa ?>
+                                </ul>
+                                <form method="post" action="pgMesa.php">
+                                    <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                    <input type="hidden" name="convite" value="true">
+                                    <button type="submit" class="btn btn-default">Ver mesa</button>
+                                </form> <?php
+                            break;
+                            case 2: ?>
+                                <ul>
+                                    Houve uma modificação na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                                </ul>
+                                <form method="post" action="pgMesa.php">
+                                    <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                    <input type="hidden" name="convite" value="true">
+                                    <button type="submit" class="btn btn-default">Ver mesa</button>
+                                </form> <?php
+                            break;
+                            case 3: ?>
+                                <ul>
+                                    A mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> foi deletada :(
+                                </ul> <?php
+                            break;
+                            case 4: ?>
+                                <ul>
+                                    Você foi banido da mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                                </ul> <?php
+                            break;
+                            case 5: ?>
+                                <ul>
+                                    Houve uma sessão de jogo na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>. Avalie seus colegas jogadores!
+                                </ul> <?php
+                            break;
                         }
-                        else if ($notificacao->tipo == 2){ ?>
-                            <ul>
-                                Houve uma modificação na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
-                            </ul>
-                            <form method="post" action="pgMesa.php">
-                                <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
-                                <input type="hidden" name="convite" value="true">
-                                <button type="submit" class="btn btn-default">Ver mesa</button>
-                            </form> <?php
-                        }
-                        else if ($notificacao->tipo == 3){ ?>
-                            <ul>
-                                A mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> foi deletada :(
-                            </ul> <?php
-                        } 
                     } ?>
                 </div>
             </div>

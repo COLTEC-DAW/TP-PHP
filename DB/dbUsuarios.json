@@ -6,10 +6,27 @@
         "email": "a@a",
         "senha": "a",
         "mesas": [
-            1,
-            5
+            5,
+            7
         ],
-        "notificacoes": []
+        "notificacoes": [
+            {
+                "tipo": 2,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            }
+        ]
     },
     {
         "id": 2,
@@ -19,8 +36,92 @@
         "senha": "b",
         "mesas": [
             4,
-            5
+            5,
+            7
         ],
-        "notificacoes": []
+        "notificacoes": [
+            {
+                "tipo": 1,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 7,
+                "NomeMesa": "Mesa do Eduardo"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 7,
+                "NomeMesa": "Mesa do Eduardo"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nome": "julia",
+        "login": "julia",
+        "email": "j@j",
+        "senha": "julia",
+        "mesas": [],
+        "notificacoes": [
+            {
+                "tipo": 1,
+                "IdDestinatario": 3,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 7,
+                "NomeMesa": "Mesa do Eduardo"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 3,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            },
+            {
+                "tipo": 2,
+                "IdDestinatario": 3,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 5,
+                "NomeMesa": "mesa generica"
+            }
+        ]
     }
 ]

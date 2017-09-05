@@ -36,7 +36,7 @@ class Mesa {
 }
 
 class Notificacao {
-    var $tipo; //1 para convites, 2 para mudanças, 3 para mesas deletadas, 4 para kicks
+    var $tipo; //1 para convites, 2 para mudanças, 3 para mesas deletadas, 4 para kicks, 5 para sessoes
     var $IdDestinatario;
     var $IdRemetente;
     var $NomeRemetente;

@@ -3,17 +3,17 @@ session_start();
 require "classes.php";
 userRefresh();
 $idMesa = intval($_POST["idMesa"]);
-$mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
+$todasAsMesas = pegaJson("DB/dbMesas.json");
+$todosUsuarios = pegaJson("DB/dbUsuarios.json");
+$mesa = pegaPorId($todasAsMesas, $idMesa);
 
 if ($_POST["destroy"]){
-    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
     foreach ($mesa->jogadores as $jogador) {
         $caraDaVez = pegaPorId($todosUsuarios, $jogador);
         if ($jogador != $_SESSION["user"]->id)
             New Notificacao(3, $caraDaVez->nome, $idMesa);
         bane($idMesa, $caraDaVez);
     }
-    $todasAsMesas = pegaJson("DB/dbMesas.json");
     $NovasMesas = [];
     foreach ($todasAsMesas as $mesinha)
         if ($mesinha->id != $idMesa)
@@ -52,18 +52,41 @@ if ($_POST["destroy"]){
             ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
                 <div class="divisores"> <?php
-                    if ($_POST["entra"])
+                    if ($_POST["entra"]){
+                        foreach ($mesa->jogadores as $jogador) {
+                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+                            New Notificacao(2, $caraDaVez->nome, $idMesa);
+                        }
                         poeNaMesa($idMesa, $_SESSION["user"]->id);
-                    
-                    elseif ($_POST["sai"])
+                    }
+                    elseif ($_POST["sai"]){
                         saiDaMesa($idMesa, $_SESSION["user"]->id);
-                    
-                    if ($_POST["kicka"])
+                        foreach ($mesa->jogadores as $jogador) {
+                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+                            New Notificacao(2, $caraDaVez->nome, $idMesa);
+                        }
+                    }
+                    if ($_POST["kicka"]){
                         bane($idMesa, $_POST["kickado"]);
-                    
+                        foreach ($mesa->jogadores as $jogador) {
+                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+                            New Notificacao(2, $caraDaVez->nome, $idMesa);
+                        }
+                    }
                     if ($_POST["convidando"])
                         New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
                     
+                    if ($_POST["sessaoFeita"]){ ?>
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Sessão feita</strong>
+                        </div> <?php
+                        foreach ($mesa->jogadores as $jogador) {
+                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+                            New Notificacao(5, $caraDaVez->nome, $idMesa);
+                        }
+                    }
+
                     $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
                     $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
 
@@ -85,7 +108,6 @@ if ($_POST["destroy"]){
                         <p><strong>Endereço: </strong><?= $mesa->endereco ?></p>
                         <p><strong>Jogadores:</strong></p>
                         <ul> <?php //Listando os jogadores
-                            $todosUsuarios = pegaJson("DB/dbUsuarios.json");
                             foreach ($mesa->jogadores as $jogador) {
                                 $caraDaVez = pegaPorId($todosUsuarios, $jogador); ?>
                                 <li>
