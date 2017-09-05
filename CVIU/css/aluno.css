@@ -229,7 +229,7 @@ div.clear{
     font-family: 'Open Sans', sans-serif;
     font-weight: 100;
     cursor: pointer;
-    padding: 5px 5px;
+   
      
 }
 
@@ -249,11 +249,11 @@ input{
 
 .btn {
     background-color: #339A9A;
-    margin-top: 1%;
+    float: right;
     text-align:center;
     font-size: 1.5em;
     color: white;
-    padding: 5px 5px;
+ 
    
 
 }

@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$nome_session = $_SESSION["email"];
+	if(!isset($_SESSION["email"]) || !isset($_SESSION["senha"])){
+		header("Location: index.php");
+		exit;
+	}  
+?>
+
 <html>
 <head>
 		<meta charset="UTF-8">

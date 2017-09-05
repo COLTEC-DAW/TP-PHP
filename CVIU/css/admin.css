@@ -240,7 +240,7 @@ input{
 
 .btn {
     background-color: #941E2E;
-    
+    float: right;
     text-align:center;
     font-size: 1.5em;
     color: white;

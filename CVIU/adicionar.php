@@ -1,3 +1,13 @@
+<?php
+	session_start();
+	$nome_session = $_SESSION["email"];
+	if(!isset($_SESSION["email"]) || !isset($_SESSION["senha"])){
+		header("Location: index.php");
+		exit;
+	}  
+?>
+
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -12,7 +22,7 @@
      <div id="header">
           <h1>Novo evento</h1>
       </div>
-
+  
       <form action="adicionando.php" method="post">
               <div class="input-group">
                 <label for="inputdefault">Dia </label>

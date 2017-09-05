@@ -31,9 +31,9 @@
 
     
                <center><a href="adicionar.php">  <div id="icones">
-                    <i class="fa fa-calendar-plus-o fa-3x" aria-hidden="true"></i>
-					<i class="fa fa-calendar-minus-o fa-3x" aria-hidden="true"></i>
-                </div> </a></center>
+                    <i class="fa fa-calendar-plus-o fa-3x" aria-hidden="true"></i></a>
+					<a href="retirar.php"> <i class="fa fa-calendar-minus-o fa-3x" aria-hidden="true"></i>
+					</a> </div> </center>
 
 	<?php
 		include 'calendar.php';
