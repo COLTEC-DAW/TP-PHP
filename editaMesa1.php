@@ -3,6 +3,9 @@ session_start();
 //Página para criação de novas mesas
 require "classes.php";
 userRefresh();
+$idMesa = intval($_POST["idMesa"]);
+$todasAsMesas = pegaJson("DB/dbMesas.json");
+$mesa = pegaPorId($todasAsMesas, $idMesa);
 ?>
 <!DOCTYPE>
 <html>
@@ -32,31 +35,33 @@ userRefresh();
             ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
                 <div class="divisores">
-                    <h1>Página para criar novas mesas</h1>
+                    <h1>Editando "<?= $mesa->nome?>"</h1>
                     <div class="divider"></div>
-                    <!--<h2><strong>WORK IN PROGRESS</strong></h2>
-                    <h2>Enquanto você não estava olhando, o faker fez o trabalho. Volte e admire os resultados</h2>-->
-                    <form action="criaMesa.php" method="POST">
+                    <form action="editaMesa2.php" method="POST">
+                        <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                         <div class="form-group">
                             <label for="nomeMesa">Nome</label>
-                            <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="Nome da Mesa">
+                            <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="<?= $mesa->nome ?>">
                         </div>
-                        <!--Nome do mestre será passado por POST-->
+                        <div class="form-group">
+                            <label for="nomeMesa">Mestre</label>
+                            <input type="text" class="form-control" id="nomeMestre" name="nomeMestre" placeholder="<?= $mesa->mestre ?>">
+                        </div>
                         <div class="form-group">
                             <label for="enderecoMesa">Endereço</label>
-                            <input type="text" class="form-control" id="enderecoMesa" name="enderecoMesa" placeholder="R. Astolfo, 54 - Bela Vista, São Paulo">
+                            <input type="text" class="form-control" id="enderecoMesa" name="enderecoMesa" placeholder="<?= $mesa->endereco?>">
                         </div>
                         <div class="form-group">
                             <label for="generoMesa">Gênero</label>
-                            <input type="text" class="form-control" id="generoMesa" name="generoMesa" placeholder="Gênero da Mesa">
+                            <input type="text" class="form-control" id="generoMesa" name="generoMesa" placeholder="<?= $mesa->genero?>">
                         </div>
                         <div class="form-group">
                             <label for="sistemaMesa">Sistema</label>
-                            <input type="text" class="form-control" id="sistemaMesa" name="sistemaMesa" placeholder="Sistema da Mesa">
+                            <input type="text" class="form-control" id="sistemaMesa" name="sistemaMesa" placeholder="<?= $mesa->sistema?>">
                         </div>
                         <div class="form-group">
                             <label for="sinopseMesa">Sinopse</label>
-                            <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="Sinopse da Mesa"></textarea>
+                            <textarea rows="4" cols="50" class="form-control" id="sinopseMesa" name="sinopseMesa" placeholder="<?= $mesa->sinopse?>"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="privacidade">Privacidade</label>
@@ -69,13 +74,11 @@ userRefresh();
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
+                        <button type="submit" class="btn btn-primary btnCriarMesa">Edição completa</button>
                     </form>
                 </div>
             </div>
         </div>    
-        <div class="footer">
-            <?php include "INC/footer.inc"; ?>
-        <div> 
+        <?php include "INC/footer.inc"; ?>
     </body>
 </html>

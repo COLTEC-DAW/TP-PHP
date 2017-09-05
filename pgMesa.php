@@ -43,7 +43,48 @@ if ($_POST["destroy"]){
         </script>
         <link rel="stylesheet" type="text/css" href="STYLE/style.css"></link>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+    </head> <?php
+    if ($_POST["entra"]){
+        foreach ($mesa->jogadores as $jogador) {
+            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+            New Notificacao(2, $caraDaVez->nome, $idMesa);
+        }
+        poeNaMesa($idMesa, $_SESSION["user"]->id);
+    }
+    elseif ($_POST["sai"]){
+        saiDaMesa($idMesa, $_SESSION["user"]->id);
+        foreach ($mesa->jogadores as $jogador) {
+            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+            New Notificacao(2, $caraDaVez->nome, $idMesa);
+        }
+    }
+    if ($_POST["kicka"]){
+        bane($idMesa, $_POST["kickado"]);
+        foreach ($mesa->jogadores as $jogador) {
+            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+            New Notificacao(2, $caraDaVez->nome, $idMesa);
+        }
+    }
+    if ($_POST["convidando"])
+        New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
+    
+    if ($_POST["sessaoFeita"]){ ?>
+        <div class="alert alert-success alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Sessão feita</strong>
+        </div> <?php
+        foreach ($mesa->jogadores as $jogador) {
+            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
+            New Notificacao(5, $caraDaVez->nome, $idMesa);
+        }
+    }
+
+    $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
+    $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
+
+    //AQUI COMEÇA A VISUALIZACAO DA PÁGINA
+    $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
+    $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois ?>
     <body>
         <div class="container-fluid">
             <?php
@@ -52,47 +93,6 @@ if ($_POST["destroy"]){
             ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
                 <div class="divisores"> <?php
-                    if ($_POST["entra"]){
-                        foreach ($mesa->jogadores as $jogador) {
-                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
-                            New Notificacao(2, $caraDaVez->nome, $idMesa);
-                        }
-                        poeNaMesa($idMesa, $_SESSION["user"]->id);
-                    }
-                    elseif ($_POST["sai"]){
-                        saiDaMesa($idMesa, $_SESSION["user"]->id);
-                        foreach ($mesa->jogadores as $jogador) {
-                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
-                            New Notificacao(2, $caraDaVez->nome, $idMesa);
-                        }
-                    }
-                    if ($_POST["kicka"]){
-                        bane($idMesa, $_POST["kickado"]);
-                        foreach ($mesa->jogadores as $jogador) {
-                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
-                            New Notificacao(2, $caraDaVez->nome, $idMesa);
-                        }
-                    }
-                    if ($_POST["convidando"])
-                        New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
-                    
-                    if ($_POST["sessaoFeita"]){ ?>
-                        <div class="alert alert-success alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Sessão feita</strong>
-                        </div> <?php
-                        foreach ($mesa->jogadores as $jogador) {
-                            $caraDaVez = pegaPorId($todosUsuarios, $jogador);
-                            New Notificacao(5, $caraDaVez->nome, $idMesa);
-                        }
-                    }
-
-                    $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
-                    $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
-
-                    //AQUI COMEÇA A VISUALIZACAO DA PÁGINA
-                    $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
-                    $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois
 
                     if ((!$convidado && !$mesa->public) || taNoArray($_SESSION["user"]->id, $mesa->banidos)){ //Nego tentando visualizar mesa privada sem convite
                         ?> <h2>YOU SHALL NOT PASS</h2> 
@@ -124,7 +124,7 @@ if ($_POST["destroy"]){
                             }?>
                         </ul> <?php
                         if ($mestre){ ?>
-                            <form method="post" action="pgMesa.php">
+                            <form method="post" action="pgMesa.php"> <!-- Form pra convidar -->
                                 <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                 <input type="hidden" name="convidando" value="true">
                                 <div class="form-group">
@@ -134,16 +134,20 @@ if ($_POST["destroy"]){
                                 <button type="submit" class="btn btn-default">Convide alguém</button>
                             </form>
                             <br>
-                            <form method="post" action="pgMesa.php">
+                            <form method="post" action="pgMesa.php"> <!-- Botão de sessão -->
                                 <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                 <input type="hidden" name="sessaoFeita" value="true">
-                                <button type="submit" class="btn btn-success">Ter uma sessão</button> <!-- Tem como deixar isso vermelho? -->
+                                <button type="submit" class="btn btn-success">Ter uma sessão</button>
                             </form>
                             <br>
-                            <form method="post" action="pgMesa.php">
+                            <form method="post" action="editaMesa1.php"> <!-- Botão de edição -->
+                                <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
+                                <button type="submit" class="btn btn-warning">Editar mesa</button>
+                            </form>
+                            <form method="post" action="pgMesa.php"> <!-- Botão de destruição -->
                                 <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                 <input type="hidden" name="destroy" value="true">
-                                <button type="submit" class="btn btn-danger">DESTRUIR ESSA MESA</button> <!-- Tem como deixar isso vermelho? -->
+                                <button type="submit" class="btn btn-danger">DESTRUIR MESA</button>
                             </form>
                             <?php
                         }

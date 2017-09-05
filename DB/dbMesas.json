@@ -2,12 +2,12 @@
     {
         "id": 5,
         "public": true,
-        "nome": "mesa generica",
-        "mestre": "a",
-        "endereco": "minha casa",
-        "sinopse": "um dungeoncrawl",
-        "genero": "generico",
-        "sistema": "G&G",
+        "nome": "generica",
+        "mestre": "b",
+        "endereco": "casa do a",
+        "sinopse": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa",
+        "genero": "Aventura",
+        "sistema": "Adventurous Adventure",
         "jogadores": [
             1,
             2
