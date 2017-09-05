@@ -41,7 +41,7 @@
                         $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
                         $link = "../imagens/".$id.".".$formato;
                     ?>
-                    <img src="<?=$link?>" id="imgpedido">
+                    <img src="<?=$link?>" id="imgpedido" class="circle responsive-img">
 
                 </div>
 
@@ -80,7 +80,7 @@
                     else{
                     ?>
                         <h5>Arrecadado:</h5>
-                        <p class="flow-text black-text center-align">R$: <?=$doacao_atual->valor_acumulado?></p>
+                        <p class="flow-text black-text">R$: <?=$doacao_atual->valor_acumulado?></p>
                         <form action="../usuario/doar.php" method="post">
                             <input type="hidden" name="id" value=<?=$doacao_atual->id?>>
                             <div class="input-field center-align">

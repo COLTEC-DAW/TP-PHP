@@ -43,9 +43,11 @@
                             </li> 
                             <li><a href="usuario/pedido.php">Fazer Proposta</a></li>
                             <li><a href="usuario/historico_doacao.php">Histórico</a></li>
-                            <li><a><i class="fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
-                            <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
-                            <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+                            <li class="dropdown-button" data-activates="dropdown"><a><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<?=$usuario->nome?><i class="material-icons right">arrow_drop_down</i></a></li>
+                            <ul id='dropdown' class='dropdown-content'>
+                                <li><a href="usuario/carteira.php"><i class="fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
+                                <li><a href="usuario/deslogar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+                            </ul>
                         </ul>
                     <?php
                     }
@@ -236,7 +238,7 @@
                                                     $formato = Pega_Formato_Imagem($id,'imagens/imagens.json');
                                                     ?>
                                                     <div class="center">
-                                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img"> 
+                                                        <img src="imagens/<?=$id?>.<?=$formato?>" class="imagens responsive-img circle"> 
                                                     </div>
                                                     <p class="card-subtitle grey-text text-darken-2 truncate"><?=$dados->descricao?></p>
                                                     <h6 class="black-text text-darken-4 card-info">&nbsp;Meta: R$ <?=$meta?></h6>
@@ -245,14 +247,6 @@
                                                     <form action="usuario/pag_doacoes.php" method="post">
                                                         <input type="hidden" name="id" value=<?=$id?>>
                                                         <input type="submit" class="btn btn-default botao" name="Verificar2" value="Leia mais">
-                                                    </form>
-                                                    <form action="admin/aprovar.php" method="post">
-                                                        <input type="hidden" name="controle" value=<?=$id?>>            
-                                                        <input type="submit" class="btn btn-default botao float-text" name="Verificar" value="Aceitar">
-                                                    </form>
-                                                    <form action="admin/reprovar.php" method="post">
-                                                        <input type="hidden" name="controle" value=<?=$id?>>
-                                                        <input type="submit" class="btn btn-default botao float-text" name="Verificar" value="Recusar">
                                                     </form>
                                                 </div>
                                             </div>
