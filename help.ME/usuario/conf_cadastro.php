@@ -4,9 +4,6 @@
 
     require "class_user.inc";
     require "../utils/functions.php";
-    echo "cheguei";
-    require "../email/phpmail/PHPMailerAutoload.php";
-    echo "cheguei";
     require "../email/manda_email.php";
     session_start();
 
@@ -59,7 +56,7 @@
             fwrite($arquivo, $dados_json);
             fclose($arquivo);
 
-            sendEmail($email, $id_email_conf);
+            sendEmail($email, $id_email_conf, $login);
             $redirect = "../index.php";
             header("location:$redirect");
         }
