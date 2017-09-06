@@ -6,12 +6,12 @@
 		$mail->isSMTP();
 		$mail->Host = 'smtp.gmail.com';
 		$mail->SMTPAuth = true;
+		$mail->Username = 'lukvailox@gmail.com';
+		$mail->Password = '34960550.';
 		$mail->SMTPSecure = 'tls';
 		$mail->Port = 587;
 		$mail->CharSet = 'UTF-8';
 		
-		$mail->Username = 'lukvailox@gmail.com';
-		$mail->Password = '34960550.';
 		$mail->From = 'lukvailox@gmail.com';
 		$mail->FromName = 'Help.me';
 		$mail->addAddress($email,"Nome do cara");
