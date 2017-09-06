@@ -9,8 +9,8 @@
         $mail->SMTPAuth = true;
         $mail->Username = 'lukvailox@gmail.com';
         $mail->Password = '34960550.';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
         $mail->CharSet = 'UTF-8';
         
         $mail->From = 'lukvailox@gmail.com';
