@@ -88,7 +88,7 @@
             fclose($arquivo);
 
             $retorno = sendEmail($email, $id_email_conf, $login);
-            //echo "<br>".$retorno;
+            echo "<br>".$retorno;
             $redirect = "../index.php";
             if($retorno == 'done')
                 header("location:$redirect");
