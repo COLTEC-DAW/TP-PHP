@@ -5,7 +5,7 @@
     require "class_user.inc";
     require "../utils/functions.php";
     echo "cheguei";
-    require'../email/phpmail/PHPMailerAutoload.php';
+    require "../email/phpmail/PHPMailerAutoload.php";
     echo "cheguei";
     require "../email/manda_email.php";
     session_start();
