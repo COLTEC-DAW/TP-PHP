@@ -4,7 +4,6 @@
 	function sendEmail($email, $id_email_conf){
 		$mail = new PHPMailer;
 		$mail->isSMTP();
-		$mail->SMTPDebug = 2;
 		$mail->Host = 'smtp.gmail.com';
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = 'tls';
@@ -17,10 +16,10 @@
 		$mail->FromName = 'Help.me';
 		$mail->addAddress($email,"Nome do cara");
 		$mail->isHTML(true);
-
+		$link = 'https://help-me-daw.herokuapp.com/email/verifica_email.php?id_email='.$id_email_conf;
 		$mail->Subject = 'Valide sua conta';
 		$mail->Body    = "<h1>Teste</h1>
-						<a href='https://help-me-daw.herokuapp.com/email/verifica_email.php?id_email=$id_email_conf'>Verifique sua conta.</a>";
+						<a href='$link'>Verifique sua conta.</a>";
 
 		//$mail->Body    = file_get_contents(HTMLEMAILPATH);
 
