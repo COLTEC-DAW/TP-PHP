@@ -92,7 +92,8 @@
             $retorno = sendEmail($email, $id_email_conf, $login);
             //echo "<br>".$retorno;
             $redirect = "../index.php";
-            header("location:$redirect");
+            if($retorno == 'done')
+                header("location:$redirect");
         }
     }
     else
