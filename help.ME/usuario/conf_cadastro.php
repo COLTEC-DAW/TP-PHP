@@ -3,14 +3,15 @@
     require $_SERVER['DOCUMENT_ROOT'] . '/email/phpmail/PHPMailerAutoload.php';
 
     function sendEmail($email, $id_email_conf, $nome){
+
         $mail = new PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'lukvailox@gmail.com';
         $mail->Password = '34960550.';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
         $mail->CharSet = 'UTF-8';
         
         $mail->From = 'lukvailox@gmail.com';
