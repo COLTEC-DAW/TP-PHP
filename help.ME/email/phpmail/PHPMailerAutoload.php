@@ -1,5 +1,4 @@
 <?php
-    echo "entrei no phpmailer";
 /**
  * PHPMailer SPL autoloader.
  * PHP Version 5
