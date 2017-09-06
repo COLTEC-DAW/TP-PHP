@@ -5,7 +5,9 @@
     require "class_user.inc";
     require "../utils/functions.php";
     echo "cheguei";
+    require $_SERVER['DOCUMENT_ROOT'].'/email/phpmail/PHPMailerAutoload.php';
     require "../email/manda_email.php";
+    echo "cheguei";
     session_start();
 
     $login = $_POST["nome"];
