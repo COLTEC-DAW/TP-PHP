@@ -5,16 +5,13 @@
     require "../utils/functions.php";
     require "../email/manda_email.php";
     session_start();
+    echo "cheguei";
 
     $login = $_POST["nome"];
     $senha = $_POST["senha"];
     $nome = $_POST["name"];
     $email = $_POST["email"];
-/*
-        ESCRITA
-*/
 
-    echo "cheguei";
     if($login!="admin"){
 
 
