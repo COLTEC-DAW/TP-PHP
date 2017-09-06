@@ -43,7 +43,7 @@
                         <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
                             <div class="input-field">
-                                <input type="text" name="nome" required>
+                                <input id="usuario" type="text" name="nome" required>
                                 <label>Login</label>                        
                             </div>
 
@@ -61,7 +61,9 @@
                             </div>
 
                         </form>
+
                         <?php
+                            require '../utils/login_automatico.php';                        
                             if(Errors()){
                                 $resposta = Errors();
                                 $_SESSION['error'] = "valido";

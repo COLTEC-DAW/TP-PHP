@@ -56,17 +56,22 @@
                 $carteira_arq = $user->carteira;
                 $usuario = new User($nome_arq, $email_arq, $login_arq, $senha_arq, $carteira_arq);
                 $_SESSION['user'] = $usuario;
+
+                file_put_contents("../utils/usuario_logado.json", "");
+                $usuario_logado = file_get_contents('../utils/usuario_logado.json');
+                $dados = json_decode($usuario_logado);
+
+                $dados[] = array('login'=>$login_arq, 'senha'=>$senha_arq);
+
+                $dados_json = json_encode($dados, JSON_PRETTY_PRINT);
+                $usuario_logado = fopen("../utils/usuario_logado.json", "w");
+                fwrite($usuario_logado, $dados_json);
+                fclose($usuario_logado);
             }
         }
     }
 
     if ($permissao == 1) {
-?>
-    <script type="text/javascript">        
-        localStorage.setItem("login", $login);
-        localStorage.setItem("senha", $senha);
-    </script>
-<?php
         $redirect = "../index.php";
         header("location:$redirect");
     } 

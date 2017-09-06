@@ -5,5 +5,12 @@
         "nome": "lucas",
         "email": "lucaspaulom@hotmail.com",
         "carteira": 0
+    },
+    {
+        "login": "123",
+        "senha": "123",
+        "nome": "testes",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
     }
 ]
