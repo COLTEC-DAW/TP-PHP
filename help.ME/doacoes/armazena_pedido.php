@@ -91,7 +91,7 @@
 
         $usuario = $_SESSION["user"];
         
-        $json[] = array('finalidade'=>$finalidade, 'meta'=>$meta, 'autor'=>$usuario->login, 'aprovado'=>0, 'arrecadado'=>0, 'id'=>$id, 'descricao'=>$descricao, 'data'=>$data); 
+        $json[] = array('finalidade'=>$finalidade, 'meta'=>$meta, 'autor'=>$usuario->nome, 'aprovado'=>0, 'arrecadado'=>0, 'id'=>$id, 'descricao'=>$descricao, 'data'=>$data); 
 
 
         $dados_json = json_encode($json, JSON_PRETTY_PRINT);

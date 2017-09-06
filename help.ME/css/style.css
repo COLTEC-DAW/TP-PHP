@@ -30,6 +30,10 @@
     padding-top: 45px;
 }
 
+.circle {
+    border-radius: 100% !important;
+}
+
 nav .brand-logo {
     padding-right: 1%;
     float: left;
@@ -77,6 +81,10 @@ main {
 
 #apresentacao {
     text-align: justify;
+}
+
+#dropdown {
+    margin-top: 63px;
 }
 
 nav {

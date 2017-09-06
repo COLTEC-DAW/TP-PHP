@@ -80,7 +80,7 @@
                     <?php
                         $limite = Retorna_Limite($controle);
                     ?>
-                        <div class="card-panel red lighten-4">
+                        <div class="card-panel yellow lighten-4">
                             <span>Limite de doação: <?=$limite?></span>
                         </div>
 
