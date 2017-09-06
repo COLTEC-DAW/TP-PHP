@@ -1,0 +1,51 @@
+[
+    {
+        "login": "Testeemail",
+        "email": "asd",
+        "verificado": 0
+    },
+    {
+        "login": "123",
+        "email": "lucaspaulom@hotmail.com",
+        "verificado": 0
+    },
+    {
+        "login": "emailll",
+        "email": "emailll",
+        "verificado": 0
+    },
+    {
+        "login": "gus",
+        "email": "gustavo@hotmail.com",
+        "verificado": 0
+    },
+    {
+        "login": "gusasda",
+        "email": "lucaspaulom@hotmail.com",
+        "verificado": 0
+    },
+    {
+        "login": "asssd",
+        "email": "asd",
+        "id_email_conf": 157427506,
+        "verificado": 0
+    },
+    {
+        "login": "fcyvhgjhb ",
+        "email": "lucaspaulom@hotmail.com",
+        "id_email_conf": 1708879405,
+        "verificado": 0
+    },
+    {
+        "login": "123123",
+        "email": "lucaspaulom@hotmail.com",
+        "id_email_conf": 714216789,
+        "verificado": 0
+    },
+    {
+        "login": "1e1ibk",
+        "email": "lucaspaulom@hotmail.com",
+        "id_email_conf": 1534077195,
+        "verificado": 0
+    }
+]
