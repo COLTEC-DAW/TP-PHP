@@ -47,8 +47,6 @@
 				for($i = 2; $i < count($vetorEndereco); $i++) {
 					$novoEndereco .= "/" . $vetorEndereco[$i];
 				}
-				var_dump($novoEndereco);
-
 				$termo = "login.php";
 				$pattern = '/'.$termo.'/';
 				$temp = '/usuario/cadastro.php';
@@ -58,7 +56,8 @@
 				if(!preg_match($pattern,$link) && $link!=$temp){
 					$redirect = "../usuario/login.php";
 					header("location:$redirect");
-				}			}
+				}			
+			}
 			?>
 	</div>
 </nav>

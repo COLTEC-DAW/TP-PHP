@@ -190,10 +190,6 @@
                                                     <p class="black-text right-align"style="width: <?=($arrecadado/$meta)*100?>%">(<?=$porcentagem?>%)</p>                                    
                                                 </div>
                                                 <div class="card-action">
-                                                    <form action="usuario/doar.php" method="post">
-                                                        <input type="hidden" name="id" value=<?=$id?>>
-                                                        <input type="submit" class="btn btn-default botao float-text" name="Verificar" value="Doar">
-                                                    </form>
                                                     <form action="usuario/pag_doacoes.php" method="post">
                                                         <input type="hidden" name="id" value=<?=$id?>>
                                                         <input type="submit" class="btn btn-default botao float-text" name="Verificar2" value="Leia mais">
