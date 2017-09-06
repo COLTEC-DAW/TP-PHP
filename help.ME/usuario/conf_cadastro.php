@@ -4,8 +4,8 @@
 
     require "class_user.inc";
     require "../utils/functions.php";
-    require "../email/manda_email.php";
     echo "cheguei";
+    require "../email/manda_email.php";
     session_start();
 
     $login = $_POST["nome"];
