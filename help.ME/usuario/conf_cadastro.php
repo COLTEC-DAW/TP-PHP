@@ -4,7 +4,7 @@
 
     function sendEmail($email, $id_email_conf, $nome){
         $mail = new PHPMailer;
-        $mail->isSMTP();
+       // $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
