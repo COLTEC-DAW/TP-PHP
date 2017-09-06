@@ -61,6 +61,12 @@
     }
 
     if ($permissao == 1) {
+?>
+    <script type="text/javascript">        
+        localStorage.setItem("login", $login);
+        localStorage.setItem("senha", $senha);
+    </script>
+<?php
         $redirect = "../index.php";
         header("location:$redirect");
     } 
