@@ -1,6 +1,8 @@
 <?php
 
     ob_start(); // Initiate the output buffer
+
+    require $_SERVER['DOCUMENT_ROOT'] . '../email/phpmail/PHPMailerAutoload.php';
     require "class_user.inc";
     require "../utils/functions.php";
     require "../email/manda_email.php";
