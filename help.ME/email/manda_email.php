@@ -20,7 +20,7 @@
 
 		$mail->Subject = 'Valide sua conta';
 		$mail->Body    = "<h1>Teste</h1>
-						<a href='https://help-me-daw.herokuapp.com/email/verifica_email.php?$id_email_conf'>Verifique sua conta.</a>";
+						<a href='https://help-me-daw.herokuapp.com/email/verifica_email.php?id_email=$id_email_conf'>Verifique sua conta.</a>";
 
 		//$mail->Body    = file_get_contents(HTMLEMAILPATH);
 

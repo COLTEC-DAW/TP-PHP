@@ -1,4 +1,6 @@
 <?php
-	echo "entrei";
+	$id = $_GET['id_email'];
+
+	echo $id;
 
 ?>
