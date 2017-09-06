@@ -2,6 +2,7 @@
     ob_start(); // Initiate the output buffer
     require "class_user.inc";
     require "../utils/functions.php";
+    require "../email/manda_email.php";
     session_start();
 
     $login = $_POST["nome"];
@@ -39,7 +40,24 @@
             fwrite($arquivo, $dados_json);
             fclose($arquivo);
             setcookie("checa_cadastro",true); 
-            $_COOKIE['checa_cadastro'] = true;           
+            $_COOKIE['checa_cadastro'] = true;
+
+//Escreve no arquivo informando que o email ainda não foi verificado;
+
+            $dados = file_get_contents('../email/emails_verificados.json');
+            $json = json_decode($dados);
+
+            $id_email_conf = mt_rand();
+
+
+            $json[] = array('login'=>$login, 'email'=>$email, 'id_email_conf'=>$id_email_conf, 'verificado'=>0);
+            $dados_json = json_encode($json, JSON_PRETTY_PRINT);
+            $arquivo = fopen("../email/emails_verificados.json", "w");
+            fwrite($arquivo, $dados_json);
+            fclose($arquivo);
+
+            sendEmail($email, $id_email_conf);
+
             $redirect = "../index.php";
             header("location:$redirect");
         }

@@ -12,5 +12,68 @@
         "nome": "Lucas",
         "email": "lucaspaulom@hotmail.com",
         "carteira": 777
+    },
+    {
+        "login": "Testeemail",
+        "senha": "123",
+        "nome": "ASd",
+        "email": "asd",
+        "carteira": 0
+    },
+    {
+        "login": "123",
+        "senha": "123",
+        "nome": "email",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "emailll",
+        "senha": "123",
+        "nome": "asd",
+        "email": "emailll",
+        "carteira": 0
+    },
+    {
+        "login": "gus",
+        "senha": "123",
+        "nome": "Gustavo",
+        "email": "gustavo@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "gusasda",
+        "senha": "asds",
+        "nome": "gus",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "asssd",
+        "senha": "asd",
+        "nome": "asd",
+        "email": "asd",
+        "carteira": 0
+    },
+    {
+        "login": "fcyvhgjhb ",
+        "senha": "123",
+        "nome": "asd",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "123123",
+        "senha": "123",
+        "nome": "asd",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "1e1ibk",
+        "senha": "123",
+        "nome": "asd",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
     }
 ]

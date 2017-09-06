@@ -6,6 +6,7 @@
     $login = $_POST["nome"];
     $senha = $_POST["senha"];
     $permissao = 0;
+    $verificado = 0;
 /*
         LEITURA
 */
@@ -35,9 +36,16 @@
         $arquivo = file_get_contents('users.json');
         $json = json_decode($arquivo);
 
+        $emails_verificados = file_get_contents('../email/emails_verificados.json');
+        $email_json = json_decode($emails_verificados);
+
+        foreach ($email_json as $temp) {
+            if($login == $temp->login && $temp->verificado == 1)
+                $verificado = 1;
+        }
 
         foreach($json as $user){
-            if($user->login == $login && $user->senha == $senha){
+            if($user->login == $login && $user->senha == $senha && $verificado == 1){
              
                 $permissao = 1;
 
@@ -56,6 +64,8 @@
         $redirect = "../index.php";
         header("location:$redirect");
     } 
+    else if($verificado == 0)
+        Armazena_Erro('nao_verificado', "login.php");
     else 
         Armazena_Erro('invalido', "login.php");
 ?>
