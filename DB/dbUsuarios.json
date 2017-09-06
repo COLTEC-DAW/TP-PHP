@@ -6,19 +6,11 @@
         "email": "a@a",
         "senha": "a",
         "mesas": [
-            1
+            1,
+            2
         ],
-        "numNotificacoes": 2,
-        "notificacoes": [
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "generica"
-            }
-        ],
+        "numNotificacoes": 0,
+        "notificacoes": [],
         "tags": [],
         "avaliacoesPendentes": [
             2

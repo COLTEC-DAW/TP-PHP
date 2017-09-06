@@ -36,7 +36,7 @@ userRefresh();
                     <div class="divider"></div>
                     <!--<h2><strong>WORK IN PROGRESS</strong></h2>
                     <h2>Enquanto você não estava olhando, o faker fez o trabalho. Volte e admire os resultados</h2>-->
-                    <form action="criaMesa.php" method="POST">
+                    <form action="criaMesa2.php" method="POST">
                         <div class="form-group">
                             <label for="nomeMesa">Nome</label>
                             <input type="text" class="form-control" id="nomeMesa" name="nomeMesa" placeholder="Nome da Mesa">

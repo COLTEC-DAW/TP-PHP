@@ -31,7 +31,7 @@ userRefresh(); ?>
                 require "INC/userSideBar.inc";
             ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
-                <form method="get" action="novaMesa.php">
+                <form method="get" action="criaMesa1.php">
                     <button type="submit" class="btn btn-primary btnCriarMesa">Criar mesa</button>
                 </form>
                 <div class="title">
