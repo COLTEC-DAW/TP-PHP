@@ -68,15 +68,21 @@ if ($_POST["destroy"]){
     if ($_POST["convidando"])
         New Notificacao(1, $_POST["nomeConvidado"], $idMesa);
     
-    if ($_POST["sessaoFeita"]){ ?>
-        <div class="alert alert-success alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Sessão feita</strong>
-        </div> <?php
+    if ($_POST["sessaoFeita"]){
         foreach ($mesa->jogadores as $jogador) {
             $caraDaVez = pegaPorId($todosUsuarios, $jogador);
             New Notificacao(5, $caraDaVez->nome, $idMesa);
+            foreach ($mesa->jogadores as $cara)
+                if ($cara != $caraDaVez->id){
+                    var_dump($cara);
+                    ?> <br> <?php
+                    array_push($caraDaVez->avaliacoesPendentes, $cara);
+                }
         }
+        $db = fopen("DB/dbUsuarios.json", 'w');
+        fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+        fclose($db);
+        userRefresh();        
     }
 
     $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
@@ -98,7 +104,13 @@ if ($_POST["destroy"]){
                         ?> <h2>YOU SHALL NOT PASS</h2> 
                         <h3>Esta é uma mesa privada.</h3> <?php
                     }
-                    else { ?>
+                    else {
+                        if ($_POST["sessaoFeita"]){ ?>
+                            <div class="alert alert-success alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Sessão feita</strong>
+                            </div> <?php
+                        } ?>
                         <h1><?=$mesa->nome?></h1>
                         <div class="divider"></div>
                         <p><strong>Mestre: </strong><?= $mesa->mestre ?></p>

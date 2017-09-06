@@ -6,100 +6,47 @@
         "email": "a@a",
         "senha": "a",
         "mesas": [
-            5,
-            7
+            1
         ],
-        "numNotificacoes": 0,
+        "numNotificacoes": 2,
         "notificacoes": [
             {
-                "tipo": 2,
+                "tipo": 5,
                 "IdDestinatario": 1,
-                "IdRemetente": null,
-                "NomeRemetente": "",
-                "IdMesa": 5,
-                "NomeMesa": "generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 1,
-                "IdRemetente": null,
-                "NomeRemetente": "",
-                "IdMesa": 5,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
                 "NomeMesa": "generica"
             }
+        ],
+        "tags": [],
+        "avaliacoesPendentes": [
+            2
         ]
     },
     {
         "id": 2,
         "nome": "b",
         "login": "b",
-        "email": "b@bb",
+        "email": "b@b",
         "senha": "b",
         "mesas": [
-            5,
-            7
+            1
         ],
-        "numNotificacoes": 0,
+        "numNotificacoes": 4,
         "notificacoes": [
             {
-                "tipo": 2,
+                "tipo": 5,
                 "IdDestinatario": 2,
-                "IdRemetente": null,
-                "NomeRemetente": "",
-                "IdMesa": 5,
-                "NomeMesa": "generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": null,
-                "NomeRemetente": "",
-                "IdMesa": 5,
-                "NomeMesa": "generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 2,
-                "IdRemetente": null,
-                "NomeRemetente": "",
-                "IdMesa": 5,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
                 "NomeMesa": "generica"
             }
-        ]
-    },
-    {
-        "id": 3,
-        "nome": "julia",
-        "login": "julia",
-        "email": "j@j",
-        "senha": "julia",
-        "mesas": [],
-        "numNotificacoes": 0,
-        "notificacoes": [
-            {
-                "tipo": 1,
-                "IdDestinatario": 3,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 7,
-                "NomeMesa": "Mesa do Eduardo"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 3,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            },
-            {
-                "tipo": 2,
-                "IdDestinatario": 3,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 5,
-                "NomeMesa": "mesa generica"
-            }
+        ],
+        "tags": [],
+        "avaliacoesPendentes": [
+            1
         ]
     }
 ]

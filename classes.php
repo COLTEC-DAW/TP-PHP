@@ -36,7 +36,12 @@ class Mesa {
 }
 
 class Notificacao {
-    var $tipo; //1 para convites, 2 para mudanças, 3 para mesas deletadas, 4 para kicks, 5 para sessoes
+    var $tipo;  // 1 para convites
+                // 2 para mudanças
+                // 3 para mesas deletadas
+                // 4 para kicks
+                // 5 para sessoes
+                // 6 para novo mestre
     var $IdDestinatario;
     var $IdRemetente;
     var $NomeRemetente;
@@ -44,8 +49,7 @@ class Notificacao {
     var $NomeMesa;
 
     function __construct($tipo, $NomeDestinatario, $IdMesa){
-    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
-
+        $todosUsuarios = pegaJson("DB/dbUsuarios.json");
         $this->tipo = $tipo;
         $this->IdDestinatario = pegaPorNome($todosUsuarios, $NomeDestinatario)->id;
         $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $IdMesa);
@@ -58,6 +62,7 @@ class Notificacao {
         foreach ($todosUsuarios as $cara)
             if ($cara->id == $this->IdDestinatario){
                 array_push($cara->notificacoes, $this);
+                $cara->numNotificacoes++;
                 break;
             }
         $db = fopen("DB/dbUsuarios.json", 'w');
@@ -75,6 +80,8 @@ class Usuario {
     var $mesas;
     var $numNotificacoes;
     var $notificacoes;
+    var $tags;
+    var $avaliacoesPendentes;
 
     function __construct($nome, $login, $email, $senha){
         $this->id = $this->usuarioGetNewId();
@@ -85,6 +92,8 @@ class Usuario {
         $this->mesas = [];
         $this->numNotificacoes = 0;
         $this->notificacoes = [];
+        $this->tags = [];
+        $this->avaliacoesPendentes = [];
     }
    
     function usuarioGetNewId(){
@@ -95,5 +104,24 @@ class Usuario {
         fclose($arquivo);
         return $meta->numeroUsuarios;
     }
+}
+
+class Tag {
+    var $atributo;
+    var $votos;
+
+    function __construct($atr, $targetId){
+        $this->atributo = $atr;
+        $this->votos = 1;
+        $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+        foreach ($todosUsuarios as $cara)
+            if ($cara->id == $this->targetId){
+                array_push($cara->tags, $this);
+                break;
+            }
+            $db = fopen("DB/dbUsuarios.json", 'w');
+            fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+            fclose($db);
+        }
 }
 ?>

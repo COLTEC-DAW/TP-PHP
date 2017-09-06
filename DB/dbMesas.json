@@ -1,28 +1,13 @@
 [
     {
-        "id": 5,
+        "id": 1,
         "public": true,
         "nome": "generica",
-        "mestre": "b",
-        "endereco": "casa do a",
-        "sinopse": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa",
-        "genero": "Aventura",
-        "sistema": "Adventurous Adventure",
-        "jogadores": [
-            1,
-            2
-        ],
-        "banidos": []
-    },
-    {
-        "id": 7,
-        "public": true,
-        "nome": "Mesa do Eduardo",
         "mestre": "a",
-        "endereco": "casa do Eduardo",
-        "sinopse": "Um encontro amoroso com o Google",
-        "genero": "Loucura",
-        "sistema": "Improvisado",
+        "endereco": "minha casa",
+        "sinopse": "Um dungeoncrawl",
+        "genero": "Aventura",
+        "sistema": "G&G",
         "jogadores": [
             1,
             2

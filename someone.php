@@ -1,8 +1,47 @@
 <?php session_start();
-require "INC/funcoes.inc";
+require "classes.php";
 userRefresh();
-$cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
-<!-- Página do perfil do alguém. Mostra o nome, mesas, avaliação e tags -->
+$idCara = $_GET["idCara"];
+if ($idCara == $_SESSION["user"]->id) header("location: me.php");
+$todosUsuarios = pegaJson("DB/dbUsuarios.json");
+$cara = pegaPorId($todosUsuarios, $idCara);
+// Página do perfil do alguém. Mostra o nome, mesas, avaliação e tags
+if ($_POST["votando"]){
+    foreach ($todosUsuarios as $umCara) {
+        if ($idCara == $umCara->id){
+            foreach($umCara->tags as $tag){
+                if (strcmp($tag->atributo, $_POST["nomeTag"]) == 0){
+                    $tag->votos+= intval($_POST["voteTag"]);
+                    break;
+                }
+            }
+        }
+        break;
+    }
+    foreach ($todosUsuarios as $procurandoUser) {
+        if ($procurandoUser->id == $_SESSION["user"]->id) {
+            $procurandoUser->avaliacoesPendentes = tiraDoVetor($procurandoUser->avaliacoesPendentes, $idCara);
+            break;
+        }
+    }
+    $db = fopen("DB/dbUsuarios.json", 'w');
+    fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+    fclose($db);
+}
+if ($_POST["novaTag"]){
+    foreach ($todosUsuarios as $umCara) {
+        if ($idCara == $umCara->id){
+            New Tag ($_POST["nomeTag"], $umCara->id);
+        }
+        break;
+        foreach ($todosUsuarios as $procurandoUser) {
+            if ($procurandoUser->id == $_SESSION["user"]->id) {
+                $procurandoUser->avaliacoesPendentes = tiraDoVetor($procurandoUser->avaliacoesPendentes, $idCara);
+                break;
+            }
+        }
+    }
+} ?>
 <!DOCTYPE>
 <html>
     <head>
@@ -31,6 +70,39 @@ $cara = pegaPorId(pegaJson("DB/dbUsuarios.json"), $_GET["idCara"]); ?>
                 <div class=divisores>
                     <h1><?= $cara->nome ?><h1>
                     <h4><?=$cara->email?></h4>
+                    <h2>Tags:</h2>
+                    <?php
+                    if (array_search($_SESSION["user"]->avaliacoesPendentes)===false){
+                        foreach ($cara->tags as $tag) ?>
+                            <p><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</p> <?php
+                    }
+                    else {
+                        foreach ($cara->tags as $tag){ ?>
+                            <form action="someone.php?idCara=<?= $idCara ?>" method="POST">
+                                <input type="hidden" name="votando" value="true">
+                                <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
+                                <div class="form-group">
+                                    <div id="votos">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Votar</button>
+                            </form> <?php
+                        } ?>
+                        <form method="post" action="someone.php?idCara=<?= $idCara ?>">
+                            <input type="hidden" name="novaTag" value="true">
+                            <div class="form-group">
+                                <label class="sr-only" for="nomeConvidado">Tag</label>
+                                <input type="text" class="form-control col-3" id="nomeConvidado" placeholder="Nova Tag" name="nomeTag">
+                            </div>
+                            <button type="submit" class="btn btn-default">Criar Tag</button>
+                        </form> <?php
+                    } ?>
                     <div class="divider"></div>
                     <h2>Mesas de <?= $cara->nome ?>:</h2>
                     <?php //Imprindo as mesas do usuario

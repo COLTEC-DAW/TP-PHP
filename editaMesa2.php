@@ -30,8 +30,10 @@
         if ($mesinha->id == $idMesa){
             if (strcmp($nome, "") != 0)
                 $mesinha->nome = $nome;
-            if (strcmp($mestre, "") != 0)
+            if (strcmp($mestre, "") != 0){
                 $mesinha->mestre = $mestre;
+                New Notificacao (6, $mestre, $idMesa);
+            }
             if (strcmp($endereco, "") != 0)
                 $mesinha->endereco = $endereco;
             if (strcmp($genero, "") != 0)

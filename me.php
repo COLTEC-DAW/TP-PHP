@@ -6,6 +6,7 @@ if ($_POST["limpa"]){
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
     $user = pegaPorId($todosUsuarios, $_SESSION["user"]->id);
     $user->notificacoes = [];
+    $user->numNotificacoes =0;
     $db = fopen("DB/dbUsuarios.json", 'w');
     fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
     fclose($db);
@@ -54,10 +55,8 @@ if ($_POST["limpa"]){
                                 <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
                                 <button type="submit" class="btn btn-default">Detalhes</button>
                             </form>
-                        </div>
-                    <?php
-                        }
-                    ?>
+                        </div> <?php
+                        } ?>
                 </div>
             </div>
             <div class="centerbar col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -71,7 +70,7 @@ if ($_POST["limpa"]){
                         switch ($notificacao->tipo){ 
                             case 1: ?>
                                 <ul>
-                                    O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa <?= $notificacao->NomeMesa ?>
+                                    <p>O mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> convidou você para a mesa "<?= $notificacao->NomeMesa ?>"</p>
                                 </ul>
                                 <form method="post" action="pgMesa.php">
                                     <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
@@ -81,7 +80,7 @@ if ($_POST["limpa"]){
                             break;
                             case 2: ?>
                                 <ul>
-                                    Houve uma modificação na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                                    Houve uma modificação na mesa "<?= $notificacao->NomeMesa ?>" do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
                                 </ul>
                                 <form method="post" action="pgMesa.php">
                                     <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
@@ -91,19 +90,28 @@ if ($_POST["limpa"]){
                             break;
                             case 3: ?>
                                 <ul>
-                                    A mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> foi deletada :(
+                                    A mesa "<?= $notificacao->NomeMesa ?>" do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a> foi deletada :(
                                 </ul> <?php
                             break;
                             case 4: ?>
                                 <ul>
-                                    Você foi banido da mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
+                                    Você foi banido da mesa "<?= $notificacao->NomeMesa ?>" do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>
                                 </ul> <?php
                             break;
                             case 5: ?>
                                 <ul>
-                                    Houve uma sessão de jogo na mesa <?= $notificacao->NomeMesa ?> do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>. Avalie seus colegas jogadores!
+                                    Houve uma sessão de jogo na mesa "<?= $notificacao->NomeMesa ?>" do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>. Avalie seus colegas!
                                 </ul> <?php
                             break;
+                            case 6: ?>
+                            <ul>
+                                Você é o novo mestre da mesa "<?= $notificacao->NomeMesa ?>"</a>.
+                            </ul>
+                            <form method="post" action="pgMesa.php">
+                                <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                <input type="hidden" name="convite" value="true">
+                                <button type="submit" class="btn btn-default">Ver mesa</button>
+                            </form> <?php
                         }
                     } ?>
                 </div>
