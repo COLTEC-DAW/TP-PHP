@@ -51,7 +51,8 @@
 				}   
 				else{
 					$link = $_SERVER["PHP_SELF"];
-					var_dump($link);
+					echo $_SERVER['DOCUMENT_ROOT'];
+
 					$vetorEndereco = explode('/', $link);
 					$novoEndereco = "";
 					for($i = 2; $i < count($vetorEndereco); $i++) {
