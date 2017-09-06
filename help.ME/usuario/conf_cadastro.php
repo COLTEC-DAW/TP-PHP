@@ -1,12 +1,12 @@
 <?php
 
     ob_start(); // Initiate the output buffer
-    echo "cheguei";
 
     require "class_user.inc";
     require "../utils/functions.php";
     require "../email/manda_email.php";
     session_start();
+    echo "cheguei";
 
     $login = $_POST["nome"];
     $senha = $_POST["senha"];
