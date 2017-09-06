@@ -57,7 +57,7 @@
             fclose($arquivo);
 
             sendEmail($email, $id_email_conf);
-
+            echo "cheguei";
             $redirect = "../index.php";
             header("location:$redirect");
         }
