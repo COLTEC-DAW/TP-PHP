@@ -1,4 +1,6 @@
 <?php
+	require $_SERVER['DOCUMENT_ROOT'] . '/email/phpmail/PHPMailerAutoload.php';
+
 	function sendEmail($email, $id_email_conf){
 		$mail = new PHPMailer;
 		$mail->isSMTP();
