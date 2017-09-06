@@ -87,7 +87,8 @@
             fwrite($arquivo, $dados_json);
             fclose($arquivo);
 
-            sendEmail($email, $id_email_conf, $login);
+            $retorno = sendEmail($email, $id_email_conf, $login);
+            echo "<br>".$retorno;
             $redirect = "../index.php";
             //header("location:$redirect");
         }
