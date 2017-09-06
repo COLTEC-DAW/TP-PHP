@@ -1,4 +1,6 @@
 <?php
+            echo "cheguei";
+
     ob_start(); // Initiate the output buffer
     require "class_user.inc";
     require "../utils/functions.php";
