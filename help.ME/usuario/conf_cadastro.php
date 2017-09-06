@@ -90,7 +90,7 @@
             fclose($arquivo);
 
             $retorno = sendEmail($email, $id_email_conf, $login);
-            echo "<br>".$retorno;
+            //echo "<br>".$retorno;
             $redirect = "../index.php";
             //header("location:$redirect");
         }
