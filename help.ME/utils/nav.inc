@@ -51,20 +51,13 @@
 				}   
 				else{
 					$link = $_SERVER["PHP_SELF"];
-					echo $_SERVER['DOCUMENT_ROOT'];
-
-					$vetorEndereco = explode('/', $link);
-					$novoEndereco = "";
-					for($i = 2; $i < count($vetorEndereco); $i++) {
-						$novoEndereco .= "/" . $vetorEndereco[$i];
-					}
 					$termo = "login.php";
 					$pattern = '/'.$termo.'/';
 					$temp = '/usuario/cadastro.php';
 					
-					$link = strtolower($novoEndereco);
+					$link = strtolower($link);
 					$temp = strtolower($temp);
-					if(!preg_match($pattern,$link) && $link!=$temp){
+					if(!preg_match($pattern,$link) && $_SERVER['DOCUMENT_ROOT'].$link!=$_SERVER['DOCUMENT_ROOT'].$temp){
 						$redirect = "../usuario/login.php";
 						header("location:$redirect");
 					}			
