@@ -75,5 +75,61 @@
         "nome": "asd",
         "email": "lucaspaulom@hotmail.com",
         "carteira": 0
+    },
+    {
+        "login": "herokuu",
+        "senha": "123",
+        "nome": "teste",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "12312312",
+        "senha": "123",
+        "nome": "asd",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "asd",
+        "senha": "asd",
+        "nome": "asd",
+        "email": "123",
+        "carteira": 0
+    },
+    {
+        "login": "eafasd",
+        "senha": "123",
+        "nome": "Lucas",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "testaragr",
+        "senha": "123",
+        "nome": "TestarAgr",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "12nk",
+        "senha": "123",
+        "nome": "luacs",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "123m",
+        "senha": "123",
+        "nome": "asd",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
+    },
+    {
+        "login": "TesteFinal",
+        "senha": "123",
+        "nome": "TesteFinal",
+        "email": "lucaspaulom@hotmail.com",
+        "carteira": 0
     }
 ]
