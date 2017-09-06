@@ -14,9 +14,9 @@
         ESCRITA
 */
 
+    echo "cheguei";
     if($login!="admin"){
 
-    echo "cheguei";
 
         $arquivo = file_get_contents('users.json');
         $json = json_decode($arquivo);
