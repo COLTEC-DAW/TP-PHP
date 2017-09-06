@@ -49,6 +49,7 @@
 
             $id_email_conf = mt_rand();
 
+            echo "cheguei";
 
             $json[] = array('login'=>$login, 'email'=>$email, 'id_email_conf'=>$id_email_conf, 'verificado'=>0);
             $dados_json = json_encode($json, JSON_PRETTY_PRINT);
@@ -57,7 +58,6 @@
             fclose($arquivo);
 
             sendEmail($email, $id_email_conf);
-            echo "cheguei";
             $redirect = "../index.php";
             header("location:$redirect");
         }
