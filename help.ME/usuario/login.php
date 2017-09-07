@@ -63,7 +63,12 @@
                         </form>
 
                         <?php
-                            require '../utils/login_automatico.php';                        
+
+                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != null){
+                                require "../utils/login_automatico.php";
+                            }
+
+
                             if(Errors()){
                                 $resposta = Errors();
                                 $_SESSION['error'] = "valido";

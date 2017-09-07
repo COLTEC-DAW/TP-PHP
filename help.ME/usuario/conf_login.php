@@ -56,7 +56,9 @@
                 $carteira_arq = $user->carteira;
                 $usuario = new User($nome_arq, $email_arq, $login_arq, $senha_arq, $carteira_arq);
                 $_SESSION['user'] = $usuario;
-
+                $_SESSION['login_store'] = $login;
+                $_SESSION['senha_store'] = $senha;
+/*
                 file_put_contents("../utils/usuario_logado.json", "");
                 $usuario_logado = file_get_contents('../utils/usuario_logado.json');
                 $dados = json_decode($usuario_logado);
@@ -67,16 +69,23 @@
                 $usuario_logado = fopen("../utils/usuario_logado.json", "w");
                 fwrite($usuario_logado, $dados_json);
                 fclose($usuario_logado);
+*/
             }
         }
     }
 
     if ($permissao == 1) {
-        $redirect = "../index.php";
-        header("location:$redirect");
+?>
+    <script>
+        localStorage.setItem('login', '<?php echo $_SESSION['login_store'];?>');  
+        localStorage.setItem('senha', '<?php echo $_SESSION['senha_store'];?>');
+        window.location = '../index.php';
+    </script>
+    <?php
     } 
     else if($verificado == 0)
         Armazena_Erro('nao_verificado', "login.php");
     else 
         Armazena_Erro('invalido', "login.php");
+
 ?>
