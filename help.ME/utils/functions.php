@@ -57,6 +57,8 @@
             return "Senha incorreta";
         else if($erro == "saldo_insuficiente")
             return "Saldo insuficiente! Adicione dinheiro a sua carteira.";
+        else if($erro == "nao_verificado")
+            return "Seu email ainda não foi verificado";
     }
 
     function Errors(){
@@ -91,7 +93,7 @@
                     }
                 }
             }
-        }   
+        }           
     }
 
     function Retorna_Limite($id){
