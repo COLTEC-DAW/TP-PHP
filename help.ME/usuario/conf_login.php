@@ -75,13 +75,19 @@
     }
 
     if ($permissao == 1) {
-?>
-    <script>
-        localStorage.setItem('login', '<?php echo $_SESSION['login_store'];?>');  
-        localStorage.setItem('senha', '<?php echo $_SESSION['senha_store'];?>');
-        window.location = '../index.php';
-    </script>
-    <?php
+        if($login!="admin"){
+        ?>
+            <script>
+                localStorage.setItem('login', '<?php echo $_SESSION['login_store'];?>');  
+                localStorage.setItem('senha', '<?php echo $_SESSION['senha_store'];?>');
+                window.location = '../index.php';
+            </script>
+        <?php
+        }
+        else{
+            $redirect = "../index.php";
+            header("location:$redirect");
+        }
     } 
     else if($verificado == 0)
         Armazena_Erro('nao_verificado', "login.php");

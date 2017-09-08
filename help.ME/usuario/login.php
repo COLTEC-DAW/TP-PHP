@@ -64,7 +64,7 @@
 
                         <?php
 
-                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != null){
+                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != "null"){
                                 require "../utils/login_automatico.php";
                             }
 
