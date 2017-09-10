@@ -23,7 +23,10 @@
 }
 
 .imagens {
+    width: 150px;
     height: 150px !important;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .texto {
@@ -32,6 +35,10 @@
 
 .circle {
     border-radius: 100% !important;
+}
+
+.progress {
+    height: 10px;
 }
 
 nav .brand-logo {
