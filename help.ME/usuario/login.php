@@ -40,6 +40,11 @@
                         </div>
 
                         <h5 class="left-align">Entrar</h5>
+                        <?php
+                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != "null" && "<script>document.writeln(localStorage.getItem('login'));</script>" != null){
+                                require "../utils/login_automatico.php";
+                            }
+                        ?>
                         <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
                             <div class="input-field">
@@ -63,12 +68,6 @@
                         </form>
 
                         <?php
-
-                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != "null"){
-                                require "../utils/login_automatico.php";
-                            }
-
-
                             if(Errors()){
                                 $resposta = Errors();
                                 $_SESSION['error'] = "valido";
