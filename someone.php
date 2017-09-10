@@ -1,7 +1,7 @@
 <?php session_start();
 require "classes.php";
 userRefresh();
-$idCara = $_GET["idCara"];
+$idCara = intval($_GET["idCara"]);
 if ($idCara == $_SESSION["user"]->id) header("location: me.php");
 $todosUsuarios = pegaJson("DB/dbUsuarios.json");
 $cara = pegaPorId($todosUsuarios, $idCara);
@@ -15,8 +15,8 @@ if ($_POST["votando"]){
                     break;
                 }
             }
+            break;
         }
-        break;
     }
     foreach ($todosUsuarios as $procurandoUser) {
         if ($procurandoUser->id == $_SESSION["user"]->id) {
@@ -27,21 +27,28 @@ if ($_POST["votando"]){
     $db = fopen("DB/dbUsuarios.json", 'w');
     fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
     fclose($db);
+    $cara = pegaPorId($todosUsuarios, $idCara);
 }
 if ($_POST["novaTag"]){
     foreach ($todosUsuarios as $umCara) {
         if ($idCara == $umCara->id){
             New Tag ($_POST["nomeTag"], $umCara->id);
-        }
-        break;
-        foreach ($todosUsuarios as $procurandoUser) {
-            if ($procurandoUser->id == $_SESSION["user"]->id) {
-                $procurandoUser->avaliacoesPendentes = tiraDoVetor($procurandoUser->avaliacoesPendentes, $idCara);
-                break;
-            }
+            break;
         }
     }
-} ?>
+    $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+    foreach ($todosUsuarios as $procurandoUser) {
+        if ($procurandoUser->id == $_SESSION["user"]->id) {
+            $procurandoUser->avaliacoesPendentes = tiraDoVetor($procurandoUser->avaliacoesPendentes, $idCara);
+            break;
+        }
+    }
+    $db = fopen("DB/dbUsuarios.json", 'w');
+    fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
+    fclose($db);
+} 
+userRefresh();
+$cara = pegaPorId($todosUsuarios, $idCara);?>
 <!DOCTYPE>
 <html>
     <head>
@@ -66,43 +73,10 @@ if ($_POST["novaTag"]){
         <div class="container-fluid"> <?php
             require "INC/navBar.inc";
             require "INC/userSideBar.inc"; ?>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 centerbar">
                 <div class=divisores>
                     <h1><?= $cara->nome ?><h1>
                     <h4><?=$cara->email?></h4>
-                    <h2>Tags:</h2>
-                    <?php
-                    if (array_search($_SESSION["user"]->avaliacoesPendentes)===false){
-                        foreach ($cara->tags as $tag) ?>
-                            <p><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</p> <?php
-                    }
-                    else {
-                        foreach ($cara->tags as $tag){ ?>
-                            <form action="someone.php?idCara=<?= $idCara ?>" method="POST">
-                                <input type="hidden" name="votando" value="true">
-                                <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
-                                <div class="form-group">
-                                    <div id="votos">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
-                                        </label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Votar</button>
-                            </form> <?php
-                        } ?>
-                        <form method="post" action="someone.php?idCara=<?= $idCara ?>">
-                            <input type="hidden" name="novaTag" value="true">
-                            <div class="form-group">
-                                <label class="sr-only" for="nomeConvidado">Tag</label>
-                                <input type="text" class="form-control col-3" id="nomeConvidado" placeholder="Nova Tag" name="nomeTag">
-                            </div>
-                            <button type="submit" class="btn btn-default">Criar Tag</button>
-                        </form> <?php
-                    } ?>
                     <div class="divider"></div>
                     <h2>Mesas de <?= $cara->nome ?>:</h2>
                     <?php //Imprindo as mesas do usuario
@@ -121,6 +95,43 @@ if ($_POST["novaTag"]){
                     <?php
                     } ?>
                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 centerbar">
+                <h2>Tags:</h2> <?php
+                if (!taNoArray($idCara, $_SESSION["user"]->avaliacoesPendentes)){ ?>
+                <ul> <?php
+                foreach ($cara->tags as $tag) ?>
+                    <p><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</p>
+                </ul> <?php
+                }
+                else {
+                    foreach ($cara->tags as $tag){ ?>
+                        <form action="someone.php?idCara=<?= $idCara ?>" method="POST">
+                            <input type="hidden" name="votando" value="true">
+                            <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
+                            <div class="form-group">
+                                <div id="votos">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
+                                    </label>
+                                    <strong><?= $tag->atributo; ?></strong>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Votar</button>
+                        </form> <?php
+                    } ?>
+                    <form method="post" action="someone.php?idCara=<?= $idCara ?>">
+                        <input type="hidden" name="novaTag" value="true">
+                        <div class="form-group">
+                            <label class="sr-only" for="nomeConvidado">Tag</label>
+                            <input type="text" class="form-control col-3" id="nomeTag" placeholder="Nova Tag" name="nomeTag">
+                        </div>
+                        <button type="submit" class="btn btn-default">Criar Tag</button>
+                    </form> <?php
+                } ?>
             </div>
         </div>
         <div class="footer">

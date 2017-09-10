@@ -53,6 +53,7 @@ if ($_POST["destroy"]){
     }
     elseif ($_POST["sai"]){
         saiDaMesa($idMesa, $_SESSION["user"]->id);
+        $mesa = pegaPorId($todasAsMesas, $idMesa);        
         foreach ($mesa->jogadores as $jogador) {
             $caraDaVez = pegaPorId($todosUsuarios, $jogador);
             New Notificacao(2, $caraDaVez->nome, $idMesa);
@@ -60,6 +61,7 @@ if ($_POST["destroy"]){
     }
     if ($_POST["kicka"]){
         bane($idMesa, $_POST["kickado"]);
+        $mesa = pegaPorId($todasAsMesas, $idMesa);
         foreach ($mesa->jogadores as $jogador) {
             $caraDaVez = pegaPorId($todosUsuarios, $jogador);
             New Notificacao(2, $caraDaVez->nome, $idMesa);
@@ -71,20 +73,19 @@ if ($_POST["destroy"]){
     if ($_POST["sessaoFeita"]){
         foreach ($mesa->jogadores as $jogador) {
             $caraDaVez = pegaPorId($todosUsuarios, $jogador);
-            New Notificacao(5, $caraDaVez->nome, $idMesa);
             foreach ($mesa->jogadores as $cara)
-                if ($cara != $caraDaVez->id){
-                    var_dump($cara);
-                    ?> <br> <?php
+                if ($cara != $caraDaVez->id)
                     array_push($caraDaVez->avaliacoesPendentes, $cara);
-                }
         }
         $db = fopen("DB/dbUsuarios.json", 'w');
         fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
         fclose($db);
-        userRefresh();        
+        $todosUsuarios = pegaJson("DB/dbUsuarios.json");
+        foreach ($mesa->jogadores as $jogador)
+            New Notificacao(5, pegaPorId($todosUsuarios, $jogador)->nome, $idMesa);
     }
 
+    userRefresh();
     $presente = isCaraNaMesa($idMesa, $_SESSION["user"]->id);
     $convidado = ($_POST["convite"] || $presente); //Nego pode ver mesa privada se já estiver nela ou usar link com convite
 
@@ -92,11 +93,9 @@ if ($_POST["destroy"]){
     $mesa = pegaPorId(pegaJson("DB/dbMesas.json"), $idMesa);
     $mestre = ($_SESSION["user"]->nome == $mesa->mestre); //Nomes iguais devem bugar o sistema. Corrijo depois ?>
     <body>
-        <div class="container-fluid">
-            <?php
-                require "INC/navBar.inc";
-                require "INC/userSideBar.inc";
-            ?>
+        <div class="container-fluid"> <?php
+            require "INC/navBar.inc";
+            require "INC/userSideBar.inc"; ?>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 centerbar">
                 <div class="divisores"> <?php
 

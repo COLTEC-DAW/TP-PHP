@@ -101,7 +101,12 @@ if ($_POST["limpa"]){
                             case 5: ?>
                                 <ul>
                                     Houve uma sessão de jogo na mesa "<?= $notificacao->NomeMesa ?>" do mestre <a href="someone.php?idCara=<?=$notificacao->IdRemetente?>"><?= $notificacao->NomeRemetente ?></a>. Avalie seus colegas!
-                                </ul> <?php
+                                </ul>
+                                <form method="post" action="pgMesa.php">
+                                    <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
+                                    <input type="hidden" name="convite" value="true">
+                                    <button type="submit" class="btn btn-default">Ver mesa</button>
+                                </form> <?php
                             break;
                             case 6: ?>
                             <ul>

@@ -6,15 +6,37 @@
         "email": "a@a",
         "senha": "a",
         "mesas": [
-            1,
-            2
+            1
         ],
-        "numNotificacoes": 0,
-        "notificacoes": [],
+        "numNotificacoes": 3,
+        "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            }
+        ],
         "tags": [],
-        "avaliacoesPendentes": [
-            2
-        ]
+        "avaliacoesPendentes": []
     },
     {
         "id": 2,
@@ -25,7 +47,7 @@
         "mesas": [
             1
         ],
-        "numNotificacoes": 4,
+        "numNotificacoes": 3,
         "notificacoes": [
             {
                 "tipo": 5,
@@ -33,11 +55,38 @@
                 "IdRemetente": 1,
                 "NomeRemetente": "a",
                 "IdMesa": 1,
-                "NomeMesa": "generica"
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
             }
         ],
-        "tags": [],
+        "tags": [
+            {
+                "atributo": "troxa",
+                "votos": 1
+            },
+            {
+                "atributo": "legal",
+                "votos": 1
+            }
+        ],
         "avaliacoesPendentes": [
+            1,
+            1,
             1
         ]
     }

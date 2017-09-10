@@ -2,29 +2,15 @@
     {
         "id": 1,
         "public": true,
-        "nome": "generica",
+        "nome": "a",
         "mestre": "a",
-        "endereco": "minha casa",
-        "sinopse": "Um dungeoncrawl",
-        "genero": "Aventura",
-        "sistema": "G&G",
+        "endereco": "a",
+        "sinopse": "a",
+        "genero": "a",
+        "sistema": "a",
         "jogadores": [
             1,
             2
-        ],
-        "banidos": []
-    },
-    {
-        "id": 2,
-        "public": true,
-        "nome": "Trevas de dentro",
-        "mestre": "a",
-        "endereco": "minha casa",
-        "sinopse": "Jogadores empreendem uma jornada cheia de perigos para controlar os monstros dentro de si.",
-        "genero": "Terror",
-        "sistema": "D&D&DREAD",
-        "jogadores": [
-            1
         ],
         "banidos": []
     }
