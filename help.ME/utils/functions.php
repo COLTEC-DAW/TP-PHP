@@ -58,7 +58,7 @@
         else if($erro == "saldo_insuficiente")
             return "Saldo insuficiente! Adicione dinheiro a sua carteira.";
         else if($erro == "nao_verificado")
-            return "Seu email ainda não foi verificado";
+            return "Seu email ainda não foi verificado / Ou usuário inexistente.";
     }
 
     function Errors(){
