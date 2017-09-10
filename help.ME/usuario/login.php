@@ -40,11 +40,14 @@
                         </div>
 
                         <h5 class="left-align">Entrar</h5>
-                        <?php
-                            if("<script>document.writeln(localStorage.getItem('login'));</script>" != "null" || "<script>document.writeln(localStorage.getItem('login'));</script>" != null){
-                                require "../utils/login_automatico.php";
-                            }
-                        ?>
+
+
+                        <div id="teste">
+                            <?php require "../utils/login_automatico.php"; ?> 
+                        </div>
+
+
+
                         <form action="conf_login.php" method="post" enctype="multipart/form-data">
 
                             <div class="input-field">
@@ -83,5 +86,13 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript">
+        if(localStorage.getItem('login') === null){
+            document.getElementById("teste").style.display = "none";
+        }
+        else{
+            document.getElementById("teste").style.display = "block";
+        }
+    </script>
 </body>
 </html>
