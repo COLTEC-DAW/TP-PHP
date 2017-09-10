@@ -173,8 +173,12 @@
 
                                 if($aprovado==1){// && $arrecadado<$meta
                                     ?>
-                                        <div class="col s12 m6 l6">
+                                        <div class="col s12 m6 l4">
                                             <div class="card">
+                                                <div class="progress">
+                                                        <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"><p class="black-text right-align"style="width: <?=($arrecadado/$meta)*100?>%">(<?=$porcentagem?>%)</p></div>
+                                                        
+                                                </div>
                                                 <div class="card-content white-text">
                                                     <h4 class="black-text truncate"><?=$descricao?></h4>
                                                     <?php
@@ -185,11 +189,8 @@
                                                     </div> 
                                                     <p class="card-subtitle grey-text text-darken-3 truncate"><?=$dados->descricao?></p>
                                                     <p class="black-text"style="text-align:left;"><br><br>R$:<?=$arrecadado?><span class="black-text" style="float:right;">R$:<?=$meta?></span></p>
-                                                    <div class="progress">
-                                                        <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"></div>
-                                                        
-                                                    </div>
-                                                    <p class="black-text right-align"style="width: <?=($arrecadado/$meta)*100?>%">(<?=$porcentagem?>%)</p>                                    
+
+                                                                                        
                                                 </div>
                                                 <div class="card-action">
                                                     <form action="usuario/pag_doacoes.php" method="post">
@@ -230,7 +231,7 @@
 
                                 if($aprovado==0){
                                         ?>
-                                        <div class="col s12 m6 l6">
+                                        <div class="col s12 m6 l4">
                                             <div class="card">
                                                 <div class="card-content white-text">
                                                     <h4 class="black-text text-darken-4 truncate"><?=$descricao?></h4>
