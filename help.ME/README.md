@@ -6,7 +6,7 @@
 
 # Proposta
 
-Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online e promoção de eventos com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, assim como inscrever-se em eventos, verificar seu histórico com suas atividades e também fazer doações. O administrador será responsável por criar os eventos presenciais, avaliar os pedidos de publicações de pedidos online e gerenciar os eventos criados.
+Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, verificar seu histórico com suas atividades e também fazer doações. O administrador será responsável por avaliar os pedidos de publicações de pedidos online.
 
 ## Usuário
 
