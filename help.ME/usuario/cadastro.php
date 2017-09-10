@@ -19,7 +19,26 @@
 		<!--Import materialize.css-->
 		<link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
 		<link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
-
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script>
+	        $(document).ready(function() {
+	            $('#send').prop('disabled', true);//desativa o botão enviar
+	            $('.g-recaptcha').hide();//esconde o captcha
+	            validate();
+	            $('#inputEmail, #inputPassword').change(validate);
+	        });
+	        function validate() {
+	            if ($('#inputEmail').val().length > 10) {//enquanto o campo de email nao tiver menos que 10 caracteres, não ativa o reCaptcha
+	                $('.g-recaptcha').show();//exibe o reCaptcha
+	            }else{//se mudar de ideia e reduzir o campo pra menos de 10 caracteres...
+	                $('.g-recaptcha').hide();//o reCaptcha se esconde novmanete
+	            }
+	        }
+	        function enableSend() {
+	            $('#send').prop('disabled', false);//quando o captcha é confirmado, ativa o botao enviar
+	        }
+	    </script>
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -28,8 +47,6 @@
 
 	<body>
 		<main>
-			<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
-			<script type="text/javascript" src="../js/materialize.js"></script>
 
 			<?php include '../utils/nav.inc' ?>
 
@@ -49,7 +66,7 @@
 								</div>
 
 								<div class="input-field">
-									<input type="text" name="email" required>
+									<input id="inputEmail" type="email" name="email" required>
 									<label id="label">Email</label>
 								</div>
 
@@ -59,12 +76,14 @@
 								</div>
 
 								<div class="input-field">
-									<input type="password" name="senha" required>
+									<input id="inputPassword" class="inputPassword" type="password" name="senha" required>
 									<label id="label">Senha</label>
 								</div>
 																				
+								<div class="g-recaptcha" data-sitekey="6LflCDAUAAAAANbMvyUGeKZJB7HRqDt0yyF9f-Kk" data-callback="enableSend"></div>
+
 								<div class="right-align">
-									<input type="submit" name="Enviar" class="btn waves-effect waves-light">
+									<input type="submit" id="send" name="Enviar" class="btn waves-effect waves-light">
 								</div>
 							</form>
 						</div>
@@ -83,5 +102,7 @@
 				</div>
 			</div>
 		</main>
+		<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../js/materialize.js"></script>
 	</body>
 </html>
