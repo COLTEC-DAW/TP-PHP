@@ -23,7 +23,7 @@
 }
 
 .imagens {
-    width: 150px;
+    width: 150px !important;
     height: 150px !important;
     background-position: center center;
     background-repeat: no-repeat;
@@ -38,7 +38,12 @@
 }
 
 .progress {
-    height: 10px;
+    height: 20px;
+}
+
+.side-search {
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 nav .brand-logo {
@@ -75,8 +80,19 @@ main {
 /* ID'S */
 
 #imgpedido {
-    width: 50%;
-    height: 50%;
+    width: 300px !important;
+    height: 300px !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;
+}
+
+#card-doacao {
+    padding-top: 2%;
+}
+
+#img-doacao {
     display: block;
     margin: 0 auto;
 }

@@ -85,17 +85,18 @@
                 
                 <div>
                     <ul id="slide-out" class="side-nav show-on-small">
+                        <li><a class="teal-text">Bem-vindo <?=$usuario->nome?>!</a></li>
+                    
                         <li>
                             <form action="utils/acha_pesquisa.php" method="post">
-                                <div class="input-field">
-                                    <i class="teal-text material-icons prefix">search</i>
+                                <div class="input-field side-search">
+                                    <i class="teal-text material-icons prefix ">search</i>
                                     <input type="text" placeholder="Buscar" id="autocomplete-input" class="autocomplete teal-text" name="procurar">
                                 </div>
                             </form>
                         </li> 
-                        <li><a class="teal-text" href="usuario/pedido.php">Fazer Proposta</a></li>
-                        <li><a class="teal-text" href="usuario/historico_doacao.php">Histórico</a></li>
-                        <li><a class="teal-text"><i class="teal-text fa fa-user" aria-hidden="true"></i> <?=$usuario->nome?></a></li>
+                        <li><a class="teal-text" href="usuario/pedido.php"><i class="fa fa-envelope-open teal-text" aria-hidden="true"></i>Fazer Proposta</a></li>
+                        <li><a class="teal-text" href="usuario/historico_doacao.php"><i class="fa fa-file-text teal-text" aria-hidden="true"></i>Histórico</a></li>
                         <li><a class="teal-text" href="usuario/carteira.php"><i class="teal-text fa fa-money" aria-hidden="true"></i> R$:<?=$usuario->carteira?></a></li>
                         <li><a class="teal-text" href="usuario/deslogar.php"><i class="teal-text fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                     </ul>
@@ -176,9 +177,9 @@
                                         <div class="col s12 m6 l4">
                                             <div class="card">
                                                 <div class="progress">
-                                                        <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"><p class="black-text right-align"style="width: <?=($arrecadado/$meta)*100?>%">(<?=$porcentagem?>%)</p></div>
+                                                        <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"><span class="black-text right-align"style="width: <?=($arrecadado/$meta)*200?>%"><?=$porcentagem?>%</span></div>
                                                         
-                                                </div>
+                                                </div> 
                                                 <div class="card-content white-text">
                                                     <h4 class="black-text truncate"><?=$descricao?></h4>
                                                     <?php
@@ -187,10 +188,9 @@
                                                     <div class="center">
                                                         <img src="imagens/<?=$id?>.<?=$formato?>" class="circle imagens responsive-img"> 
                                                     </div> 
-                                                    <p class="card-subtitle grey-text text-darken-3 truncate"><?=$dados->descricao?></p>
-                                                    <p class="black-text"style="text-align:left;"><br><br>R$:<?=$arrecadado?><span class="black-text" style="float:right;">R$:<?=$meta?></span></p>
+                                                    <p class="card-subtitle black-text flow-text truncate"><?=$dados->descricao?></p>
 
-                                                                                        
+                    
                                                 </div>
                                                 <div class="card-action">
                                                     <form action="usuario/pag_doacoes.php" method="post">

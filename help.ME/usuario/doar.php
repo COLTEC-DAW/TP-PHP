@@ -47,55 +47,58 @@
     <div class="container">
 
         <div class="row">
-            <div class="col s6 offset-s3">
-                <div class="center-align card-panel doacoes lighten-3">
-                    <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
-                    <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" class="imagens"> 
-                    <h5 class="conteudo">Meta: <?=$dados_da_doacao->meta?></h5>
-                    <h5 class="conteudo">Arrecadado: <?=$dados_da_doacao->valor_acumulado?></h5>
-                    <h5 class="conteudo">Sobre: <p class="sobre"><?=$dados_da_doacao->sobre?></p></h5>       
-                </div>        
-            </div>        
+            <div class="card col s12 m8 offset-m2 l8 offset-l2" id="card-doacao">
+                <h3 class="conteudo truncate"><?=$dados_da_doacao->descricao?></h3>
+                <div class="card-image center-align">
+                    <img src="../imagens/<?=$dados_da_doacao->id?>.<?=$formato?>" id="img-doacao" class="imagens circle responsive-img center"> 
+                </div>
+                <div class="card-content">
+                    <h5>Arrecadado:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dados_da_doacao->valor_acumulado?></p>
+                    <h5>Meta:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dados_da_doacao->meta?></p>
+                    <h5>Autor:</h5>
+                    <p class="flow-text card-subtitle grey-text text-darken-2"><?=$dados_da_doacao->autor?></p>
+                </div>
+            </div>
         </div>    
 
         <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <form action="../doacoes/conf_doacao.php" method="post">
+            <div class="col s12">
+                <form action="../doacoes/conf_doacao.php" method="post">
 
-                        <div class="input-field">
-                            <input type="number" class="form-control" name="valor_doacao">
-                            <label>Valor que deseja doar:</label>                        
-                        </div>
+                    <div class="input-field">
+                        <input type="number" class="form-control" name="valor_doacao">
+                        <label>Valor que deseja doar:</label>                        
+                    </div>
 
-                        <div class="input-field">
-                            <input type="password" class="form-control" name="senha">
-                            <label>Senha:</label>                        
-                        </div>
-                        
-                        <input type="hidden" name="id" value=<?=$controle?>>
-                        <input type="submit" class="btn btn-default" name="Verificar">
-                    </form>
+                    <div class="input-field">
+                        <input type="password" class="form-control" name="senha">
+                        <label>Senha:</label>                        
+                    </div>
+                    
+                    <input type="hidden" name="id" value=<?=$controle?>>
+                    <input type="submit" class="btn btn-default" name="Verificar">
+                </form>
 
-                    <?php
-                        $limite = Retorna_Limite($controle);
+                <?php
+                    $limite = Retorna_Limite($controle);
+                ?>
+                    <div class="card-panel yellow lighten-4">
+                        <span>Limite de doação: <?=$limite?></span>
+                    </div>
+
+                <?php
+                    if(Errors()){
+                        $resposta = Errors();
+                        $_SESSION['error'] = "valido";
                     ?>
-                        <div class="card-panel yellow lighten-4">
-                            <span>Limite de doação: <?=$limite?></span>
+                        <div class="card-panel red lighten-4">
+                            <span><?=$resposta?></span>
                         </div>
-
                     <?php
-                        if(Errors()){
-                            $resposta = Errors();
-                            $_SESSION['error'] = "valido";
-                        ?>
-                            <div class="card-panel red lighten-4">
-                                <span><?=$resposta?></span>
-                            </div>
-                        <?php
-                        }
-                    ?>
-                </div>
+                    }
+                ?>
             </div>
         </div>
     </div>

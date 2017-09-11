@@ -41,7 +41,7 @@
                         $formato=Pega_Formato_Imagem($id,"../imagens/imagens.json");
                         $link = "../imagens/".$id.".".$formato;
                     ?>
-                    <img src="<?=$link?>" id="imgpedido" class="circle responsive-img">
+                    <img src="<?=$link?>" id="imgpedido" class="circle responsive-img imagens">
 
                 </div>
 
