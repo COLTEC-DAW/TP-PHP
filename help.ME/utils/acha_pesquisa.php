@@ -60,7 +60,10 @@
                         <div class="col s12 m6 l4">
                             <div class="card">
                                 <div class="progress">
-                                    <p class="black-text right-align"style="width: <?=($arrecadado/$meta)*100?>%">(<?=$porcentagem?>%)</p><div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"></div>
+
+                                    <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"><span class="black-text right-align"style="width: <?=($arrecadado/$meta)*200?>%"><?=$porcentagem?>%</span></div>
+                                    
+                            
                                 </div>
                                 <div class="card-content white-text">
                                     <h4 class="black-text truncate"><?=$descricao?></h4>
