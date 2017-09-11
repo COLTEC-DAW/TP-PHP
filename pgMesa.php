@@ -144,13 +144,12 @@ if ($_POST["destroy"]){
                                 </div>
                                 <button type="submit" class="btn btn-default">Convide alguém</button>
                             </form>
-                            <br>
                             <form method="post" action="pgMesa.php"> <!-- Botão de sessão -->
                                 <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                 <input type="hidden" name="sessaoFeita" value="true">
                                 <button type="submit" class="btn btn-success">Ter uma sessão</button>
                             </form>
-                            <br>
+                            <div class="divider"></div>
                             <form method="post" action="editaMesa1.php"> <!-- Botão de edição -->
                                 <input type="hidden" name="idMesa" value="<?= $idMesa ?>">
                                 <button type="submit" class="btn btn-warning">Editar mesa</button>
@@ -162,7 +161,7 @@ if ($_POST["destroy"]){
                             </form>
                             <?php
                         }
-                        else {
+                        else { //Não é mestre
                             if (!$presente) { //Nego ainda não está na mesa ?>
                                 <form method="post" action="pgMesa.php">
                                     <input type="hidden" name="idMesa" value="<?= $idMesa ?>">

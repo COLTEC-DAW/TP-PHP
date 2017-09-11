@@ -6,50 +6,11 @@
         "email": "a@a",
         "senha": "a",
         "mesas": [
-            1
+            1,
+            2
         ],
-        "numNotificacoes": 6,
+        "numNotificacoes": 1,
         "notificacoes": [
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
             {
                 "tipo": 5,
                 "IdDestinatario": 1,
@@ -65,7 +26,9 @@
                 "votos": 1
             }
         ],
-        "avaliacoesPendentes": []
+        "avaliacoesPendentes": [
+            2
+        ]
     },
     {
         "id": 2,
@@ -76,8 +39,16 @@
         "mesas": [
             1
         ],
-        "numNotificacoes": 6,
+        "numNotificacoes": 7,
         "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
             {
                 "tipo": 5,
                 "IdDestinatario": 2,
@@ -134,6 +105,7 @@
             }
         ],
         "avaliacoesPendentes": [
+            1,
             1,
             1
         ]

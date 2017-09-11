@@ -9,13 +9,15 @@
     <div class="divisores">
         <h3>Minhas mesas:</h3> <?php
         $todasAsMesas = pegaJson("DB/dbMesas.json");
-        foreach ($_SESSION["user"]->mesas as $codMesa){
-            $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
-            <h3><?=$mesinha->nome?></h3>
-            <form method="post" action="pgMesa.php">
-                <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
-                <button type="submit" class="btn btnCriarMesa fonteBranca">Detalhes</button>
-            </form> <?php
+        foreach ($_SESSION["user"]->mesas as $codMesa){ ?>
+            <div class="divisores"> <?php
+                $mesinha = pegaPorId($todasAsMesas, $codMesa); ?>
+                <h3><?=$mesinha->nome?></h3>
+                <form method="post" action="pgMesa.php">
+                    <input type="hidden" name="idMesa" value="<?= $mesinha->id ?>">
+                    <button type="submit" class="btn btnCriarMesa fonteBranca">Detalhes</button>
+                </form>    
+            </div> <?php
         } ?>
     </div>
 </div>

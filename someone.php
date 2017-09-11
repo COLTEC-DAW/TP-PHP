@@ -100,42 +100,44 @@ $cara = pegaPorId($todosUsuarios, $idCara);?>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 centerbar">
-                <h2>Tags:</h2> <?php
-                if (!taNoArray($idCara, $_SESSION["user"]->avaliacoesPendentes)){ ?>
-                    <ul> <?php
-                    foreach ($cara->tags as $tag) {?>
-                        <li><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</li> <?php
-                    } ?>
-                    </ul> <?php
-                }
-                else {
-                    foreach ($cara->tags as $tag){ ?>
-                        <form action="someone.php?idCara=<?= $idCara ?>" method="POST">
-                            <input type="hidden" name="votando" value="true">
-                            <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
-                            <div class="form-group">
-                                <div id="votos">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
-                                    </label>
-                                    <strong><?= $tag->atributo; ?></strong>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
-                                    </label>
+                <div class="divisores">
+                    <h2>Tags:</h2>
+                    <div class="divider"></div> <?php
+                    if (!taNoArray($idCara, $_SESSION["user"]->avaliacoesPendentes)){ ?>
+                        <ul> <?php
+                        foreach ($cara->tags as $tag) ?>
+                            <li><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</li>
+                        </ul> <?php
+                    }
+                    else {
+                        foreach ($cara->tags as $tag){ ?>
+                            <form action="someone.php?idCara=<?= $idCara ?>" method="POST">
+                                <input type="hidden" name="votando" value="true">
+                                <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
+                                <div class="form-group">
+                                    <div id="votos">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
+                                        </label>
+                                        <strong><?= $tag->atributo; ?></strong>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
+                                        </label>
+                                    </div>
                                 </div>
+                                <button type="submit" class="btn btn-primary">Votar</button>
+                            </form> <?php
+                        } ?>
+                        <form method="post" action="someone.php?idCara=<?= $idCara ?>">
+                            <input type="hidden" name="novaTag" value="true">
+                            <div class="form-group">
+                                <label class="sr-only" for="nomeConvidado">Tag</label>
+                                <input type="text" class="form-control col-3" id="nomeTag" placeholder="Nova Tag" name="nomeTag">
                             </div>
-                            <button type="submit" class="btn btn-primary">Votar</button>
+                            <button type="submit" class="btn btn-default">Criar Tag</button>
                         </form> <?php
                     } ?>
-                    <form method="post" action="someone.php?idCara=<?= $idCara ?>">
-                        <input type="hidden" name="novaTag" value="true">
-                        <div class="form-group">
-                            <label class="sr-only" for="nomeConvidado">Tag</label>
-                            <input type="text" class="form-control col-3" id="nomeTag" placeholder="Nova Tag" name="nomeTag">
-                        </div>
-                        <button type="submit" class="btn btn-default">Criar Tag</button>
-                    </form> <?php
-                } ?>
+                </div>
             </div>
         </div>
         <div class="footer">
