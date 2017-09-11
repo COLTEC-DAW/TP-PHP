@@ -4,9 +4,6 @@
 		$controle=0;
 	    date_default_timezone_set('America/Sao_Paulo');
 	    $data_atual = date("d/m/Y");
-	    $dia_atual = $data_atual[0].$data_atual[1];
-	    $mes_atual = $data_atual[3].$data_atual[4];
-	    $ano_atual = $data_atual[6].$data_atual[7].$data_atual[8].$data_atual[9];
 
         $arquivo = fopen("doacoes/auxx.json", "w");
 	    fwrite($arquivo, "");
@@ -14,15 +11,11 @@
 	    $jsonString = file_get_contents('doacoes/doacoes.json');
 	    $data = json_decode($jsonString, true);
 
-
+		$today = date("Y-m-d");
 	    if(filesize('doacoes/doacoes.json')!=0 && isset($data)){
 		    foreach ($data as $key => $entry) {
-		    	$ano = $entry['data'][0].$entry['data'][1].$entry['data'][2].$entry['data'][3];
-		    	$mes = $entry['data'][5].$entry['data'][6];
-		    	$dia = $entry['data'][8].$entry['data'][9];
 
-
-		        if ($dia_atual == $dia && $mes_atual == $mes && $ano_atual == $ano){
+		        if ($today > $entry['data']){
 		        	$controle = 1;
 		            $dados = file_get_contents('doacoes/vencidas.json');
 		            $json = json_decode($dados);
