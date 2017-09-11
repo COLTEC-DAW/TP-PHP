@@ -31,8 +31,8 @@
 
         $mail->Subject = "Subject Text";
         $mail->Body = "<h1>Verificação</h1>
-                        <h2>$nome</h2>
-                        <h2>$senha</h2>
+                        <h2>Usuario: $nome</h2>
+                        <h2>Senha:   $senha</h2>
                         <a href='$link'>Verifique sua conta.</a>";
         $mail->AltBody = "This is the plain text version of the email content";
 
