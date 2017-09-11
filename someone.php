@@ -12,6 +12,9 @@ if ($_POST["votando"]){
             foreach($umCara->tags as $tag){
                 if (strcmp($tag->atributo, $_POST["nomeTag"]) == 0){
                     $tag->votos+= intval($_POST["voteTag"]);
+                        if ($tag->votos <= 0) {
+                            $umCara->tags = tiraDoVetor($umCara->tags, $tag);
+                        }
                     break;
                 }
             }
@@ -99,10 +102,11 @@ $cara = pegaPorId($todosUsuarios, $idCara);?>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 centerbar">
                 <h2>Tags:</h2> <?php
                 if (!taNoArray($idCara, $_SESSION["user"]->avaliacoesPendentes)){ ?>
-                <ul> <?php
-                foreach ($cara->tags as $tag) ?>
-                    <p><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</p>
-                </ul> <?php
+                    <ul> <?php
+                    foreach ($cara->tags as $tag) {?>
+                        <li><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</li> <?php
+                    } ?>
+                    </ul> <?php
                 }
                 else {
                     foreach ($cara->tags as $tag){ ?>

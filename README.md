@@ -101,8 +101,7 @@ A proposta do projeto é facilitar a montagem de mesas de RPG. Usuários poderã
 Vários filtros, incluindo mas não se limitando a perfil do jogador, gênero, horário e local da mesa, serão usados para filtrar as mesas, permitindo aos usuários escolher a melhor para eles.
 
 **Features**
-* Busca filtrada de mesas: veja apenas jogos compatíveis com seus horários, gostos e locais.
-	* Os usuários não verão todas as mesas disponíveis (que, nós esperamos, devem se espalhar por todo o globo), apenas as de sua área. Conforme o projeto for evoluindo, ele poderá ver separar mesas por relevância, gênero, jogador, etc.
+
 * Criação flexível de mesas, incluindo hora e local. Chega de cancelamentos!
 	* A criação de mesas irá incluir características como horário e local, além de gênero do jogo, foco da narrativa, sistema e jogadores. Nunca mais você se verá às voltas com um jogador querendo combate em uma campanha política ou aquele noob que achava que D&D era ficção científica.
 * Avaliação de mestres e jogadores. Seja você lawful/neutral ou chaotic/evil, temos uma mesa para você!
@@ -116,4 +115,5 @@ Vários filtros, incluindo mas não se limitando a perfil do jogador, gênero, h
 * No futuro:
 	* Sistema de localização
 	* Banco de dados da mesa para armazenar fichas e livros
-	* Tags
+	* Busca filtrada de mesas: veja apenas jogos compatíveis com seus horários, gostos e locais.
+		* Os usuários não verão todas as mesas disponíveis (que, nós esperamos, devem se espalhar por todo o globo), apenas as de sua área. Conforme o projeto for evoluindo, ele poderá ver separar mesas por relevância, gênero, jogador, etc.
