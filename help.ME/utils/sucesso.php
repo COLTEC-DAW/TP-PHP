@@ -4,6 +4,10 @@
     require '../doacoes/class_doacao.inc';
     require 'functions.php';
     session_start();
+
+    $_SESSION['aparece_toast'] = 1;
+    $redirect = "../index.php";
+    header("location:$redirect");
 ?>
 
 <!DOCTYPE html>
