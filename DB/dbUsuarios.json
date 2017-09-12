@@ -9,25 +9,8 @@
             1,
             2
         ],
-        "numNotificacoes": 2,
-        "notificacoes": [
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            },
-            {
-                "tipo": 5,
-                "IdDestinatario": 1,
-                "IdRemetente": 1,
-                "NomeRemetente": "a",
-                "IdMesa": 1,
-                "NomeMesa": "a"
-            }
-        ],
+        "numNotificacoes": 0,
+        "notificacoes": [],
         "tags": [
             {
                 "atributo": "bom mestre",
@@ -45,8 +28,32 @@
         "mesas": [
             1
         ],
-        "numNotificacoes": 11,
+        "numNotificacoes": 14,
         "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
             {
                 "tipo": 5,
                 "IdDestinatario": 2,
@@ -139,10 +146,13 @@
         "tags": [
             {
                 "atributo": "legal",
-                "votos": 3
+                "votos": 4
             }
         ],
         "avaliacoesPendentes": [
+            1,
+            1,
+            1,
             1,
             1,
             1,

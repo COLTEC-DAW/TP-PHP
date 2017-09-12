@@ -6,6 +6,7 @@ if ($_POST["limpa"]){
     $todosUsuarios = pegaJson("DB/dbUsuarios.json");
     $user = pegaPorId($todosUsuarios, $_SESSION["user"]->id);
     $user->notificacoes = [];
+    $user->numNotificacoes = 0;
     $db = fopen("DB/dbUsuarios.json", 'w');
     fwrite($db, json_encode($todosUsuarios, JSON_PRETTY_PRINT));
     fclose($db);
