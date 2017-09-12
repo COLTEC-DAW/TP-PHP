@@ -2,9 +2,35 @@
 
 **Data de Apresentação: 24/08/2017**
 
-**Grupo: Três alunos**
+**Arthur, Lucas, Wender**
 
-**Valor: 17 pontos**
+# Proposta
+
+Nossa ideia consiste em um sistema de doações inspirado no *Kickstarter*. Ele será composto por doações online com o intuito de angariar fundos para ações sociais. O usuário poderá fazer solicitações de abertura de doações online, verificar seu histórico com suas atividades e também fazer doações. O administrador será responsável por avaliar os pedidos de publicações de pedidos online.
+
+## Usuário
+
+**1. Solitação de abertura de doações online - PRIMEIRO**
+
+A página de solitação irá conter: finalidade do pedido; valor mínimo; meta da quantia; organização(opcional).
+
+**2. Histórico de doações - QUARTO**
+
+O usuário poderar acessar uma página do site onde haverá seu histórico, composto pelas doações em andamento e encerradas.
+
+**3. Realizar doações - TERCEIRO**
+
+Ao acessar um pedido de doação, o usuário terá uma área a mais onde poderá realizar a doação colocando o valor e confirmando a doação.
+
+## Administrador
+
+**1. Avaliar pedidos - SEGUNDO**
+
+Haverá uma página onde o administrador poderá acessar uma lista de pedidos pendentes e acessá-los para poder avaliar optando por aprová-lo ou reprová-lo.
+
+**2. Histórico de avaliações - QUINTO**
+
+Página com registro de avaliações, informando como ela é e qual administrador avaliou, data e hora.
 
 ## Desenvolvimento de um Sistema de Informação
 
@@ -12,18 +38,7 @@ A web abriu um nova forma de interação entre as pessoas. Entre suas caracterí
 
 Este trabalho tem como objetivo mostrar ao aluno que os conhecimentos adquiridos na disciplina de Desenvolvimento de Aplicações Web podem ser utilizados em pról de tais causas. Mais especificamente, espera-se que através deste trabalho o aluno identifique um problema real vivenciado por ele e proponha uma solução para este problema envolvendo o desenvolvimento de um sistema web.
 
-## Temas de Trabalho
-
-Segue abaixo uma lista de possíveis temas de trabalho:
-
-* Mobilidade urbana (sistemas de carona, compartilhamento de transportes, etc.) - **Gustavo, Paulo e Raul**: *Uber + Sedex*
-* Organização e promoção de eventos (Bilheteria, portal de eventos, etc.)
-* Educação & Aprendizado (Plataformas de aprendizado) - **Bruzzi, Matheus e Eduardo:** *Sistema de aulas particulares*
-* Causas sociais (Plataformas para gestão de doações)
-
-É importante ressaltar que essa lista é **sugestiva**. Isto é, o grupo pode selecionar uma proposta fora da lista descrita acima.
-
-## Restrições
+# Requisitos
 
 Independentemente do tema escolhido pelo grupo, seu trabalho deverá cumprir **obrigatóriamente** as seguintes restrições:
 
