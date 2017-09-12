@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "public": true,
+        "nome": "a",
+        "mestre": "a",
+        "endereco": "a",
+        "sinopse": "a",
+        "genero": "a",
+        "sistema": "a",
+        "jogadores": [
+            1,
+            2
+        ],
+        "banidos": []
+    },
+    {
+        "id": 2,
+        "public": true,
+        "nome": "b",
+        "mestre": "a",
+        "endereco": "b",
+        "sinopse": "b",
+        "genero": "b",
+        "sistema": "b",
+        "jogadores": [
+            1
+        ],
+        "banidos": []
+    }
+]

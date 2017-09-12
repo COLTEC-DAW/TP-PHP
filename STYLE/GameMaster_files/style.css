@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css?family=Stalinist+One');
+/*************************** COLUNAS ***************************/
+
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12{
+    padding-top: 5px;
+    padding-bottom: 424242px;
+    margin-bottom: -424242px;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
+    padding-top: 5px;
+    padding-bottom: 424242px;
+    margin-bottom: -424242px;
+}
+
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12{
+    padding-top: 5px;
+    padding-bottom: 424242px;
+    margin-bottom: -424242px;
+}
+
+/************************ CONTAINERS ************************/
+
+.container {
+    padding: 2px 16px;
+}
+
+.container-reserva{
+    width: 100%;
+    padding: 5px;
+}
+
+.container-fluid{
+    overflow: hidden;
+    padding: 0% !important;
+    height: 96%;
+}
+
+/********************** CORES RESERVAS **********************/
+
+.principal { /* Parte dentral da página */ 
+    width: 60%;
+}
+
+.coluna { /* Qualquer coisa que divida espaço horizontalmente */
+    float: left;
+    height: 95%;
+}
+
+.largo { /* Qualquer coisa de 100% de width */
+    float: left;
+    width: 100%;
+    height: 5%;
+}
+
+/********************* AJUSTES DE COLUNAS *********************/
+
+.sidebar { /* Menus laterais */
+    background-color: #AB7745 !important;
+    background-origin: padding-box;
+}
+.centerbar {
+    background-color: #C2BAAA;
+}
+.title{ /* isso aqui deve ser tipo um cardzinho para o título de cada seção */
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    background-color: #5E663F !important;
+}
+
+.topBar{
+    background-color: #5E663F !important;
+}
+
+/*************** ITENS DA HOME ******************/
+
+.nomePerfil { /* o nome no bloco de perfil nome+foto */
+    float: left;
+    padding-top: 6%;
+}
+.ftPerfil { /* a foto no bloco de perfil nome+foto */
+    float: left;
+    height: 65px;
+    width: 65px;
+}
+
+.btnCriarMesa{
+    /*margin-top:  10px;*/
+    background-color: #5E663F !important;
+}
+
+.perfil{
+    float:left;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    border-color: #2B190A !important;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #5E663F;
+    margin-bottom: 5px;
+    padding: 0%;
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+    border-color: #2B190A !important;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+}
+
+/******************* LINKS, FONTES E ALINHAMENTO DE TEXTO *****************/
+
+/*a{
+    color: #77befb !important;
+}*/
+.fonteBranca{
+    color: #e5e5e5 !important;
+}
+
+.fontePreta{
+    color: #000000 !important;
+}
+
+.fonteVerde{
+    color: #5E663F !important;
+}
+
+.fonteMarrom{
+    color: #2B190A;
+}
+
+.GameMasterFont{
+    font-family: 'Stalinist One', cursive;
+}
+
+.center {
+    text-align: center;
+}
+
+/********************* OUTROS AJUSTES **********************/
+
+body{
+    background-color: #2B190A !important; 
+}
+
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.footer{
+    padding-left: 1%;
+}
+
+.banner{
+    width: 100%;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+/******************* PADDINGS, MARGINS E FLOATINGS ******************/
+
+.floatRight{
+    float:right;
+}
+
+.withoutPadding{
+    padding-top: 0% !important;
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+}
+
+.withoutBottomMargin{
+    margin-bottom: 0% !important;
+}
+
+.withoutBorder{
+    border: 0px !important;
+}
+
+.paddingTop{
+    padding-top: 3%;
+}
+
+.marginTop{
+    margin-top: 3%;
+}
