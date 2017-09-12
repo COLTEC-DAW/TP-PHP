@@ -63,7 +63,7 @@
 
                                     <div class="determinate" style="width: <?=($arrecadado/$meta)*100?>%"><span class="black-text right-align"style="width: <?=($arrecadado/$meta)*200?>%"><?=$porcentagem?>%</span></div>
                                     
-                            
+
                                 </div>
                                 <div class="card-content white-text">
                                     <h4 class="black-text truncate"><?=$descricao?></h4>
@@ -73,8 +73,8 @@
                                     <div class="center">
                                         <img src="../imagens/<?=$id?>.<?=$formato?>" class="circle imagens responsive-img"> 
                                     </div>
-                                    <p class="card-subtitle grey-text text-darken-3 truncate"><?=$dados->descricao?></p>
-                                    <p class="black-text"style="text-align:left;"><br><br>R$:<?=$arrecadado?><span class="black-text" style="float:right;">R$:<?=$meta?></span></p>
+                                    <p class="card-subtitle black-text flow-text truncate"><?=$dados->descricao?></p>
+                                  
 
                                 </div>
                                 <div class="card-action">
