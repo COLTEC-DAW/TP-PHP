@@ -7,7 +7,6 @@
 	checa_logado()
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,7 +46,6 @@
 
 	<body>
 		<main>
-
 			<?php include '../utils/nav.inc' ?>
 
 			<div class="container center-align">
@@ -85,8 +83,9 @@
 								<div class="right-align">
 									<input type="submit" id="send" name="Enviar" class="btn waves-effect waves-light">
 								</div>
+
+
 							</form>
-						</div>
 						<?php
 							if(Errors()){
 								$resposta = Errors();
@@ -98,11 +97,13 @@
 							<?php
 							}
 						?>
+						</div>
+
 					</div>
 				</div>
 			</div>
 		</main>
-		<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
-		<script type="text/javascript" src="../js/materialize.js"></script>
 	</body>
+	<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../js/materialize.js"></script>
 </html>
