@@ -26,11 +26,11 @@
     <div id="cadastrar">
       
     <div class="row">
-		<div class="col-md-4">
+		<div class="col-xs-12 col-sm-4 col-md-4">
 			<a href="index.php"> <input style="margin-left:3%; margin-top: 2%;" type="button" id="button" class="btn" value="Login" /> </a>
 			
 		</div>
-		<div class="col-md-4">
+		<div class="col-xs-12 col-sm-4 col-md-4">
 			<h2 class="card-title">Cadastre-se</h2>
 						<form action="cadastrando.php" method="post">
 							<div class="input-group">
@@ -56,7 +56,7 @@
 						</form>
 						
      		 	</div>
-		<div class="col-md-4"></div>
+		<div class="col-xs-12 col-sm-4 col-md-4"></div>
 	</div>
 
 </body>

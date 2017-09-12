@@ -15,7 +15,10 @@
 	<script>    AOS.init();  </script>
 	<link rel="stylesheet" href="aos-master/dist/aos.css" />
 	<script src="aos-master/dist/aos.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet" media="all">
+    <!--<link rel="stylesheet" href="css/tablet.css" media="(min-width: 426px) and (max-width: 1023px)"> !-->
+	<!-- <link rel="stylesheet" href="css/mobile.css" media="(max-width: 425px)">	!-->
      <link rel="icon" type="imagem/png" href="/img/calendaricon.png" />
 	
 </head>
@@ -86,9 +89,12 @@
 	</div>
 
 
+
+
+
 	<div class="row">
 		<div class="col-md-4"></div>
-		<div class="col-md-4">
+		<div class="col-xs-12 col-md-4">
 			<h2 class="card-title">login</h2>
 						<form action="login.php" method="post">
 							<div class="input-group">
@@ -112,21 +118,31 @@
 		</div>
 	</div>
 
+
+
+
+
+
+
+
+
+
+
 	<div id=quemsomos>
 			<a name="ancora3" id="ancora3"></a>
 	        <h1 style="color: white;">Quem somos</h1>
 	        <h2 >Grupo do trabalho prático de DAW que tem o objetivo de melhorar o planejamento acadêmico dos alunos do COLTEC (e também passar em DAW)</h2>
 			<div class="row">
-					<div class="col-md-4">
+					<div class="col-xs-12 col-sm-4 col-md-4">
 						
 						<img class="img-circle" src="img/ananda.jpg">
 						<h2> Ananda Teodoro </h2>
 					</div>
-					<div class="col-md-4">
+					<div class="col-xs-12 col-sm-4 col-md-4">
 						<img class="img-circle" src="img/carol.jpg">
 						<h2> Carol Silva </h2>
 					</div>
-					<div class="col-md-4">
+					<div class="col-xs-12 col-sm-4 col-md-4">
 						<img class="img-circle" src="img/clap.jpg">
 						<h2> Clap Scofield </h2>
 					</div>
