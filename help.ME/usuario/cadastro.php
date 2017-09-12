@@ -7,6 +7,7 @@
 	checa_logado()
 ?>
 
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -46,11 +47,12 @@
 
 	<body>
 		<main>
+
 			<?php include '../utils/nav.inc' ?>
 
 			<div class="container center-align">
 				<div class="row">
-					<div class="card col s6 offset-s3" id="login">
+					<div class="card col s12 m6 offset-m3 l6 offset-l3" id="login">
 						<div class="card-content">
 							<div>
 								<i class="fa fa-handshake-o large" aria-hidden="true"></i><h5 class="right-align inline">help.ME</h5>
@@ -83,9 +85,8 @@
 								<div class="right-align">
 									<input type="submit" id="send" name="Enviar" class="btn waves-effect waves-light">
 								</div>
-
-
 							</form>
+						</div>
 						<?php
 							if(Errors()){
 								$resposta = Errors();
@@ -97,13 +98,11 @@
 							<?php
 							}
 						?>
-						</div>
-
 					</div>
 				</div>
 			</div>
 		</main>
+		<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../js/materialize.js"></script>
 	</body>
-	<script type="text/javascript" src="../js/jquery/jquery-3.2.1.js"></script>
-	<script type="text/javascript" src="../js/materialize.js"></script>
 </html>
