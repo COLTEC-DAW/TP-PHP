@@ -7,6 +7,8 @@
     $senha = $_POST["senha"];
     $permissao = 0;
     $verificado = 0;
+    $_SESSION['aparece_toast'] = 0;
+
 /*
         LEITURA
 */
