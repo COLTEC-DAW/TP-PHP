@@ -62,6 +62,9 @@
 /********************* AJUSTES DE COLUNAS *********************/
 
 .sidebar { /* Menus laterais */
+    background-color: #4F3E25
+}
+navibar{
     background-color: #AB7745 !important;
     background-origin: padding-box;
 }
@@ -99,6 +102,10 @@
 .btnCriarMesa{
     /*margin-top:  10px;*/
     background-color: #5E663F !important;
+}
+
+.btnVerMesa{
+    background-color: #B88F69
 }
 
 .perfil{

@@ -17,10 +17,7 @@
                 "votos": 1
             }
         ],
-        "avaliacoesPendentes": [
-            2,
-            2
-        ]
+        "avaliacoesPendentes": []
     },
     {
         "id": 2,
@@ -31,8 +28,16 @@
         "mesas": [
             1
         ],
-        "numNotificacoes": 8,
+        "numNotificacoes": 9,
         "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
             {
                 "tipo": 5,
                 "IdDestinatario": 2,
@@ -101,10 +106,11 @@
         "tags": [
             {
                 "atributo": "legal",
-                "votos": 2
+                "votos": 3
             }
         ],
         "avaliacoesPendentes": [
+            1,
             1,
             1,
             1,

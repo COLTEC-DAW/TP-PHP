@@ -59,13 +59,13 @@ if ($_POST["limpa"]){
                         } ?>
                 </div>
             </div>
-            <div class="centerbar col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="sidebar col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="divisores">
                     <h2>Suas notificações:</h2>
                     <div class="divider"></div>
                     <form method="post" action="me.php">
                         <input type="hidden" name="limpa" value="true">
-                        <button type="submit" class="btn btnCriarMesa">LIMPAR</button>
+                        <button type="submit" class="btn btnCriarMesa fonteBranca">LIMPAR</button>
                     </form>
                     <ul> <?php
                     foreach ($_SESSION["user"]->notificacoes as $notificacao){ ?>
@@ -78,7 +78,7 @@ if ($_POST["limpa"]){
                                     <form method="post" action="pgMesa.php">
                                         <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
                                         <input type="hidden" name="convite" value="true">
-                                        <button type="submit" class="btn btn-default">Ver mesa</button>
+                                        <button type="submit" class="btn btnVerMesa">Ver mesa</button>
                                     </form> <?php
                                 break;
                                 case 2: ?>
@@ -88,7 +88,7 @@ if ($_POST["limpa"]){
                                     <form method="post" action="pgMesa.php">
                                         <input type="hidden" name="idMesa" value="<?= $notificacao->IdMesa ?>">
                                         <input type="hidden" name="convite" value="true">
-                                        <button type="submit" class="btn btn-default">Ver mesa</button>
+                                        <button type="submit" class="btn btnVerMesa">Ver mesa</button>
                                     </form> <?php
                                 break;
                                 case 3: ?>
