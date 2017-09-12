@@ -115,11 +115,11 @@ $cara = pegaPorId($todosUsuarios, $idCara);?>
                                 <input type="hidden" name="votando" value="true">
                                 <input type="hidden" name="nomeTag" value="<?= $tag->atributo ?>">
                                 <div class="form-group">
-                                    <div id="votos">
+                                    <div id="votos" class="divisores">
+                                        <h4><b><?= $tag->atributo; ?></b></h4>
                                         <label class="radio-inline">
                                             <input type="radio" name="voteTag" id="voteDown" value="-1">Discordo
                                         </label>
-                                        <strong><?= $tag->atributo; ?></strong>
                                         <label class="radio-inline">
                                             <input type="radio" name="voteTag" id="voteUp" value="1">Concordo
                                         </label>
