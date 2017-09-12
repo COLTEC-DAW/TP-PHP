@@ -264,7 +264,12 @@
     <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript">$(".button-collapse").sideNav();</script>
-
+    <script type="text/javascript">
+        if("<?php echo $_SESSION['aparece_toast']; ?>" == '1'){
+            Materialize.toast('Sucesso!', 3000, 'rounded');
+            "<?php $_SESSION['aparece_toast'] = 0; ?>" 
+        }
+    </script>
     
 </body>
 <?php include 'utils/footer.inc' ?>
