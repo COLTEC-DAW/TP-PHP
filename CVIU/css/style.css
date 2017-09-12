@@ -95,14 +95,6 @@ a{
   
 }
 
-#menu ul li a:hover {
-    text-decoration: none;
-    padding: 0px 40px;
-    color: #1D295E;
-    background-color: white;
-    
-}
-
 
 
 
@@ -150,8 +142,7 @@ a{
     width: 100%;
 }
 
-
-.title-container {
+  .title-container {
     z-index: 1000;
     position: absolute;
     top: 35%;
@@ -159,6 +150,7 @@ a{
     text-align: center;
     color: #fff;
 }
+
 
 
 /* ------------------------------- Base ----------------------------- */
@@ -225,6 +217,7 @@ img{
 
 /* ------------------------------- QUEM SOMOS ----------------------------- */
 
+
 #quemsomos {
   margin-top: 20%;
   height: 700px;
@@ -242,7 +235,7 @@ img{
     border-radius: 50%;
     width: 200px;
     height: 200px;
-}
+  }
 
 
 /* ------------------------------- SOBRE ----------------------------- */
@@ -270,14 +263,76 @@ img{
   background:  #B5413E; 
 }
 
-.img-circle{
-    margin-left: 25%;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
+
+/* ------------------------------- RESPONSIVE ----------------------------- */
+
+@media screen and (min-width: 769px) {
+    
+    #menu ul li a:hover {
+        text-decoration: none;
+        padding: 0px 40px;
+        color: #1D295E;
+        background-color: white;
+        
+    }
+
 }
 
+@media screen and (min-width: 481px) and (max-width: 768px) { 
+    label{
+      font-size: 1.5em;
+    }
+    .form-control{
+        font-size: 1.5em;      
+    }
+    #menu ul li { 
+      padding: 2px 20px;
+      font-size: 1em;
+    }
+    #quemsomos {
+      height: 500px;
+    }
+    .img-circle{
+      width: 170px;
+      height: 170px;
+    }
+}
 
+@media only screen and (max-width: 480px) {
+    label{
+        font-size: 1.15em;
+    }
+    .form-control{
+     font-size: 1.15em; 
+    }
+    #menu ul li { 
+      padding: 2px 2px;
+      font-size: 1em;    
+    }
+    .title-container img{
+      max-width: 80%;
+    }
+     h1{
+      font-size: 2em;
+    }
+    h2{
+      font-size: 1.15em;
+    }
+    #quemsomos {
+      height: 800px;
+    }
+    .img-circle{
+      width: 150px;
+      height: 150px;
+   }
+   #sobre {
+    height: 300px;
+   }
+
+   #contato{
+      height: 300px;
+   }
+}
 
 
 
