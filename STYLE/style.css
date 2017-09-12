@@ -61,13 +61,15 @@
 
 /********************* AJUSTES DE COLUNAS *********************/
 
-.sidebar { /* Menus laterais */
-    background-color: #4F3E25
+.sidebar { /* sidebars */
+    background-color: #4F3E25;
 }
-navibar{
+
+.navibar { /* navbar */
     background-color: #AB7745 !important;
     background-origin: padding-box;
 }
+
 .centerbar {
     background-color: #C2BAAA;
 }
@@ -82,12 +84,15 @@ navibar{
     float: left;
     background-color: #5E663F !important;
 }
-
 .topBar{
     background-color: #5E663F !important;
 }
 
 /*************** ITENS DA HOME ******************/
+
+.userbar {
+    border-top-right-radius: 3px;
+}
 
 .nomePerfil { /* o nome no bloco de perfil nome+foto */
     float: left;
@@ -105,7 +110,8 @@ navibar{
 }
 
 .btnVerMesa{
-    background-color: #B88F69
+    /*margin-top:  10px;*/
+    background-color: #B88F69 !important;
 }
 
 .perfil{

@@ -18,7 +18,7 @@
                 <li>
                     <a class="fontePreta" href="me.php">
                         Perfil <?php
-                        if ($_SESSION["user"]->numNotificacoes > 0) //O if não parece estar funcionando ?>
+                        if ($_SESSION["user"]->numNotificacoes > 0) ?>
                             <span class="badge"><?= $_SESSION["user"]->numNotificacoes ?></span>
                     </a>
                 </li>

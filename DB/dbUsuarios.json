@@ -9,8 +9,25 @@
             1,
             2
         ],
-        "numNotificacoes": 0,
-        "notificacoes": [],
+        "numNotificacoes": 2,
+        "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 1,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            }
+        ],
         "tags": [
             {
                 "atributo": "bom mestre",
@@ -28,8 +45,24 @@
         "mesas": [
             1
         ],
-        "numNotificacoes": 9,
+        "numNotificacoes": 11,
         "notificacoes": [
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
+            {
+                "tipo": 5,
+                "IdDestinatario": 2,
+                "IdRemetente": 1,
+                "NomeRemetente": "a",
+                "IdMesa": 1,
+                "NomeMesa": "a"
+            },
             {
                 "tipo": 5,
                 "IdDestinatario": 2,
@@ -110,6 +143,8 @@
             }
         ],
         "avaliacoesPendentes": [
+            1,
+            1,
             1,
             1,
             1,

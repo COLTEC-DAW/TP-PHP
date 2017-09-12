@@ -105,8 +105,9 @@ $cara = pegaPorId($todosUsuarios, $idCara);?>
                     <div class="divider"></div> <?php
                     if (!taNoArray($idCara, $_SESSION["user"]->avaliacoesPendentes)){ ?>
                         <ul> <?php
-                        foreach ($cara->tags as $tag) ?>
-                            <li><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</li>
+                        foreach ($cara->tags as $tag){ ?>
+                            <li><strong><?= $tag->atributo ?></strong> (<?= $tag->votos ?> votos)</li><?php
+                        } ?>
                         </ul> <?php
                     }
                     else {
