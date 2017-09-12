@@ -1,4 +1,4 @@
-<div class="sidebar userbar col-xs-12 col-sm-12 col-lg-2 col-md-2">
+<div class="sidebar col-xs-12 col-sm-12 col-lg-2 col-md-2">
     <div class="card">
         <img src="STYLE/fotaPerfil.jpeg" class="fotoPerfil" alt="Avatar" style="width:100%">
         <div class="container">
