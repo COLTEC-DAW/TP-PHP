@@ -32,7 +32,10 @@
               </div>
           </div>
           <div class="card-footer">
-            <button type="submit" name="pagamento" class="btn btn-success float-right">Finalizar Compra</button>
+            <form class="" action="pagamento.php" method="post">
+                <button type="submit" name="pagamento" class="btn btn-success float-right">Finalizar Compra</button>
+            </form>
+
           </div>
         </div>
         <div class="push"></div>
