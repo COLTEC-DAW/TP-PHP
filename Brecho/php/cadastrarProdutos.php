@@ -1,26 +1,16 @@
 <?php
-    //Dados do mysql
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "brecho";
-
-    //Criar conexao com DB
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    //Checar se a conexao falhou
-    if ($conn->connect_error) {
-        die("Conexao falhou: " . $conn->connect_error);
-    }
+    //Criar conexao com Mysql
+    include('conexaoMysql.php');
 
     //Pegar os dados digitados pelo usuario na tela produtos.html
     $nomeProduto = $_POST["nomeProduto"];
     $preco = $_POST["preco"];
     $foto = $_POST["foto"];
+    $categoria = $_POST["categoria"];
 
     //Inserir os dados digitados pelo usuario no DB
-    $sql = "INSERT INTO `produtos` (Nome, Preco, Foto)
-    VALUES ('$nomeProduto', '$preco', '$foto')";
+    $sql = "INSERT INTO `produtos` (Nome, Preco, Foto, Categoria)
+    VALUES ('$nomeProduto', '$preco', '$foto', '$categoria')";
 
     //Checar se os dados foram inseridos corretamente
     if ($conn->query($sql) === TRUE) {
