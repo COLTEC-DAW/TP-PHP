@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Ago-2018 às 03:28
+-- Generation Time: 06-Ago-2018 às 03:38
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -32,7 +32,7 @@ CREATE TABLE `produtos` (
   `UsuarioID` text COLLATE utf8_bin NOT NULL,
   `Nome` text COLLATE utf8_bin NOT NULL,
   `Preco` float NOT NULL,
-  `DataHora` datetime NOT NULL,
+  `DataHora` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Foto` text COLLATE utf8_bin NOT NULL,
   `Categoria` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -59,7 +59,9 @@ INSERT INTO `produtos` (`UsuarioID`, `Nome`, `Preco`, `DataHora`, `Foto`, `Categ
 ('', 'outros2', 300, '0000-00-00 00:00:00', 'ddd.png', 'outros'),
 ('', 'nenhuma categoria kkk', 500, '0000-00-00 00:00:00', 'ddddd', ''),
 ('', 'eletronicosss2', 500, '0000-00-00 00:00:00', '20', 'eletronicos'),
-('', 'gg', 0, '0000-00-00 00:00:00', 'ggg', 'comidas');
+('', 'gg', 0, '0000-00-00 00:00:00', 'ggg', 'comidas'),
+('', 'guiiiiiiiiii', 500, '0000-00-00 00:00:00', 'd3ddd', 'comidas'),
+('', 'legaaa', 6500, '2018-08-05 22:37:29', 'dddd.png', 'materiais');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
