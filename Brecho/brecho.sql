@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Ago-2018 às 03:38
+-- Generation Time: 07-Ago-2018 às 04:48
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `produtos` (
+  `ID` int(11) NOT NULL,
   `UsuarioID` text COLLATE utf8_bin NOT NULL,
   `Nome` text COLLATE utf8_bin NOT NULL,
   `Preco` float NOT NULL,
@@ -41,27 +42,28 @@ CREATE TABLE `produtos` (
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`UsuarioID`, `Nome`, `Preco`, `DataHora`, `Foto`, `Categoria`) VALUES
-('', 'foi em', 600, '0000-00-00 00:00:00', 'dd', ''),
-('', 'cadastrando um produto bacana', 600, '0000-00-00 00:00:00', 'dd', ''),
-('', 'hyjyu', 0, '0000-00-00 00:00:00', 'jujujujuju', ''),
-('', 'teste', 500, '0000-00-00 00:00:00', 'g.png', ''),
-('', 'rr', 0, '0000-00-00 00:00:00', '500', ''),
-('', 'ee', 600, '0000-00-00 00:00:00', 'dd', ''),
-('', 'test', 500, '0000-00-00 00:00:00', 'dddd', ''),
-('', 'test categoria', 600, '0000-00-00 00:00:00', 'ddd', 'eletronicos'),
-('', '', 0, '0000-00-00 00:00:00', '', ''),
-('', 'ddd', 0, '0000-00-00 00:00:00', 'dd', ''),
-('', 'ddd', 0, '0000-00-00 00:00:00', 'dd', 'aulas'),
-('', 'Comiiidas', 200, '0000-00-00 00:00:00', 'gggggg', 'comidas'),
-('', 'materiiiial escolar', 355666, '0000-00-00 00:00:00', 'dddrrrt', 'materiais'),
-('', 'outrrrroooos', 699999, '0000-00-00 00:00:00', '22d', 'outros'),
-('', 'outros2', 300, '0000-00-00 00:00:00', 'ddd.png', 'outros'),
-('', 'nenhuma categoria kkk', 500, '0000-00-00 00:00:00', 'ddddd', ''),
-('', 'eletronicosss2', 500, '0000-00-00 00:00:00', '20', 'eletronicos'),
-('', 'gg', 0, '0000-00-00 00:00:00', 'ggg', 'comidas'),
-('', 'guiiiiiiiiii', 500, '0000-00-00 00:00:00', 'd3ddd', 'comidas'),
-('', 'legaaa', 6500, '2018-08-05 22:37:29', 'dddd.png', 'materiais');
+INSERT INTO `produtos` (`ID`, `UsuarioID`, `Nome`, `Preco`, `DataHora`, `Foto`, `Categoria`) VALUES
+(5, '', 'br', 200, '2018-08-06 22:35:26', 'nao ha.png', 'materiais');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
