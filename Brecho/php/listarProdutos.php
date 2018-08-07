@@ -7,20 +7,28 @@
         //Pegar qual a categoria do produto
         $categoria = $_GET['categoria'];
         //Selecionar os dados dos produtos de uma determinada categoria
-        $sql = "SELECT Nome, Preco, Foto FROM produtos WHERE Categoria = '$categoria'";
+        $sql = "SELECT ID, Nome, Preco, Foto FROM produtos WHERE Categoria = '$categoria'";
     }
     //Se nao ha nenhuma categoria, a variavel categoria recebe um texto vazio
     else{
         $categoria = '';
         //Selecionar os dados de todos os produtos em ordem da data cadastrada - mais recentes
-        $sql = "SELECT Nome, Preco, Foto FROM produtos";
+        $sql = "SELECT ID, Nome, Preco, Foto FROM produtos";
     }
     //Mostrar os produtos cadastrados no DB
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        //Mostrar cada linha
+        //Mostrar cada produto com uma class listarProdutos para estilizacao posteriormente e com o href para ver os detalhes do produto
         while($row = $result->fetch_assoc()) {
-            echo "<div class='listarProdutos'> Nome: " . $row["Nome"]. " - Preco: " . $row["Preco"]. " - Foto: " . $row["Foto"]. "</div>";
+            //Verifica se a categoria eh diferente de vazio, se sim, o href redireciona para '../paginas/detalhesProduto.php', senao o href redireciona para  'html/detalhesProduto.php'
+            //href redireciona para '../paginas/detalhesProduto.php'
+            if ($categoria != "") {
+                echo "<div class='listarProdutos'> <a href='../paginas/detalhesProduto.php?produto=".$row['ID']."'>Nome: " .$row["Nome"]. " - ID: ".$row["ID"]." - Preco: " . $row["Preco"]. " - Foto: " . $row["Foto"]. "</a></div>";
+            }
+            //href redireciona para 'paginas/detalhesProduto.php'
+            else{
+                echo "<div class='listarProdutos'> <a href='paginas/detalhesProduto.php?produto=".$row['ID']."'>Nome: " .$row["Nome"]. " - ID: ".$row["ID"]." - Preco: " . $row["Preco"]. " - Foto: " . $row["Foto"]. "</a></div>";
+            }
         }
     } else {
         echo "Não há produtos cadastrados.";
