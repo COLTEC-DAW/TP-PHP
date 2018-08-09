@@ -3,21 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>DAW Eventos</title>
-    <link rel="shortcut icon" href="../imgs/favicon.ico" />
+    <link rel="shortcut icon" href="imgs/favicon.ico" />
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
-  <body style="background-color: #99CED4;">
+  <body>
     <div class="wrapper">
       <?php
         require "../incs/menu.inc";
-        session_start();
-        if(!isset($_SESSION['login']) && !isset($_SESSION['password'])) {
-          setMenu("NULL");
-        } else {
-          setMenu($_SESSION['userType']);
-        }
+        isMenuSet();
       ?>
       <div class="col-12">
         <div id="carouselPrincipal" class="carousel pt-3 slide col-10 offset-1" data-ride="carousel">
@@ -28,13 +23,13 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" style="height: 600px;" src="../imgs/villamix.jpg" alt="First slide">
+              <img class="d-block w-100" style="height: 600px;" src="imgs/villamix.jpg" alt="slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" style="height: 600px;" src="../imgs/festeja.jpg" alt="Second slide">
+              <img class="d-block w-100" style="height: 600px;" src="imgs/festeja.jpg" alt="slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" style="height: 600px;" src="../imgs/happyholi.jpg" alt="Third slide">
+              <img class="d-block w-100" style="height: 600px;" src="imgs/happyholi.jpg" alt="slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselPrincipal" role="button" data-slide="prev">
@@ -53,25 +48,25 @@
         <div id="carouselSecundario" class="carousel slide col-10 offset-1" data-interval="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="offset-1 w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
+              <img class="offset-1 w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
             </div>
             <div class="carousel-item">
-              <img class="offset-1 w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
+              <img class="offset-1 w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
             </div>
             <div class="carousel-item">
-              <img class="offset-1 w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
-              <img class="w-100 col-2" style="height: 150px;" src="../imgs/villamix.jpg" alt="First slide">
+              <img class="offset-1 w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
+              <img class="w-100 col-2" style="height: 150px;" src="imgs/villamix.jpg" alt="slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselSecundario" role="button" data-slide="prev">
