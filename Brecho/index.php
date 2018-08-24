@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
 </head>
 <body>
+    <!-- Mostrar: Bem vindo 'nomedousuario' -->
+    <?php include('php/mensagemBemVindoUsuario.php'); ?>
+
     <div>
-        <!-- Botao para cadastrar novo produto -->
-        <h1>Cadastrar um produto</h1>
-        <a href="paginas/cadastrarProdutos.html">Clique aqui para cadastrar um novo produto<a/><br>
 
         <!-- Botoes para selecionar a categoria -->
         <h1>Categorias</h1>

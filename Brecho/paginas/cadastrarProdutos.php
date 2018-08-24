@@ -8,6 +8,16 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <?php 
+        //Iniciar a sessao
+	    session_start();
+        //Se o usuario nao estiver logado
+        if (!isset($_SESSION['ID']) ||(trim ($_SESSION['ID']) == '')) {
+            //Mandar ele para a pagina principal
+            header('location:../index.php');
+            exit();
+        }
+    ?>
 
     <form method="POST" action="../php/cadastrarProdutos.php">
         Nome do produto:<input type="text" name="nomeProduto"><br>

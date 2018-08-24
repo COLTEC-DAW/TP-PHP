@@ -1,3 +1,8 @@
+/* Estilizar obotao login e cadastro */
+.loginCadrastro{
+    color: red;
+}
+
 /* Estilizar a listagem dos produtos */
 .listarProdutos{
     font-size: 120%;
