@@ -1,7 +1,7 @@
-#Respositórios do Movie Me 
+# Respositórios do Movie Me 
 
-*[Frontend](https://github.com/RitaRez/MovieMe-Frontend)
-*[Backend](https://github.com/RitaRez/MovieMe-Backend)
+* [Frontend](https://github.com/RitaRez/MovieMe-Frontend)
+* [Backend](https://github.com/RitaRez/MovieMe-Backend)
 
 
 # Desenvolvimento de Aplicações Web
