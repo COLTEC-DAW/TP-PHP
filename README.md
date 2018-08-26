@@ -1,3 +1,9 @@
+#Respositórios do Movie Me 
+
+*[Frontend](https://github.com/RitaRez/MovieMe-Frontend)
+*[Backend](https://github.com/RitaRez/MovieMe-Backend)
+
+
 # Desenvolvimento de Aplicações Web
 
 **Data de Apresentação: 27/08/2018**
