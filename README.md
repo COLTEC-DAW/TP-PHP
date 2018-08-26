@@ -1,4 +1,4 @@
-# Respositórios do Movie Me 
+# Respositórios do MovieMe 
 
 * [Frontend](https://github.com/RitaRez/MovieMe-Frontend)
 * [Backend](https://github.com/RitaRez/MovieMe-Backend)
