@@ -5,27 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Css -->
+    <link href="../css/cadastrarProdutos.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="../js/cadastrarProdutos.js"></script>
 </head>
 <body>
-    <!-- formulario para editar os dados do produto -->
-    <!-- Obs: funcao php que pega a informacao de cada campo esta no final deste arquivo -->
-    <form action="../php/editarProduto.php">
-        Nome do produto: <input type="text" name="Nome" value="<?php pegarInformacaoAntesEditar("Nome") ?>"><br>
-        Preco: <input type="text" name="Preco" value="<?php pegarInformacaoAntesEditar("Preco") ?>"><br>
-        Foto: <input type="text" name="Foto" value="<?php pegarInformacaoAntesEditar("Foto") ?>"><br>
-        Categoria:      <select name="Categoria">
-                            <option disabled selected value>Nenhuma</option>
-                            <option value="aulas">Aulas particulares</option>
-                            <option value="comidas">Comidas</option>
-                            <option value="eletronicos">Eletrônicos</option>
-                            <option value="materiais">Material Escolar</option>
-                            <option value="outros">Outros</option>
-                        </select><br>
-        <!-- Enviar o ID do produto tambem mas nao mostrar (display:none) -->
-        <input style="display:none;" type="text" name="produto" value="<?php pegarInformacaoAntesEditar("ID") ?>"><br>
-        <!-- Enviar formulario para editar -->
-        <input type="submit" value="Editar">
-    </form>
+
+    <?php 
+        //Iniciar a sessao
+	    session_start();
+        //Se o usuario nao estiver logado
+        if (!isset($_SESSION['ID']) ||(trim ($_SESSION['ID']) == '')) {
+            //Mandar ele para a pagina principal
+            header('location:../index.php');
+            exit();
+        }
+    ?>
+
+
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Anuncie um produto</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" method="POST" action="../php/editarProduto.php" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username" class="text-info">Título do anúncio:</label><br>
+                                <input type="text" class="form-control" name="Nome" value="<?php pegarInformacaoAntesEditar("Nome") ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Descrição do anúncio</label><br>
+                                <input type="text" class="form-control" name="Descricao" value="<?php pegarInformacaoAntesEditar("Descricao") ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Preço:</label><br>
+                                <input type="number" step="0.01" class="form-control" name="Preco" value="<?php pegarInformacaoAntesEditar("Preco") ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="text-info">Categoria:</label><br>
+                                <select class="form-control" id="exampleFormControlSelect1" name="Categoria">
+                                    <option value="aulas">Aulas particulares</option>
+                                    <option value="comidas">Comidas</option>
+                                    <option value="eletronicos">Eletrônicos</option>
+                                    <option value="materiais">Material Escolar</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="foto">
+                                    <label class="text-info">Fotos:</label><br>
+                                    <div class="fileUpload btn btn-secondary"><span>Upload</span>
+                                        <input id="uploadBtn1" onclick="mostrarNomeFoto('1');" type="file" class="upload" name="foto1" />
+                                    </div>
+                                    <input id="uploadFile1" placeholder="Foto" disabled="disabled" />
+                                </div>
+                                <div class="foto" style="display: none">
+                                    <div class="fileUpload btn btn-secondary"><span>Upload</span>
+                                        <input id="uploadBtn2" onclick="mostrarNomeFoto('2');" type="file" class="upload" name="foto2" />
+                                    </div>
+                                    <input id="uploadFile2" placeholder="Foto" disabled="disabled" />
+                                </div>
+                                <div class="foto" style="display: none">
+                                    <div class="fileUpload btn btn-secondary"><span>Upload</span>
+                                        <input id="uploadBtn3" onclick="mostrarNomeFoto('3');" type="file" class="upload" name="foto3" />
+                                    </div>
+                                    <input id="uploadFile3" placeholder="Foto" disabled="disabled" />
+                                </div>
+                                <div class="foto" style="display: none">
+                                    <div class="fileUpload btn btn-secondary"><span>Upload</span>
+                                        <input id="uploadBtn4" onclick="mostrarNomeFoto('4');" type="file" class="upload" name="foto4" />
+                                    </div>
+                                    <input id="uploadFile4" placeholder="Foto" disabled="disabled" />
+                                </div>
+                                <div class="foto" style="display: none">
+                                    <div class="fileUpload btn btn-secondary"><span>Upload</span>
+                                        <input id="uploadBtn5" onclick="mostrarNomeFoto('5');" type="file" class="upload" name="foto5" />
+                                    </div>
+                                    <input id="uploadFile5" placeholder="Foto" disabled="disabled" />
+                                </div>
+                                <a class="botaoAdicionar" onclick="mostrarProxFoto();"><img src="../res/mais.png" width="42" height="42" border="0"></a>
+                            </div>
+                            <div class="form-group">
+                                <br><input type="submit" value="Criar Anuncio" name="Editar" class="btn btn-info btn-md">
+                                <!-- Enviar o ID do produto tambem mas nao mostrar (display:none) -->
+                                <input style="display:none;" type="text" name="produto" value="<?php pegarInformacaoAntesEditar("ID") ?>"><br>
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="/" class="text-info">Voltar</a><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="../bootstrap/jquery.min.js"></script>
+	<script src="../bootstrap/bootstrap.min.js"></script>
+	<script src="../bootstrap/popper.min.js"></script>
+
 </body>
 </html>
 

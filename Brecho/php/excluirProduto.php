@@ -5,12 +5,18 @@
     //Pegar o id do produto enviado por get no arquivo produtos.php
     $idProduto = $_GET['produto'];
     
-    //Deletar o produto
-    $sql = "DELETE FROM produtos WHERE ID='$idProduto'";
-
+    //Deletar as imagens do produto
+    $sql = "DELETE FROM fotos WHERE ProdutoID='$idProduto'";
     if ($conn->query($sql) === TRUE) {
-        echo "Produto deletado com sucesso<br>";
-        echo "<a href=\"../index.php\">Clique aqui para voltar<a/><br>";
+        //Se conseguiu deletar as fotos, entao deletar os dados do produto
+        //Deletar o produto
+        $sqlProduto = "DELETE FROM produtos WHERE ID='$idProduto'";
+
+        if ($conn->query($sqlProduto) === TRUE) {
+            header('location:../index.php');
+        } else {
+            echo "Erro ao deletar o produto. Descricao do erro: " . $conn->error;
+        }
     } else {
         echo "Erro ao deletar o produto. Descricao do erro: " . $conn->error;
     }

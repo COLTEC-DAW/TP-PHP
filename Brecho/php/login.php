@@ -9,8 +9,9 @@
         include('conexaoMysql.php');
  
         //Pegar o email e a senha (enviado pelo formulario ../paginas/login.php)
-		$email = $_POST['email'];
-		$senha = $_POST['senha'];
+        //htmlspecialchars - remover os caracteres especiais para evitar o code injection
+		$email = htmlspecialchars($_POST['email']);
+		$senha = htmlspecialchars($_POST['senha']);
  
         //Pegar os dados do usuario no banco de dados
         $sql = "select * from usuario where Email='$email' && Senha='$senha'";
@@ -18,8 +19,8 @@
  
         //Se nao achar o usuario no banco de dados
 		if ($result->num_rows == 0){
-            echo "Email ou senha incorreto. Tente novamente<br>";
-            echo "<a href=\"../paginas/login.php\">Clique aqui para tentar novamente<a/><br>";
+            //Retorna para tela de login, mas com aviso de erro
+            header('location:../paginas/login.php?status=incorreto');
 		}
 		else{
             $row = $result->fetch_array();
@@ -34,7 +35,7 @@
             //Pegar o ID do usuario e o status de admin (1 eh admin) (0 nao eh admin)
             $_SESSION['ID']=$row['ID'];
             $_SESSION['Admin']=$row['Admin'];
-			header('location:../paginas/loginSucesso.php');
+			header('location:../paginas/meusProdutos.php');
 		}
     }
     

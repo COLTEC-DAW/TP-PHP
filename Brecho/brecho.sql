@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Ago-2018 às 23:04
+-- Generation Time: 26-Ago-2018 às 22:39
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -25,28 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `fotos`
+--
+
+CREATE TABLE `fotos` (
+  `ID` int(11) NOT NULL,
+  `ProdutoID` int(11) NOT NULL,
+  `imagem` longblob,
+  `numDaFoto` int(11) DEFAULT NULL,
+  `tipo` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
   `ID` int(11) NOT NULL,
-  `UsuarioID` text COLLATE utf8_bin NOT NULL,
-  `Nome` text COLLATE utf8_bin NOT NULL,
+  `UsuarioID` int(11) NOT NULL,
+  `Nome` text CHARACTER SET utf8 NOT NULL,
+  `Descricao` text COLLATE utf8_bin NOT NULL,
   `Preco` float NOT NULL,
   `DataHora` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Foto` text COLLATE utf8_bin NOT NULL,
   `Categoria` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Extraindo dados da tabela `produtos`
---
-
-INSERT INTO `produtos` (`ID`, `UsuarioID`, `Nome`, `Preco`, `DataHora`, `Foto`, `Categoria`) VALUES
-(5, '', 'br', 200, '2018-08-06 22:35:26', 'nao ha.png', 'materiais'),
-(6, '', 'teste', 5000, '2018-08-24 16:05:36', 'dfefr', ''),
-(11, '5', 'produto de g', 500, '2018-08-24 17:23:46', '65er', 'comidas'),
-(12, '5', 'produto de g2', 500, '2018-08-24 17:59:53', 'defr', 'comidas');
 
 -- --------------------------------------------------------
 
@@ -58,30 +63,28 @@ CREATE TABLE `usuario` (
   `ID` int(11) NOT NULL,
   `Nome` text COLLATE utf8_bin NOT NULL,
   `Email` text COLLATE utf8_bin NOT NULL,
+  `Telefone` int(11) NOT NULL,
   `Senha` text COLLATE utf8_bin NOT NULL,
   `Admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`ID`, `Nome`, `Email`, `Senha`, `Admin`) VALUES
-(1, 'admin', 'admin', 'admin', 1),
-(2, 'Guilherme', 'g@gmail.com', '123', 0),
-(3, 'gui', 'gg@gmail.com', '1234', 0),
-(4, 'conta Teste', 'gui@gmail.com', '123456', 0),
-(5, 'g', 'g', '1', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `fotos`
+--
+ALTER TABLE `fotos`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ProdutoID` (`ProdutoID`);
+
+--
 -- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `UsuarioID` (`UsuarioID`);
 
 --
 -- Indexes for table `usuario`
@@ -94,16 +97,38 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `fotos`
+--
+ALTER TABLE `fotos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `fotos`
+--
+ALTER TABLE `fotos`
+  ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`ProdutoID`) REFERENCES `produtos` (`ID`);
+
+--
+-- Limitadores para a tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`UsuarioID`) REFERENCES `usuario` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
