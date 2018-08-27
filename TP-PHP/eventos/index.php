@@ -6,29 +6,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
-  <body>
+  <body style="background-color: #99CED4;">
     <div class="wrapper">
       <?php
         require "../incs/menu.inc";
-        isMenuSet();
-        $mysqli = new mysqli('localhost', 'zen', '123', 'tp_php') or die("Unable to connect");
-        $result = $mysqli->query("SELECT * FROM events");
-        for ($i = 0; $i < $result->num_rows; $i++) : ?>
-          <?php
-            $result->data_seek($i);
-            $row = $result->fetch_assoc();
-          ?>
-          <figure class="figure col-3">
-            <img src="imgs/festeja.jpg" class="figure-img img-fluid rounded" alt="figure">
-            <figcaption class="figure-caption text-center"><?php echo $row['name']; ?></figcaption>
-            <figcaption class="figure-caption text-center"><?php echo $row['place']; ?></figcaption>
-            <figcaption class="figure-caption"><?php echo $row['description']; ?></figcaption>
-            <figcaption class="figure-caption">R$ <?php echo $row['price']; ?></figcaption>
-          </figure>
-      <?php
-        endfor;
-        mysqli_close($mysqli);
       ?>
+      <div class="p-3">
+        <?php
+          $mysqli = new mysqli('localhost', 'user', 'user', 'tpphp') or die("Unable to connect");
+          $sql = "SELECT * FROM events";
+          if (isset($_GET["pesquisa"])) {
+            $sql = $sql . " WHERE name LIKE '%" . $_GET["pesquisa"] . "%';";
+          }
+          $result = $mysqli->query($sql) or die($mysqli->error);
+          for ($i = 0; $i < $result->num_rows; $i++) : ?>
+            <?php
+              $result->data_seek($i);
+              $row = $result->fetch_assoc();
+            ?>
+            <figure class="figure col-3">
+              <form class="form-group" action="../item/index.php" method="get">
+                <button class="btn btn-dark" type="submit">
+                  <img src="imgs/festeja.jpg" class="figure-img img-fluid rounded" alt="itemListed">
+                </button>
+                <figcaption class="figure-caption text-center"><?php echo $row['name']; ?></figcaption>
+                <figcaption class="figure-caption text-center"><?php echo $row['place']; ?></figcaption>
+                <figcaption class="figure-caption text-center"><?php echo $row['description']; ?></figcaption>
+                <figcaption class="figure-caption text-center">R$ <?php echo $row['price']; ?></figcaption>
+                <input type="hidden" name="eventName" value="<?php echo $row["name"]; ?>">
+                <input type="hidden" name="eventPrice" value="<?php echo $row["price"]; ?>">
+                <input type="hidden" name="eventDescription" value="<?php echo $row["description"]; ?>">
+                <input type="hidden" name="eventPlace" value="<?php echo $row["place"]; ?>">
+              </form>
+            </figure>
+        <?php
+          endfor;
+          mysqli_close($mysqli);
+        ?>
+      </div>
       <div class="push"></div>
     </div>
 

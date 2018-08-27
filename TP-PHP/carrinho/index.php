@@ -18,24 +18,40 @@
             <p class="col-2">Preço</p>
           </div>
           <div class="card-body">
+            <?php
+              $login = $_SESSION['login'];
+              $mysqli = new mysqli('localhost', 'user', 'user', 'tpphp') or die("Unable to connect");
+              $sql = "SELECT events_id FROM ingressos WHERE users_login = '$login';";
+              $result = $mysqli->query($sql) or die($mysqli->error);
+              for ($i=0; $i < $result->num_rows; $i++) : ?>
+              <?php
+                $result->data_seek($i);
+                $row = $result->fetch_assoc();
+                $id = $row['events_id'];
+                $sql2 = "SELECT * FROM events WHERE id = '$id';";
+                $result2 = $mysqli->query($sql2) or die($mysqli->error);
+                $result2->data_seek(0);
+                $row2 = $result2->fetch_assoc();
+              ?>
               <div class="row">
                 <div class="col-8">
-                    <h5 class="card-title">Festeja</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><?php echo $row2['name'] ?></h5>
+                    <p class="card-text"><?php echo $row2['description'] ?></p>
+                    <p class="card-text"><?php echo $row2['place'] ?></p>
                 </div>
                 <div class="col-2">
-                    <input type="number" name="quantidade">
+                    <form class="form-group" action="../pagamento/index.php" method="get">
+                    <input type="number" name="quantidade<?php echo $i ?>">
                 </div>
                 <div class="col-2">
-                    <h3 class="card-title">R$ 199,99</h3>
+                    <h3 class="card-title"><?php echo $row2['price'] ?></h3>
                 </div>
               </div>
+            <?php endfor; ?>
           </div>
           <div class="card-footer">
-            <form class="" action="pagamento.php" method="post">
-                <button type="submit" name="pagamento" class="btn btn-success float-right">Finalizar Compra</button>
-            </form>
-
+                <button type="submit" class="btn btn-success float-right">Finalizar Compra</button>
+                </form>
           </div>
         </div>
         <div class="push"></div>
