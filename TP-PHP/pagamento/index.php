@@ -26,41 +26,34 @@
                   <h3>Sua compra</h3>
                 </div>
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-4 d-none d-lg-flex col-lg-4">
-                      <img src="imgs/festeja.jpg"  width="100" height="125">
-                    </div>
-                    <div class="col-8 col-sm-12 col-lg-8">
-                      <p>Camisa Seleção Brasil I 2018 s/n° - Torcedor Nike Masculina</p>
-                      <p>R$249,90</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-4 d-none d-lg-flex col-lg-4 p-3 ">
-                      <img src="imgs/villamix.jpg"  width="100" height="125">
-                    </div>
-                    <div class="col-8 col-sm-12 col-lg-8">
-                      <p>Camisa Seleção França Home 2018 s/n° Torcedor Nike Masculina </p>
-                      <p>R$249,90</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-4 d-none d-lg-flex col-lg-4 p-3 ">
-                      <img src="imgs/happyholi.jpg" width="100" height="125">
-                    </div>
-                    <div class="col-8 col-sm-12 col-lg-8">
-                      <p>Camisa Espanha Home 2018 s/n° - Jogador Adidas Masculina</p>
-                      <p>R$349,99</p>
-                    </div>
-                  </div>
-                </div>
+                    <?php session_start();
+                    $login = $_SESSION['login'];
+                    $mysqli = new mysqli('localhost', 'user', 'user', 'tpphp') or die("Unable to connect");
+                    $sql = "SELECT * FROM ingressos WHERE users_login = '$login';";
+                    $result = $mysqli->query($sql) or die($mysqli->error);
+                    for ($i = 0; $i < $result->num_rows; $i++) : ?>
+                        <?php
+                            $result->data_seek($i);
+                            $row = $result->fetch_assoc();
+                        ?>
+                        <div class="row">
+                        <div class="col-4 d-none d-lg-flex col-lg-4">
+                          <img src="imgs/festeja.jpg"  width="100" height="125">
+                        </div>
+                        <div class="col-8 col-sm-12 col-lg-8">
+                          <p><?php echo $row['name']; ?></p>
+                          <p><?php echo $row['price']; $total += $row['price'];?></p>
+                        </div>
+                      </div>
+                  <?php endfor; ?>
+              </div>
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-6">
-                      <h3>Total:</h3>
+                      <h3>Total:<?php echo $total; ?></h3>
                     </div>
                     <div class="col-6">
-                      <h3>R$849,79
+                      <h3>R$ </h3>
                       </div>
                     </div>
                   </div>
@@ -125,7 +118,8 @@
           </div>
           <div class="push"></div>
         </div>
-        <?php require "../incs/rodape.inc" ?>
+        <?php mysqli_close($mysqli); ?>
+        <?php require "../incs/rodape.inc"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
