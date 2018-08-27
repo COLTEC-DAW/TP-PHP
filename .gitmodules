@@ -1,0 +1,9 @@
+[submodule "ColetaLixo-backend"]
+	path = ColetaLixo-backend
+	url = https://github.com/gegen07/ColetaLixo-backend.git
+[submodule "TP-DAW-02"]
+	path = TP-DAW-02
+	url = https://github.com/mtgo007/TP-DAW-02.git
+[submodule "ColetaLixo-Frontend"]
+	path = ColetaLixo-Frontend
+	url = https://github.com/mtgo007/TP-DAW-02.git
