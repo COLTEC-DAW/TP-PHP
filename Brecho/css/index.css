@@ -1,0 +1,65 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+/* Estilizar a listagem dos produtos */
+.listarProdutos{
+    font-size: 120%;
+}
+
+/* Estilizar o icone de procura produtos */
+.iconeProcurar{
+  width: 25px;
+}
+
+/* Deixar a barra de pesquisa fixa */
+@media (max-width: 767px) {
+  .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+}
+
+/* Ajustar o tamanho da barra de busca */
+.form-control.mr-2{
+  width: 350px;
+}
+@media (max-width: 471px) {
+  .form-control.mr-2{
+    width: 150px;
+  }
+}
+
+/* Estilizar o titulo ultimos Anuncios e o titulo 'categoria' */
+h1{
+  text-align: center;
+  margin-top: 20px;
+}
+/* Estilizar o formulario de escolher a ordenacao (maior preco, menor preco, data) */
+.form-group.row{
+  text-align: center;
+  margin-top: 32px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Cor das categorias */
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #343A40;
+  border-color: #343A40;
+}
+
+/* Sumir com o icone home em celulares/tablets */
+@media (max-width: 804px) {
+  #iconeHome{
+    display: none;
+  }
+}
